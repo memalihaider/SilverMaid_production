@@ -431,7 +431,25 @@ export default function NotesDecisions() {
     }
   }
 
-  const handleUpdateDecision = async (decisionId: string) => {
+  const handleUpdateDecision = async (decisionId: string, newStatus?: Decision['status']) => {
+    // If only status is being updated
+    if (newStatus !== undefined) {
+      try {
+        const decisionRef = doc(db, 'decisions', decisionId)
+        await updateDoc(decisionRef, {
+          status: newStatus,
+          updatedAt: new Date().toISOString()
+        })
+        fetchDecisions()
+        return
+      } catch (error) {
+        console.error('Error updating decision status:', error)
+        alert('Error updating decision status')
+        return
+      }
+    }
+
+    // Full decision update
     if (!editedDecision.title.trim() || !editedDecision.description.trim()) {
       alert('Please enter decision title and description')
       return

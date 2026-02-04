@@ -20,6 +20,7 @@ interface TodayQuotation {
   status: string;
   date: string;
   validUntil: string;
+  dueDate: string;
   services: any[];
   products: any[];
   notes: string;
@@ -31,6 +32,10 @@ interface TodayQuotation {
   discount: number;
   discountType: string;
   location: string;
+  paymentMethods: string[];
+  createdAt: any;
+  updatedAt: any;
+  createdBy: string;
 }
 
 export default function QuotationReminders() {
@@ -67,6 +72,7 @@ export default function QuotationReminders() {
           status: data.status || 'Draft',
           date: quoteDate,
           validUntil: data.validUntil || '',
+          dueDate: data.dueDate || '',
           services: data.services || [],
           products: data.products || [],
           notes: data.notes || '',
@@ -77,7 +83,11 @@ export default function QuotationReminders() {
           discountAmount: data.discountAmount || 0,
           discount: data.discount || 0,
           discountType: data.discountType || 'percentage',
-          location: data.location || ''
+          location: data.location || '',
+          paymentMethods: data.paymentMethods || [],
+          createdAt: data.createdAt || new Date(),
+          updatedAt: data.updatedAt || new Date(),
+          createdBy: data.createdBy || 'Unknown'
         }
       })
       

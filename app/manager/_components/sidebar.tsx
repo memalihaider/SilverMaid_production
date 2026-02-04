@@ -17,10 +17,10 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { useState } from 'react';
-import { clearSession, type UserSession } from '@/lib/auth';
+import { clearSession, type SessionData } from '@/lib/auth';
 
 interface ManagerSidebarProps {
-  session: UserSession | null;
+  session: SessionData | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -97,11 +97,11 @@ export function ManagerSidebar({ session, open, onOpenChange }: ManagerSidebarPr
               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-slate-700/50 transition-colors"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-                  {session?.userName?.split(' ').map(n => n[0]).join('') || 'M'}
+                <div className="w-10 h-10 bg-linear-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                  {session?.user?.name?.split(' ').map(n => n[0]).join('') || 'M'}
                 </div>
                 <div className="text-left">
-                  <p className="text-sm font-medium text-white">{session?.userName || 'Manager'}</p>
+                  <p className="text-sm font-medium text-white">{session?.user?.name || 'Manager'}</p>
                   <p className="text-xs text-slate-400">{session?.roleName || 'Manager'}</p>
                 </div>
               </div>

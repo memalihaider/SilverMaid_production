@@ -16,7 +16,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import Link from 'next/link';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 import { EmployeeSidebar } from '../_components/sidebar';
 
 interface Job {
@@ -127,7 +127,7 @@ const mockJobsData: Job[] = [
 
 export default function EmployeeJobsPage() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [jobs, setJobs] = useState<Job[]>(mockJobsData);
   const [searchTerm, setSearchTerm] = useState('');
@@ -135,7 +135,7 @@ export default function EmployeeJobsPage() {
   const [expandedJob, setExpandedJob] = useState<string | null>(null);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'employee') {
       router.push('/login/employee');
       return;

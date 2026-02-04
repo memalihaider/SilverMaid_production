@@ -48,7 +48,7 @@ import {
   AreaChart,
   Area
 } from 'recharts';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 
 // Mock data for manager dashboard
 const teamPerformanceData = [
@@ -96,7 +96,7 @@ const initialPendingApprovals = [
 
 export default function ManagerDashboard() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [exportLoading, setExportLoading] = useState(false);
   const [pendingApprovals, setPendingApprovals] = useState(initialPendingApprovals);
@@ -110,7 +110,7 @@ export default function ManagerDashboard() {
   ]);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'manager') {
       router.push('/login/manager');
       return;
@@ -225,7 +225,7 @@ export default function ManagerDashboard() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-4xl font-black text-white">Dashboard Overview</h1>
-              <p className="text-slate-400 mt-1">Welcome back, {session.email}. Here&apos;s your team&apos;s performance data.</p>
+              <p className="text-slate-400 mt-1">Welcome back, {session?.user?.email}. Here&apos;s your team&apos;s performance data.</p>
             </div>
             <div className="flex items-center gap-3">
               <button 
@@ -486,7 +486,7 @@ export default function ManagerDashboard() {
                       </div>
                       <div className="flex gap-2 mt-4 pt-4 border-t border-slate-700">
                         <button
-                          onClick={() => handleApproveApproval(approval.id, session?.email || 'Manager')}
+                          onClick={() => handleApproveApproval(approval.id, session?.user?.email || 'Manager')}
                           disabled={processingApproval === approval.id}
                           className="flex-1 px-3 py-2 bg-green-600 hover:bg-green-700 disabled:bg-slate-700 disabled:text-slate-500 text-white text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-2"
                         >
@@ -503,7 +503,7 @@ export default function ManagerDashboard() {
                           )}
                         </button>
                         <button
-                          onClick={() => handleRejectApproval(approval.id, session?.email || 'Manager')}
+                          onClick={() => handleRejectApproval(approval.id, session?.user?.email || 'Manager')}
                           disabled={processingApproval === approval.id}
                           className="flex-1 px-3 py-2 bg-red-600/20 hover:bg-red-600/30 disabled:bg-slate-700 disabled:text-slate-500 text-red-400 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-2 border border-red-600/30 hover:border-red-600/50"
                         >

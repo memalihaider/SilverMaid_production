@@ -13,7 +13,7 @@ import {
   Calendar,
   Edit2
 } from 'lucide-react';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 import { EmployeeSidebar } from '../_components/sidebar';
 
 interface EmployeeProfile {
@@ -56,13 +56,13 @@ const mockProfileData: EmployeeProfile = {
 
 export default function EmployeeProfilePage() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profile, setProfile] = useState<EmployeeProfile>(mockProfileData);
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'employee') {
       router.push('/login/employee');
       return;

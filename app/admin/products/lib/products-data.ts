@@ -8,6 +8,8 @@ export interface Category {
   description: string;
   color: string;
   itemCount: number;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface InventoryLog {
@@ -33,6 +35,9 @@ export interface ProductItem {
   stock: number;
   minStock: number;
   status: 'ACTIVE' | 'ARCHIVED' | 'OUT_OF_STOCK';
+  imageUrl?: string;
+  createdAt?: string;
+  updatedAt?: string;
   lastUpdated: string;
   history?: InventoryLog[];
 }

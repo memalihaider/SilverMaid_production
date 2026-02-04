@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Menu, X, Bell, AlertCircle, Info, CheckCircle, Megaphone } from 'lucide-react';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 import { EmployeeSidebar } from '../_components/sidebar';
 
 interface Announcement {
@@ -66,13 +66,13 @@ const mockAnnouncements: Announcement[] = [
 
 export default function EmployeeAnnouncementsPage() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [announcements, setAnnouncements] = useState<Announcement[]>(mockAnnouncements);
   const [filter, setFilter] = useState('All');
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'employee') {
       router.push('/login/employee');
       return;

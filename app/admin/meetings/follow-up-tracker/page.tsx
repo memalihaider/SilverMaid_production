@@ -168,7 +168,7 @@ export default function FollowUpTracker() {
       const priorityMatch = filterPriority === 'all' || item.priority === filterPriority
       const searchMatch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          (item.linkedJob && item.linkedJob.toLowerCase().includes(searchTerm.toLowerCase()))
+                          ('linkedJob' in item && item.linkedJob && item.linkedJob.toLowerCase().includes(searchTerm.toLowerCase()))
       return statusMatch && ownerMatch && priorityMatch && searchMatch
     })
   }, [allFollowUps, filterStatus, filterOwner, filterPriority, searchTerm])
@@ -426,16 +426,16 @@ export default function FollowUpTracker() {
                   <div className="text-sm">
                     <p className="text-xs text-gray-500 mb-1">Date & Time</p>
                     <p className="font-semibold">
-                      {item.date} {item.time && `at ${item.time}`}
+                      {item.date} {'time' in item && item.time && `at ${item.time}`}
                     </p>
                   </div>
-                  {item.linkedJob && (
+                  {'linkedJob' in item && item.linkedJob && (
                     <div className="text-sm">
                       <p className="text-xs text-gray-500 mb-1">Linked Job</p>
                       <p className="font-semibold text-blue-600">{item.linkedJob}</p>
                     </div>
                   )}
-                  {item.location && (
+                  {'location' in item && item.location && (
                     <div className="text-sm">
                       <p className="text-xs text-gray-500 mb-1">Location</p>
                       <p className="font-semibold">{item.location}</p>
@@ -445,19 +445,19 @@ export default function FollowUpTracker() {
 
                 {/* Additional Info */}
                 <div className="flex flex-wrap gap-2 mb-3">
-                  {item.attendees && item.attendees.length > 0 && (
+                  {'attendees' in item && item.attendees && item.attendees.length > 0 && (
                     <div className="flex items-center gap-1 text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
                       <Users className="h-3 w-3" />
                       {item.attendees.length} attendees
                     </div>
                   )}
-                  {item.duration && (
+                  {'duration' in item && item.duration && (
                     <div className="flex items-center gap-1 text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
                       <Clock className="h-3 w-3" />
                       {item.duration}
                     </div>
                   )}
-                  {item.cost && item.cost > 0 && (
+                  {'cost' in item && item.cost && item.cost > 0 && (
                     <div className="flex items-center gap-1 text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
                       AED {item.cost}
                     </div>
@@ -465,7 +465,7 @@ export default function FollowUpTracker() {
                 </div>
 
                 {/* Progress Bar for Actions */}
-                {item.type === 'action' && item.progressPercent !== undefined && (
+                {item.type === 'action' && 'progressPercent' in item && item.progressPercent !== undefined && (
                   <div className="mb-3">
                     <div className="flex items-center justify-between mb-1">
                       <p className="text-xs text-gray-500">Progress</p>
@@ -499,13 +499,13 @@ export default function FollowUpTracker() {
             
             {/* Sort by time */}
             {filteredItems
-              .filter(item => item.time)
-              .sort((a, b) => (a.time || '00:00').localeCompare(b.time || '00:00'))
+              .filter(item => 'time' in item && item.time)
+              .sort((a, b) => (('time' in a && a.time) || '00:00').localeCompare((('time' in b && b.time) || '00:00')))
               .map((item, index) => (
                 <div key={item.id} className="mb-4 pb-4 border-b last:border-0">
                   <div className="flex items-start gap-4">
                     <div className="bg-blue-100 text-blue-700 rounded-lg p-3 text-center min-w-20">
-                      <p className="font-bold text-lg">{item.time || 'N/A'}</p>
+                      <p className="font-bold text-lg">{'time' in item ? item.time || 'N/A' : 'N/A'}</p>
                       <p className="text-xs">Time</p>
                     </div>
                     <div className="flex-1">

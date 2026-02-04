@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ManagerSidebar } from '../_components/sidebar';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 import { Briefcase, Search, Filter, Calendar, MapPin, DollarSign, Users, TrendingUp, Menu, X } from 'lucide-react';
 
 const jobs = [
@@ -23,14 +23,14 @@ const statusColors = {
 
 export default function Jobs() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [selectedJob, setSelectedJob] = useState<typeof jobs[0] | null>(null);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'manager') {
       router.push('/login/manager');
       return;

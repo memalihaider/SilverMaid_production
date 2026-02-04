@@ -25,8 +25,7 @@ export default function AuthDebugPage() {
           password: creds.password,
           success: result.success,
           message: result.message,
-          error: result.error,
-          redirectTo: result.redirectTo
+          error: result.error
         });
       } catch (error: any) {
         testResults.push({

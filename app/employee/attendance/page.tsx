@@ -12,7 +12,7 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 import { EmployeeSidebar } from '../_components/sidebar';
 
 interface AttendanceRecord {
@@ -36,14 +36,14 @@ const mockAttendanceData: AttendanceRecord[] = [
 
 export default function EmployeeAttendancePage() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [attendance, setAttendance] = useState<AttendanceRecord[]>(mockAttendanceData);
   const [checkedInToday, setCheckedInToday] = useState(true);
   const [todayRecord, setTodayRecord] = useState<AttendanceRecord | null>(attendance[0]);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'employee') {
       router.push('/login/employee');
       return;

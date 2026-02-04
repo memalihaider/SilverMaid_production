@@ -1,32 +1,6 @@
 // lib/whatsappService.ts
 import { getPDFAsBlob } from './pdfGenerator';
-
-interface QuotationData {
-  id: string;
-  quoteNumber: string;
-  client: string;
-  company: string;
-  email: string;
-  phone: string;
-  location: string;
-  date: string;
-  validUntil: string;
-  dueDate: string;
-  currency: string;
-  taxRate: number;
-  discount: number;
-  discountAmount: number;
-  discountType: string;
-  status: string;
-  subtotal: number;
-  taxAmount: number;
-  total: number;
-  notes: string;
-  terms: string;
-  paymentMethods: string[];
-  services: any[];
-  products: any[];
-}
+import type { QuotationData } from './quotationTypes';
 
 // Format phone number for WhatsApp
 export const formatPhoneForWhatsApp = (phone: string): string => {

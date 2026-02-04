@@ -18,7 +18,7 @@ import {
   Calendar
 } from 'lucide-react';
 import Link from 'next/link';
-import { getStoredSession, clearSession, type UserSession } from '@/lib/auth';
+import { getSession, clearSession, type SessionData } from '@/lib/auth';
 import { EmployeeSidebar } from '../_components/sidebar';
 import { AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -163,7 +163,7 @@ const jobStatusData = [
 
 export default function EmployeeDashboard() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [exportLoading, setExportLoading] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -171,7 +171,7 @@ export default function EmployeeDashboard() {
   const [tasks, setTasks] = useState<Task[]>(mockTasksData);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'employee') {
       router.push('/login/employee');
       return;
@@ -285,7 +285,7 @@ export default function EmployeeDashboard() {
 
           {/* KPI Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-gradient-to-br from-violet-900 to-violet-800 rounded-xl p-6 border border-violet-700">
+            <div className="bg-linear-to-br from-violet-900 to-violet-800 rounded-xl p-6 border border-violet-700">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-violet-300 text-sm font-medium">Active Jobs</p>
@@ -296,7 +296,7 @@ export default function EmployeeDashboard() {
               <p className="text-violet-300 text-xs mt-3">Currently assigned</p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-900 to-amber-800 rounded-xl p-6 border border-amber-700">
+            <div className="bg-linear-to-br from-amber-900 to-amber-800 rounded-xl p-6 border border-amber-700">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-amber-300 text-sm font-medium">In Progress Tasks</p>
@@ -307,7 +307,7 @@ export default function EmployeeDashboard() {
               <p className="text-amber-300 text-xs mt-3">Need attention</p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-900 to-green-800 rounded-xl p-6 border border-green-700">
+            <div className="bg-linear-to-br from-green-900 to-green-800 rounded-xl p-6 border border-green-700">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-green-300 text-sm font-medium">Completed Tasks</p>
@@ -318,7 +318,7 @@ export default function EmployeeDashboard() {
               <p className="text-green-300 text-xs mt-3">This month</p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-xl p-6 border border-blue-700">
+            <div className="bg-linear-to-br from-blue-900 to-blue-800 rounded-xl p-6 border border-blue-700">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-blue-300 text-sm font-medium">Completed Jobs</p>

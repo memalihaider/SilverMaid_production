@@ -1,50 +1,7 @@
 // lib/pdfGenerator.ts
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-
-interface QuotationData {
-  id: string;
-  quoteNumber: string;
-  client: string;
-  company: string;
-  email: string;
-  phone: string;
-  location: string;
-  date: string;
-  validUntil: string;
-  dueDate: string;
-  currency: string;
-  taxRate: number;
-  discount: number;
-  discountAmount: number;
-  discountType: string;
-  status: string;
-  subtotal: number;
-  taxAmount: number;
-  total: number;
-  notes: string;
-  terms: string;
-  paymentMethods: string[];
-  services: Array<{
-    id: string;
-    name: string;
-    description: string;
-    quantity: number;
-    unitPrice: number;
-    total: number;
-  }>;
-  products: Array<{
-    id: string;
-    name: string;
-    sku: string;
-    quantity: number;
-    unitPrice: number;
-    total: number;
-  }>;
-  createdAt: any;
-  updatedAt: any;
-  createdBy: string;
-}
+import type { QuotationData } from './quotationTypes';
 
 export const generateQuotationPDF = (quotation: QuotationData): { pdf: jsPDF, fileName: string, blobUrl: string } => {
   const doc = new jsPDF();

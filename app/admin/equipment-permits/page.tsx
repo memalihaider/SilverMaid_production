@@ -77,7 +77,7 @@ type Reminder = {
 
 type TrackingLog = {
   id: string
-  type: 'equipment' | 'permit' | 'material'
+  type: 'equipment' | 'permit' | 'material' | 'reminder'
   itemId: string
   itemName: string
   action: string
@@ -265,7 +265,7 @@ export default function EquipmentPermitsPage() {
 
   // Log tracking action with proper date
   const addTrackingLog = async (
-    type: 'equipment' | 'permit' | 'material', 
+    type: 'equipment' | 'permit' | 'material' | 'reminder', 
     itemId: string, 
     itemName: string, 
     action: string, 

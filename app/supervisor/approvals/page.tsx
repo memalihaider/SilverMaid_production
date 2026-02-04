@@ -13,7 +13,7 @@ import {
   Filter,
   X
 } from 'lucide-react';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 
 const initialApprovals = [
   { id: 'APR-001', type: 'Overtime', requester: 'Ahmed Hassan', details: '3 hours for JOB-2024-001', requestDate: '2024-01-29', icon: Clock, color: 'bg-orange-100', textColor: 'text-orange-600' },
@@ -23,7 +23,7 @@ const initialApprovals = [
 
 export default function ApprovalsPage() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [approvals, setApprovals] = useState(initialApprovals);
   const [processingApproval, setProcessingApproval] = useState<string | null>(null);
@@ -31,7 +31,7 @@ export default function ApprovalsPage() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'supervisor') {
       router.push('/login/supervisor');
       return;

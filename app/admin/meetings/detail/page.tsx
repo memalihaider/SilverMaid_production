@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, Suspense } from 'react'
 import { 
   ArrowLeft, 
   Edit2, 
@@ -70,7 +70,7 @@ interface FirebaseEmployee {
   status: string;
 }
 
-export default function MeetingDetail() {
+function MeetingDetailContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const meetingId = searchParams?.get('id')
@@ -315,9 +315,9 @@ export default function MeetingDetail() {
   const getAccountabilityInfo = () => {
     if (!selectedMeeting) return {
       createdBy: 'Admin',
-      createdDate: selectedMeeting?.createdAt?.split('T')[0] || 'N/A',
-      owner: selectedMeeting?.attendeeNames[0] || 'Host',
-      stakeholders: selectedMeeting?.attendeeNames || []
+      createdDate: 'N/A',
+      owner: 'Host',
+      stakeholders: []
     }
     
     return {
@@ -1015,5 +1015,13 @@ export default function MeetingDetail() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function MeetingDetail() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading...</div>}>
+      <MeetingDetailContent />
+    </Suspense>
   )
 }

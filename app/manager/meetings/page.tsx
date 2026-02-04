@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ManagerSidebar } from '../_components/sidebar';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 import { Calendar, Clock, Users, MapPin, Plus, Menu, X, Video, MapPinIcon } from 'lucide-react';
 
 const meetings = [
@@ -16,13 +16,13 @@ const meetings = [
 
 export default function Meetings() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedMeeting, setSelectedMeeting] = useState<typeof meetings[0] | null>(null);
   const [filterType, setFilterType] = useState<'all' | 'in-person' | 'virtual'>('all');
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'manager') {
       router.push('/login/manager');
       return;

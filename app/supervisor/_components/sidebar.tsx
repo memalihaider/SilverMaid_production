@@ -14,10 +14,10 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { useState } from 'react';
-import { clearSession, type UserSession } from '@/lib/auth';
+import { clearSession, type SessionData } from '@/lib/auth';
 
 interface SupervisorSidebarProps {
-  session: UserSession | null;
+  session: SessionData | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -92,11 +92,11 @@ export function SupervisorSidebar({ session, open, onOpenChange }: SupervisorSid
               className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-emerald-800/50 transition-colors"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-                  {session?.userName?.split(' ').map(n => n[0]).join('') || 'S'}
+                <div className="w-10 h-10 bg-linear-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                  {session?.user?.name?.split(' ').map(n => n[0]).join('') || 'S'}
                 </div>
                 <div className="text-left">
-                  <p className="text-sm font-medium text-white">{session?.userName || 'Supervisor'}</p>
+                  <p className="text-sm font-medium text-white">{session?.user?.name || 'Supervisor'}</p>
                   <p className="text-xs text-emerald-200">{session?.roleName || 'Supervisor'}</p>
                 </div>
               </div>

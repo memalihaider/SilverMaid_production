@@ -24,105 +24,27 @@ import {
 } from 'firebase/firestore'
 import { ProductItem, Category } from '../lib/types'
 
-export default function ProductDashboard() {
-  const [products, setProducts] = useState<ProductItem[]>([])
+interface ProductDashboardProps {
+  products: ProductItem[]
+  categories: Category[]
+}
+
+export default function ProductDashboard({ products: initialProducts, categories: initialCategories }: ProductDashboardProps) {
+  const [products, setProducts] = useState<ProductItem[]>(initialProducts)
   const [services, setServices] = useState<ProductItem[]>([])
-  const [categories, setCategories] = useState<Category[]>([])
-  const [loading, setLoading] = useState(true)
+  const [categories, setCategories] = useState<Category[]>(initialCategories)
+  const [loading, setLoading] = useState(false)
 
-  // Fetch products from Firebase
+  // Update products when props change
   useEffect(() => {
-    const productsRef = collection(db, 'products')
-    const q = query(productsRef)
-    
-    const unsubscribeProducts = onSnapshot(q, (snapshot) => {
-      const productsList: ProductItem[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        productsList.push({
-          id: doc.id,
-          name: data.name || '',
-          sku: data.sku || '',
-          description: data.description || '',
-          type: 'PRODUCT',
-          price: data.price || 0,
-          cost: data.cost || 0,
-          unit: data.unit || 'Unit',
-          stock: data.stock || 0,
-          minStock: data.minStock || 0,
-          categoryId: data.categoryId || '',
-          categoryName: data.categoryName || '',
-          status: data.status || 'ACTIVE',
-          createdAt: data.createdAt || '',
-          updatedAt: data.updatedAt || '',
-          imageUrl: data.imageUrl || ''
-        })
-      })
-      setProducts(productsList)
-      setLoading(false)
-    })
-    
-    return () => unsubscribeProducts()
-  }, [])
+    setProducts(initialProducts.filter(p => p.type === 'PRODUCT'))
+    setServices(initialProducts.filter(p => p.type === 'SERVICE'))
+  }, [initialProducts])
 
-  // Fetch services from Firebase
+  // Update categories when props change
   useEffect(() => {
-    const servicesRef = collection(db, 'services')
-    const q = query(servicesRef)
-    
-    const unsubscribeServices = onSnapshot(q, (snapshot) => {
-      const servicesList: ProductItem[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        servicesList.push({
-          id: doc.id,
-          name: data.name || '',
-          sku: data.sku || '',
-          description: data.description || '',
-          type: 'SERVICE',
-          price: data.price || 0,
-          cost: data.cost || 0,
-          unit: data.unit || 'Unit',
-          stock: data.stock || 0,
-          minStock: data.minStock || 0,
-          categoryId: data.categoryId || '',
-          categoryName: data.categoryName || '',
-          status: data.status || 'ACTIVE',
-          createdAt: data.createdAt || '',
-          updatedAt: data.updatedAt || '',
-          imageUrl: data.imageUrl || ''
-        })
-      })
-      setServices(servicesList)
-    })
-    
-    return () => unsubscribeServices()
-  }, [])
-
-  // Fetch categories from Firebase
-  useEffect(() => {
-    const categoriesRef = collection(db, 'categories')
-    const q = query(categoriesRef)
-    
-    const unsubscribeCategories = onSnapshot(q, (snapshot) => {
-      const categoriesList: Category[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        categoriesList.push({
-          id: doc.id,
-          name: data.name || '',
-          description: data.description || '',
-          color: data.color || '#000000',
-          itemCount: data.itemCount || 0,
-          createdAt: data.createdAt || '',
-          updatedAt: data.updatedAt || ''
-        })
-      })
-      setCategories(categoriesList)
-    })
-    
-    return () => unsubscribeCategories()
-  }, [])
+    setCategories(initialCategories)
+  }, [initialCategories])
 
   // Calculate dashboard statistics
   const totalProducts = products.length
@@ -158,10 +80,10 @@ export default function ProductDashboard() {
 
   // Calculate trends
   const calculateTrend = (current: number, previous: number = current * 0.9) => {
-    if (previous === 0) return { value: '+0%', up: true }
+    if (previous === 0) return { trend: '+0%', up: true }
     const change = ((current - previous) / previous) * 100
     return {
-      value: `${change > 0 ? '+' : ''}${Math.round(change)}%`,
+      trend: `${change > 0 ? '+' : ''}${Math.round(change)}%`,
       up: change >= 0
     }
   }
@@ -227,7 +149,7 @@ export default function ProductDashboard() {
   // Get recent activity (last 5 items)
   const recentItems = [...products, ...services]
     .filter(item => item.status === 'ACTIVE')
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    .sort((a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime())
     .slice(0, 5)
 
   if (loading) {

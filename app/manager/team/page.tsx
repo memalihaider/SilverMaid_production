@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ManagerSidebar } from '../_components/sidebar';
-import { getStoredSession, clearSession, type UserSession } from '@/lib/auth';
+import { getSession, clearSession, type SessionData } from '@/lib/auth';
 import { Users, Mail, Phone, Briefcase, Clock, AlertCircle, UserPlus, MoreVertical, Badge } from 'lucide-react';
 
 const teamMembers = [
@@ -17,13 +17,13 @@ const teamMembers = [
 
 export default function TeamManagement() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedTeamMember, setSelectedTeamMember] = useState<typeof teamMembers[0] | null>(null);
   const [filterStatus, setFilterStatus] = useState<'all' | 'active' | 'on-leave'>('all');
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'manager') {
       router.push('/login/manager');
       return;

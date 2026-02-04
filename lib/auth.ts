@@ -2,7 +2,7 @@
 // // Centralized auth library for all portals
 
 // // Portal Types
-// export type PortalType = 'admin' | 'manager' | 'supervisor' | 'employee' | 'client' | 'guest'
+export type PortalType = 'admin' | 'manager' | 'supervisor' | 'employee' | 'client' | 'guest'
 
 // // Role Levels (hierarchical)
 // export type RoleLevel = 'super' | 'admin' | 'manager' | 'supervisor' | 'user' | 'guest' | 'client'
@@ -619,44 +619,44 @@
 // // DEMO CREDENTIALS
 // // ============================================================================
 
-// export const DEMO_CREDENTIALS: Record<PortalType, { email: string; password: string; name: string; role: string }> = {
-//   admin: {
-//     email: 'admin@homeware.ae',
-//     password: 'Demo@123',
-//     name: 'Ahmed Al-Mazrouei',
-//     role: 'Super Admin'
-//   },
-//   manager: {
-//     email: 'manager@homeware.ae',
-//     password: 'Demo@123',
-//     name: 'Mohammed Hassan',
-//     role: 'Manager'
-//   },
-//   supervisor: {
-//     email: 'supervisor@homeware.ae',
-//     password: 'Demo@123',
-//     name: 'Ali Al-Mansoori',
-//     role: 'Supervisor'
-//   },
-//   employee: {
-//     email: 'employee@homeware.ae',
-//     password: 'Demo@123',
-//     name: 'Karim Al-Raisi',
-//     role: 'Employee'
-//   },
-//   client: {
-//     email: 'client@homeware.ae',
-//     password: 'Demo@123',
-//     name: 'Mohammed Al-Baqer',
-//     role: 'Client'
-//   },
-//   guest: {
-//     email: 'guest@homeware.ae',
-//     password: 'Demo@123',
-//     name: 'Guest User',
-//     role: 'Guest'
-//   }
-// }
+export const DEMO_CREDENTIALS: Record<PortalType, { email: string; password: string; name: string; role: string }> = {
+  admin: {
+    email: 'admin@homeware.ae',
+    password: 'Demo@123',
+    name: 'Ahmed Al-Mazrouei',
+    role: 'Super Admin'
+  },
+  manager: {
+    email: 'manager@homeware.ae',
+    password: 'Demo@123',
+    name: 'Mohammed Hassan',
+    role: 'Manager'
+  },
+  supervisor: {
+    email: 'supervisor@homeware.ae',
+    password: 'Demo@123',
+    name: 'Ali Al-Mansoori',
+    role: 'Supervisor'
+  },
+  employee: {
+    email: 'employee@homeware.ae',
+    password: 'Demo@123',
+    name: 'Karim Al-Raisi',
+    role: 'Employee'
+  },
+  client: {
+    email: 'client@homeware.ae',
+    password: 'Demo@123',
+    name: 'Mohammed Al-Baqer',
+    role: 'Client'
+  },
+  guest: {
+    email: 'guest@homeware.ae',
+    password: 'Demo@123',
+    name: 'Guest User',
+    role: 'Guest'
+  }
+}
 
 // // ============================================================================
 // // HELPER FUNCTIONS
@@ -971,6 +971,7 @@ export interface SessionData {
   }
   allowedPages: string[]
   roleName: string
+  portal?: 'employee' | 'manager' | 'supervisor' | 'client' | 'admin' | 'guest'
 }
 
 export async function createUserWithRole(

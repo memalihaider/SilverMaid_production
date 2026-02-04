@@ -10,99 +10,27 @@ import {
   Zap, 
   Archive
 } from 'lucide-react'
-import { db } from '@/lib/firebase'
-import { 
-  collection, 
-  query, 
-  onSnapshot, 
-  deleteDoc, 
-  doc,
-  getDoc,
-  updateDoc
-} from 'firebase/firestore'
 import { ProductItem, Category } from '../lib/types'
 
 interface ProductListProps {
+  products: ProductItem[]
   categories: Category[]
   onEdit: (product: ProductItem) => void
+  onDelete: (id: string) => void
 }
 
-export default function ProductList({ categories, onEdit }: ProductListProps) {
+export default function ProductList({ products: initialProducts, categories, onEdit, onDelete }: ProductListProps) {
   const [products, setProducts] = useState<ProductItem[]>([])
   const [services, setServices] = useState<ProductItem[]>([])
   const [searchTerm, setSearchTerm] = useState('')
   const [activeTab, setActiveTab] = useState<'ALL' | 'PRODUCT' | 'SERVICE'>('ALL')
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL')
 
-  // Fetch products from Firebase
+  // Update products when props change
   useEffect(() => {
-    const productsRef = collection(db, 'products')
-    const q = query(productsRef)
-    
-    const unsubscribeProducts = onSnapshot(q, (snapshot) => {
-      const productsList: ProductItem[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        productsList.push({
-          id: doc.id,
-          name: data.name || '',
-          sku: data.sku || '',
-          description: data.description || '',
-          type: 'PRODUCT',
-          price: data.price || 0,
-          cost: data.cost || 0,
-          unit: data.unit || 'Unit',
-          stock: data.stock || 0,
-          minStock: data.minStock || 0,
-          categoryId: data.categoryId || '',
-          categoryName: data.categoryName || '',
-          status: data.status || 'ACTIVE',
-          createdAt: data.createdAt || '',
-          updatedAt: data.updatedAt || ''
-        })
-      })
-      setProducts(productsList)
-    }, (error) => {
-      console.error('Error fetching products:', error)
-    })
-    
-    return () => unsubscribeProducts()
-  }, [])
-
-  // Fetch services from Firebase
-  useEffect(() => {
-    const servicesRef = collection(db, 'services')
-    const q = query(servicesRef)
-    
-    const unsubscribeServices = onSnapshot(q, (snapshot) => {
-      const servicesList: ProductItem[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        servicesList.push({
-          id: doc.id,
-          name: data.name || '',
-          sku: data.sku || '',
-          description: data.description || '',
-          type: 'SERVICE',
-          price: data.price || 0,
-          cost: data.cost || 0,
-          unit: data.unit || 'Unit',
-          stock: data.stock || 0,
-          minStock: data.minStock || 0,
-          categoryId: data.categoryId || '',
-          categoryName: data.categoryName || '',
-          status: data.status || 'ACTIVE',
-          createdAt: data.createdAt || '',
-          updatedAt: data.updatedAt || ''
-        })
-      })
-      setServices(servicesList)
-    }, (error) => {
-      console.error('Error fetching services:', error)
-    })
-    
-    return () => unsubscribeServices()
-  }, [])
+    setProducts(initialProducts.filter(p => p.type === 'PRODUCT'))
+    setServices(initialProducts.filter(p => p.type === 'SERVICE'))
+  }, [initialProducts])
 
   // Combine products and services based on active tab
   const allItems = [...products, ...services]
@@ -117,35 +45,13 @@ export default function ProductList({ categories, onEdit }: ProductListProps) {
     return matchesSearch && matchesType && matchesCategory && isActive
   })
 
-  // Delete item from Firebase
+  // Delete item using parent callback
   const handleDelete = async (item: ProductItem) => {
+    if (!item.id) return
     if (!confirm(`Are you sure you want to delete "${item.name}"?`)) return
     
     try {
-      const collectionName = item.type === 'PRODUCT' ? 'products' : 'services'
-      await deleteDoc(doc(db, collectionName, item.id))
-      
-      // Update category item count only if category exists
-      if (item.categoryId) {
-        try {
-          const categoryDoc = doc(db, 'categories', item.categoryId)
-          const categorySnapshot = await getDoc(categoryDoc)
-          
-          if (categorySnapshot.exists()) {
-            const categoryData = categorySnapshot.data()
-            const currentCount = categoryData.itemCount || 0
-            if (currentCount > 0) {
-              await updateDoc(categoryDoc, {
-                itemCount: Math.max(0, currentCount - 1),
-                updatedAt: new Date().toISOString()
-              })
-            }
-          }
-        } catch (error) {
-          console.log('Category not found or already deleted, skipping item count update')
-        }
-      }
-      
+      await onDelete(item.id)
       alert('Item deleted successfully!')
     } catch (error) {
       console.error('Error deleting item:', error)

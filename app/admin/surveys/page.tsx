@@ -671,10 +671,9 @@ export default function SurveysModule() {
         )}
 
         {activeTab === 'create' && (
-          <SurveyFormSection 
-            selectedSurveyId={selectedSurveyId}
-            onSurveySaved={handleSurveySaved}
-          />
+          <div className="p-6 text-center text-gray-500">
+            <p>Survey form section is temporarily unavailable</p>
+          </div>
         )}
 
         {activeTab === 'templates' && (

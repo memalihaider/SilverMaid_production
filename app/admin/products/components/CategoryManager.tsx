@@ -10,17 +10,6 @@ import {
   X, 
   Layers
 } from 'lucide-react'
-import { db } from '@/lib/firebase'
-import { 
-  collection, 
-  addDoc, 
-  doc, 
-  deleteDoc, 
-  updateDoc,
-  query,
-  orderBy,
-  onSnapshot
-} from 'firebase/firestore'
 
 interface Category {
   id: string
@@ -28,12 +17,18 @@ interface Category {
   description: string
   color: string
   itemCount: number
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 
-export default function CategoryManager() {
-  const [categories, setCategories] = useState<Category[]>([])
+interface CategoryManagerProps {
+  categories: Category[]
+  onSave: (data: Partial<Category>) => void
+  onDelete: (id: string) => void
+}
+
+export default function CategoryManager({ categories: initialCategories, onSave, onDelete }: CategoryManagerProps) {
+  const [categories, setCategories] = useState<Category[]>(initialCategories)
   const [isAdding, setIsAdding] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [formData, setFormData] = useState<Partial<Category>>({
@@ -42,66 +37,25 @@ export default function CategoryManager() {
     color: '#000000'
   })
 
-  // Fetch categories from Firebase
+  // Update categories when props change
   useEffect(() => {
-    const categoriesRef = collection(db, 'categories')
-    const q = query(categoriesRef, orderBy('createdAt', 'desc'))
-    
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const categoriesList: Category[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        categoriesList.push({
-          id: doc.id,
-          name: data.name || '',
-          description: data.description || '',
-          color: data.color || '#000000',
-          itemCount: data.itemCount || 0,
-          createdAt: data.createdAt || '',
-          updatedAt: data.updatedAt || ''
-        })
-      })
-      setCategories(categoriesList)
-    })
-    
-    return () => unsubscribe()
-  }, [])
+    setCategories(initialCategories)
+  }, [initialCategories])
 
-  // Save category to Firebase
+  // Save category using parent callback
   const handleSave = async (categoryData: Partial<Category>) => {
     try {
-      const categoriesRef = collection(db, 'categories')
-      const now = new Date().toISOString()
-      
-      if (editingId && categoryData.id) {
-        // Update existing category
-        const categoryDoc = doc(db, 'categories', editingId)
-        await updateDoc(categoryDoc, {
-          name: categoryData.name,
-          description: categoryData.description,
-          color: categoryData.color || '#000000',
-          updatedAt: now
-        })
-      } else {
-        // Add new category
-        await addDoc(categoriesRef, {
-          name: categoryData.name,
-          description: categoryData.description,
-          color: categoryData.color || '#000000',
-          itemCount: 0,
-          createdAt: now,
-          updatedAt: now
-        })
-      }
-      
-      resetForm()
+      await onSave(categoryData)
+      setIsAdding(false)
+      setEditingId(null)
+      setFormData({ name: '', description: '', color: '#000000' })
     } catch (error) {
       console.error('Error saving category:', error)
       alert('Error saving category. Please try again.')
     }
   }
 
-  // Delete category from Firebase
+  // Delete category using parent callback
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this category?')) return
     
@@ -113,7 +67,7 @@ export default function CategoryManager() {
         return
       }
       
-      await deleteDoc(doc(db, 'categories', id))
+      await onDelete(id)
       alert('Category deleted successfully!')
     } catch (error) {
       console.error('Error deleting category:', error)
@@ -314,7 +268,7 @@ export default function CategoryManager() {
                             </p>
                             <div className="flex gap-2 mt-1">
                               <span className="text-[9px] text-gray-500">
-                                Created: {new Date(cat.createdAt).toLocaleDateString()}
+                                Created: {cat.createdAt ? new Date(cat.createdAt).toLocaleDateString() : 'N/A'}
                               </span>
                             </div>
                           </div>

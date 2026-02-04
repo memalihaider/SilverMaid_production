@@ -487,7 +487,7 @@ export default function QuotationApproval() {
                     
                     <div className="text-right">
                       <p className="text-[10px] uppercase font-bold text-gray-400">Firebase ID</p>
-                      <p className="text-[9px] font-mono text-gray-500 truncate max-w-[150px]">{q.id}</p>
+                      <p className="text-[9px] font-mono text-gray-500 truncate max-w-37.5">{q.id}</p>
                     </div>
                   </div>
                 </div>

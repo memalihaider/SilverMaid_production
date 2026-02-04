@@ -25,7 +25,7 @@ import {
   Building,
   Plus
 } from 'lucide-react';
-import { getStoredSession, clearSession, type UserSession } from '@/lib/auth';
+import { getSession, clearSession, type SessionData } from '@/lib/auth';
 
 // Mock data for client dashboard
 const clientInfo = {
@@ -85,12 +85,12 @@ const sidebarItems = [
 
 export default function ClientDashboard() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
-    if (!storedSession || storedSession.portal !== 'client') {
+    const storedSession = getSession();
+    if (!storedSession) {
       router.push('/login/client');
       return;
     }
@@ -118,7 +118,7 @@ export default function ClientDashboard() {
           {/* Logo */}
           <div className="p-4 border-b border-slate-700">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-linear-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
                 <Building className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -170,11 +170,11 @@ export default function ClientDashboard() {
           <div className="p-4 border-t border-slate-700">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-semibold">
-                {session.userName.split(' ').map(n => n[0]).join('')}
+                {session.user.name ? session.user.name.split(' ').map(n => n[0]).join('') : 'U'}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-white truncate">{session.userName}</p>
-                <p className="text-xs text-slate-400 truncate">{session.email}</p>
+                <p className="text-sm font-medium text-white truncate">{session.user.name || 'User'}</p>
+                <p className="text-xs text-slate-400 truncate">{session.user.email || 'N/A'}</p>
               </div>
               <button
                 onClick={handleLogout}
@@ -209,7 +209,7 @@ export default function ClientDashboard() {
                 <Menu className="w-6 h-6" />
               </button>
               <div>
-                <h1 className="text-xl font-bold text-white">Welcome, {session.userName.split(' ')[0]}</h1>
+                <h1 className="text-xl font-bold text-white">Welcome, {session.user.name ? session.user.name.split(' ')[0] : 'User'}</h1>
                 <p className="text-sm text-slate-400">Account Manager: {clientInfo.accountManager}</p>
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function ClientDashboard() {
               </div>
               <p className="text-2xl font-bold text-white">{accountSummary.outstandingInvoices}</p>
             </div>
-            <div className="col-span-2 lg:col-span-1 bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl p-4">
+            <div className="col-span-2 lg:col-span-1 bg-linear-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-green-400 text-xs">Total Spent</span>
                 <CreditCard className="w-4 h-4 text-green-400" />

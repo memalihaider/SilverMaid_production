@@ -34,7 +34,7 @@ import {
   AreaChart,
   Area
 } from 'recharts';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 
 // Mock data for supervisor dashboard
 const dailyStatsData = [
@@ -81,7 +81,7 @@ const pendingApprovals = [
 
 export default function SupervisorDashboard() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [exportLoading, setExportLoading] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
@@ -93,7 +93,7 @@ export default function SupervisorDashboard() {
   ]);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'supervisor') {
       router.push('/login/supervisor');
       return;
@@ -152,7 +152,7 @@ export default function SupervisorDashboard() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-4xl font-black text-white">Daily Overview</h1>
-              <p className="text-slate-400 mt-1">Welcome back, {session.email}. Here&apos;s today&apos;s summary.</p>
+              <p className="text-slate-400 mt-1">Welcome back, {session?.user?.email}. Here&apos;s today&apos;s summary.</p>
             </div>
             <div className="flex items-center gap-3">
               <button 

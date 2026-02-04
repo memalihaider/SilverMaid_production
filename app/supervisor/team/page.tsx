@@ -20,7 +20,7 @@ import {
   Phone,
   Mail
 } from 'lucide-react';
-import { getStoredSession, type UserSession } from '@/lib/auth';
+import { getSession, type SessionData } from '@/lib/auth';
 
 const teamMembers = [
   { id: '1', name: 'Ahmed Hassan', role: 'Senior Technician', status: 'present', checkIn: '07:55 AM', job: 'JOB-2024-001', phone: '+971501234567', email: 'ahmed@homeware.com', rating: 4.8 },
@@ -35,13 +35,13 @@ const teamMembers = [
 
 export default function TeamPage() {
   const router = useRouter();
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [session, setSession] = useState<SessionData | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
 
   useEffect(() => {
-    const storedSession = getStoredSession();
+    const storedSession = getSession();
     if (!storedSession || storedSession.portal !== 'supervisor') {
       router.push('/login/supervisor');
       return;

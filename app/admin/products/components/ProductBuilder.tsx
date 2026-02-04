@@ -37,13 +37,14 @@ import {
 
 interface ProductBuilderProps {
   product?: ProductItem | null
-  onSave: () => void
+  categories?: Category[]
+  onSave: (data: Partial<ProductItem>) => void
   onCancel: () => void
 }
 
 const UNITS = ['Litre', 'Kg', 'Unit', 'Pack', 'Box', 'Roll', 'Hour', 'SqFt']
 
-export default function ProductBuilder({ product, onSave, onCancel }: ProductBuilderProps) {
+export default function ProductBuilder({ product, categories = [], onSave, onCancel }: ProductBuilderProps) {
   const [formData, setFormData] = useState<Partial<ProductItem>>({
     name: '',
     sku: '',
@@ -60,7 +61,6 @@ export default function ProductBuilder({ product, onSave, onCancel }: ProductBui
     imageUrl: ''
   })
 
-  const [categories, setCategories] = useState<Category[]>([])
   const [loading, setLoading] = useState(false)
   const [uploadingImage, setUploadingImage] = useState(false)
   const [imageUploadMethod, setImageUploadMethod] = useState<'url' | 'upload' | null>(null)
@@ -68,42 +68,6 @@ export default function ProductBuilder({ product, onSave, onCancel }: ProductBui
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
-
-  // Fetch categories from Firebase
-  useEffect(() => {
-    const categoriesRef = collection(db, 'categories')
-    const q = query(categoriesRef, orderBy('createdAt', 'desc'))
-    
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const categoriesList: Category[] = []
-      snapshot.forEach((doc) => {
-        const data = doc.data()
-        categoriesList.push({
-          id: doc.id,
-          name: data.name || '',
-          description: data.description || '',
-          color: data.color || '#000000',
-          itemCount: data.itemCount || 0,
-          createdAt: data.createdAt || '',
-          updatedAt: data.updatedAt || ''
-        })
-      })
-      setCategories(categoriesList)
-      
-      // Set default category if not already set
-      if (categoriesList.length > 0 && !formData.categoryId && !product) {
-        setFormData((prev: any) => ({
-          ...prev,
-          categoryId: categoriesList[0].id,
-          categoryName: categoriesList[0].name
-        }))
-      }
-    }, (error) => {
-      console.error('Error fetching categories:', error)
-    })
-    
-    return () => unsubscribe()
-  }, [])
 
   // Load product data if editing
   useEffect(() => {
@@ -114,6 +78,17 @@ export default function ProductBuilder({ product, onSave, onCancel }: ProductBui
       }
     }
   }, [product])
+
+  // Set default category when categories are loaded
+  useEffect(() => {
+    if (categories.length > 0 && !formData.categoryId && !product) {
+      setFormData((prev: any) => ({
+        ...prev,
+        categoryId: categories[0].id,
+        categoryName: categories[0].name
+      }))
+    }
+  }, [categories, product])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -316,7 +291,7 @@ export default function ProductBuilder({ product, onSave, onCancel }: ProductBui
       }
       
       alert(product ? 'Item updated successfully!' : 'Item added successfully!')
-      onSave()
+      onSave(formData)
     } catch (error) {
       console.error('Error saving item:', error)
       alert('Error saving item. Please try again.')
@@ -705,7 +680,7 @@ export default function ProductBuilder({ product, onSave, onCancel }: ProductBui
                     name="status"
                     value="ACTIVE"
                     checked={formData.status === 'ACTIVE'}
-                    onChange={(e) => setFormData((prev: any) => ({ ...prev, status: e.target.value as 'ACTIVE' | 'INACTIVE' }))}
+                    onChange={(e) => setFormData((prev: any) => ({ ...prev, status: e.target.value as 'ACTIVE' | 'ARCHIVED' | 'OUT_OF_STOCK' }))}
                     className="w-4 h-4"
                   />
                   <span className="text-sm font-bold">Active</span>
@@ -714,9 +689,9 @@ export default function ProductBuilder({ product, onSave, onCancel }: ProductBui
                   <input
                     type="radio"
                     name="status"
-                    value="INACTIVE"
-                    checked={formData.status === 'INACTIVE'}
-                    onChange={(e) => setFormData((prev: any) => ({ ...prev, status: e.target.value as 'ACTIVE' | 'INACTIVE' }))}
+                    value="ARCHIVED"
+                    checked={formData.status === 'ARCHIVED'}
+                    onChange={(e) => setFormData((prev: any) => ({ ...prev, status: e.target.value as 'ACTIVE' | 'ARCHIVED' | 'OUT_OF_STOCK' }))}
                     className="w-4 h-4"
                   />
                   <span className="text-sm font-bold">Inactive</span>

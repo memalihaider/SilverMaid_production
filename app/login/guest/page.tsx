@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Eye as EyeIcon, EyeOff, ArrowLeft, Loader2, Megaphone, Package, Info } from 'lucide-react';
-import { validateCredentials, storeSession } from '@/lib/auth';
+import { validateCredentials, storeSession, type SessionData } from '@/lib/auth';
 
 export default function GuestLoginPage() {
   const router = useRouter();
@@ -51,19 +51,15 @@ export default function GuestLoginPage() {
     // Simulate quick guest access
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    const session = {
-      id: `sess_guest_${Date.now()}`,
-      userId: 'guest-temp',
-      userName: 'Guest User',
-      email: 'guest@homeware.ae',
-      role: 'guest' as const,
-      roleId: 'role_guest',
+    const session: SessionData = {
+      user: {
+        uid: 'guest-temp',
+        email: 'guest@homeware.ae',
+        name: 'Guest User'
+      },
+      allowedPages: ['announcements', 'catalog'],
       roleName: 'Guest',
-      portal: 'guest' as const,
-      permissions: ['view_announcements', 'view_catalog'],
-      department: 'External',
-      loginTime: new Date(),
-      expiresAt: new Date(Date.now() + 3600000) // 1 hour
+      portal: 'guest' as const
     };
     
     storeSession(session);
@@ -71,7 +67,7 @@ export default function GuestLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-800/20 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-800/20 to-slate-900 flex items-center justify-center p-4">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gray-500/10 rounded-full blur-3xl"></div>
@@ -196,7 +192,7 @@ export default function GuestLoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full py-3 px-4 bg-linear-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isLoading ? (
                 <>

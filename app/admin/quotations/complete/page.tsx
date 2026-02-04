@@ -93,13 +93,18 @@ export default function QuotationsPage() {
       </div>
 
       {/* Content Area */}
-      <div className="min-h-[600px]">
+      <div className="min-h-150">
         {activeTab === 'dashboard' && <QuotationDashboard quotations={quotations} />}
         {activeTab === 'list' && (
           <QuotationList 
-            quotations={quotations} 
-            onEdit={handleEdit}
-            onDelete={handleDelete}
+            onEdit={(q: any) => {
+              setEditingQuotation({
+                ...q,
+                version: 1,
+                lastModified: new Date().toISOString()
+              } as Quotation)
+              setActiveTab('builder')
+            }}
           />
         )}
         {activeTab === 'builder' && (
@@ -113,19 +118,9 @@ export default function QuotationsPage() {
           />
         )}
         {activeTab === 'approval' && (
-          <QuotationApproval 
-            quotations={quotations}
-            onApprove={(id) => {
-              setQuotations(quotations.map(q => q.id === id ? { ...q, status: 'Accepted', approvalStatus: 'Approved' } : q))
-              alert('Quotation approved successfully!')
-            }}
-            onReject={(id) => {
-              setQuotations(quotations.map(q => q.id === id ? { ...q, status: 'Rejected', approvalStatus: 'Rejected' } : q))
-              alert('Quotation rejected.')
-            }}
-          />
+          <QuotationApproval />
         )}
-        {activeTab === 'reminders' && <QuotationReminders reminders={MOCK_REMINDERS} />}
+        {activeTab === 'reminders' && <QuotationReminders />}
       </div>
     </div>
   )

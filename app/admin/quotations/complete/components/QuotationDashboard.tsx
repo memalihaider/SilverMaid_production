@@ -2,44 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import { FileText, CheckCircle, Clock, AlertTriangle, TrendingUp, DollarSign, Users, Building2, Calendar, RefreshCw, TrendingDown, Eye } from 'lucide-react'
-import { db } from '@/lib/firebase'
-import { collection, getDocs } from 'firebase/firestore'
+import { Quotation } from '../lib/quotations-data'
 
-interface FirebaseQuotation {
-  id: string;
-  quoteNumber: string;
-  client: string;
-  company: string;
-  clientId: string;
-  email: string;
-  phone: string;
-  location: string;
-  date: string;
-  validUntil: string;
-  dueDate: string;
-  currency: string;
-  taxRate: number;
-  discount: number;
-  discountAmount: number;
-  discountType: string;
-  template: string;
-  status: string;
-  subtotal: number;
-  taxAmount: number;
-  total: number;
-  notes: string;
-  terms: string;
-  paymentMethods: string[];
-  services: any[];
-  products: any[];
-  createdAt: any;
-  updatedAt: any;
-  createdBy: string;
+interface QuotationDashboardProps {
+  quotations: Quotation[]
 }
 
-export default function QuotationDashboard() {
-  const [quotations, setQuotations] = useState<FirebaseQuotation[]>([])
-  const [loading, setLoading] = useState(true)
+export default function QuotationDashboard({ quotations: initialQuotations }: QuotationDashboardProps) {
+  const [quotations, setQuotations] = useState<Quotation[]>(initialQuotations)
+  const [loading, setLoading] = useState(false)
   const [totalValue, setTotalValue] = useState(0)
   const [stats, setStats] = useState({
     total: 0,
@@ -53,47 +24,21 @@ export default function QuotationDashboard() {
     averageValue: 0
   })
 
-  // Fetch all quotations from Firebase
-  const fetchQuotations = async () => {
-    try {
-      setLoading(true)
-      const snapshot = await getDocs(collection(db, 'quotations'))
-      
-      const allQuotations: FirebaseQuotation[] = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as FirebaseQuotation[]
-      
-      // Sort by creation date (newest first)
-      allQuotations.sort((a, b) => {
-        try {
-          const dateA = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : new Date(a.createdAt).getTime()
-          const dateB = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : new Date(b.createdAt).getTime()
-          return dateB - dateA
-        } catch {
-          return 0
-        }
-      })
-      
-      setQuotations(allQuotations)
-      calculateStats(allQuotations)
-      
-    } catch (error) {
-      console.error('Error fetching quotations:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
+  // Update quotations when props change
+  useEffect(() => {
+    setQuotations(initialQuotations)
+    calculateStats(initialQuotations)
+  }, [initialQuotations])
 
   // Calculate statistics
-  const calculateStats = (data: FirebaseQuotation[]) => {
+  const calculateStats = (data: Quotation[]) => {
     const total = data.length
     const accepted = data.filter(q => q.status === 'Accepted').length
-    const approved = data.filter(q => q.status === 'Approved').length
+    const approved = data.filter(q => q.approvalStatus === 'Approved').length
     const sent = data.filter(q => q.status === 'Sent').length
     const draft = data.filter(q => q.status === 'Draft').length
     const rejected = data.filter(q => q.status === 'Rejected').length
-    const totalValue = data.reduce((sum, q) => sum + (q.total || 0), 0)
+    const totalValue = data.reduce((sum, q) => sum + (q.amount || 0), 0)
     const conversionRate = total > 0 ? ((accepted + approved) / total) * 100 : 0
     const averageValue = total > 0 ? totalValue / total : 0
 
@@ -110,10 +55,6 @@ export default function QuotationDashboard() {
       averageValue
     })
   }
-
-  useEffect(() => {
-    fetchQuotations()
-  }, [])
 
   // Format currency
   const formatCurrency = (amount: number) => {
@@ -172,25 +113,8 @@ export default function QuotationDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-bold text-black">Quotation Dashboard</h2>
-          <p className="text-sm text-gray-500">Real-time analytics from Firebase</p>
+          <p className="text-sm text-gray-500">Real-time analytics</p>
         </div>
-        <button 
-          onClick={fetchQuotations}
-          disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 bg-black text-white text-sm font-bold rounded hover:bg-gray-800 transition-colors disabled:opacity-50"
-        >
-          {loading ? (
-            <>
-              <RefreshCw className="w-4 h-4 animate-spin" />
-              Loading...
-            </>
-          ) : (
-            <>
-              <RefreshCw className="w-4 h-4" />
-              Refresh Data
-            </>
-          )}
-        </button>
       </div>
 
       {/* Stats Cards */}
@@ -338,12 +262,12 @@ export default function QuotationDashboard() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-[13px] font-bold text-black">{formatCurrency(q.total)} {q.currency}</p>
+                      <p className="text-[13px] font-bold text-black">{formatCurrency(q.amount)} {q.currency}</p>
                       <span className={`text-[10px] uppercase font-bold px-1.5 py-0.5 rounded ${statusColor.bg} ${statusColor.text}`}>
                         {q.status}
                       </span>
-                      <p className="text-[9px] text-gray-400 mt-1 truncate max-w-[100px]">
-                        ID: {q.id.substring(0, 8)}...
+                      <p className="text-[9px] text-gray-400 mt-1 truncate max-w-25">
+                        ID: {String(q.id).substring(0, 8)}...
                       </p>
                     </div>
                   </div>
@@ -380,7 +304,7 @@ export default function QuotationDashboard() {
               <span className="text-[11px] text-gray-600">Highest Single Quotation</span>
               <span className="text-[13px] font-bold text-black">
                 {quotations.length > 0 
-                  ? formatCurrency(Math.max(...quotations.map(q => q.total || 0))) 
+                  ? formatCurrency(Math.max(...quotations.map(q => q.amount || 0))) 
                   : 0} AED
               </span>
             </div>

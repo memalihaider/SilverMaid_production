@@ -1,4 +1,6 @@
 // lib/gmailService.ts
+import type { QuotationData } from './quotationTypes';
+
 interface EmailOptions {
   to: string;
   subject: string;
@@ -10,34 +12,7 @@ interface EmailOptions {
   };
 }
 
-interface QuotationData {
-  id: string;
-  quoteNumber: string;
-  client: string;
-  company: string;
-  email: string;
-  phone: string;
-  location: string;
-  date: string;
-  validUntil: string;
-  dueDate: string;
-  currency: string;
-  taxRate: number;
-  discount: number;
-  discountAmount: number;
-  discountType: string;
-  status: string;
-  subtotal: number;
-  taxAmount: number;
-  total: number;
-  notes: string;
-  terms: string;
-  paymentMethods: string[];
-  services: any[];
-  products: any[];
-}
 
-// Generate HTML email template
 export const generateEmailTemplate = (quotation: QuotationData): { html: string, text: string } => {
   const items = [...(quotation.services || []), ...(quotation.products || [])];
   
