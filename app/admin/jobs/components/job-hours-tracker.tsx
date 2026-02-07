@@ -162,7 +162,7 @@ export function JobHoursTracker() {
 
   const getVarianceColor = (variance: number) => {
     if (variance < 0) return 'text-green-600 bg-green-50'
-    if (variance === 0) return 'text-blue-600 bg-blue-50'
+    if (variance === 0) return 'text-zinc-950 bg-zinc-50'
     return 'text-red-600 bg-red-50'
   }
 
@@ -177,7 +177,7 @@ export function JobHoursTracker() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-          <Clock className="w-6 h-6 text-indigo-600" />
+          <Clock className="w-6 h-6 text-zinc-900" />
           Job Hours Tracking
         </h3>
       </div>
@@ -209,7 +209,7 @@ export function JobHoursTracker() {
 
       {/* Selected Job Details */}
       {selectedJob && (
-        <div className="bg-linear-to-br from-indigo-50 to-blue-50 border border-indigo-300 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-indigo-50 to-zinc-50 border border-indigo-300 rounded-2xl p-6">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">{selectedJob.jobTitle}</h4>
@@ -227,18 +227,18 @@ export function JobHoursTracker() {
           <div className="grid grid-cols-4 gap-4 mb-6">
             <div className="bg-white rounded-xl p-4 border border-gray-300">
               <p className="text-xs font-bold text-gray-700 mb-1">Estimated Hours</p>
-              <p className="text-2xl font-bold text-indigo-600">{selectedJob.estimatedHours}h</p>
+              <p className="text-2xl font-bold text-zinc-900">{selectedJob.estimatedHours}h</p>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-300">
               <p className="text-xs font-bold text-gray-700 mb-1">Actual Hours</p>
               <p className="text-2xl font-bold text-gray-900">{selectedJob.actualHours}h</p>
             </div>
             <div className={`rounded-xl p-4 border ${
-              selectedJob.variance < 0 ? 'bg-green-50 border-green-300' : selectedJob.variance === 0 ? 'bg-blue-50 border-blue-300' : 'bg-red-50 border-red-300'
+              selectedJob.variance < 0 ? 'bg-green-50 border-green-300' : selectedJob.variance === 0 ? 'bg-zinc-50 border-blue-300' : 'bg-red-50 border-red-300'
             }`}>
               <p className="text-xs font-bold text-gray-700 mb-1">Variance</p>
               <p className={`text-2xl font-bold ${
-                selectedJob.variance < 0 ? 'text-green-600' : selectedJob.variance === 0 ? 'text-blue-600' : 'text-red-600'
+                selectedJob.variance < 0 ? 'text-green-600' : selectedJob.variance === 0 ? 'text-zinc-950' : 'text-red-600'
               }`}>
                 {selectedJob.variance > 0 ? '+' : ''}{selectedJob.variance}h
               </p>
@@ -253,7 +253,7 @@ export function JobHoursTracker() {
           <div className="mb-6">
             <button
               onClick={() => setShowAddHours(true)}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
             >
               <Plus className="w-4 h-4" />
               Log Hours
@@ -272,7 +272,7 @@ export function JobHoursTracker() {
                     <p className="font-bold text-gray-900">{entry.employeeName}</p>
                     <div className="flex items-center gap-3 mt-1 text-sm text-gray-600">
                       <span>{entry.date}</span>
-                      <span className="font-bold text-indigo-600">{entry.hoursWorked}h</span>
+                      <span className="font-bold text-zinc-900">{entry.hoursWorked}h</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -370,7 +370,7 @@ export function JobHoursTracker() {
                 </button>
                 <button
                   onClick={handleAddEntry}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Log Hours
                 </button>

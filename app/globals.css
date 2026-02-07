@@ -44,59 +44,59 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #000000;
   
-  --primary: #db2777;
+  --primary: #111111;
   --primary-foreground: #ffffff;
   
-  --secondary: #fdf2f8;
-  --secondary-foreground: #9d174d;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
   
-  --accent: #fdf2f8;
-  --accent-foreground: #9d174d;
+  --accent: #e4e4e7;
+  --accent-foreground: #18181b;
   
   --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
+  --destructive-foreground: #fafafa;
   
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
   
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #000000;
   
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover-foreground: #000000;
   
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #2563eb;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #18181b;
 }
 
 .dark {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --background: #09090b;
+  --foreground: #ffffff;
   
-  --primary: #db2777;
-  --primary-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #09090b;
   
-  --secondary: #fdf2f8;
-  --secondary-foreground: #9d174d;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
   
-  --accent: #fdf2f8;
-  --accent-foreground: #9d174d;
+  --accent: #3f3f46;
+  --accent-foreground: #fafafa;
   
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
   
-  --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card: #09090b;
+  --card-foreground: #ffffff;
   
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover: #09090b;
+  --popover-foreground: #ffffff;
   
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #2563eb;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4d4d8;
 }
 
 @layer base {
@@ -203,7 +203,7 @@ a[role="button"]:active {
 
 .card-hover:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(219, 39, 119, 0.2);
+  box-shadow: 0 20px 40px rgba(160, 174, 192, 0.2);
 }
 
 

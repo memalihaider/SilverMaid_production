@@ -154,21 +154,21 @@ export default function PipelineView() {
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <div className="h-8 w-8 rounded-lg bg-blue-100 flex items-center justify-center border border-blue-300">
-                <Kanban className="h-4 w-4 text-blue-700" />
+              <div className="h-8 w-8 rounded-lg bg-zinc-100 flex items-center justify-center border border-blue-300">
+                <Kanban className="h-4 w-4 text-zinc-950" />
               </div>
-              <span className="text-blue-700 font-bold text-xs uppercase">Sales Pipeline</span>
+              <span className="text-zinc-950 font-bold text-xs uppercase">Sales Pipeline</span>
             </div>
             <h1 className="text-2xl md:text-3xl font-black tracking-tight">Deal Manager</h1>
           </div>
-          <button onClick={() => setShowNewForm(true)} className="group relative flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-sm transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]">
+          <button onClick={() => setShowNewForm(true)} className="group relative flex items-center gap-2 px-6 py-2.5 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg font-bold text-sm transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]">
             <Plus className="h-4 w-4" />
             New
           </button>
         </div>
         
         {/* Subtle background */}
-        <div className="absolute top-0 right-0 -mt-12 -mr-12 h-40 w-40 rounded-full bg-blue-100 blur-[80px] opacity-30"></div>
+        <div className="absolute top-0 right-0 -mt-12 -mr-12 h-40 w-40 rounded-full bg-zinc-100 blur-[80px] opacity-30"></div>
       </div>
 
       {/* Compact Stats */}
@@ -183,11 +183,11 @@ export default function PipelineView() {
             <div className="flex items-center justify-between gap-2">
               <div>
                 <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">{stat.label}</p>
-                <p className={`text-lg font-black mt-0.5 ${stat.color === 'blue' ? 'text-blue-700' : stat.color === 'purple' ? 'text-purple-700' : stat.color === 'green' ? 'text-green-700' : 'text-emerald-700'}`}>
+                <p className={`text-lg font-black mt-0.5 ${stat.color === 'blue' ? 'text-zinc-950' : stat.color === 'purple' ? 'text-purple-700' : stat.color === 'green' ? 'text-green-700' : 'text-emerald-700'}`}>
                   {stat.value}
                 </p>
               </div>
-              <div className={`p-2 rounded-lg ${stat.color === 'blue' ? 'bg-blue-100 text-blue-700' : stat.color === 'purple' ? 'bg-purple-100 text-purple-700' : stat.color === 'green' ? 'bg-green-100 text-green-700' : 'bg-emerald-100 text-emerald-700'}`}>
+              <div className={`p-2 rounded-lg ${stat.color === 'blue' ? 'bg-zinc-100 text-zinc-950' : stat.color === 'purple' ? 'bg-zinc-100 text-purple-700' : stat.color === 'green' ? 'bg-green-100 text-green-700' : 'bg-emerald-100 text-emerald-700'}`}>
                 <stat.icon className="h-4 w-4" />
               </div>
             </div>
@@ -202,13 +202,13 @@ export default function PipelineView() {
             {/* Stage Header */}
             <div className="mb-3 flex items-center justify-between px-1">
               <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                <div className="h-2 w-2 rounded-full bg-zinc-500"></div>
                 <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">{stageData.stage}</h3>
                 <span className="px-2 py-0.5 rounded-md bg-gray-100 border border-gray-200 text-[9px] font-bold text-gray-700">
                   {stageData.count}
                 </span>
               </div>
-              <p className="text-[9px] font-bold text-blue-700 uppercase">
+              <p className="text-[9px] font-bold text-zinc-950 uppercase">
                 AED {(stageData.total / 1000).toFixed(0)}K
               </p>
             </div>
@@ -217,7 +217,7 @@ export default function PipelineView() {
             <div 
               onDragOver={handleDragOver}
               onDrop={(e) => handleDrop(e, stageData)}
-              className="space-y-2 min-h-[400px] rounded-lg bg-gray-50 border-2 border-dashed border-gray-300 p-3 transition-all hover:border-blue-400 hover:bg-blue-50"
+              className="space-y-2 min-h-[400px] rounded-lg bg-gray-50 border-2 border-dashed border-gray-300 p-3 transition-all hover:border-blue-400 hover:bg-zinc-50"
             >
               {stageData.leads.map((lead) => (
                 <div
@@ -227,7 +227,7 @@ export default function PipelineView() {
                   onDragEnd={handleDragEnd}
                   onClick={() => { setSelectedLead(lead); setShowDetails(true) }}
                   className={`bg-white border-l-4 rounded-lg p-3 cursor-move hover:shadow-md transition-all group ${
-                    draggedLead?.id === lead.id ? 'opacity-50 scale-95' : 'hover:border-l-blue-500'
+                    draggedLead?.id === lead.id ? 'opacity-50 scale-95' : 'hover:border-l-zinc-500'
                   } ${
                     lead.priority === 'High' ? 'border-l-red-500' :
                     lead.priority === 'Medium' ? 'border-l-amber-500' :
@@ -238,14 +238,14 @@ export default function PipelineView() {
                   <div className="flex items-start gap-2">
                     <GripVertical className="h-3.5 w-3.5 text-gray-300 shrink-0 mt-0.5" />
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-bold text-gray-900 text-xs group-hover:text-blue-600 truncate">
+                      <h4 className="font-bold text-gray-900 text-xs group-hover:text-zinc-950 truncate">
                         {lead.name.split(' ')[0]} {lead.name.split(' ')[1]?.charAt(0)}.
                       </h4>
                       <p className="text-[10px] text-gray-600 font-medium truncate mt-0.5">
                         {lead.company.substring(0, 20)}...
                       </p>
                       <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
-                        <span className="text-xs font-bold text-blue-700">
+                        <span className="text-xs font-bold text-zinc-950">
                           AED {(lead.value / 1000).toFixed(0)}K
                         </span>
                         <span className="text-[9px] font-bold text-gray-500 flex items-center gap-1">
@@ -282,10 +282,10 @@ export default function PipelineView() {
       {showDetails && selectedLead && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white border border-gray-300 rounded-lg shadow-xl w-full max-w-md overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-blue-50 to-indigo-50">
+            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-zinc-50 to-indigo-50">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center border border-blue-300">
-                  <Target className="h-5 w-5 text-blue-700" />
+                <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center border border-blue-300">
+                  <Target className="h-5 w-5 text-zinc-950" />
                 </div>
                 <div>
                   <h2 className="text-lg font-black text-gray-900">{selectedLead.name}</h2>
@@ -300,11 +300,11 @@ export default function PipelineView() {
             <div className="p-4 space-y-4">
               {/* Key Metrics */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-blue-50 p-3 rounded-lg border border-blue-300">
-                  <p className="text-[9px] font-bold text-blue-700 uppercase tracking-wider mb-1">Deal Value</p>
+                <div className="bg-zinc-50 p-3 rounded-lg border border-blue-300">
+                  <p className="text-[9px] font-bold text-zinc-950 uppercase tracking-wider mb-1">Deal Value</p>
                   <p className="text-lg font-black text-blue-900">AED {(selectedLead.value / 1000).toFixed(0)}K</p>
                 </div>
-                <div className="bg-purple-50 p-3 rounded-lg border border-purple-300">
+                <div className="bg-zinc-50 p-3 rounded-lg border border-purple-300">
                   <p className="text-[9px] font-bold text-purple-700 uppercase tracking-wider mb-1">Priority</p>
                   <span className={`inline-flex items-center px-2 py-1 rounded text-[9px] font-bold uppercase border ${
                     selectedLead.priority === 'High' ? 'bg-red-100 text-red-700 border-red-300' :
@@ -324,7 +324,7 @@ export default function PipelineView() {
                 </div>
                 <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-blue-600 transition-all duration-500" 
+                    className="h-full bg-zinc-950 transition-all duration-500" 
                     style={{ width: `${((stages.indexOf(selectedLead.status) + 1) / stages.length) * 100}%` }}
                   ></div>
                 </div>
@@ -348,7 +348,7 @@ export default function PipelineView() {
                         handleMoveStage(selectedLead, e.target.value)
                         setShowDetails(false)
                       }}
-                      className="w-full px-2 py-1.5 bg-blue-50 border border-blue-300 rounded text-xs text-gray-900 font-bold focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-2 py-1.5 bg-zinc-50 border border-blue-300 rounded text-xs text-gray-900 font-bold focus:ring-2 focus:ring-zinc-500 outline-none"
                     >
                       {stages.map(s => (
                         <option key={s} value={s}>{s}</option>
@@ -385,10 +385,10 @@ export default function PipelineView() {
       {showNewForm && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white border border-gray-300 rounded-lg shadow-xl w-full max-w-md overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-blue-50 to-indigo-50">
+            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-zinc-50 to-indigo-50">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center border border-blue-300">
-                  <Plus className="h-5 w-5 text-blue-700" />
+                <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center border border-blue-300">
+                  <Plus className="h-5 w-5 text-zinc-950" />
                 </div>
                 <h2 className="text-lg font-black text-gray-900">New Opportunity</h2>
               </div>
@@ -406,7 +406,7 @@ export default function PipelineView() {
                   placeholder="Enter contact name"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -418,7 +418,7 @@ export default function PipelineView() {
                   placeholder="Enter company name"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -430,7 +430,7 @@ export default function PipelineView() {
                   placeholder="Enter deal value"
                   value={formData.value}
                   onChange={(e) => setFormData({...formData, value: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -440,7 +440,7 @@ export default function PipelineView() {
                 <select
                   value={formData.priority}
                   onChange={(e) => setFormData({...formData, priority: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 font-bold"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 font-bold"
                 >
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -459,7 +459,7 @@ export default function PipelineView() {
               <button
                 onClick={handleAddNewLead}
                 disabled={!formData.name || !formData.company || !formData.value}
-                className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white rounded-lg font-bold text-sm uppercase transition-all flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-2 bg-zinc-950 hover:bg-zinc-950 disabled:bg-gray-300 text-white rounded-lg font-bold text-sm uppercase transition-all flex items-center justify-center gap-2"
               >
                 <Plus className="h-4 w-4" />
                 Create

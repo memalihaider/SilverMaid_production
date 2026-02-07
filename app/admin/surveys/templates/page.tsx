@@ -21,7 +21,7 @@ export default function SurveyTemplates() {
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Survey Templates</h1>
             <p className="text-gray-600 dark:text-gray-400">Choose from pre-designed templates or create custom surveys</p>
           </div>
-          <Link href="/admin/surveys/form" className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+          <Link href="/admin/surveys/form" className="flex items-center gap-2 px-4 py-2 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg transition-colors">
             <Plus className="w-5 h-5" />
             Blank Survey
           </Link>
@@ -67,7 +67,7 @@ export default function SurveyTemplates() {
               </div>
 
               <div className="flex gap-2 mt-6">
-                <button onClick={() => createFromTemplate(template.id)} className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium">
+                <button onClick={() => createFromTemplate(template.id)} className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg transition-colors font-medium">
                   <Copy className="w-4 h-4" />
                   Use Template
                 </button>

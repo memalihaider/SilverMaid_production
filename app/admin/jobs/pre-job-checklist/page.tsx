@@ -131,7 +131,7 @@ function PreJobChecklistContent() {
         <div>
           <div className="flex items-center gap-3 mb-2">
             {jobIdParam && (
-              <Link href={`/admin/jobs/${jobIdParam}`} className="text-pink-600 hover:text-pink-700">
+              <Link href={`/admin/jobs/${jobIdParam}`} className="text-primary hover:text-zinc-700">
                 <ArrowLeft className="h-5 w-5" />
               </Link>
             )}
@@ -153,7 +153,7 @@ function PreJobChecklistContent() {
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Pending Approval</p>
-          <p className="text-2xl font-bold text-blue-600">{stats.pendingApproval}</p>
+          <p className="text-2xl font-bold text-zinc-950">{stats.pendingApproval}</p>
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Locked</p>
@@ -177,7 +177,7 @@ function PreJobChecklistContent() {
                   <div className="flex-1">
                     <h3 className="font-bold text-sm mb-1">{job.title}</h3>
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded">{job.serviceType}</span>
+                      <span className="bg-zinc-100 text-zinc-950 px-2 py-0.5 rounded">{job.serviceType}</span>
                       <span className={`px-2 py-0.5 rounded ${
                         completion >= 85 ? 'bg-green-100 text-green-700' : completion >= 50 ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'
                       }`}>
@@ -248,14 +248,14 @@ function PreJobChecklistContent() {
                           disabled={!isComplete}
                           className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                             isComplete
-                              ? 'bg-blue-600 text-white hover:bg-blue-700'
+                              ? 'bg-zinc-950 text-white hover:bg-zinc-950'
                               : 'bg-muted text-muted-foreground cursor-not-allowed'
                           }`}
                         >
                           <Lock className="h-4 w-4" />
                           Lock for Approval
                         </button>
-                        <button className="flex items-center gap-2 px-3 py-2 bg-pink-100 text-pink-700 rounded-lg text-sm font-medium hover:bg-pink-200 transition-colors">
+                        <button className="flex items-center gap-2 px-3 py-2 bg-zinc-100 text-zinc-700 rounded-lg text-sm font-medium hover:opacity-90 transition-colors">
                           <Send className="h-4 w-4" />
                           Send for Review
                         </button>
@@ -281,7 +281,7 @@ function PreJobChecklistContent() {
               value={lockReason}
               onChange={(e) => setLockReason(e.target.value)}
               placeholder="Enter reason for locking (supervisor accountability)..."
-              className="w-full p-3 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none mb-4 min-h-24"
+              className="w-full p-3 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none mb-4 min-h-24"
             />
             <div className="flex gap-2">
               <button
@@ -293,7 +293,7 @@ function PreJobChecklistContent() {
               <button
                 onClick={submitLock}
                 disabled={!lockReason}
-                className="flex-1 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+                className="flex-1 px-3 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors disabled:opacity-50"
               >
                 Lock & Submit
               </button>
@@ -304,7 +304,7 @@ function PreJobChecklistContent() {
 
       {/* Workflow Navigation */}
       {jobIdParam && (
-        <div className="bg-linear-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-lg p-6 mt-6">
+        <div className="bg-linear-to-r from-zinc-50 to-zinc-50 border border-zinc-300 rounded-lg p-6 mt-6">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="font-bold mb-2">Next Steps</h3>
@@ -315,7 +315,7 @@ function PreJobChecklistContent() {
                 <ArrowLeft className="h-4 w-4" />
                 Back to Job
               </Link>
-              <Link href={`/admin/jobs/assignment?jobId=${jobIdParam}`} className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors">
+              <Link href={`/admin/jobs/assignment?jobId=${jobIdParam}`} className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:opacity-90 transition-colors">
                 Assign Team
                 <ArrowRight className="h-4 w-4" />
               </Link>

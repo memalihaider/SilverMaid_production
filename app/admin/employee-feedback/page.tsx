@@ -546,7 +546,7 @@ export default function EmployeeFeedbackAndComplaints() {
 
   const getRatingColor = (rating: number) => {
     if (rating >= 4.5) return 'text-green-600'
-    if (rating >= 3.5) return 'text-blue-600'
+    if (rating >= 3.5) return 'text-zinc-950'
     if (rating >= 2.5) return 'text-yellow-600'
     return 'text-red-600'
   }
@@ -565,7 +565,7 @@ export default function EmployeeFeedbackAndComplaints() {
       case 'Active': return 'bg-green-100 text-green-800'
       case 'Pending Action': return 'bg-yellow-100 text-yellow-800'
       case 'Open': return 'bg-red-100 text-red-800'
-      case 'In Progress': return 'bg-blue-100 text-blue-800'
+      case 'In Progress': return 'bg-zinc-100 text-blue-800'
       case 'Resolved': return 'bg-green-100 text-green-800'
       default: return 'bg-gray-100 text-gray-800'
     }
@@ -598,18 +598,18 @@ export default function EmployeeFeedbackAndComplaints() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-zinc-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <Star className="w-4 h-4 text-blue-600" />
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <Star className="w-4 h-4 text-zinc-950" />
             </div>
-            <span className="text-xs font-bold text-blue-700 uppercase">Total Feedbacks</span>
+            <span className="text-xs font-bold text-zinc-950 uppercase">Total Feedbacks</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{summaryStats.totalFeedbacks}</div>
-          <div className="text-xs text-blue-600 mt-2">{summaryStats.activeFeedbacks} Active</div>
+          <div className="text-xs text-zinc-950 mt-2">{summaryStats.activeFeedbacks} Active</div>
         </div>
 
-        <div className="bg-linear-to-br from-red-50 to-pink-50 border border-red-200 rounded-2xl p-6">
+        <div className="bg-zinc-50 border border-red-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2 bg-red-100 rounded-lg">
               <AlertCircle className="w-4 h-4 text-red-600" />
@@ -657,7 +657,7 @@ export default function EmployeeFeedbackAndComplaints() {
             }}
             className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${
               activeTab === tab.id
-                ? 'bg-indigo-600 text-white shadow-md'
+                ? 'bg-zinc-900 text-white shadow-md'
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
             }`}
           >
@@ -702,7 +702,7 @@ export default function EmployeeFeedbackAndComplaints() {
 
         <button
           onClick={() => setShowAddModal(true)}
-          className="flex items-center gap-2 px-6 py-2 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+          className="flex items-center gap-2 px-6 py-2 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
         >
           <Plus className="w-4 h-4" />
           Add {activeTab === 'feedback' ? 'Feedback' : 'Complaint'}
@@ -791,7 +791,7 @@ export default function EmployeeFeedbackAndComplaints() {
                         setSelectedItem(feedback)
                         setShowViewModal(true)
                       }}
-                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                      className="p-2 text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all"
                       title="View"
                     >
                       <Eye className="w-4 h-4" />
@@ -832,7 +832,7 @@ export default function EmployeeFeedbackAndComplaints() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-full bg-linear-to-br from-red-400 to-pink-500 flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 rounded-full bg-linear-to-br from-red-400 to-zinc-500 flex items-center justify-center text-white font-bold">
                         {complaint.employeeName.charAt(0)}
                       </div>
                       <div>
@@ -856,7 +856,7 @@ export default function EmployeeFeedbackAndComplaints() {
                     <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold">
                       {complaint.category}
                     </span>
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">
+                    <span className="px-3 py-1 bg-zinc-100 text-zinc-950 rounded-full text-xs font-bold">
                       Filed by {complaint.filedBy}
                     </span>
                   </div>
@@ -883,7 +883,7 @@ export default function EmployeeFeedbackAndComplaints() {
                         setSelectedItem(complaint)
                         setShowViewModal(true)
                       }}
-                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                      className="p-2 text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all"
                       title="View"
                     >
                       <Eye className="w-4 h-4" />
@@ -1149,7 +1149,7 @@ export default function EmployeeFeedbackAndComplaints() {
                 <button
                   onClick={activeTab === 'feedback' ? handleAddFeedback : handleAddComplaint}
                   disabled={loading}
-                  className={`flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all ${
+                  className={`flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all ${
                     loading ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                 >
@@ -1181,8 +1181,8 @@ export default function EmployeeFeedbackAndComplaints() {
             </div>
 
             <div className="space-y-4">
-              <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
-                <p className="text-sm text-blue-700">
+              <div className="p-3 bg-zinc-50 rounded-xl border border-blue-200">
+                <p className="text-sm text-zinc-950">
                   <span className="font-bold">Employee:</span> {editingItem.employeeName} ({editingItem.employeeRole})
                 </p>
               </div>

@@ -775,7 +775,7 @@ export default function SurveyReviewAndPricing() {
   // Get status color
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'pending': return 'text-blue-600 bg-blue-50'
+      case 'pending': return 'text-zinc-950 bg-zinc-50'
       case 'approved': return 'text-green-600 bg-green-50'
       case 'rejected': return 'text-red-600 bg-red-50'
       default: return 'text-gray-600 bg-gray-50'
@@ -799,7 +799,7 @@ export default function SurveyReviewAndPricing() {
                 onClick={() => setActiveTab('pricing')}
                 className={`py-2 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'pricing'
-                    ? 'border-blue-500 text-blue-600'
+                    ? 'border-zinc-500 text-zinc-950'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -809,7 +809,7 @@ export default function SurveyReviewAndPricing() {
                 onClick={() => setActiveTab('reviews')}
                 className={`py-2 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'reviews'
-                    ? 'border-blue-500 text-blue-600'
+                    ? 'border-zinc-500 text-zinc-950'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -829,7 +829,7 @@ export default function SurveyReviewAndPricing() {
                     <p className="text-sm font-medium text-gray-600">Total Quotes</p>
                     <p className="text-2xl font-bold text-gray-900">{stats.pricing.total}</p>
                   </div>
-                  <BarChart3 className="h-8 w-8 text-blue-500" />
+                  <BarChart3 className="h-8 w-8 text-zinc-500" />
                 </div>
               </div>
 
@@ -837,9 +837,9 @@ export default function SurveyReviewAndPricing() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-gray-600">Pending Review</p>
-                    <p className="text-2xl font-bold text-blue-600">{stats.pricing.pending}</p>
+                    <p className="text-2xl font-bold text-zinc-950">{stats.pricing.pending}</p>
                   </div>
-                  <Clock className="h-8 w-8 text-blue-500" />
+                  <Clock className="h-8 w-8 text-zinc-500" />
                 </div>
               </div>
 
@@ -857,9 +857,9 @@ export default function SurveyReviewAndPricing() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-gray-600">Total Revenue</p>
-                    <p className="text-2xl font-bold text-pink-600">AED {(stats.pricing.totalRevenue / 1000).toFixed(0)}K</p>
+                    <p className="text-2xl font-bold text-primary">AED {(stats.pricing.totalRevenue / 1000).toFixed(0)}K</p>
                   </div>
-                  <DollarSign className="h-8 w-8 text-pink-500" />
+                  <DollarSign className="h-8 w-8 text-zinc-500" />
                 </div>
               </div>
             </>
@@ -871,7 +871,7 @@ export default function SurveyReviewAndPricing() {
                     <p className="text-sm font-medium text-gray-600">Total Reviews</p>
                     <p className="text-2xl font-bold text-gray-900">{stats.surveys.total}</p>
                   </div>
-                  <FileText className="h-8 w-8 text-blue-500" />
+                  <FileText className="h-8 w-8 text-zinc-500" />
                 </div>
               </div>
 
@@ -879,9 +879,9 @@ export default function SurveyReviewAndPricing() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-gray-600">Pending Review</p>
-                    <p className="text-2xl font-bold text-blue-600">{stats.surveys.pending}</p>
+                    <p className="text-2xl font-bold text-zinc-950">{stats.surveys.pending}</p>
                   </div>
-                  <Clock className="h-8 w-8 text-blue-500" />
+                  <Clock className="h-8 w-8 text-zinc-500" />
                 </div>
               </div>
 
@@ -919,7 +919,7 @@ export default function SurveyReviewAndPricing() {
                   placeholder="Search surveys..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                 />
               </div>
             </div>
@@ -928,7 +928,7 @@ export default function SurveyReviewAndPricing() {
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
               >
                 <option value="All">All Status</option>
                 <option value="pending">Pending</option>
@@ -966,7 +966,7 @@ export default function SurveyReviewAndPricing() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="shrink-0 h-10 w-10">
-                              <div className="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center">
+                              <div className="h-10 w-10 rounded-full bg-zinc-500 flex items-center justify-center">
                                 <User className="h-5 w-5 text-white" />
                               </div>
                             </div>
@@ -1023,7 +1023,7 @@ export default function SurveyReviewAndPricing() {
                               setSelectedQuote(quote)
                               setApprovalComment('')
                             }}
-                            className="text-blue-600 hover:text-blue-900 mr-4"
+                            className="text-zinc-950 hover:text-blue-900 mr-4"
                           >
                             <Eye className="h-5 w-5" />
                           </button>
@@ -1066,7 +1066,7 @@ export default function SurveyReviewAndPricing() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="shrink-0 h-10 w-10">
-                            <div className="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center">
+                            <div className="h-10 w-10 rounded-full bg-zinc-500 flex items-center justify-center">
                               <User className="h-5 w-5 text-white" />
                             </div>
                           </div>
@@ -1118,7 +1118,7 @@ export default function SurveyReviewAndPricing() {
                             setReviewNotes(survey.reviewNotes || '')
                             setFollowUpActions(survey.followUpActions || [])
                           }}
-                          className="text-blue-600 hover:text-blue-900 mr-4"
+                          className="text-zinc-950 hover:text-blue-900 mr-4"
                         >
                           <Eye className="h-5 w-5" />
                         </button>
@@ -1181,7 +1181,7 @@ export default function SurveyReviewAndPricing() {
                 {/* AI Insights */}
                 <div className="mb-6">
                   <h4 className="font-medium text-gray-900 mb-4">🤖 AI Recommendations & Insights</h4>
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
                     <div className="space-y-3">
                       {(() => {
                         const insights = calculateAIPriceRecommendation(selectedQuote)
@@ -1264,7 +1264,7 @@ export default function SurveyReviewAndPricing() {
                         value={approvalComment}
                         onChange={(e) => setApprovalComment(e.target.value)}
                         rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                         placeholder="Add your approval notes and reasoning..."
                       />
                     </div>
@@ -1368,7 +1368,7 @@ export default function SurveyReviewAndPricing() {
                             {question.type === 'multiple' && (
                               <div className="flex flex-wrap gap-2">
                                 {Array.isArray(response.answer) ? response.answer.map((ans, idx) => (
-                                  <span key={idx} className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">
+                                  <span key={idx} className="px-2 py-1 bg-zinc-100 text-blue-800 rounded text-sm">
                                     {ans}
                                   </span>
                                 )) : (
@@ -1399,7 +1399,7 @@ export default function SurveyReviewAndPricing() {
                         value={reviewNotes}
                         onChange={(e) => setReviewNotes(e.target.value)}
                         rows={4}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                         placeholder="Add your review notes and observations..."
                       />
                     </div>
@@ -1414,12 +1414,12 @@ export default function SurveyReviewAndPricing() {
                           value={newAction}
                           onChange={(e) => setNewAction(e.target.value)}
                           onKeyPress={(e) => e.key === 'Enter' && addFollowUpAction()}
-                          className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                           placeholder="Add follow-up action..."
                         />
                         <button
                           onClick={addFollowUpAction}
-                          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                          className="px-4 py-2 bg-zinc-500 text-white rounded-md hover:bg-zinc-950"
                         >
                           Add
                         </button>

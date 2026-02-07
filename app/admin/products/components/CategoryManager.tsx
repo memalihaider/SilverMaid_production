@@ -108,7 +108,7 @@ export default function CategoryManager({ categories: initialCategories, onSave,
       '#8B5CF6', // Violet
       '#F59E0B', // Amber
       '#EF4444', // Red
-      '#EC4899', // Pink
+      '#111111', // Black
       '#14B8A6', // Teal
       '#F97316', // Orange
     ]

@@ -112,10 +112,10 @@
 //         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
 //           <div>
 //             <div className="flex items-center gap-3 mb-4">
-//               <div className="h-10 w-10 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-200">
-//                 <ShieldCheck className="h-5 w-5 text-blue-600" />
+//               <div className="h-10 w-10 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-200">
+//                 <ShieldCheck className="h-5 w-5 text-zinc-950" />
 //               </div>
-//               <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">Role Governance</span>
+//               <span className="text-zinc-950 font-bold tracking-wider text-sm uppercase">Role Governance</span>
 //             </div>
 //             <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">Role Manager</h1>
 //             <p className="text-gray-600 mt-3 text-lg font-medium max-w-xl">
@@ -124,14 +124,14 @@
 //           </div>
 //           <button 
 //             onClick={() => { setShowForm(true); setEditingRole(null); setNewRole({ name: '', description: '', level: 'user' }) }}
-//             className="group relative flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]">
+//             className="group relative flex items-center gap-3 px-8 py-4 bg-zinc-950 hover:bg-zinc-950 text-white rounded-2xl font-black transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]">
 //             <Plus className="h-5 w-5" />
 //             Create New Role
 //           </button>
 //         </div>
         
 //         {/* Decorative background elements */}
-//         <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-blue-50 blur-[100px]"></div>
+//         <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-zinc-50 blur-[100px]"></div>
 //         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-indigo-50 blur-[100px]"></div>
 //       </div>
 
@@ -158,13 +158,13 @@
 
 //       {/* Search */}
 //       <div className="relative group">
-//         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-600 transition-colors" />
+//         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-zinc-950 transition-colors" />
 //         <input 
 //           type="text" 
 //           placeholder="Search roles by name or description..." 
 //           value={searchTerm}
 //           onChange={(e) => setSearchTerm(e.target.value)}
-//           className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none text-black placeholder:text-gray-500 transition-all"
+//           className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-zinc-500/50 outline-none text-black placeholder:text-gray-500 transition-all"
 //         />
 //       </div>
 
@@ -179,7 +179,7 @@
 //                     <Shield className="h-7 w-7" />
 //                   </div>
 //                   <div>
-//                     <h3 className="text-2xl font-black text-black group-hover:text-blue-600 transition-colors">{role.name}</h3>
+//                     <h3 className="text-2xl font-black text-black group-hover:text-zinc-950 transition-colors">{role.name}</h3>
 //                     <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest bg-${role.color}-100 text-${role.color}-600 border border-${role.color}-200 mt-1`}>
 //                       {role.level} level
 //                     </span>
@@ -188,13 +188,13 @@
 //                 <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
 //                   <button 
 //                     onClick={() => handleEditRole(role.id)}
-//                     className="p-2.5 bg-gray-100 hover:bg-blue-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-blue-600"
+//                     className="p-2.5 bg-gray-100 hover:bg-zinc-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-zinc-950"
 //                   >
 //                     <Edit2 className="h-4 w-4" />
 //                   </button>
 //                   <button 
 //                     onClick={() => setShowCloneModal(role.id)}
-//                     className="p-2.5 bg-gray-100 hover:bg-indigo-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-indigo-600"
+//                     className="p-2.5 bg-gray-100 hover:bg-indigo-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-zinc-900"
 //                   >
 //                     <Copy className="h-4 w-4" />
 //                   </button>
@@ -218,7 +218,7 @@
 //                   <div className="flex flex-col">
 //                     <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Assigned Users</span>
 //                     <span className="text-lg font-black text-black flex items-center gap-2">
-//                       <Users className="h-4 w-4 text-blue-600" />
+//                       <Users className="h-4 w-4 text-zinc-950" />
 //                       {role.usersCount}
 //                     </span>
 //                   </div>
@@ -241,10 +241,10 @@
 //             {showCloneModal === role.id && (
 //               <div className="absolute inset-0 z-20 bg-black/50 backdrop-blur-md flex flex-col items-center justify-center p-8 text-center">
 //                 <div className="h-16 w-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4 border border-indigo-200">
-//                   <Copy className="h-8 w-8 text-indigo-600" />
+//                   <Copy className="h-8 w-8 text-zinc-900" />
 //                 </div>
 //                 <h4 className="text-xl font-black text-black mb-2">Clone Role?</h4>
-//                 <p className="text-gray-600 text-sm mb-6">This will create a duplicate of <span className="text-indigo-600 font-bold">{role.name}</span> with all its permission sets.</p>
+//                 <p className="text-gray-600 text-sm mb-6">This will create a duplicate of <span className="text-zinc-900 font-bold">{role.name}</span> with all its permission sets.</p>
 //                 <div className="flex gap-4 w-full max-w-xs">
 //                   <button 
 //                     onClick={() => setShowCloneModal(null)}
@@ -254,7 +254,7 @@
 //                   </button>
 //                   <button 
 //                     onClick={() => handleCloneRole(role.id)}
-//                     className="flex-1 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 text-white rounded-xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-indigo-500/20"
+//                     className="flex-1 px-4 py-3 bg-zinc-900 hover:bg-indigo-700 border border-zinc-900 text-white rounded-xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-indigo-500/20"
 //                   >
 //                     Confirm
 //                   </button>
@@ -287,7 +287,7 @@
 //                     placeholder="e.g. Regional Manager"
 //                     value={newRole.name}
 //                     onChange={(e) => setNewRole({...newRole, name: e.target.value})}
-//                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+//                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
 //                   />
 //                 </div>
 //                 <div className="space-y-2">
@@ -295,7 +295,7 @@
 //                   <select 
 //                     value={newRole.level} 
 //                     onChange={(e) => setNewRole({...newRole, level: e.target.value})}
-//                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+//                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
 //                   >
 //                     <option value="super" className="bg-white text-black">Super Admin</option>
 //                     <option value="admin" className="bg-white text-black">Admin</option>
@@ -311,7 +311,7 @@
 //                     placeholder="Describe the responsibilities and access scope of this role..."
 //                     value={newRole.description}
 //                     onChange={(e) => setNewRole({...newRole, description: e.target.value})}
-//                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all h-32 resize-none"
+//                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all h-32 resize-none"
 //                   />
 //                 </div>
 //               </div>
@@ -325,7 +325,7 @@
 //               </button>
 //               <button
 //                 onClick={handleAddRole}
-//                 className="flex-1 px-6 py-4 bg-blue-600 hover:bg-blue-700 border border-blue-600 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg shadow-blue-500/20"
+//                 className="flex-1 px-6 py-4 bg-zinc-950 hover:bg-zinc-950 border border-zinc-950 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg shadow-zinc-500/20"
 //               >
 //                 {editingRole ? 'Update Role' : 'Create Role'}
 //               </button>
@@ -336,8 +336,8 @@
 
 //       {/* Security Info */}
 //       <div className="bg-white border border-gray-200 rounded-[32px] p-8 flex flex-col md:flex-row gap-6 items-start">
-//         <div className="h-14 w-14 rounded-2xl bg-blue-100 flex items-center justify-center border border-blue-200 shrink-0">
-//           <ShieldCheck className="h-7 w-7 text-blue-600" />
+//         <div className="h-14 w-14 rounded-2xl bg-zinc-100 flex items-center justify-center border border-blue-200 shrink-0">
+//           <ShieldCheck className="h-7 w-7 text-zinc-950" />
 //         </div>
 //         <div>
 //           <h3 className="text-xl font-black text-black">Role-Based Access Control (RBAC)</h3>
@@ -351,7 +351,7 @@
 //             <div className="flex items-center gap-2 text-[10px] font-black text-emerald-600 uppercase tracking-widest">
 //               <ShieldCheck className="h-4 w-4" /> Immutable System Roles
 //             </div>
-//             <div className="flex items-center gap-2 text-[10px] font-black text-blue-600 uppercase tracking-widest">
+//             <div className="flex items-center gap-2 text-[10px] font-black text-zinc-950 uppercase tracking-widest">
 //               <Fingerprint className="h-4 w-4" /> Multi-Factor Enforced
 //             </div>
 //           </div>
@@ -649,10 +649,10 @@ export default function RoleManager() {
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-10 w-10 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-200">
-                <ShieldCheck className="h-5 w-5 text-blue-600" />
+              <div className="h-10 w-10 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-200">
+                <ShieldCheck className="h-5 w-5 text-zinc-950" />
               </div>
-              <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">User Management</span>
+              <span className="text-zinc-950 font-bold tracking-wider text-sm uppercase">User Management</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">Create User Roles</h1>
             <p className="text-gray-600 mt-3 text-lg font-medium max-w-xl">
@@ -671,14 +671,14 @@ export default function RoleManager() {
                 allowedPages: [] 
               }) 
             }}
-            className="group relative flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]">
+            className="group relative flex items-center gap-3 px-8 py-4 bg-zinc-950 hover:bg-zinc-950 text-white rounded-2xl font-black transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]">
             <Plus className="h-5 w-5" />
             Create New User
           </button>
         </div>
         
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-blue-50 blur-[100px]"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-zinc-50 blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-indigo-50 blur-[100px]"></div>
       </div>
 
@@ -705,13 +705,13 @@ export default function RoleManager() {
 
       {/* Search */}
       <div className="relative group">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-600 transition-colors" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-zinc-950 transition-colors" />
         <input 
           type="text" 
           placeholder="Search users by name, email or role..." 
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none text-black placeholder:text-gray-500 transition-all"
+          className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-zinc-500/50 outline-none text-black placeholder:text-gray-500 transition-all"
         />
       </div>
 
@@ -722,13 +722,13 @@ export default function RoleManager() {
             <div className="relative z-10">
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <div className="h-14 w-14 rounded-2xl bg-blue-100 flex items-center justify-center border border-blue-200 text-blue-600">
+                  <div className="h-14 w-14 rounded-2xl bg-zinc-100 flex items-center justify-center border border-blue-200 text-zinc-950">
                     <Users className="h-7 w-7" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-black text-black group-hover:text-blue-600 transition-colors">{user.name}</h3>
+                    <h3 className="text-2xl font-black text-black group-hover:text-zinc-950 transition-colors">{user.name}</h3>
                     <div className="flex items-center gap-2 mt-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest bg-blue-100 text-blue-600 border border-blue-200">
+                      <span className="inline-flex items-center px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest bg-zinc-100 text-zinc-950 border border-blue-200">
                         {user.roleName}
                       </span>
                       <Mail className="h-4 w-4 text-gray-400" />
@@ -739,7 +739,7 @@ export default function RoleManager() {
                 <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <button 
                     onClick={() => handleEditUser(user.id)}
-                    className="p-2.5 bg-gray-100 hover:bg-blue-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-blue-600"
+                    className="p-2.5 bg-gray-100 hover:bg-zinc-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-zinc-950"
                   >
                     <Edit2 className="h-4 w-4" />
                   </button>
@@ -827,7 +827,7 @@ export default function RoleManager() {
                     placeholder="Enter full name"
                     value={newUser.name}
                     onChange={(e) => setNewUser({...newUser, name: e.target.value})}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   />
                 </div>
 
@@ -842,7 +842,7 @@ export default function RoleManager() {
                     value={newUser.email}
                     onChange={(e) => setNewUser({...newUser, email: e.target.value})}
                     disabled={!!editingUserId}
-                    className={`w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all ${
+                    className={`w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all ${
                       editingUserId ? 'opacity-60 cursor-not-allowed' : ''
                     }`}
                   />
@@ -860,7 +860,7 @@ export default function RoleManager() {
                         placeholder="Enter password"
                         value={newUser.password}
                         onChange={(e) => setNewUser({...newUser, password: e.target.value})}
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all pr-12"
+                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all pr-12"
                       />
                       <button
                         type="button"
@@ -883,7 +883,7 @@ export default function RoleManager() {
                     placeholder="e.g., Manager, Supervisor, Analyst"
                     value={newUser.roleName}
                     onChange={(e) => setNewUser({...newUser, roleName: e.target.value})}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   />
                 </div>
               </div>
@@ -898,7 +898,7 @@ export default function RoleManager() {
                     <button
                       type="button"
                       onClick={selectAllPages}
-                      className="px-3 py-1.5 bg-blue-100 hover:bg-blue-200 text-blue-600 text-xs font-bold rounded-lg border border-blue-200 transition-all"
+                      className="px-3 py-1.5 bg-zinc-100 hover:bg-blue-200 text-zinc-950 text-xs font-bold rounded-lg border border-blue-200 transition-all"
                     >
                       Select All
                     </button>
@@ -920,13 +920,13 @@ export default function RoleManager() {
                         id={`page-${page}`}
                         checked={newUser.allowedPages.includes(page)}
                         onChange={() => togglePageAccess(page)}
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-zinc-950 bg-gray-100 border-gray-300 rounded focus:ring-zinc-500"
                       />
                       <label
                         htmlFor={`page-${page}`}
                         className={`ml-2 text-sm font-medium cursor-pointer transition-colors ${
                           newUser.allowedPages.includes(page) 
-                            ? 'text-blue-600 font-bold' 
+                            ? 'text-zinc-950 font-bold' 
                             : 'text-gray-600'
                         }`}
                       >
@@ -956,7 +956,7 @@ export default function RoleManager() {
               <button
                 onClick={editingUserId ? handleUpdateUser : handleAddUser}
                 disabled={loading}
-                className="flex-1 px-6 py-4 bg-blue-600 hover:bg-blue-700 border border-blue-600 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-4 bg-zinc-950 hover:bg-zinc-950 border border-zinc-950 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg shadow-zinc-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Processing...' : editingUserId ? 'Update User' : 'Create User'}
               </button>

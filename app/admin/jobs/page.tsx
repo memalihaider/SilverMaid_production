@@ -437,21 +437,21 @@ export default function JobsPage() {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'Critical': return 'bg-red-100 text-red-800 border-red-300'
-      case 'High': return 'bg-orange-100 text-orange-800 border-orange-300'
-      case 'Medium': return 'bg-yellow-100 text-yellow-800 border-yellow-300'
-      default: return 'bg-blue-100 text-blue-800 border-blue-300'
+      case 'Critical': return 'bg-zinc-950 text-white border-zinc-950'
+      case 'High': return 'bg-white text-zinc-950 border-zinc-200'
+      case 'Medium': return 'bg-zinc-50 text-zinc-600 border-zinc-100'
+      default: return 'bg-zinc-50 text-zinc-400 border-zinc-100'
     }
   }
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Completed': return 'bg-green-100 text-green-800 border-green-300'
-      case 'In Progress': return 'bg-blue-100 text-blue-800 border-blue-300'
-      case 'Scheduled': return 'bg-purple-100 text-purple-800 border-purple-300'
-      case 'Pending': return 'bg-yellow-100 text-yellow-800 border-yellow-300'
-      case 'Cancelled': return 'bg-gray-100 text-gray-800 border-gray-300'
-      default: return 'bg-gray-100 text-gray-800 border-gray-300'
+      case 'Completed': return 'bg-emerald-50 text-emerald-700 border-emerald-100'
+      case 'In Progress': return 'bg-zinc-950 text-white border-zinc-950'
+      case 'Scheduled': return 'bg-zinc-50 text-zinc-900 border-zinc-200'
+      case 'Pending': return 'bg-amber-50 text-amber-700 border-amber-100'
+      case 'Cancelled': return 'bg-zinc-100 text-zinc-400 border-zinc-200'
+      default: return 'bg-zinc-50 text-zinc-400 border-zinc-100'
     }
   }
 
@@ -620,79 +620,48 @@ export default function JobsPage() {
       </div>
 
       {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm font-medium">Total Jobs</p>
-              <p className="text-3xl font-bold text-gray-900 mt-2">{stats.total}</p>
-            </div>
-            <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Briefcase className="h-6 w-6 text-blue-600" />
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm font-medium">In Progress</p>
-              <p className="text-3xl font-bold text-blue-600 mt-2">{stats.inProgress}</p>
-            </div>
-            <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Clock className="h-6 w-6 text-blue-600" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { label: 'Total Registry', val: stats.total, icon: Briefcase, color: 'text-zinc-600', bg: 'bg-zinc-100' },
+          { label: 'Active Tasks', val: stats.inProgress, icon: Clock, color: 'text-zinc-950', bg: 'bg-zinc-100' },
+          { label: 'Completed', val: stats.completed, icon: CheckCircle, color: 'text-zinc-950', bg: 'bg-zinc-100' },
+          { label: 'Budget Utilization', val: `${stats.totalBudget > 0 ? ((stats.totalActualCost / stats.totalBudget) * 100).toFixed(0) : '0'}%`, icon: DollarSign, color: 'text-zinc-950', bg: 'bg-zinc-100' }
+        ].map((stat, i) => (
+          <div key={i} className="bg-white border border-zinc-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">{stat.label}</p>
+                <p className="text-2xl font-black text-zinc-950 mt-1 tracking-tighter">{stat.val}</p>
+              </div>
+              <div className={`h-10 w-10 ${stat.bg} rounded-xl flex items-center justify-center`}>
+                <stat.icon className={`h-5 w-5 ${stat.color}`} />
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm font-medium">Completed</p>
-              <p className="text-3xl font-bold text-green-600 mt-2">{stats.completed}</p>
-            </div>
-            <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
-              <CheckCircle className="h-6 w-6 text-green-600" />
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-600 text-sm font-medium">Budget Utilization</p>
-              <p className="text-2xl font-bold text-orange-600 mt-2">
-                {stats.totalBudget > 0 ? ((stats.totalActualCost / stats.totalBudget) * 100).toFixed(0) : '0'}%
-              </p>
-            </div>
-            <div className="h-12 w-12 bg-orange-100 rounded-lg flex items-center justify-center">
-              <DollarSign className="h-6 w-6 text-orange-600" />
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* Search & Filters */}
-      <div className="bg-white border border-gray-200 rounded-lg p-4 space-y-4">
-        <div className="flex flex-col lg:flex-row gap-4">
+      <div className="bg-white border border-zinc-100 rounded-2xl p-3 shadow-sm">
+        <div className="flex flex-col lg:flex-row gap-3">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search by job title, client, or location..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              placeholder="Search registry..."
+              className="w-full pl-9 pr-4 py-2 bg-zinc-50 border border-zinc-100 rounded-xl text-sm focus:ring-1 focus:ring-zinc-950 focus:border-transparent outline-none transition-all placeholder:text-zinc-400 font-medium"
             />
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2">
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              className="px-3 py-2 bg-zinc-50 border border-zinc-100 rounded-xl text-xs font-bold uppercase tracking-wider text-zinc-600 focus:ring-1 focus:ring-zinc-950 outline-none transition-all cursor-pointer"
             >
-              <option value="all">All Status</option>
+              <option value="all">Status: All</option>
               <option value="Pending">Pending</option>
               <option value="Scheduled">Scheduled</option>
               <option value="In Progress">In Progress</option>
@@ -702,9 +671,9 @@ export default function JobsPage() {
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              className="px-3 py-2 bg-zinc-50 border border-zinc-100 rounded-xl text-xs font-bold uppercase tracking-wider text-zinc-600 focus:ring-1 focus:ring-zinc-950 outline-none transition-all cursor-pointer"
             >
-              <option value="all">All Priority</option>
+              <option value="all">Priority: All</option>
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
               <option value="High">High</option>
@@ -713,16 +682,16 @@ export default function JobsPage() {
 
             <button
               onClick={handleAddJob}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-zinc-800 transition-all shadow-lg active:scale-95"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-3.5 h-3.5" />
               New Job
             </button>
 
             <Link href="/admin/jobs/expense-manager">
-              <button className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-colors">
-                <DollarSign className="w-4 h-4" />
-                Expense Manager
+              <button className="flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-600 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-zinc-50 transition-all active:scale-95">
+                <DollarSign className="w-3.5 h-3.5" />
+                Expenses
               </button>
             </Link>
           </div>
@@ -730,92 +699,122 @@ export default function JobsPage() {
       </div>
 
       {/* Jobs List */}
-      <div className="space-y-3">
+      <div className="space-y-2">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job) => (
-            <div key={job.id} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all">
+            <div key={job.id} className="bg-white border border-zinc-100 rounded-xl p-3 hover:shadow-lg transition-all group overflow-hidden relative">
               <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  {/* Clickable Job Title and Details - FIXED */}
-                  <Link href={`/admin/jobs/${job.id}`} className="block mb-3 group">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex-1">
-                        <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <div className="flex-1 min-w-0">
+                  <Link href={`/admin/jobs/${job.id}`} className="block">
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex-1 min-w-0 pr-4">
+                        <h3 className="font-black text-zinc-950 tracking-tight text-base truncate group-hover:text-zinc-600 transition-colors">
                           {job.title}
                         </h3>
-                        <p className="text-sm text-gray-600 mt-1">{job.client}</p>
+                        <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mt-0.5">{job.client}</p>
                       </div>
-                      <div className="flex gap-2 flex-wrap justify-end">
-                        <span className={`text-xs font-bold px-3 py-1 border rounded-full ${getPriorityColor(job.priority)}`}>
+                      <div className="flex gap-1.5 flex-wrap justify-end shrink-0">
+                        <span className={`text-[9px] font-black px-2.5 py-1 uppercase tracking-wider border rounded-lg shadow-sm ${getPriorityColor(job.priority)}`}>
                           {job.priority}
                         </span>
-                        <span className={`text-xs font-bold px-3 py-1 border rounded-full ${getStatusColor(job.status)}`}>
+                        <span className={`text-[9px] font-black px-2.5 py-1 uppercase tracking-wider border rounded-lg shadow-sm ${getStatusColor(job.status)}`}>
                           {job.status}
                         </span>
                         {job.overtimeRequired && (
-                          <span className={`text-xs font-bold px-3 py-1 border rounded-full flex items-center gap-1 ${job.overtimeApproved ? 'bg-emerald-100 text-emerald-700 border-emerald-300' : 'bg-amber-100 text-amber-700 border-amber-300'}`}>
-                            <Zap className="h-3 w-3" /> OT: {job.overtimeHours}h {job.overtimeApproved ? '✓' : ''}
+                          <span className={`text-[9px] font-black px-2.5 py-1 uppercase tracking-wider border rounded-lg shadow-sm flex items-center gap-1 ${job.overtimeApproved ? 'bg-zinc-950 text-white border-zinc-900' : 'bg-zinc-100 text-zinc-600 border-zinc-200'}`}>
+                            <Zap className="h-2.5 w-2.5" /> OT {job.overtimeHours}H
                           </span>
                         )}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 text-sm text-gray-600 mt-3">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 shrink-0" />
-                        <span>{job.scheduledDate ? new Date(job.scheduledDate + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }) : 'Not scheduled'}</span>
+                        <div className="p-1 bg-zinc-50 rounded-lg border border-zinc-100">
+                           <Calendar className="h-3.5 w-3.5 text-zinc-400" />
+                        </div>
+                        <div className="min-w-0">
+                           <p className="text-[8px] font-black text-zinc-400 uppercase tracking-tighter leading-none mb-1">Schedule</p>
+                           <p className="text-[10px] font-bold text-zinc-900 truncate">
+                             {job.scheduledDate ? new Date(job.scheduledDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Pending'}
+                           </p>
+                        </div>
                       </div>
+                      
                       <div className="flex items-center gap-2">
-                        <MapPin className="h-4 w-4 shrink-0" />
-                        <span>{job.location}</span>
+                        <div className="p-1 bg-zinc-50 rounded-lg border border-zinc-100">
+                           <MapPin className="h-3.5 w-3.5 text-zinc-400" />
+                        </div>
+                        <div className="min-w-0">
+                           <p className="text-[8px] font-black text-zinc-400 uppercase tracking-tighter leading-none mb-1">Location</p>
+                           <p className="text-[10px] font-bold text-zinc-900 truncate">{job.location}</p>
+                        </div>
                       </div>
+
                       <div className="flex items-center gap-2">
-                        <Users className="h-4 w-4 shrink-0" />
-                        <span>{job.teamRequired} members</span>
+                        <div className="p-1 bg-zinc-50 rounded-lg border border-zinc-100">
+                           <Users className="h-3.5 w-3.5 text-zinc-400" />
+                        </div>
+                        <div className="min-w-0">
+                           <p className="text-[8px] font-black text-zinc-400 uppercase tracking-tighter leading-none mb-1">Team</p>
+                           <p className="text-[10px] font-bold text-zinc-900">{job.teamRequired}</p>
+                        </div>
                       </div>
+
                       <div className="flex items-center gap-2">
-                        <DollarSign className="h-4 w-4 shrink-0" />
-                        <span>AED {job.budget.toLocaleString()}</span>
+                        <div className="p-1 bg-zinc-50 rounded-lg border border-zinc-100">
+                           <DollarSign className="h-3.5 w-3.5 text-zinc-400" />
+                        </div>
+                        <div className="min-w-0">
+                           <p className="text-[8px] font-black text-zinc-400 uppercase tracking-tighter leading-none mb-1">Budget</p>
+                           <p className="text-[10px] font-bold text-zinc-900 truncate">AED {job.budget.toLocaleString()}</p>
+                        </div>
                       </div>
                     </div>
-
-                    {job.description && (
-                      <p className="text-sm text-gray-600 mt-3 line-clamp-2">{job.description}</p>
-                    )}
-
-                    {/* Assigned Employees Section */}
-                    {job.assignedEmployees && job.assignedEmployees.length > 0 && (
-                      <div className="mt-3 pt-3 border-t border-gray-100">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Users className="h-4 w-4 text-gray-500" />
-                          <p className="text-xs font-semibold text-gray-600">Assigned Team:</p>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {job.assignedEmployees.map((employee, idx) => (
-                            <span
-                              key={employee.id}
-                              className={`text-xs px-2 py-1 rounded-full border font-medium ${
-                                job.status === 'In Progress'
-                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                  : job.status === 'Scheduled'
-                                  ? 'bg-blue-50 text-blue-700 border-blue-200'
-                                  : 'bg-gray-50 text-gray-700 border-gray-200'
-                              }`}
-                            >
-                              {employee.name}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </Link>
+
+                  {/* Footer Section */}
+                  <div className="mt-4 pt-3 border-t border-zinc-50 flex items-center justify-between">
+                    <div className="flex -space-x-1.5 overflow-hidden">
+                      {job.assignedEmployees?.map((employee, idx) => (
+                        <div 
+                          key={employee.id} 
+                          className="h-6 w-6 rounded-full bg-zinc-950 border-2 border-white flex items-center justify-center text-[9px] font-black text-white"
+                          title={employee.name}
+                        >
+                          {employee.name.charAt(0)}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex gap-3">
+                       <button 
+                         onClick={() => {
+                           setSelectedJobForExecution(job)
+                           setShowExecutionModal(true)
+                         }}
+                         className="text-[9px] font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 transition-colors"
+                       >
+                         Sync Status
+                       </button>
+                       <Link 
+                         href={`/admin/jobs/${job.id}/edit`}
+                         className="text-[9px] font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 transition-colors"
+                       >
+                         Edit
+                       </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
 
                   {/* Action Buttons - INCLUDING EDIT, VIEW, DELETE */}
                   <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-gray-100">
                     {/* EDIT BUTTON */}
                     <button
                       onClick={() => handleEditJob(job.id)}
-                      className="text-xs px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors font-medium flex items-center gap-1"
+                      className="text-xs px-3 py-1.5 bg-zinc-100 text-zinc-950 rounded-lg hover:bg-blue-200 transition-colors font-medium flex items-center gap-1"
                       disabled={loading}
                     >
                       <Edit className="h-3 w-3" />
@@ -846,7 +845,7 @@ export default function JobsPage() {
                       <>
                         <button
                           onClick={() => handleUpdateJobStatus(job.id, 'Scheduled')}
-                          className="text-xs px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors font-medium"
+                          className="text-xs px-3 py-1.5 bg-zinc-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors font-medium"
                         >
                           Schedule
                         </button>
@@ -896,7 +895,7 @@ export default function JobsPage() {
                         </button>
                         <button
                           onClick={() => handleUpdateJobStatus(job.id, 'In Progress')}
-                          className="text-xs px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors font-medium"
+                          className="text-xs px-3 py-1.5 bg-zinc-100 text-zinc-950 rounded-lg hover:bg-blue-200 transition-colors font-medium"
                         >
                           Start
                         </button>
@@ -941,12 +940,12 @@ export default function JobsPage() {
           <div className="absolute inset-0 bg-black bg-opacity-40" onClick={() => { setShowNewJobModal(false); setEditingJobId(null) }}></div>
           <div className="absolute right-0 top-0 h-full w-full max-w-2xl bg-white shadow-2xl flex flex-col">
             {/* Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 flex justify-between items-center">
+            <div className="sticky top-0 bg-gradient-to-r from-zinc-950 to-zinc-950 text-white px-6 py-4 flex justify-between items-center">
               <div>
                 <h2 className="text-2xl font-bold">{editingJobId ? 'Edit Job' : 'Create New Job'}</h2>
-                <p className="text-blue-100 text-sm mt-1">Complete all job details</p>
+                <p className="text-zinc-100 text-sm mt-1">Complete all job details</p>
               </div>
-              <button onClick={() => { setShowNewJobModal(false); setEditingJobId(null) }} className="text-blue-100 hover:text-white transition-colors">
+              <button onClick={() => { setShowNewJobModal(false); setEditingJobId(null) }} className="text-zinc-100 hover:text-white transition-colors">
                 <X className="h-6 w-6" />
               </button>
             </div>
@@ -956,7 +955,7 @@ export default function JobsPage() {
               {/* Basic Information */}
               <div className="space-y-4 border-b pb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                  <Briefcase className="h-5 w-5 text-blue-600" />
+                  <Briefcase className="h-5 w-5 text-zinc-950" />
                   Basic Information
                 </h3>
 
@@ -967,7 +966,7 @@ export default function JobsPage() {
                       type="text"
                       value={newJobForm.title}
                       onChange={(e) => setNewJobForm({...newJobForm, title: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                       placeholder="e.g., Office Deep Cleaning"
                     />
                   </div>
@@ -983,7 +982,7 @@ export default function JobsPage() {
                           client: selected?.name || ''
                         })
                       }}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     >
                       <option value="">Select a client</option>
                       {clients.map((client) => (
@@ -1003,7 +1002,7 @@ export default function JobsPage() {
                   <textarea
                     value={newJobForm.description}
                     onChange={(e) => setNewJobForm({...newJobForm, description: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     rows={3}
                     placeholder="Detailed job description..."
                   />
@@ -1014,7 +1013,7 @@ export default function JobsPage() {
               <div className="space-y-4 border-b pb-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                    <UserPlus className="h-5 w-5 text-blue-600" />
+                    <UserPlus className="h-5 w-5 text-zinc-950" />
                     Assign Team Members
                   </h3>
                   <span className="text-sm font-medium text-gray-600">
@@ -1036,7 +1035,7 @@ export default function JobsPage() {
                           selectedEmployees: newJobForm.selectedEmployees.slice(0, newSize)
                         })
                       }}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                       min="1"
                     />
                   </div>
@@ -1046,7 +1045,7 @@ export default function JobsPage() {
                       {getSelectedEmployeeNames().length > 0 ? (
                         <div className="flex flex-wrap gap-1">
                           {getSelectedEmployeeNames().map((name, idx) => (
-                            <span key={idx} className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-md">
+                            <span key={idx} className="inline-flex items-center gap-1 px-2 py-1 bg-zinc-100 text-blue-800 text-xs rounded-md">
                               {name}
                               <button
                                 type="button"
@@ -1078,14 +1077,14 @@ export default function JobsPage() {
                         <label
                           key={employee.id}
                           className={`flex items-center gap-3 p-3 border-b cursor-pointer hover:bg-gray-50 ${
-                            newJobForm.selectedEmployees.includes(employee.id) ? 'bg-blue-50' : ''
+                            newJobForm.selectedEmployees.includes(employee.id) ? 'bg-zinc-50' : ''
                           }`}
                         >
                           <input
                             type="checkbox"
                             checked={newJobForm.selectedEmployees.includes(employee.id)}
                             onChange={() => toggleEmployeeSelection(employee.id)}
-                            className="w-4 h-4 rounded text-blue-600"
+                            className="w-4 h-4 rounded text-zinc-950"
                           />
                           <div className="flex-1">
                             <p className="font-medium text-gray-900">{employee.name}</p>
@@ -1113,7 +1112,7 @@ export default function JobsPage() {
               {/* Location & Priority */}
               <div className="space-y-4 border-b pb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-blue-600" />
+                  <MapPin className="h-5 w-5 text-zinc-950" />
                   Location & Priority
                 </h3>
 
@@ -1123,7 +1122,7 @@ export default function JobsPage() {
                     type="text"
                     value={newJobForm.location}
                     onChange={(e) => setNewJobForm({...newJobForm, location: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     placeholder="Enter job location"
                   />
                 </div>
@@ -1134,7 +1133,7 @@ export default function JobsPage() {
                     <select
                       value={newJobForm.priority}
                       onChange={(e) => setNewJobForm({...newJobForm, priority: e.target.value as any})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     >
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -1147,7 +1146,7 @@ export default function JobsPage() {
                     <select
                       value={newJobForm.riskLevel}
                       onChange={(e) => setNewJobForm({...newJobForm, riskLevel: e.target.value as any})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     >
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -1160,7 +1159,7 @@ export default function JobsPage() {
               {/* Scheduling */}
               <div className="space-y-4 border-b pb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                  <Calendar className="h-5 w-5 text-blue-600" />
+                  <Calendar className="h-5 w-5 text-zinc-950" />
                   Scheduling
                 </h3>
 
@@ -1170,7 +1169,7 @@ export default function JobsPage() {
                     type="date"
                     value={newJobForm.scheduledDate}
                     onChange={(e) => setNewJobForm({...newJobForm, scheduledDate: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                   />
                 </div>
 
@@ -1181,7 +1180,7 @@ export default function JobsPage() {
                       type="time"
                       value={newJobForm.scheduledTime}
                       onChange={(e) => setNewJobForm({...newJobForm, scheduledTime: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     />
                   </div>
                   <div>
@@ -1190,7 +1189,7 @@ export default function JobsPage() {
                       type="time"
                       value={newJobForm.endTime}
                       onChange={(e) => setNewJobForm({...newJobForm, endTime: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     />
                   </div>
                 </div>
@@ -1202,7 +1201,7 @@ export default function JobsPage() {
                       type="text"
                       value={newJobForm.estimatedDuration}
                       onChange={(e) => setNewJobForm({...newJobForm, estimatedDuration: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                       placeholder="e.g., 8 hours"
                     />
                   </div>
@@ -1212,7 +1211,7 @@ export default function JobsPage() {
                       type="date"
                       value={newJobForm.slaDeadline}
                       onChange={(e) => setNewJobForm({...newJobForm, slaDeadline: e.target.value})}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     />
                   </div>
                 </div>
@@ -1221,7 +1220,7 @@ export default function JobsPage() {
               {/* Resources & Budget */}
               <div className="space-y-4 border-b pb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                  <DollarSign className="h-5 w-5 text-blue-600" />
+                  <DollarSign className="h-5 w-5 text-zinc-950" />
                   Resources & Budget
                 </h3>
 
@@ -1231,7 +1230,7 @@ export default function JobsPage() {
                     type="number"
                     value={newJobForm.budget}
                     onChange={(e) => setNewJobForm({...newJobForm, budget: parseInt(e.target.value) || 0})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     min="0"
                   />
                 </div>
@@ -1241,7 +1240,7 @@ export default function JobsPage() {
                   <textarea
                     value={newJobForm.requiredSkills}
                     onChange={(e) => setNewJobForm({...newJobForm, requiredSkills: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     rows={2}
                     placeholder="Enter skills separated by comma. e.g., General Cleaning, Floor Care"
                   />
@@ -1251,7 +1250,7 @@ export default function JobsPage() {
               {/* Permits & Compliance */}
               <div className="space-y-4 border-b pb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-blue-600" />
+                  <CheckCircle className="h-5 w-5 text-zinc-950" />
                   Permits & Compliance
                 </h3>
 
@@ -1260,7 +1259,7 @@ export default function JobsPage() {
                   <textarea
                     value={newJobForm.permits}
                     onChange={(e) => setNewJobForm({...newJobForm, permits: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     rows={2}
                     placeholder="Enter permits separated by comma. e.g., Building Access, Safety Certificate"
                   />
@@ -1271,7 +1270,7 @@ export default function JobsPage() {
                   <textarea
                     value={newJobForm.tags}
                     onChange={(e) => setNewJobForm({...newJobForm, tags: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     rows={2}
                     placeholder="Enter tags separated by comma. e.g., Office, Commercial, Urgent"
                   />
@@ -1281,7 +1280,7 @@ export default function JobsPage() {
               {/* Services */}
               <div className="space-y-4 border-b pb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                  <ShoppingCart className="h-5 w-5 text-blue-600" />
+                  <ShoppingCart className="h-5 w-5 text-zinc-950" />
                   Job Services
                 </h3>
                 <p className="text-sm text-gray-600">Add services to this job that can be charged to the client</p>
@@ -1396,7 +1395,7 @@ export default function JobsPage() {
               {/* Special Instructions */}
               <div className="space-y-4 border-b pb-6">
                 <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-blue-600" />
+                  <Clock className="h-5 w-5 text-zinc-950" />
                   Special Instructions
                 </h3>
 
@@ -1405,13 +1404,13 @@ export default function JobsPage() {
                   <textarea
                     value={newJobForm.specialInstructions}
                     onChange={(e) => setNewJobForm({...newJobForm, specialInstructions: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                     rows={3}
                     placeholder="Any special instructions or notes for this job..."
                   />
                 </div>
 
-                <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="flex items-center gap-3 p-4 bg-zinc-50 rounded-lg border border-blue-200">
                   <input
                     type="checkbox"
                     checked={newJobForm.recurring}
@@ -1437,7 +1436,7 @@ export default function JobsPage() {
               </button>
               <button
                 onClick={handleSaveJob}
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-colors flex items-center gap-2"
+                className="px-6 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 font-semibold transition-colors flex items-center gap-2"
                 disabled={loading}
               >
                 {loading ? 'Saving...' : editingJobId ? 'Update Job' : 'Create Job'}
@@ -1551,7 +1550,7 @@ export default function JobsPage() {
                 <h3 className="font-semibold text-gray-900">Documentation</h3>
                 <div className="grid grid-cols-3 gap-4">
                   {['Before', 'During', 'After'].map(label => (
-                    <div key={label} className="aspect-square bg-gray-100 border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-blue-500">
+                    <div key={label} className="aspect-square bg-gray-100 border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-zinc-500">
                       <Camera className="h-8 w-8 text-gray-400 mb-2" />
                       <p className="text-xs text-gray-600">{label}</p>
                     </div>
@@ -1565,7 +1564,7 @@ export default function JobsPage() {
                 <textarea
                   value={executionNotes}
                   onChange={(e) => setExecutionNotes(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none"
                   rows={4}
                   placeholder="Add notes..."
                 />

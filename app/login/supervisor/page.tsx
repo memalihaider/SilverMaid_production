@@ -42,7 +42,7 @@ export default function SupervisorLoginPage() {
   };
 
   const fillDemoCredentials = () => {
-    setEmail('supervisor@homeware.ae');
+    setEmail('supervisor@silvermaid.ae');
     setPassword('Demo@123');
   };
 
@@ -109,7 +109,7 @@ export default function SupervisorLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-slate-400"
-                placeholder="supervisor@homeware.ae"
+                placeholder="supervisor@silvermaid.ae"
                 required
               />
             </div>
@@ -173,7 +173,7 @@ export default function SupervisorLoginPage() {
             <p className="text-xs text-slate-400 mb-2 text-center">Demo Credentials</p>
             <div className="flex justify-between items-center text-sm">
               <div>
-                <p className="text-slate-300 font-mono text-xs">supervisor@homeware.ae</p>
+                <p className="text-slate-300 font-mono text-xs">supervisor@silvermaid.ae</p>
                 <p className="text-slate-400 font-mono text-xs">Demo@123</p>
               </div>
               <button
@@ -189,7 +189,7 @@ export default function SupervisorLoginPage() {
 
         {/* Footer */}
         <p className="text-center text-slate-500 text-sm mt-8">
-          © 2026 Homeware. All rights reserved.
+          © 2026 Silver Maid. All rights reserved.
         </p>
       </div>
     </div>

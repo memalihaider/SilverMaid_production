@@ -569,7 +569,7 @@ export default function EmployeeDirectory() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Active': return 'bg-green-100 text-green-700'
-      case 'On Leave': return 'bg-blue-100 text-blue-700'
+      case 'On Leave': return 'bg-zinc-100 text-zinc-950'
       default: return 'bg-gray-100 text-gray-700'
     }
   }
@@ -589,21 +589,21 @@ export default function EmployeeDirectory() {
         <div className="flex gap-3">
           <button 
             onClick={handleAddDepartment} 
-            className="flex items-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-3 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 transition-colors"
           >
             <Building className="h-5 w-5" />
             <span className="font-bold">Add Department</span>
           </button>
           <button 
             onClick={handleAddSupervisor} 
-            className="flex items-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-3 bg-zinc-900 text-white rounded-lg hover:bg-indigo-700 transition-colors"
           >
             <UserCog className="h-5 w-5" />
             <span className="font-bold">Add Supervisor</span>
           </button>
           <button 
             onClick={handleAddEmployee} 
-            className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-3 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
           >
             <UserPlus className="h-5 w-5" />
             <span className="font-bold">Add Employee</span>
@@ -618,7 +618,7 @@ export default function EmployeeDirectory() {
             onClick={() => setActiveTable('employees')}
             className={`px-6 py-3 font-bold flex items-center gap-2 border-b-2 transition-all ${
               activeTable === 'employees'
-                ? 'border-blue-600 text-blue-600'
+                ? 'border-zinc-950 text-zinc-950'
                 : 'border-transparent text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -629,7 +629,7 @@ export default function EmployeeDirectory() {
             onClick={() => setActiveTable('departments')}
             className={`px-6 py-3 font-bold flex items-center gap-2 border-b-2 transition-all ${
               activeTable === 'departments'
-                ? 'border-purple-600 text-purple-600'
+                ? 'border-zinc-800 text-zinc-800'
                 : 'border-transparent text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -640,7 +640,7 @@ export default function EmployeeDirectory() {
             onClick={() => setActiveTable('supervisors')}
             className={`px-6 py-3 font-bold flex items-center gap-2 border-b-2 transition-all ${
               activeTable === 'supervisors'
-                ? 'border-indigo-600 text-indigo-600'
+                ? 'border-zinc-900 text-zinc-900'
                 : 'border-transparent text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -664,7 +664,7 @@ export default function EmployeeDirectory() {
               }
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-black"
             />
           </div>
           <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-2 text-black">
@@ -680,7 +680,7 @@ export default function EmployeeDirectory() {
               <select
                 value={selectedDepartment}
                 onChange={(e) => setSelectedDepartment(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-black"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm text-black"
               >
                 {allDepartments.map(dept => (
                   <option key={dept} value={dept}>{dept === 'all' ? 'All Departments' : dept}</option>
@@ -692,7 +692,7 @@ export default function EmployeeDirectory() {
               <select
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-black"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm text-black"
               >
                 {statuses.map(status => (
                   <option key={status} value={status}>{status === 'all' ? 'All Status' : status}</option>
@@ -709,20 +709,20 @@ export default function EmployeeDirectory() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-4">
+        <div className="bg-gradient-to-br from-zinc-50 to-zinc-100 border border-blue-200 rounded-lg p-4">
           <p className="text-xs text-gray-600 mb-1">Total Employees</p>
-          <p className="text-2xl font-black text-blue-700">{employees.length}</p>
-          <p className="text-xs text-blue-600 mt-2">From Firebase Database</p>
+          <p className="text-2xl font-black text-zinc-950">{employees.length}</p>
+          <p className="text-xs text-zinc-950 mt-2">From Firebase Database</p>
         </div>
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-4">
+        <div className="bg-gradient-to-br from-zinc-50 to-zinc-100 border border-purple-200 rounded-lg p-4">
           <p className="text-xs text-gray-600 mb-1">Departments</p>
           <p className="text-2xl font-black text-purple-700">{departments.length}</p>
-          <p className="text-xs text-purple-600 mt-2">Active departments</p>
+          <p className="text-xs text-zinc-800 mt-2">Active departments</p>
         </div>
         <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 border border-indigo-200 rounded-lg p-4">
           <p className="text-xs text-gray-600 mb-1">Supervisors</p>
           <p className="text-2xl font-black text-indigo-700">{supervisors.length}</p>
-          <p className="text-xs text-indigo-600 mt-2">Team leaders</p>
+          <p className="text-xs text-zinc-900 mt-2">Team leaders</p>
         </div>
         <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg p-4">
           <p className="text-xs text-gray-600 mb-1">Burnout Risk</p>
@@ -756,7 +756,7 @@ export default function EmployeeDirectory() {
                   <tr>
                     <td colSpan={9} className="px-4 py-8 text-center">
                       <div className="flex items-center justify-center gap-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-zinc-950"></div>
                         <span className="text-gray-600">Loading employees...</span>
                       </div>
                     </td>
@@ -766,7 +766,7 @@ export default function EmployeeDirectory() {
                     <tr key={emp.id} className="hover:bg-gray-50 transition-colors">
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
-                          <div className="h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">
+                          <div className="h-8 w-8 rounded-full bg-zinc-950 text-white flex items-center justify-center text-xs font-bold">
                             {emp.name?.charAt(0) || 'E'}
                           </div>
                           <div>
@@ -779,7 +779,7 @@ export default function EmployeeDirectory() {
                         <p className="text-sm font-semibold text-black">{emp.role || 'No Role'}</p>
                       </td>
                       <td className="px-4 py-3">
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">{emp.department || 'No Dept'}</span>
+                        <span className="text-xs bg-zinc-100 text-zinc-950 px-2 py-1 rounded">{emp.department || 'No Dept'}</span>
                       </td>
                       <td className="px-4 py-3">
                         <p className="text-sm text-black">{emp.supervisor || 'None'}</p>
@@ -810,7 +810,7 @@ export default function EmployeeDirectory() {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => handleEditEmployee(emp)}
-                            className="p-1 hover:bg-blue-100 rounded text-blue-600"
+                            className="p-1 hover:bg-zinc-100 rounded text-zinc-950"
                             title="Edit"
                           >
                             <Edit2 className="h-4 w-4" />
@@ -835,7 +835,7 @@ export default function EmployeeDirectory() {
                         <p className="text-sm mt-1">Add your first employee or check your Firebase connection</p>
                         <button 
                           onClick={handleAddEmployee}
-                          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                          className="mt-4 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
                         >
                           Add First Employee
                         </button>
@@ -871,7 +871,7 @@ export default function EmployeeDirectory() {
                   <tr>
                     <td colSpan={8} className="px-4 py-8 text-center">
                       <div className="flex items-center justify-center gap-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-purple-600"></div>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-zinc-800"></div>
                         <span className="text-gray-600">Loading departments...</span>
                       </div>
                     </td>
@@ -883,7 +883,7 @@ export default function EmployeeDirectory() {
                       <tr key={dept.id} className="hover:bg-gray-50 transition-colors">
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-3">
-                            <div className="h-8 w-8 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold">
+                            <div className="h-8 w-8 rounded-full bg-zinc-800 text-white flex items-center justify-center text-xs font-bold">
                               {dept.name?.charAt(0) || 'D'}
                             </div>
                             <div>
@@ -920,7 +920,7 @@ export default function EmployeeDirectory() {
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => handleEditDepartment(dept)}
-                              className="p-1 hover:bg-purple-100 rounded text-purple-600"
+                              className="p-1 hover:bg-zinc-100 rounded text-zinc-800"
                               title="Edit"
                             >
                               <Edit2 className="h-4 w-4" />
@@ -946,7 +946,7 @@ export default function EmployeeDirectory() {
                         <p className="text-sm mt-1">Create your first department to organize your team</p>
                         <button 
                           onClick={handleAddDepartment}
-                          className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                          className="mt-4 px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 transition-colors"
                         >
                           Add First Department
                         </button>
@@ -983,7 +983,7 @@ export default function EmployeeDirectory() {
                   <tr>
                     <td colSpan={9} className="px-4 py-8 text-center">
                       <div className="flex items-center justify-center gap-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-indigo-600"></div>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-zinc-900"></div>
                         <span className="text-gray-600">Loading supervisors...</span>
                       </div>
                     </td>
@@ -998,7 +998,7 @@ export default function EmployeeDirectory() {
                       <tr key={sup.id} className="hover:bg-gray-50 transition-colors">
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-3">
-                            <div className="h-8 w-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold">
+                            <div className="h-8 w-8 rounded-full bg-zinc-900 text-white flex items-center justify-center text-xs font-bold">
                               {sup.name?.charAt(0) || 'S'}
                             </div>
                             <div>
@@ -1037,7 +1037,7 @@ export default function EmployeeDirectory() {
                           <p className="text-xs text-gray-600">max employees</p>
                         </td>
                         <td className="px-4 py-3">
-                          <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">{sup.experience || '2-5 years'}</span>
+                          <span className="text-xs bg-zinc-100 text-zinc-950 px-2 py-1 rounded">{sup.experience || '2-5 years'}</span>
                         </td>
                         <td className="px-4 py-3">
                           <span className={`text-xs px-2 py-1 rounded font-semibold ${
@@ -1050,7 +1050,7 @@ export default function EmployeeDirectory() {
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => handleEditSupervisor(sup)}
-                              className="p-1 hover:bg-indigo-100 rounded text-indigo-600"
+                              className="p-1 hover:bg-indigo-100 rounded text-zinc-900"
                               title="Edit"
                             >
                               <Edit2 className="h-4 w-4" />
@@ -1076,7 +1076,7 @@ export default function EmployeeDirectory() {
                         <p className="text-sm mt-1">Add supervisors to manage your teams effectively</p>
                         <button 
                           onClick={handleAddSupervisor}
-                          className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                          className="mt-4 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-indigo-700 transition-colors"
                         >
                           Add First Supervisor
                         </button>
@@ -1093,12 +1093,12 @@ export default function EmployeeDirectory() {
       {/* Organization Hierarchy Summary */}
       <div className="bg-white border border-gray-300 rounded-lg p-6">
         <h3 className="font-bold text-black mb-4 flex items-center gap-2">
-          <Shield className="h-5 w-5 text-blue-600" />
+          <Shield className="h-5 w-5 text-zinc-950" />
           Organization Overview
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-sm font-bold text-blue-700 mb-2">Employee Distribution</p>
+          <div className="p-4 bg-zinc-50 rounded-lg border border-blue-200">
+            <p className="text-sm font-bold text-zinc-950 mb-2">Employee Distribution</p>
             <div className="space-y-2 max-h-48 overflow-y-auto">
               {departments.slice(0, 5).map(dept => {
                 const deptEmployees = employees.filter(emp => emp.department === dept.name).length
@@ -1115,7 +1115,7 @@ export default function EmployeeDirectory() {
               })}
             </div>
           </div>
-          <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+          <div className="p-4 bg-zinc-50 rounded-lg border border-purple-200">
             <p className="text-sm font-bold text-purple-700 mb-2">Department Budgets</p>
             <div className="space-y-2 max-h-48 overflow-y-auto">
               {departments.slice(0, 5).map(dept => (
@@ -1161,7 +1161,7 @@ export default function EmployeeDirectory() {
             <div className="flex items-center justify-between p-6 border-b border-gray-300">
               <div>
                 <h2 className="text-2xl font-bold text-black flex items-center gap-2">
-                  <Building className="h-5 w-5 text-purple-600" />
+                  <Building className="h-5 w-5 text-zinc-800" />
                   Add New Department
                 </h2>
                 <p className="text-sm text-gray-600 mt-1">Create a new department in your organization</p>
@@ -1179,7 +1179,7 @@ export default function EmployeeDirectory() {
                   placeholder="e.g., Marketing, IT, Operations"
                   value={departmentForm.name}
                   onChange={(e) => setDepartmentForm({ ...departmentForm, name: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-black"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                 />
               </div>
 
@@ -1190,7 +1190,7 @@ export default function EmployeeDirectory() {
                   value={departmentForm.description}
                   onChange={(e) => setDepartmentForm({ ...departmentForm, description: e.target.value })}
                   rows={3}
-                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-black"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                 />
               </div>
 
@@ -1202,7 +1202,7 @@ export default function EmployeeDirectory() {
                     placeholder="Department Manager"
                     value={departmentForm.manager}
                     onChange={(e) => setDepartmentForm({ ...departmentForm, manager: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-black"
+                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                   />
                 </div>
                 <div>
@@ -1212,7 +1212,7 @@ export default function EmployeeDirectory() {
                     placeholder="e.g., Floor 3, Building A"
                     value={departmentForm.location}
                     onChange={(e) => setDepartmentForm({ ...departmentForm, location: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-black"
+                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                   />
                 </div>
               </div>
@@ -1227,7 +1227,7 @@ export default function EmployeeDirectory() {
                       placeholder="0"
                       value={departmentForm.budget}
                       onChange={(e) => setDepartmentForm({ ...departmentForm, budget: parseFloat(e.target.value) || 0 })}
-                      className="flex-1 px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-black"
+                      className="flex-1 px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                     />
                   </div>
                 </div>
@@ -1237,7 +1237,7 @@ export default function EmployeeDirectory() {
                     type="date"
                     value={departmentForm.establishedDate}
                     onChange={(e) => setDepartmentForm({ ...departmentForm, establishedDate: e.target.value })}
-                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-black"
+                    className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                   />
                 </div>
               </div>
@@ -1248,7 +1248,7 @@ export default function EmployeeDirectory() {
                   id="departmentActive"
                   checked={departmentForm.active}
                   onChange={(e) => setDepartmentForm({ ...departmentForm, active: e.target.checked })}
-                  className="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500"
+                  className="w-4 h-4 text-zinc-800 bg-gray-100 border-gray-300 rounded focus:ring-zinc-500"
                 />
                 <label htmlFor="departmentActive" className="text-sm font-medium text-gray-700">
                   Active Department
@@ -1265,7 +1265,7 @@ export default function EmployeeDirectory() {
               </button>
               <button
                 onClick={handleSaveDepartment}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg text-sm font-bold hover:from-purple-700 hover:to-purple-800 transition-all shadow-md flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-zinc-800 to-purple-700 text-white rounded-lg text-sm font-bold hover:from-purple-700 hover:to-purple-800 transition-all shadow-md flex items-center justify-center gap-2"
               >
                 <Building className="h-4 w-4" />
                 Save Department
@@ -1282,7 +1282,7 @@ export default function EmployeeDirectory() {
             <div className="flex items-center justify-between p-6 border-b border-gray-300">
               <div>
                 <h2 className="text-2xl font-bold text-black flex items-center gap-2">
-                  <UserCog className="h-5 w-5 text-indigo-600" />
+                  <UserCog className="h-5 w-5 text-zinc-900" />
                   Add New Supervisor
                 </h2>
                 <p className="text-sm text-gray-600 mt-1">Add a new supervisor to manage team members</p>
@@ -1390,7 +1390,7 @@ export default function EmployeeDirectory() {
                   id="supervisorActive"
                   checked={supervisorForm.active}
                   onChange={(e) => setSupervisorForm({ ...supervisorForm, active: e.target.checked })}
-                  className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500"
+                  className="w-4 h-4 text-zinc-900 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500"
                 />
                 <label htmlFor="supervisorActive" className="text-sm font-medium text-gray-700">
                   Active Supervisor
@@ -1407,7 +1407,7 @@ export default function EmployeeDirectory() {
               </button>
               <button
                 onClick={handleSaveSupervisor}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-lg text-sm font-bold hover:from-indigo-700 hover:to-indigo-800 transition-all shadow-md flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-zinc-900 to-indigo-700 text-white rounded-lg text-sm font-bold hover:from-indigo-700 hover:to-indigo-800 transition-all shadow-md flex items-center justify-center gap-2"
               >
                 <UserCog className="h-4 w-4" />
                 Save Supervisor
@@ -1422,7 +1422,7 @@ export default function EmployeeDirectory() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
           <div className="bg-white rounded-xl border border-gray-300 shadow-2xl w-full max-w-4xl my-8">
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-300 sticky top-0 bg-gradient-to-r from-blue-50 to-white">
+            <div className="flex items-center justify-between p-6 border-b border-gray-300 sticky top-0 bg-gradient-to-r from-zinc-50 to-white">
               <div>
                 <h2 className="text-2xl font-bold text-black">{isEditing ? 'Edit Employee Details' : 'Add New Employee'}</h2>
                 <p className="text-sm text-gray-600 mt-1">Complete employee information and role assignment</p>
@@ -1450,7 +1450,7 @@ export default function EmployeeDirectory() {
                     onClick={() => setExpandedSection(section.id)}
                     className={`px-4 py-3 text-sm font-medium whitespace-nowrap border-b-2 transition-colors ${
                       expandedSection === section.id
-                        ? 'border-blue-600 text-blue-600 bg-blue-50'
+                        ? 'border-zinc-950 text-zinc-950 bg-zinc-50'
                         : 'border-transparent text-gray-600 hover:text-gray-900'
                     }`}
                   >
@@ -1464,7 +1464,7 @@ export default function EmployeeDirectory() {
               {expandedSection === 'personal' && (
                 <div className="space-y-5 animate-fadeIn">
                   <h3 className="text-lg font-bold text-black flex items-center gap-2">
-                    <Mail className="h-5 w-5 text-blue-600" />
+                    <Mail className="h-5 w-5 text-zinc-950" />
                     Personal Information
                   </h3>
                   
@@ -1476,17 +1476,17 @@ export default function EmployeeDirectory() {
                         placeholder="First and Last Name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                     <div>
                       <label className="text-sm font-bold text-gray-700 mb-2 block">Email *</label>
                       <input
                         type="email"
-                        placeholder="employee@homeware.ae"
+                        placeholder="employee@silvermaid.ae"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                   </div>
@@ -1499,7 +1499,7 @@ export default function EmployeeDirectory() {
                         placeholder="+971 50 1234567"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                     <div>
@@ -1508,7 +1508,7 @@ export default function EmployeeDirectory() {
                         type="date"
                         value={formData.dateOfBirth}
                         onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                   </div>
@@ -1521,7 +1521,7 @@ export default function EmployeeDirectory() {
                         placeholder="Country of Origin"
                         value={formData.nationality}
                         onChange={(e) => setFormData({ ...formData, nationality: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                     <div>
@@ -1531,7 +1531,7 @@ export default function EmployeeDirectory() {
                         placeholder="Passport ID"
                         value={formData.passportNumber}
                         onChange={(e) => setFormData({ ...formData, passportNumber: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                   </div>
@@ -1543,7 +1543,7 @@ export default function EmployeeDirectory() {
                       placeholder="UAE ID Number"
                       value={formData.emiratesIdNumber}
                       onChange={(e) => setFormData({ ...formData, emiratesIdNumber: e.target.value })}
-                      className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                      className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                     />
                   </div>
                 </div>
@@ -1553,7 +1553,7 @@ export default function EmployeeDirectory() {
               {expandedSection === 'professional' && (
                 <div className="space-y-5 animate-fadeIn">
                   <h3 className="text-lg font-bold text-black flex items-center gap-2">
-                    <Briefcase className="h-5 w-5 text-blue-600" />
+                    <Briefcase className="h-5 w-5 text-zinc-950" />
                     Professional Details
                   </h3>
 
@@ -1565,7 +1565,7 @@ export default function EmployeeDirectory() {
                         placeholder="Job Title"
                         value={formData.role}
                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                     <div>
@@ -1575,7 +1575,7 @@ export default function EmployeeDirectory() {
                         placeholder="e.g., Senior, Executive"
                         value={formData.position}
                         onChange={(e) => setFormData({ ...formData, position: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                   </div>
@@ -1586,7 +1586,7 @@ export default function EmployeeDirectory() {
                       <select
                         value={formData.department}
                         onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       >
                         <option value="">Select Department</option>
                         {departments.map(dept => (
@@ -1599,7 +1599,7 @@ export default function EmployeeDirectory() {
                       <select
                         value={formData.status}
                         onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       >
                         <option value="Active">Active</option>
                         <option value="On Leave">On Leave</option>
@@ -1617,7 +1617,7 @@ export default function EmployeeDirectory() {
                         type="date"
                         value={formData.joinDate}
                         onChange={(e) => setFormData({ ...formData, joinDate: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                     <div>
@@ -1625,7 +1625,7 @@ export default function EmployeeDirectory() {
                       <select
                         value={formData.supervisor}
                         onChange={(e) => setFormData({ ...formData, supervisor: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       >
                         <option value="">Select Supervisor</option>
                         {supervisors.map(sup => (
@@ -1641,7 +1641,7 @@ export default function EmployeeDirectory() {
                       <select
                         value={formData.rating}
                         onChange={(e) => setFormData({ ...formData, rating: parseFloat(e.target.value) })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       >
                         <option value="5">⭐⭐⭐⭐⭐ Excellent (5.0)</option>
                         <option value="4.5">⭐⭐⭐⭐✨ Very Good (4.5)</option>
@@ -1655,7 +1655,7 @@ export default function EmployeeDirectory() {
                       <select
                         value={formData.burnoutRisk}
                         onChange={(e) => setFormData({ ...formData, burnoutRisk: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       >
                         <option value="Low">🟢 Low Risk</option>
                         <option value="Medium">🟡 Medium Risk</option>
@@ -1671,7 +1671,7 @@ export default function EmployeeDirectory() {
               {expandedSection === 'roles' && (
                 <div className="space-y-5 animate-fadeIn">
                   <h3 className="text-lg font-bold text-black flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-blue-600" />
+                    <Shield className="h-5 w-5 text-zinc-950" />
                     Roles & Access Management
                   </h3>
 
@@ -1679,7 +1679,7 @@ export default function EmployeeDirectory() {
                     <label className="text-sm font-bold text-gray-700 mb-3 block">Available Roles</label>
                     <div className="grid grid-cols-2 gap-3 max-h-80 overflow-y-auto p-3 bg-gray-50 rounded-lg border border-gray-300">
                       {availableRoles.map(role => (
-                        <label key={role} className="flex items-center gap-3 p-3 bg-white rounded border border-gray-200 hover:border-blue-400 hover:bg-blue-50 cursor-pointer transition-colors">
+                        <label key={role} className="flex items-center gap-3 p-3 bg-white rounded border border-gray-200 hover:border-blue-400 hover:bg-zinc-50 cursor-pointer transition-colors">
                           <input
                             type="checkbox"
                             checked={formData.assignedRoles.includes(role)}
@@ -1696,7 +1696,7 @@ export default function EmployeeDirectory() {
                                 })
                               }
                             }}
-                            className="w-4 h-4 rounded border-gray-300 text-blue-600 cursor-pointer"
+                            className="w-4 h-4 rounded border-gray-300 text-zinc-950 cursor-pointer"
                           />
                           <div className="flex-1">
                             <p className="text-sm font-medium text-gray-700">{role}</p>
@@ -1714,14 +1714,14 @@ export default function EmployeeDirectory() {
                       <label className="text-sm font-bold text-gray-700 mb-2 block">Currently Assigned Roles</label>
                       <div className="flex flex-wrap gap-2">
                         {formData.assignedRoles.map(role => (
-                          <div key={role} className="flex items-center gap-2 px-3 py-1 bg-blue-100 border border-blue-300 rounded-full">
-                            <span className="text-sm font-medium text-blue-700">{role}</span>
+                          <div key={role} className="flex items-center gap-2 px-3 py-1 bg-zinc-100 border border-blue-300 rounded-full">
+                            <span className="text-sm font-medium text-zinc-950">{role}</span>
                             <button
                               onClick={() => setFormData({
                                 ...formData,
                                 assignedRoles: formData.assignedRoles.filter(r => r !== role)
                               })}
-                              className="text-blue-600 hover:text-blue-800 font-bold"
+                              className="text-zinc-950 hover:text-blue-800 font-bold"
                             >
                               ✕
                             </button>
@@ -1737,7 +1737,7 @@ export default function EmployeeDirectory() {
               {expandedSection === 'financial' && (
                 <div className="space-y-5 animate-fadeIn">
                   <h3 className="text-lg font-bold text-black flex items-center gap-2">
-                    <DollarSign className="h-5 w-5 text-blue-600" />
+                    <DollarSign className="h-5 w-5 text-zinc-950" />
                     Financial & Salary Information
                   </h3>
 
@@ -1751,7 +1751,7 @@ export default function EmployeeDirectory() {
                           placeholder="0"
                           value={formData.salary}
                           onChange={(e) => setFormData({ ...formData, salary: parseFloat(e.target.value) || 0 })}
-                          className="flex-1 px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="flex-1 px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                         />
                       </div>
                     </div>
@@ -1760,7 +1760,7 @@ export default function EmployeeDirectory() {
                       <select
                         value={formData.salaryStructure}
                         onChange={(e) => setFormData({ ...formData, salaryStructure: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       >
                         <option value="Monthly">Monthly</option>
                         <option value="Bi-Weekly">Bi-Weekly</option>
@@ -1778,7 +1778,7 @@ export default function EmployeeDirectory() {
                         placeholder="e.g., Emirates NBD, FAB"
                         value={formData.bankName}
                         onChange={(e) => setFormData({ ...formData, bankName: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                     <div>
@@ -1788,7 +1788,7 @@ export default function EmployeeDirectory() {
                         placeholder="Account Number"
                         value={formData.bankAccount}
                         onChange={(e) => setFormData({ ...formData, bankAccount: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                   </div>
@@ -1799,7 +1799,7 @@ export default function EmployeeDirectory() {
               {expandedSection === 'visa' && (
                 <div className="space-y-5 animate-fadeIn">
                   <h3 className="text-lg font-bold text-black flex items-center gap-2">
-                    <FileText className="h-5 w-5 text-blue-600" />
+                    <FileText className="h-5 w-5 text-zinc-950" />
                     Visa & Document Details
                   </h3>
 
@@ -1814,7 +1814,7 @@ export default function EmployeeDirectory() {
                           placeholder="Visa ID Number"
                           value={formData.visaNumber}
                           onChange={(e) => setFormData({ ...formData, visaNumber: e.target.value })}
-                          className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                         />
                       </div>
                       <div>
@@ -1823,7 +1823,7 @@ export default function EmployeeDirectory() {
                           type="date"
                           value={formData.visaExpiryDate}
                           onChange={(e) => setFormData({ ...formData, visaExpiryDate: e.target.value })}
-                          className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                         />
                       </div>
                     </div>
@@ -1851,7 +1851,7 @@ export default function EmployeeDirectory() {
                           setDocumentName('')
                           setDocumentValidDate('')
                         }}
-                        className="flex items-center gap-2 px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                        className="flex items-center gap-2 px-3 py-1 bg-zinc-950 text-white text-xs font-medium rounded-lg hover:bg-zinc-950 transition-colors"
                         title="Add new document"
                       >
                         <Plus className="h-3 w-3" />
@@ -1860,9 +1860,9 @@ export default function EmployeeDirectory() {
                     </div>
 
                     {/* Add Document Section */}
-                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <div className="bg-zinc-50 p-4 rounded-lg border border-blue-200">
                       <div className="flex items-center gap-2 mb-3">
-                        <Upload className="h-4 w-4 text-blue-600" />
+                        <Upload className="h-4 w-4 text-zinc-950" />
                         <label className="text-sm font-bold text-gray-700">Add New Document</label>
                       </div>
                       <div className="space-y-3">
@@ -1872,20 +1872,20 @@ export default function EmployeeDirectory() {
                             placeholder="Document Name (e.g., Passport, Insurance)"
                             value={documentName}
                             onChange={(e) => setDocumentName(e.target.value)}
-                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                           />
                           <input
                             type="date"
                             placeholder="Valid Until (optional)"
                             value={documentValidDate}
                             onChange={(e) => setDocumentValidDate(e.target.value)}
-                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                           />
                         </div>
                         <div className="flex gap-2">
                           <button
                             onClick={() => fileInputRef.current?.click()}
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white border border-blue-300 rounded-lg text-sm font-medium text-blue-600 hover:bg-blue-50 transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white border border-blue-300 rounded-lg text-sm font-medium text-zinc-950 hover:bg-zinc-50 transition-colors"
                           >
                             <Upload className="h-4 w-4" />
                             Upload File
@@ -1955,13 +1955,13 @@ export default function EmployeeDirectory() {
                               <div key={doc.id} className={`flex items-center justify-between p-3 rounded-lg border ${
                                 isExpired ? 'bg-red-50 border-red-200' : 
                                 isExpiringSoon ? 'bg-yellow-50 border-yellow-200' : 
-                                'bg-blue-50 border-blue-200'
+                                'bg-zinc-50 border-blue-200'
                               }`}>
                                 <div className="flex items-center gap-3 flex-1 min-w-0">
                                   <File className={`h-5 w-5 shrink-0 ${
                                     isExpired ? 'text-red-500' : 
                                     isExpiringSoon ? 'text-yellow-500' : 
-                                    'text-blue-600'
+                                    'text-zinc-950'
                                   }`} />
                                   <div className="min-w-0 flex-1">
                                     <div className="flex items-center gap-2">
@@ -2005,7 +2005,7 @@ export default function EmployeeDirectory() {
               {expandedSection === 'emergency' && (
                 <div className="space-y-5 animate-fadeIn">
                   <h3 className="text-lg font-bold text-black flex items-center gap-2">
-                    <Heart className="h-5 w-5 text-blue-600" />
+                    <Heart className="h-5 w-5 text-zinc-950" />
                     Emergency Contact Information
                   </h3>
 
@@ -2016,7 +2016,7 @@ export default function EmployeeDirectory() {
                       placeholder="Full Name"
                       value={formData.emergencyContact}
                       onChange={(e) => setFormData({ ...formData, emergencyContact: e.target.value })}
-                      className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                      className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                     />
                   </div>
 
@@ -2028,7 +2028,7 @@ export default function EmployeeDirectory() {
                         placeholder="Phone Number"
                         value={formData.emergencyPhone}
                         onChange={(e) => setFormData({ ...formData, emergencyPhone: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       />
                     </div>
                     <div>
@@ -2036,7 +2036,7 @@ export default function EmployeeDirectory() {
                       <select
                         value={formData.emergencyRelation}
                         onChange={(e) => setFormData({ ...formData, emergencyRelation: e.target.value })}
-                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent text-black"
                       >
                         <option value="">Select Relationship</option>
                         <option value="Spouse">Spouse</option>
@@ -2062,7 +2062,7 @@ export default function EmployeeDirectory() {
               </button>
               <button
                 onClick={handleSaveEmployee}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-blue-800 transition-all shadow-md flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-zinc-950 to-zinc-950 text-white rounded-lg text-sm font-bold hover:from-zinc-950 hover:to-blue-800 transition-all shadow-md flex items-center justify-center gap-2"
               >
                 {isEditing ? '✏️ Update in Firebase' : '➕ Save to Firebase'}
               </button>

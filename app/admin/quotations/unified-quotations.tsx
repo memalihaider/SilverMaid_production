@@ -393,7 +393,7 @@ Services: ${quote.services.join(', ')}
 ${quote.notes ? `Notes: ${quote.notes}` : ''}
 
 Best regards,
-Homeware Team
+Silver Maid Team
       `
       window.location.href = `mailto:${quote.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     } else if (method === 'whatsapp') {
@@ -426,7 +426,7 @@ Please let me know if you have any questions!
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Sent':
-        return 'bg-blue-100 text-blue-800'
+        return 'bg-zinc-100 text-blue-800'
       case 'Accepted':
         return 'bg-green-100 text-green-800'
       case 'Draft':
@@ -462,7 +462,7 @@ Please let me know if you have any questions!
               }}
               className={`py-3 px-2 rounded-lg font-semibold transition-all flex flex-col items-center gap-1 text-sm whitespace-nowrap ${
                 activeTab === tab
-                  ? 'bg-blue-600 text-white shadow-md'
+                  ? 'bg-zinc-950 text-white shadow-md'
                   : 'text-slate-600 hover:bg-slate-100'
               }`}
             >
@@ -488,7 +488,7 @@ Please let me know if you have any questions!
                     <p className="text-slate-600 text-sm font-medium">Total Quotations</p>
                     <p className="text-2xl font-bold text-slate-900">{stats.total}</p>
                   </div>
-                  <FileText className="text-blue-600" size={28} />
+                  <FileText className="text-zinc-950" size={28} />
                 </div>
               </div>
               <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
@@ -497,7 +497,7 @@ Please let me know if you have any questions!
                     <p className="text-slate-600 text-sm font-medium">Sent</p>
                     <p className="text-2xl font-bold text-slate-900">{stats.sent}</p>
                   </div>
-                  <Send className="text-purple-600" size={28} />
+                  <Send className="text-zinc-800" size={28} />
                 </div>
               </div>
               <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
@@ -530,14 +530,14 @@ Please let me know if you have any questions!
                     placeholder="Search by client, quote number..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div className="flex gap-2">
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    className="px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-white"
                   >
                     <option>All</option>
                     <option>Draft</option>
@@ -547,7 +547,7 @@ Please let me know if you have any questions!
                     <option>Expired</option>
                     <option>Cancelled</option>
                   </select>
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 flex items-center gap-2">
+                  <button className="px-4 py-2 bg-zinc-950 text-white rounded-lg font-semibold hover:bg-zinc-950 flex items-center gap-2">
                     <Plus size={20} />
                     <span className="hidden lg:inline">New Quote</span>
                   </button>
@@ -561,7 +561,7 @@ Please let me know if you have any questions!
                 <div
                   key={quote.id}
                   onClick={() => setSelectedQuote(quote)}
-                  className={`bg-white rounded-xl border ${selectedQuote?.id === quote.id ? 'border-blue-500 bg-blue-50' : 'border-slate-200'} p-4 lg:p-6 shadow-sm hover:shadow-md transition-all cursor-pointer`}
+                  className={`bg-white rounded-xl border ${selectedQuote?.id === quote.id ? 'border-zinc-500 bg-zinc-50' : 'border-slate-200'} p-4 lg:p-6 shadow-sm hover:shadow-md transition-all cursor-pointer`}
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 items-center">
                     <div className="lg:col-span-2">
@@ -599,7 +599,7 @@ Please let me know if you have any questions!
                         className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
                         title="Share quotation"
                       >
-                        <Send size={18} className="text-blue-600" />
+                        <Send size={18} className="text-zinc-950" />
                       </button>
                       <button
                         onClick={(e) => {
@@ -692,7 +692,7 @@ Please let me know if you have any questions!
 
                   {/* Right column */}
                   <div className="space-y-4">
-                    <div className="bg-blue-50 rounded-lg p-4">
+                    <div className="bg-zinc-50 rounded-lg p-4">
                       <p className="text-sm text-slate-600 font-medium mb-2">Amount Breakdown</p>
                       <div className="space-y-2">
                         {selectedQuote.amountOriginal && (
@@ -709,7 +709,7 @@ Please let me know if you have any questions!
                         )}
                         <div className="border-t pt-2 flex justify-between">
                           <span className="font-semibold">Final Amount:</span>
-                          <span className="text-lg font-bold text-blue-600">AED {selectedQuote.amount.toLocaleString()}</span>
+                          <span className="text-lg font-bold text-zinc-950">AED {selectedQuote.amount.toLocaleString()}</span>
                         </div>
                       </div>
                     </div>
@@ -760,7 +760,7 @@ Please let me know if you have any questions!
                       setShowShareModal(true)
                       setShareMethod('email')
                     }}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 flex items-center gap-2"
+                    className="px-4 py-2 bg-zinc-950 text-white rounded-lg font-semibold hover:bg-zinc-950 flex items-center gap-2"
                   >
                     <Mail size={18} /> Send via Email
                   </button>
@@ -840,7 +840,7 @@ Please let me know if you have any questions!
                 {/* Client Selection */}
                 <div>
                   <label className="block text-sm font-semibold text-slate-900 mb-3">Select Client</label>
-                  <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                  <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-white">
                     <option value="">Choose a client...</option>
                     {mockClients.map(client => (
                       <option key={client.id} value={client.id}>
@@ -870,7 +870,7 @@ Please let me know if you have any questions!
                     <input
                       type="number"
                       placeholder="0.00"
-                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
                   <div>
@@ -878,7 +878,7 @@ Please let me know if you have any questions!
                     <input
                       type="number"
                       placeholder="0"
-                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
                   <div>
@@ -886,7 +886,7 @@ Please let me know if you have any questions!
                     <input
                       type="number"
                       placeholder="5"
-                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
                 </div>
@@ -897,13 +897,13 @@ Please let me know if you have any questions!
                   <textarea
                     placeholder="Add any additional notes or terms..."
                     rows={4}
-                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
 
                 {/* Actions */}
                 <div className="flex gap-3 pt-4">
-                  <button className="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2">
+                  <button className="flex-1 px-6 py-3 bg-zinc-950 text-white font-semibold rounded-lg hover:bg-zinc-950 flex items-center justify-center gap-2">
                     <Save size={18} /> Save as Draft
                   </button>
                   <button className="flex-1 px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
@@ -929,7 +929,7 @@ Please let me know if you have any questions!
                     {['Minimal Clean', 'Corporate Blue', 'Modern Dark', 'Elegant Gold'].map(template => (
                       <button
                         key={template}
-                        className="p-4 border-2 border-slate-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-colors text-center"
+                        className="p-4 border-2 border-slate-300 rounded-lg hover:border-zinc-500 hover:bg-zinc-50 transition-colors text-center"
                       >
                         <p className="font-semibold text-slate-900">{template}</p>
                         <p className="text-xs text-slate-600 mt-1">Professional design</p>
@@ -941,7 +941,7 @@ Please let me know if you have any questions!
                 {/* Quotation Selection & Preview */}
                 <div>
                   <p className="text-sm font-semibold text-slate-900 mb-3">Select Quotation to Preview</p>
-                  <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white mb-4">
+                  <select className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-white mb-4">
                     <option value="">Choose quotation...</option>
                     {quotations.map(q => (
                       <option key={q.id} value={q.id}>
@@ -961,7 +961,7 @@ Please let me know if you have any questions!
 
                 {/* Actions */}
                 <div className="flex gap-3">
-                  <button className="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2">
+                  <button className="flex-1 px-6 py-3 bg-zinc-950 text-white font-semibold rounded-lg hover:bg-zinc-950 flex items-center justify-center gap-2">
                     <Download size={18} /> Download PDF
                   </button>
                   <button className="flex-1 px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
@@ -1049,7 +1049,7 @@ Please let me know if you have any questions!
                     <p className="text-sm text-slate-600 font-medium">Services Included</p>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {selectedContract.services.map((service, idx) => (
-                        <span key={idx} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                        <span key={idx} className="bg-zinc-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
                           {service}
                         </span>
                       ))}
@@ -1090,7 +1090,7 @@ Please let me know if you have any questions!
                       <div className="flex flex-col items-center">
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center font-semibold text-white ${
                           quote.status === 'Accepted' ? 'bg-green-600' :
-                          quote.status === 'Sent' ? 'bg-blue-600' :
+                          quote.status === 'Sent' ? 'bg-zinc-950' :
                           quote.status === 'Draft' ? 'bg-gray-600' :
                           quote.status === 'Rejected' ? 'bg-red-600' :
                           quote.status === 'Expired' ? 'bg-yellow-600' :
@@ -1176,7 +1176,7 @@ Please let me know if you have any questions!
                     onClick={() => setShareMethod('email')}
                     className="w-full p-4 border border-slate-300 rounded-lg hover:bg-slate-50 flex items-center gap-3 transition-colors"
                   >
-                    <Mail className="text-blue-600" size={24} />
+                    <Mail className="text-zinc-950" size={24} />
                     <div className="text-left">
                       <p className="font-semibold text-slate-900">Email</p>
                       <p className="text-xs text-slate-600">Send via email client</p>
@@ -1222,7 +1222,7 @@ Please let me know if you have any questions!
                       setShowShareModal(false)
                       setShareMethod(null)
                     }}
-                    className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+                    className="w-full px-4 py-2 bg-zinc-950 text-white font-semibold rounded-lg hover:bg-zinc-950"
                   >
                     Send Email
                   </button>

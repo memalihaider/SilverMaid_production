@@ -302,9 +302,9 @@ export default function Quotations() {
   ])
   useEffect(() => {
     const loadProductData = () => {
-      const savedCategories = localStorage.getItem('homeware_product_categories')
-      const savedServices = localStorage.getItem('homeware_product_services')
-      const savedProducts = localStorage.getItem('homeware_product_products')
+      const savedCategories = localStorage.getItem('silvermaid_product_categories')
+      const savedServices = localStorage.getItem('silvermaid_product_services')
+      const savedProducts = localStorage.getItem('silvermaid_product_products')
 
       if (savedCategories) {
         setAvailableCategories(JSON.parse(savedCategories))
@@ -704,7 +704,7 @@ export default function Quotations() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Draft': return 'bg-gray-100 text-gray-700'
-      case 'Sent': return 'bg-blue-100 text-blue-700'
+      case 'Sent': return 'bg-zinc-100 text-zinc-950'
       case 'Accepted': return 'bg-green-100 text-green-700'
       case 'Rejected': return 'bg-red-100 text-red-700'
       case 'Expired': return 'bg-orange-100 text-orange-700'
@@ -814,7 +814,7 @@ export default function Quotations() {
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-950 text-white font-black rounded-xl hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
               >
                 <Plus className="h-5 w-5" />
                 New Quotation
@@ -847,7 +847,7 @@ export default function Quotations() {
           onClick={() => setActiveTab('quotations')}
           className={`px-6 py-3 rounded-xl font-black transition-all ${
             activeTab === 'quotations'
-              ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+              ? 'bg-zinc-950 text-white shadow-lg shadow-zinc-500/20'
               : 'text-slate-600 hover:bg-slate-50'
           }`}
         >
@@ -876,7 +876,7 @@ export default function Quotations() {
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   >
                 <option value="All">All Statuses</option>
                 <option value="Draft">Draft</option>
@@ -892,7 +892,7 @@ export default function Quotations() {
               <select
                 value={priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value)}
-                className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
               >
                 <option value="All">All Priorities</option>
                 <option value="Low">Low</option>
@@ -906,7 +906,7 @@ export default function Quotations() {
               <select
                 value={clientFilter}
                 onChange={(e) => setClientFilter(e.target.value)}
-                className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
               >
                 <option value="All">All Clients</option>
                 {sharedClients.map(client => (
@@ -964,14 +964,14 @@ export default function Quotations() {
             placeholder="Search quotations by client, quote number, or services..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-12 pr-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
           />
         </div>
         {selectedQuotes.length > 0 && (
           <div className="flex gap-2">
             <button
               onClick={() => setShowBulkActions(true)}
-              className="px-4 py-3 bg-blue-600 text-white font-black rounded-lg hover:bg-blue-700"
+              className="px-4 py-3 bg-zinc-950 text-white font-black rounded-lg hover:bg-zinc-950"
             >
               Bulk Actions ({selectedQuotes.length})
             </button>
@@ -1011,7 +1011,7 @@ export default function Quotations() {
             </thead>
             <tbody>
               {filteredQuotes.map((quote) => (
-                <tr key={quote.id} className={`border-b border-slate-100 hover:bg-slate-50 transition-colors ${selectedQuotes.includes(quote.id) ? 'bg-blue-50' : ''}`}>
+                <tr key={quote.id} className={`border-b border-slate-100 hover:bg-slate-50 transition-colors ${selectedQuotes.includes(quote.id) ? 'bg-zinc-50' : ''}`}>
                   <td className="px-6 py-4">
                     <input
                       type="checkbox"
@@ -1022,7 +1022,7 @@ export default function Quotations() {
                   </td>
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-black text-blue-600">{quote.quoteNumber}</p>
+                      <p className="font-black text-zinc-950">{quote.quoteNumber}</p>
                       <p className="text-xs text-slate-500">v{quote.version || 1}</p>
                     </div>
                   </td>
@@ -1086,7 +1086,7 @@ export default function Quotations() {
                           setSelectedQuote(quote)
                           setShowDetails(true)
                         }}
-                        className="p-2 hover:bg-blue-100 rounded-lg transition-colors text-blue-600"
+                        className="p-2 hover:bg-zinc-100 rounded-lg transition-colors text-zinc-950"
                         title="View Details"
                       >
                         <Eye className="h-4 w-4" />
@@ -1102,14 +1102,14 @@ export default function Quotations() {
                       )}
                       <button
                         onClick={() => handleDuplicateQuote(quote.id)}
-                        className="p-2 hover:bg-purple-100 rounded-lg transition-colors text-purple-600"
+                        className="p-2 hover:bg-zinc-100 rounded-lg transition-colors text-zinc-800"
                         title="Duplicate Quote"
                       >
                         <Copy className="h-4 w-4" />
                       </button>
                       <button
                         onClick={() => handleDownload(quote.id)}
-                        className="p-2 hover:bg-indigo-100 rounded-lg transition-colors text-indigo-600"
+                        className="p-2 hover:bg-indigo-100 rounded-lg transition-colors text-zinc-900"
                         title="Download PDF"
                       >
                         <Download className="h-4 w-4" />
@@ -1154,7 +1154,7 @@ export default function Quotations() {
               <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={() => handleBulkStatusChange('Sent')}
-                  className="p-3 border border-blue-200 text-blue-700 font-black rounded-lg hover:bg-blue-50"
+                  className="p-3 border border-blue-200 text-zinc-950 font-black rounded-lg hover:bg-zinc-50"
                 >
                   Mark as Sent
                 </button>
@@ -1211,7 +1211,7 @@ export default function Quotations() {
                     <select
                       value={newQuote.template}
                       onChange={(e) => handleTemplateSelect(e.target.value)}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     >
                       <option value="">Select a template or create custom</option>
                       {Object.keys(serviceTemplates).map(template => (
@@ -1231,7 +1231,7 @@ export default function Quotations() {
                           setNewQuote({...newQuote, clientId: e.target.value})
                         }
                       }}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     >
                       <option value="">Select Client</option>
                       {sharedClients.map(client => (
@@ -1248,7 +1248,7 @@ export default function Quotations() {
                     <select
                       value={selectedCategory}
                       onChange={(e) => handleCategoryChange(e.target.value)}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     >
                       <option value="">Select Category</option>
                       {availableCategories.map(category => (
@@ -1271,7 +1271,7 @@ export default function Quotations() {
                               type="button"
                               onClick={() => handleServiceSelect(service)}
                               className={`flex items-center gap-3 p-3 border rounded-lg hover:bg-slate-50 cursor-pointer transition-colors ${
-                                selectedService?.id === service.id ? 'border-blue-500 bg-blue-50' : 'border-slate-200'
+                                selectedService?.id === service.id ? 'border-zinc-500 bg-zinc-50' : 'border-slate-200'
                               }`}
                             >
                               {service.image ? (
@@ -1292,7 +1292,7 @@ export default function Quotations() {
                                 </div>
                               </div>
                               {selectedService?.id === service.id && (
-                                <Check className="h-5 w-5 text-blue-600" />
+                                <Check className="h-5 w-5 text-zinc-950" />
                               )}
                             </button>
                           ))}
@@ -1310,7 +1310,7 @@ export default function Quotations() {
                       onChange={(e) => setItemDescription(e.target.value)}
                       placeholder="Service description will auto-populate when you select a service above..."
                       rows={4}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
 
@@ -1360,7 +1360,7 @@ export default function Quotations() {
                         value={newQuote.area}
                         onChange={(e) => setNewQuote({...newQuote, area: e.target.value})}
                         placeholder="2500"
-                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                     <div>
@@ -1372,7 +1372,7 @@ export default function Quotations() {
                         placeholder="0"
                         min="0"
                         max="50"
-                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                   </div>
@@ -1383,7 +1383,7 @@ export default function Quotations() {
                       <select
                         value={newQuote.frequency}
                         onChange={(e) => setNewQuote({...newQuote, frequency: e.target.value as Quotation['frequency']})}
-                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       >
                         <option value="One-time">One-time</option>
                         <option value="Weekly">Weekly</option>
@@ -1397,7 +1397,7 @@ export default function Quotations() {
                       <select
                         value={newQuote.priority}
                         onChange={(e) => setNewQuote({...newQuote, priority: e.target.value as Quotation['priority']})}
-                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       >
                         <option value="Low">Low</option>
                         <option value="Medium">Medium</option>
@@ -1417,7 +1417,7 @@ export default function Quotations() {
                       value={newQuote.contactPerson}
                       onChange={(e) => setNewQuote({...newQuote, contactPerson: e.target.value})}
                       placeholder="Contact person name"
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
 
@@ -1429,7 +1429,7 @@ export default function Quotations() {
                         value={newQuote.contactPhone}
                         onChange={(e) => setNewQuote({...newQuote, contactPhone: e.target.value})}
                         placeholder="+971-50-XXXXXXX"
-                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                     <div>
@@ -1439,7 +1439,7 @@ export default function Quotations() {
                         value={newQuote.contactEmail}
                         onChange={(e) => setNewQuote({...newQuote, contactEmail: e.target.value})}
                         placeholder="contact@company.com"
-                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                   </div>
@@ -1451,7 +1451,7 @@ export default function Quotations() {
                       onChange={(e) => setNewQuote({...newQuote, specialRequirements: e.target.value})}
                       placeholder="Any special requirements or notes..."
                       rows={3}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
 
@@ -1461,7 +1461,7 @@ export default function Quotations() {
                       value={newQuote.terms}
                       onChange={(e) => setNewQuote({...newQuote, terms: e.target.value})}
                       rows={3}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
 
@@ -1472,7 +1472,7 @@ export default function Quotations() {
                       onChange={(e) => setNewQuote({...newQuote, notes: e.target.value})}
                       placeholder="Internal notes for the team..."
                       rows={2}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
 
@@ -1493,7 +1493,7 @@ export default function Quotations() {
 
               {/* Selected Products */}
               {selectedProducts.length > 0 && (
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <div className="mt-6 p-4 bg-zinc-50 rounded-lg">
                   <h3 className="font-black text-blue-900 mb-3">Selected Products</h3>
                   <div className="space-y-2">
                     {selectedProducts.map(product => (
@@ -1596,7 +1596,7 @@ export default function Quotations() {
                         </div>
                         <div>
                           <p className="text-slate-500">Final Amount</p>
-                          <p className="font-black text-blue-600">{calculation.formatted}</p>
+                          <p className="font-black text-zinc-950">{calculation.formatted}</p>
                         </div>
                         <div>
                           <p className="text-slate-500">Per sq ft</p>
@@ -1623,7 +1623,7 @@ export default function Quotations() {
                 </button>
                 <button
                   onClick={handleAddQuote}
-                  className="flex-1 py-3 bg-blue-600 text-white font-black rounded-lg hover:bg-blue-700"
+                  className="flex-1 py-3 bg-zinc-950 text-white font-black rounded-lg hover:bg-zinc-950"
                 >
                   Create Quotation
                 </button>
@@ -1654,7 +1654,7 @@ export default function Quotations() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Column */}
                 <div className="space-y-6">
-                  <div className="bg-blue-50 p-6 rounded-lg">
+                  <div className="bg-zinc-50 p-6 rounded-lg">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="font-black text-blue-900">Quote Summary</h3>
                       <span className={`px-3 py-1.5 rounded-lg font-bold text-sm ${getStatusColor(selectedQuote.status)}`}>
@@ -1663,15 +1663,15 @@ export default function Quotations() {
                     </div>
                     <div className="space-y-3">
                       <div className="flex justify-between">
-                        <span className="text-blue-700">Quote Number:</span>
+                        <span className="text-zinc-950">Quote Number:</span>
                         <span className="font-black text-blue-900">{selectedQuote.quoteNumber}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-blue-700">Amount:</span>
+                        <span className="text-zinc-950">Amount:</span>
                         <span className="font-black text-blue-900 text-xl">{selectedQuote.amount}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-blue-700">Valid Until:</span>
+                        <span className="text-zinc-950">Valid Until:</span>
                         <span className="font-bold text-blue-900">{selectedQuote.validUntil}</span>
                       </div>
                       {selectedQuote.discountPercentage > 0 && (
@@ -1718,7 +1718,7 @@ export default function Quotations() {
                           {selectedQuote.services.map((serviceName, i) => {
                             const service = availableServices.find(s => s.name === serviceName)
                             return (
-                              <div key={i} className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                              <div key={i} className="flex items-center gap-3 p-3 bg-zinc-50 rounded-lg">
                                 {service?.image ? (
                                   <img
                                     src={service.image}
@@ -1886,7 +1886,7 @@ export default function Quotations() {
               <div className="flex gap-3 pt-6 border-t border-slate-100 mt-8">
                 <button
                   onClick={() => handleDuplicateQuote(selectedQuote.id)}
-                  className="px-4 py-2 border border-purple-200 text-purple-700 font-black rounded-lg hover:bg-purple-50"
+                  className="px-4 py-2 border border-purple-200 text-purple-700 font-black rounded-lg hover:bg-zinc-50"
                 >
                   <Copy className="h-4 w-4 inline mr-2" />
                   Duplicate
@@ -1901,7 +1901,7 @@ export default function Quotations() {
                 <div className="flex-1"></div>
                 <button
                   onClick={() => setShowDetails(false)}
-                  className="px-6 py-2 bg-blue-600 text-white font-black rounded-lg hover:bg-blue-700"
+                  className="px-6 py-2 bg-zinc-950 text-white font-black rounded-lg hover:bg-zinc-950"
                 >
                   Close
                 </button>
@@ -1991,7 +1991,7 @@ export default function Quotations() {
                         <td className="px-6 py-4">
                           <span className={`px-3 py-1 rounded-full text-xs font-black ${
                             contract.status === 'Active' ? 'bg-green-100 text-green-700' :
-                            contract.status === 'Completed' ? 'bg-blue-100 text-blue-700' :
+                            contract.status === 'Completed' ? 'bg-zinc-100 text-zinc-950' :
                             contract.status === 'Draft' ? 'bg-gray-100 text-gray-700' :
                             'bg-red-100 text-red-700'
                           }`}>
@@ -2009,7 +2009,7 @@ export default function Quotations() {
                             </button>
                             <button
                               onClick={() => {/* Handle contract edit */}}
-                              className="p-2 text-blue-600 hover:bg-blue-100 rounded-lg"
+                              className="p-2 text-zinc-950 hover:bg-zinc-100 rounded-lg"
                               title="Edit Contract"
                             >
                               <Edit className="h-4 w-4" />
@@ -2213,7 +2213,7 @@ export default function Quotations() {
                         <span className="text-slate-500">Status:</span>
                         <span className={`px-2 py-1 rounded-full text-xs font-black ${
                           selectedContract.status === 'Active' ? 'bg-green-100 text-green-700' :
-                          selectedContract.status === 'Completed' ? 'bg-blue-100 text-blue-700' :
+                          selectedContract.status === 'Completed' ? 'bg-zinc-100 text-zinc-950' :
                           'bg-gray-100 text-gray-700'
                         }`}>
                           {selectedContract.status}
@@ -2269,14 +2269,14 @@ export default function Quotations() {
               <div className="flex gap-3 pt-6 border-t border-slate-100 mt-8">
                 <button
                   onClick={() => {/* Handle contract edit */}}
-                  className="px-4 py-2 border border-blue-200 text-blue-700 font-black rounded-lg hover:bg-blue-50"
+                  className="px-4 py-2 border border-blue-200 text-zinc-950 font-black rounded-lg hover:bg-zinc-50"
                 >
                   <Edit className="h-4 w-4 inline mr-2" />
                   Edit
                 </button>
                 <button
                   onClick={() => {/* Handle contract duplicate */}}
-                  className="px-4 py-2 border border-purple-200 text-purple-700 font-black rounded-lg hover:bg-purple-50"
+                  className="px-4 py-2 border border-purple-200 text-purple-700 font-black rounded-lg hover:bg-zinc-50"
                 >
                   <Copy className="h-4 w-4 inline mr-2" />
                   Duplicate
@@ -2324,7 +2324,7 @@ export default function Quotations() {
                       type="text"
                       value={newClient.name}
                       onChange={(e) => setNewClient({...newClient, name: e.target.value})}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       placeholder="Enter client name"
                     />
                   </div>
@@ -2334,7 +2334,7 @@ export default function Quotations() {
                       type="text"
                       value={newClient.company}
                       onChange={(e) => setNewClient({...newClient, company: e.target.value})}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       placeholder="Enter company name"
                     />
                   </div>
@@ -2347,7 +2347,7 @@ export default function Quotations() {
                       type="email"
                       value={newClient.email}
                       onChange={(e) => setNewClient({...newClient, email: e.target.value})}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       placeholder="Enter email address"
                     />
                   </div>
@@ -2357,7 +2357,7 @@ export default function Quotations() {
                       type="tel"
                       value={newClient.phone}
                       onChange={(e) => setNewClient({...newClient, phone: e.target.value})}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       placeholder="Enter phone number"
                     />
                   </div>
@@ -2370,7 +2370,7 @@ export default function Quotations() {
                       type="text"
                       value={newClient.location}
                       onChange={(e) => setNewClient({...newClient, location: e.target.value})}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       placeholder="Enter location"
                     />
                   </div>
@@ -2380,7 +2380,7 @@ export default function Quotations() {
                       type="text"
                       value={newClient.contactPerson}
                       onChange={(e) => setNewClient({...newClient, contactPerson: e.target.value})}
-                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       placeholder="Enter contact person"
                     />
                   </div>
@@ -2392,7 +2392,7 @@ export default function Quotations() {
                     type="text"
                     value={newClient.industry}
                     onChange={(e) => setNewClient({...newClient, industry: e.target.value})}
-                    className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     placeholder="Enter industry type"
                   />
                 </div>
@@ -2403,7 +2403,7 @@ export default function Quotations() {
                     value={newClient.notes}
                     onChange={(e) => setNewClient({...newClient, notes: e.target.value})}
                     rows={3}
-                    className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full mt-1 px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     placeholder="Additional notes about the client"
                   />
                 </div>
@@ -2448,7 +2448,7 @@ export default function Quotations() {
 
                     const updatedClients = [...sharedClients, client]
                     setSharedClients(updatedClients)
-                    localStorage.setItem('homeware_crm_clients', JSON.stringify(updatedClients))
+                    localStorage.setItem('silvermaid_crm_clients', JSON.stringify(updatedClients))
 
                     setNewQuote({...newQuote, clientId: client.id.toString()})
                     setNewClient({
@@ -2463,7 +2463,7 @@ export default function Quotations() {
                     })
                     setShowAddClientModal(false)
                   }}
-                  className="flex-1 py-3 bg-blue-600 text-white font-black rounded-lg hover:bg-blue-700"
+                  className="flex-1 py-3 bg-zinc-950 text-white font-black rounded-lg hover:bg-zinc-950"
                 >
                   Add Client
                 </button>

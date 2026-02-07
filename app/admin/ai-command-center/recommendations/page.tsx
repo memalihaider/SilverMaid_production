@@ -123,7 +123,7 @@ export default function Recommendations() {
       case 'critical': return 'bg-red-100 text-red-700'
       case 'high': return 'bg-orange-100 text-orange-700'
       case 'medium': return 'bg-yellow-100 text-yellow-700'
-      default: return 'bg-blue-100 text-blue-700'
+      default: return 'bg-zinc-100 text-zinc-950'
     }
   }
 
@@ -171,11 +171,11 @@ export default function Recommendations() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`p-3 rounded-lg border-2 transition-all text-left ${
                   selectedCategory === cat.id
-                    ? 'border-blue-600 bg-blue-50'
+                    ? 'border-zinc-950 bg-zinc-50'
                     : 'border-gray-200 hover:border-blue-300'
                 }`}
               >
-                <Icon className={`h-5 w-5 mb-2 ${selectedCategory === cat.id ? 'text-blue-600' : 'text-gray-600'}`} />
+                <Icon className={`h-5 w-5 mb-2 ${selectedCategory === cat.id ? 'text-zinc-950' : 'text-gray-600'}`} />
                 <p className="text-xs font-bold">{cat.label}</p>
                 <p className="text-[10px] text-muted-foreground">{cat.id === 'all' ? recommendations.length : count} items</p>
               </button>
@@ -195,14 +195,14 @@ export default function Recommendations() {
           <p className="text-2xl font-black text-green-700">AED 2.8M+</p>
           <p className="text-xs text-green-600">Annual revenue</p>
         </div>
-        <div className="bg-linear-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-4">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-100 border border-blue-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Avg Confidence</p>
-          <p className="text-3xl font-black text-blue-700">90.1%</p>
+          <p className="text-3xl font-black text-zinc-950">90.1%</p>
         </div>
-        <div className="bg-linear-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-4">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-100 border border-purple-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Quick Wins Available</p>
           <p className="text-3xl font-black text-purple-700">3</p>
-          <p className="text-xs text-purple-600">Low effort items</p>
+          <p className="text-xs text-zinc-800">Low effort items</p>
         </div>
       </div>
 
@@ -222,7 +222,7 @@ export default function Recommendations() {
               </div>
               <div className="text-right shrink-0">
                 <p className="text-xs text-muted-foreground mb-1">Confidence</p>
-                <p className="text-2xl font-black text-blue-600">{rec.confidence}%</p>
+                <p className="text-2xl font-black text-zinc-950">{rec.confidence}%</p>
               </div>
             </div>
 
@@ -237,7 +237,7 @@ export default function Recommendations() {
               </div>
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Timeline</p>
-                <p className="text-sm font-bold text-blue-600">{rec.timeline}</p>
+                <p className="text-sm font-bold text-zinc-950">{rec.timeline}</p>
               </div>
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Effort Level</p>
@@ -263,7 +263,7 @@ export default function Recommendations() {
                   <ThumbsDown className="h-4 w-4" />
                 </button>
               </div>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-bold text-sm">
+              <button className="px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors font-bold text-sm">
                 Implement
               </button>
             </div>

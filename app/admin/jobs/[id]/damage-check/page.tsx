@@ -122,7 +122,7 @@ export default function DamageCheck() {
       case 'moderate':
         return 'bg-yellow-100 text-yellow-700 border-yellow-300'
       case 'minor':
-        return 'bg-blue-100 text-blue-700 border-blue-300'
+        return 'bg-zinc-100 text-zinc-950 border-blue-300'
       default:
         return 'bg-gray-100 text-gray-700 border-gray-300'
     }
@@ -133,7 +133,7 @@ export default function DamageCheck() {
       case 'resolved':
         return 'bg-green-100 text-green-700 border-green-300'
       case 'investigating':
-        return 'bg-blue-100 text-blue-700 border-blue-300'
+        return 'bg-zinc-100 text-zinc-950 border-blue-300'
       case 'reported':
         return 'bg-yellow-100 text-yellow-700 border-yellow-300'
       default:
@@ -301,7 +301,7 @@ export default function DamageCheck() {
                 <div className="flex items-center gap-2 ml-4">
                   <button
                     onClick={() => handleViewDetails(report)}
-                    className="px-3 py-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
+                    className="px-3 py-2 text-zinc-950 hover:text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all"
                   >
                     Details
                   </button>
@@ -342,7 +342,7 @@ export default function DamageCheck() {
                   value={newReport.location}
                   onChange={(e) => setNewReport(prev => ({ ...prev, location: e.target.value }))}
                   placeholder="e.g., Floor 15 - Conference Room A"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -351,7 +351,7 @@ export default function DamageCheck() {
                 <select
                   value={newReport.type}
                   onChange={(e) => setNewReport(prev => ({ ...prev, type: e.target.value as DamageReport['type'] }))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="property">Property Damage</option>
                   <option value="equipment">Equipment Damage</option>
@@ -365,7 +365,7 @@ export default function DamageCheck() {
                 <select
                   value={newReport.severity}
                   onChange={(e) => setNewReport(prev => ({ ...prev, severity: e.target.value as DamageReport['severity'] }))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="minor">Minor</option>
                   <option value="moderate">Moderate</option>
@@ -381,7 +381,7 @@ export default function DamageCheck() {
                   onChange={(e) => setNewReport(prev => ({ ...prev, description: e.target.value }))}
                   placeholder="Describe the damage..."
                   rows={3}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 resize-none"
                 />
               </div>
             </div>

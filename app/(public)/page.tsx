@@ -22,7 +22,7 @@ interface CTAButtonProps {
 const CTAButton = ({ text, href, variant = "primary", icon: Icon = null, className = "" }: CTAButtonProps) => {
   const baseStyles = "px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-sm transition-all shadow-xl duration-300"
   const variants = {
-    primary: "bg-primary text-white hover:bg-pink-700 shadow-primary/40 hover:shadow-primary/60",
+    primary: "bg-primary text-white hover:bg-gray-800 shadow-primary/40 hover:shadow-primary/60",
     secondary: "bg-white text-primary hover:bg-slate-50 shadow-slate-300/40",
     dark: "bg-slate-900 text-white hover:bg-slate-800 shadow-slate-900/40",
   }
@@ -188,7 +188,7 @@ export default function HomePage() {
       {/* Static Geometric Shapes - Optimized */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[15%] left-[5%] w-64 h-64 bg-primary/3 rounded-[40%] blur-3xl" />
-        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-pink-100/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </div>
 
       {/* Hero Section - Enhanced Unique Design */}
@@ -299,7 +299,7 @@ export default function HomePage() {
                 {/* CTA Button - Enhanced */}
                 <motion.a
                   href="/booking"
-                  className="mt-8 px-8 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-sm hover:bg-pink-700 transition-all shadow-xl shadow-primary/40 hover:shadow-primary/60 inline-flex items-center gap-3"
+                  className="mt-8 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/40 hover:shadow-primary/60 inline-flex items-center gap-3"
                   whileHover={{ scale: 1.08, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -335,8 +335,9 @@ export default function HomePage() {
                     <svg className="h-full w-full rotate-[-90deg]">
                       <circle cx="40" cy="40" r="32" stroke="#f1f5f9" strokeWidth="6" fill="none" />
                       <motion.circle 
-                        cx="40" cy="40" r="32" stroke="#DB2777" strokeWidth="6" fill="none"
+                        cx="40" cy="40" r="32" stroke="currentColor" strokeWidth="6" fill="none"
                         strokeDasharray="201"
+                        className="text-primary"
                         initial={{ strokeDashoffset: 201 }}
                         animate={{ strokeDashoffset: 201 - (201 * (airQuality / 100)) }}
                         transition={{ duration: 1.5 }}
@@ -386,7 +387,7 @@ export default function HomePage() {
 
       {/* Main Service Icons Grid - Elegant Cards */}
       <section className="py-20 px-4 overflow-hidden bg-gradient-to-b from-white via-slate-50/30 to-white relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(236,72,153,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(161,161,170,0.05),transparent_50%)]" />
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
             <motion.div 
@@ -441,7 +442,7 @@ export default function HomePage() {
      
       {/* Vision Mission Values - Redesigned */}
       <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(236,72,153,0.03),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(161,161,170,0.03),transparent_70%)]" />
         <motion.div 
           className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -495,7 +496,7 @@ export default function HomePage() {
               whileHover={{ y: -10, scale: 1.02 }}
             >
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-              <div className="relative h-20 w-20 rounded-2xl bg-gradient-to-br from-primary to-pink-600 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-2xl shadow-primary/40">
+              <div className="relative h-20 w-20 rounded-2xl bg-gradient-to-br from-primary to-black flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-2xl shadow-primary/40">
                 <Shield className="h-10 w-10" />
               </div>
               <h3 className="relative text-3xl font-black mb-4 leading-tight">Our Mission</h3>
@@ -537,7 +538,7 @@ export default function HomePage() {
 
       {/* Services Section - Slider */}
       <section className="py-24 bg-gradient-to-b from-slate-50/50 to-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.04),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(161,161,170,0.04),transparent_60%)]" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -573,7 +574,7 @@ export default function HomePage() {
               <motion.button 
                 onClick={() => setSliderIndex(Math.min(services.length - 4, sliderIndex + 1))}
                 disabled={sliderIndex >= services.length - 4}
-                className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-pink-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/25"
+                className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/25"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -658,7 +659,7 @@ export default function HomePage() {
 
       {/* Why Choose Us - Redesigned */}
       <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(236,72,153,0.15),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(161,161,170,0.15),transparent_60%)]" />
         <motion.div 
           className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl"
           animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
@@ -680,7 +681,7 @@ export default function HomePage() {
                 </motion.div>
                 <h3 className="text-4xl lg:text-6xl font-black tracking-tight leading-tight">
                   Why Choose <br />
-                  <span className="text-primary">HomeWork UAE</span> Clean?
+                  <span className="text-primary">Silver Maid</span> Clean?
                 </h3>
                 <p className="text-slate-400 text-lg font-medium leading-relaxed">Elevating hygiene standards with certified excellence and innovation</p>
               </div>
@@ -771,7 +772,7 @@ export default function HomePage() {
 
       {/* Blog Section - Slider Redesigned */}
       <section className="py-24 bg-gradient-to-b from-white to-slate-50/30 overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(236,72,153,0.03),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(161,161,170,0.03),transparent_70%)]" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
@@ -806,7 +807,7 @@ export default function HomePage() {
               <motion.button 
                 onClick={() => setBlogSliderIndex(Math.min(blogs.length - 3, blogSliderIndex + 1))}
                 disabled={blogSliderIndex >= blogs.length - 3}
-                className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-pink-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/25"
+                className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/25"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -906,7 +907,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <motion.a
               href="/blog"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-sm hover:bg-pink-700 transition-all shadow-xl shadow-primary/40 hover:shadow-primary/60"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all shadow-xl shadow-primary/40 hover:shadow-primary/60"
               whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -920,7 +921,7 @@ export default function HomePage() {
 
       {/* Testimonials Section - Redesigned */}
       <section className="py-28 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(236,72,153,0.04),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(161,161,170,0.04),transparent_60%)]" />
         <motion.div 
           className="absolute top-20 left-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.4, 0.2] }}
@@ -996,7 +997,7 @@ export default function HomePage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-primary via-primary to-pink-700 rounded-[3rem] p-16 md:p-20 relative overflow-hidden shadow-2xl border border-primary/20"
+            className="bg-gradient-to-br from-primary via-primary to-black rounded-[3rem] p-16 md:p-20 relative overflow-hidden shadow-2xl border border-primary/20"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15),transparent_70%)] opacity-60" />
             <motion.div 
@@ -1014,7 +1015,7 @@ export default function HomePage() {
               >
                 <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-5">
                   Experience the <br />
-                  <span className="text-white/90">Gold Standard</span>
+                  <span className="text-white/90">Pristine Standard</span>
                 </h2>
                 <p className="text-xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed">
                   Join 18,000+ satisfied clients across the UAE. Transform your space into a pristine, healthy environment.
@@ -1023,7 +1024,7 @@ export default function HomePage() {
               <div className="flex flex-wrap justify-center gap-6">
                 <motion.a 
                   href="/book-service" 
-                  className="bg-primary text-white px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/40 hover:bg-pink-700 transition-all inline-flex items-center gap-3 hover:shadow-primary/60"
+                  className="bg-white text-primary px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/40 hover:bg-slate-50 transition-all inline-flex items-center gap-3 hover:shadow-primary/60"
                   whileHover={{ scale: 1.08, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -1032,7 +1033,7 @@ export default function HomePage() {
                 </motion.a>
                 <motion.a 
                   href="/quote" 
-                  className="bg-white text-primary px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-slate-50 transition-all inline-flex items-center gap-3"
+                  className="bg-primary/20 backdrop-blur-md text-white border border-white/20 whitespace-nowrap px-12 py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-white/10 transition-all inline-flex items-center gap-3"
                   whileHover={{ scale: 1.08, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -1044,14 +1045,14 @@ export default function HomePage() {
             
             {/* Decorative circles - Optimized */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl animate-pulse" />
-            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-pink-300/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '0.7s' }} />
+            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '0.7s' }} />
           </motion.div>
         </div>
       </section>
 
       {/* Strategic CTA Section - Before Footer Redesigned */}
       <section className="relative py-16 px-4 bg-gradient-to-r from-slate-50 via-white to-slate-50 border-y border-slate-200/60">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.04),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(161,161,170,0.04),transparent_60%)]" />
         <div className="container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="max-w-xl">
@@ -1061,7 +1062,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
               <motion.a
                 href="/book-service"
-                className="px-10 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-wider text-sm hover:bg-pink-700 transition-all shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 inline-flex items-center justify-center gap-3 whitespace-nowrap border-2 border-primary"
+                className="px-10 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-wider text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 inline-flex items-center justify-center gap-3 whitespace-nowrap border-2 border-primary"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >

@@ -405,7 +405,7 @@ function MeetingDetailContent() {
           <p className="text-gray-600">No meetings scheduled yet</p>
           <button 
             onClick={() => router.push('/admin/meeting-calendar')} 
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="mt-4 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
           >
             Schedule a Meeting
           </button>
@@ -432,7 +432,7 @@ function MeetingDetailContent() {
               {selectedMeeting.type} • {selectedMeeting.date} • {selectedMeeting.time} • 
               <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
                 selectedMeeting.status === 'Scheduled' ? 'bg-yellow-100 text-yellow-700' :
-                selectedMeeting.status === 'In Progress' ? 'bg-blue-100 text-blue-700' :
+                selectedMeeting.status === 'In Progress' ? 'bg-zinc-100 text-zinc-950' :
                 selectedMeeting.status === 'Completed' ? 'bg-green-100 text-green-700' :
                 selectedMeeting.status === 'Cancelled' ? 'bg-red-100 text-red-700' :
                 'bg-gray-100 text-gray-700'
@@ -475,11 +475,11 @@ function MeetingDetailContent() {
                 type="date"
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
-                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
               />
               <button
                 onClick={handleDateFilter}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
               >
                 <Filter className="h-4 w-4" />
               </button>
@@ -505,7 +505,7 @@ function MeetingDetailContent() {
                     handleStatusFilter()
                   }, 100)
                 }}
-                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
               >
                 <option value="all">All Status</option>
                 <option value="Scheduled">Scheduled</option>
@@ -515,7 +515,7 @@ function MeetingDetailContent() {
               </select>
               <button
                 onClick={handleStatusFilter}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
               >
                 <Filter className="h-4 w-4" />
               </button>
@@ -537,7 +537,7 @@ function MeetingDetailContent() {
                 const meeting = filteredMeetings.find(m => m.id === e.target.value)
                 if (meeting) handleSelectMeeting(meeting)
               }}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
             >
               {filteredMeetings.length > 0 ? (
                 filteredMeetings.map(meeting => (
@@ -560,10 +560,10 @@ function MeetingDetailContent() {
 
       {/* Meeting Status Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-linear-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-4">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-100 border border-blue-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Total Meetings</p>
-          <p className="text-3xl font-black text-blue-700">{meetings.length}</p>
-          <p className="text-xs text-blue-600 mt-1">All meetings</p>
+          <p className="text-3xl font-black text-zinc-950">{meetings.length}</p>
+          <p className="text-xs text-zinc-950 mt-1">All meetings</p>
         </div>
         <div className="bg-linear-to-br from-yellow-50 to-yellow-100 border border-yellow-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Pending (Scheduled)</p>
@@ -597,7 +597,7 @@ function MeetingDetailContent() {
                   </span>
                 )}
                 {filterStatus !== 'all' && (
-                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+                  <span className="px-2 py-1 bg-zinc-100 text-zinc-950 rounded text-xs">
                     Status: {filterStatus}
                   </span>
                 )}
@@ -624,7 +624,7 @@ function MeetingDetailContent() {
           onClick={() => setSelectedTab('details')}
           className={`px-4 py-3 font-bold text-sm border-b-2 transition-colors ${
             selectedTab === 'details'
-              ? 'border-blue-600 text-blue-600'
+              ? 'border-zinc-950 text-zinc-950'
               : 'border-transparent text-muted-foreground hover:text-foreground'
           }`}
         >
@@ -634,7 +634,7 @@ function MeetingDetailContent() {
           onClick={() => setSelectedTab('agenda')}
           className={`px-4 py-3 font-bold text-sm border-b-2 transition-colors flex items-center gap-2 ${
             selectedTab === 'agenda'
-              ? 'border-blue-600 text-blue-600'
+              ? 'border-zinc-950 text-zinc-950'
               : 'border-transparent text-muted-foreground hover:text-foreground'
           }`}
         >
@@ -645,7 +645,7 @@ function MeetingDetailContent() {
           onClick={() => setSelectedTab('summary')}
           className={`px-4 py-3 font-bold text-sm border-b-2 transition-colors flex items-center gap-2 ${
             selectedTab === 'summary'
-              ? 'border-blue-600 text-blue-600'
+              ? 'border-zinc-950 text-zinc-950'
               : 'border-transparent text-muted-foreground hover:text-foreground'
           }`}
         >
@@ -659,9 +659,9 @@ function MeetingDetailContent() {
         <div className="space-y-6">
           {/* Info about current filter */}
           {selectedDate && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
               <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-blue-600" />
+                <Calendar className="h-5 w-5 text-zinc-950" />
                 <div>
                   <p className="font-bold text-blue-900">
                     Showing Details for: {selectedDate}
@@ -715,7 +715,7 @@ function MeetingDetailContent() {
                   <p className="text-xs text-muted-foreground mb-2">Meeting Status</p>
                   <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
                     selectedMeeting.status === 'Scheduled' ? 'bg-yellow-100 text-yellow-700' :
-                    selectedMeeting.status === 'In Progress' ? 'bg-blue-100 text-blue-700' :
+                    selectedMeeting.status === 'In Progress' ? 'bg-zinc-100 text-zinc-950' :
                     selectedMeeting.status === 'Completed' ? 'bg-green-100 text-green-700' :
                     selectedMeeting.status === 'Cancelled' ? 'bg-red-100 text-red-700' :
                     'bg-gray-100 text-gray-700'
@@ -731,10 +731,10 @@ function MeetingDetailContent() {
                   <h3 className="font-bold">Cross-Linked Resources</h3>
                   <div className="space-y-3">
                     {selectedMeeting.linkedJob && (
-                      <div className="p-3 border rounded-lg bg-pink-50 hover:bg-pink-100 transition-colors cursor-pointer">
+                      <div className="p-3 border rounded-lg bg-zinc-100 hover:opacity-90 transition-colors cursor-pointer">
                         <p className="text-xs text-muted-foreground mb-1">Linked Job</p>
                         <p className="font-bold">{selectedMeeting.linkedJob}</p>
-                        <p className="text-xs text-pink-600 mt-1">Status: Active</p>
+                        <p className="text-xs text-primary mt-1">Status: Active</p>
                       </div>
                     )}
                     {selectedMeeting.linkedClient && (
@@ -779,9 +779,9 @@ function MeetingDetailContent() {
 
             {/* Right Column: Accountability Tracking */}
             <div className="space-y-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-4">
+              <div className="bg-zinc-50 border border-blue-200 rounded-lg p-6 space-y-4">
                 <h3 className="font-bold flex items-center gap-2">
-                  <AlertCircle className="h-5 w-5 text-blue-600" />
+                  <AlertCircle className="h-5 w-5 text-zinc-950" />
                   Accountability Tracking
                 </h3>
                 <div className="space-y-3">
@@ -833,9 +833,9 @@ function MeetingDetailContent() {
         <div className="space-y-4">
           {/* Info about current filter */}
           {selectedDate && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
               <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-blue-600" />
+                <Calendar className="h-5 w-5 text-zinc-950" />
                 <div>
                   <p className="font-bold text-blue-900">
                     Showing AI Agenda for: {selectedDate}
@@ -849,8 +849,8 @@ function MeetingDetailContent() {
             </div>
           )}
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex gap-3">
-            <Zap className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+          <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4 flex gap-3">
+            <Zap className="h-5 w-5 text-zinc-950 shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-blue-900">AI-Generated Agenda</p>
               <p className="text-sm text-blue-800 mt-1">
@@ -899,9 +899,9 @@ function MeetingDetailContent() {
         <div className="space-y-4">
           {/* Info about current filter */}
           {selectedDate && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
               <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-blue-600" />
+                <Calendar className="h-5 w-5 text-zinc-950" />
                 <div>
                   <p className="font-bold text-blue-900">
                     Showing AI Summary for: {selectedDate}
@@ -915,8 +915,8 @@ function MeetingDetailContent() {
             </div>
           )}
 
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 flex gap-3">
-            <Eye className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+          <div className="bg-zinc-50 border border-purple-200 rounded-lg p-4 flex gap-3">
+            <Eye className="h-5 w-5 text-zinc-800 shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-purple-900">AI Meeting Summary</p>
               <p className="text-sm text-purple-800 mt-1">
@@ -943,7 +943,7 @@ function MeetingDetailContent() {
               </div>
             </div>
 
-            <div className="p-4 border rounded-lg bg-blue-50">
+            <div className="p-4 border rounded-lg bg-zinc-50">
               <p className="text-sm font-bold text-blue-900 mb-2">Meeting Analytics</p>
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -979,7 +979,7 @@ function MeetingDetailContent() {
             <p className="text-gray-600">No meetings match your filters</p>
             <button 
               onClick={clearFilters}
-              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="mt-4 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
             >
               Clear Filters
             </button>
@@ -992,8 +992,8 @@ function MeetingDetailContent() {
                 onClick={() => handleSelectMeeting(meeting)}
                 className={`p-4 border rounded-lg transition-colors text-left ${
                   selectedMeeting.id === meeting.id 
-                    ? 'bg-blue-100 border-blue-300' 
-                    : 'hover:bg-blue-50'
+                    ? 'bg-zinc-100 border-blue-300' 
+                    : 'hover:bg-zinc-50'
                 }`}
               >
                 <p className="font-bold truncate">{meeting.title}</p>
@@ -1001,7 +1001,7 @@ function MeetingDetailContent() {
                 <div className="flex items-center justify-between mt-2">
                   <span className={`px-2 py-1 rounded-full text-xs ${
                     meeting.status === 'Scheduled' ? 'bg-yellow-100 text-yellow-700' :
-                    meeting.status === 'In Progress' ? 'bg-blue-100 text-blue-700' :
+                    meeting.status === 'In Progress' ? 'bg-zinc-100 text-zinc-950' :
                     meeting.status === 'Completed' ? 'bg-green-100 text-green-700' :
                     'bg-gray-100 text-gray-700'
                   }`}>

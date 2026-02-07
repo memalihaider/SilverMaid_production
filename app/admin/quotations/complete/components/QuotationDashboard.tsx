@@ -71,7 +71,7 @@ export default function QuotationDashboard({ quotations: initialQuotations }: Qu
       case 'approved':
         return { bg: 'bg-green-100', text: 'text-green-700', border: 'border-green-200' }
       case 'sent':
-        return { bg: 'bg-blue-100', text: 'text-blue-700', border: 'border-blue-200' }
+        return { bg: 'bg-zinc-100', text: 'text-zinc-950', border: 'border-blue-200' }
       case 'draft':
         return { bg: 'bg-yellow-100', text: 'text-yellow-700', border: 'border-yellow-200' }
       case 'rejected':
@@ -172,12 +172,12 @@ export default function QuotationDashboard({ quotations: initialQuotations }: Qu
         {/* Total Value */}
         <div className="bg-white border border-gray-300 rounded p-3 shadow-none">
           <div className="flex items-center gap-2 mb-2">
-            <div className="p-1.5 bg-blue-500 rounded">
+            <div className="p-1.5 bg-zinc-500 rounded">
               <DollarSign className="w-3.5 h-3.5 text-white" />
             </div>
             <span className="text-[10px] uppercase font-bold text-gray-400">Total Value</span>
           </div>
-          <p className="text-xl font-bold text-blue-600">{formatCurrency(stats.totalValue)} AED</p>
+          <p className="text-xl font-bold text-zinc-950">{formatCurrency(stats.totalValue)} AED</p>
           <p className="text-[10px] text-gray-400 mt-1">
             Avg: {formatCurrency(stats.averageValue)} AED
           </p>
@@ -209,7 +209,7 @@ export default function QuotationDashboard({ quotations: initialQuotations }: Qu
             {[
               { label: 'Approved', value: stats.approved, color: 'bg-green-500' },
               { label: 'Accepted', value: stats.accepted, color: 'bg-green-400' },
-              { label: 'Sent', value: stats.sent, color: 'bg-blue-500' },
+              { label: 'Sent', value: stats.sent, color: 'bg-zinc-500' },
               { label: 'Draft', value: stats.draft, color: 'bg-yellow-500' },
               { label: 'Rejected', value: stats.rejected, color: 'bg-red-500' }
             ].map((item) => (

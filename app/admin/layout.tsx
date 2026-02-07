@@ -318,7 +318,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       case 'reminder': return 'bg-amber-100 text-amber-700'
       case 'alert': return 'bg-red-100 text-red-700'
       case 'success': return 'bg-green-100 text-green-700'
-      default: return 'bg-blue-100 text-blue-700'
+      default: return 'bg-zinc-100 text-zinc-950'
     }
   }
 
@@ -371,31 +371,30 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         />
       )}
 
-      {/* Sidebar - Desktop Only */}
-      <aside className={`${sidebarOpen ? 'w-64' : 'w-20'} border-r bg-card hidden lg:flex flex-col sticky top-0 h-screen shadow-sm overflow-hidden transition-all duration-300`}>
-        <div className={`p-4 border-b flex items-center ${!sidebarOpen && 'justify-center'} ${sidebarOpen && 'justify-between'}`}>
+      <aside className={`${sidebarOpen ? 'w-64' : 'w-20'} border-r border-zinc-100 bg-white hidden lg:flex flex-col sticky top-0 h-screen shadow-[1px_0_10px_rgba(0,0,0,0.02)] overflow-hidden transition-all duration-500`}>
+        <div className={`p-5 border-b border-zinc-100 flex items-center ${!sidebarOpen && 'justify-center'} ${sidebarOpen && 'justify-between'}`}>
           {sidebarOpen && (
             <>
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-linear-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/30">
-                  H
+              <div className="flex items-center gap-2.5 group cursor-pointer">
+                <div className="h-9 w-9 rounded-xl bg-zinc-950 flex items-center justify-center text-white font-black text-xl shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] transition-transform duration-300 group-hover:scale-105">
+                  S
                 </div>
-                <div>
-                  <span className="font-black text-lg tracking-tighter block leading-none">HOMEWARE</span>
-                  <span className="text-[10px] font-bold text-blue-600 tracking-[0.2em] uppercase">Hygiene ERP</span>
+                <div className="transition-all duration-300">
+                  <span className="font-black text-lg tracking-tighter block leading-none text-zinc-950">SILVER MAID</span>
+                  <span className="text-[8px] font-black text-zinc-400 tracking-[0.2em] mt-0.5 block">INTELLIGENCE</span>
                 </div>
               </div>
             </>
           )}
           {!sidebarOpen && (
-            <div className="h-10 w-10 rounded-xl bg-linear-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/30">
-              H
+            <div className="h-9 w-9 rounded-xl bg-zinc-950 flex items-center justify-center text-white font-black text-xl shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300 cursor-pointer">
+              S
             </div>
           )}
         </div>
         
-        <nav className="flex-1 p-4 space-y-1.5 overflow-y-auto">
-          {sidebarOpen && <p className="px-3 text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-4">Main Menu</p>}
+        <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto custom-scrollbar">
+          {sidebarOpen && <p className="px-4 text-[9px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-4">Operations Center</p>}
           
           {filteredMenuItems.map((menuItem) => {
             const pageConfig = ALL_PAGES_CONFIG[menuItem.key as keyof typeof ALL_PAGES_CONFIG]
@@ -412,37 +411,37 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             const IconComponent = pageConfig?.icon
 
             return (
-              <div key={menuItem.key}>
+              <div key={menuItem.key} className="px-1">
                 {isGroup ? (
                   <>
                     <button
                       onClick={() => toggleMenu(menuItem.key)}
-                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all duration-200 group ${
+                      className={`w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-[12px] font-bold transition-all duration-300 group ${
                         isGroupActive 
-                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                          : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                          ? 'bg-zinc-950 text-white shadow-[0_8px_20px_-5px_rgba(0,0,0,0.15)]' 
+                          : 'text-zinc-500 hover:bg-zinc-50 hover:text-zinc-950'
                       } ${!sidebarOpen && 'justify-center'}`}
                       title={!sidebarOpen ? menuItem.label : undefined}
                     >
                       {IconComponent && (
-                        <IconComponent className={`h-5 w-5 transition-colors shrink-0 ${
-                          isGroupActive ? 'text-white' : 'text-muted-foreground group-hover:text-blue-600'
+                        <IconComponent className={`h-4.5 w-4.5 transition-transform duration-300 ${
+                          isGroupActive ? 'text-white' : 'text-zinc-400 group-hover:text-zinc-950 group-hover:scale-105'
                         }`} />
                       )}
                       {sidebarOpen && (
                         <>
-                          <span className="flex-1 text-left">{menuItem.label}</span>
-                          <ChevronDown className={`h-4 w-4 transition-transform shrink-0 ${
-                            isOpen ? 'rotate-180' : ''
+                          <span className="flex-1 text-left tracking-tight">{menuItem.label}</span>
+                          <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                            isOpen ? 'rotate-180 text-white' : 'text-zinc-400'
                           }`} />
                         </>
                       )}
                     </button>
                     
                     {sidebarOpen && isOpen && menuItem.submenu && (
-                      <div className="ml-2 mt-1 space-y-1 border-l-2 border-muted pl-2">
+                      <div className="mt-1 ml-4 space-y-0.5 border-l border-zinc-100 pl-4 animate-in fade-in slide-in-from-left-2 duration-300">
                         {menuItem.submenu
-                          .filter(sub => userSession.allowedPages.includes(sub.key)) // Filter based on user access
+                          .filter(sub => userSession.allowedPages.includes(sub.key))
                           .map((sub) => {
                             const subConfig = ALL_PAGES_CONFIG[sub.key as keyof typeof ALL_PAGES_CONFIG]
                             const isSubActive = pathname === subConfig?.href
@@ -452,17 +451,13 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                               <Link
                                 key={sub.key}
                                 href={subConfig?.href || '#'}
-                                className={`flex items-center gap-3 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 group ${
+                                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-[11px] font-bold transition-all duration-200 group ${
                                   isSubActive 
-                                    ? 'bg-pink-100 dark:bg-pink-950/30 text-pink-700 dark:text-pink-300' 
-                                    : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                                    ? 'text-zinc-950 bg-zinc-50' 
+                                    : 'text-zinc-400 hover:text-zinc-900 hover:translate-x-1'
                                 }`}
                               >
-                                {SubIcon && (
-                                  <SubIcon className={`h-4 w-4 ${
-                                    isSubActive ? 'text-pink-600' : 'text-muted-foreground group-hover:text-pink-600'
-                                  }`} />
-                                )}
+                                <span className={`h-1 w-1 rounded-full transition-all duration-300 ${isSubActive ? 'bg-zinc-950 w-2.5' : 'bg-zinc-200 group-hover:bg-zinc-400'}`}></span>
                                 <span className="flex-1">{sub.label}</span>
                               </Link>
                             )
@@ -473,21 +468,21 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 ) : (
                   <Link
                     href={pageConfig?.href || '#'}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all duration-200 group ${
+                    className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-[12px] font-bold transition-all duration-300 group ${
                       isActive 
-                        ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                        : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                        ? 'bg-zinc-950 text-white shadow-[0_8px_20px_-5px_rgba(0,0,0,0.15)]' 
+                        : 'text-zinc-500 hover:bg-zinc-50 hover:text-zinc-950'
                     } ${!sidebarOpen && 'justify-center'}`}
                     title={!sidebarOpen ? menuItem.label : undefined}
                   >
                     {IconComponent && (
-                      <IconComponent className={`h-5 w-5 transition-colors shrink-0 ${
-                        isActive ? 'text-white' : 'text-muted-foreground group-hover:text-blue-600'
+                      <IconComponent className={`h-4.5 w-4.5 transition-transform duration-300 ${
+                        isActive ? 'text-white' : 'text-zinc-400 group-hover:text-zinc-950 group-hover:scale-105'
                       }`} />
                     )}
                     {sidebarOpen && (
                       <>
-                        <span className="flex-1 text-left">{menuItem.label}</span>
+                        <span className="flex-1 text-left tracking-tight">{menuItem.label}</span>
                         {isActive && <div className="ml-auto h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>}
                       </>
                     )}
@@ -498,37 +493,44 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           })}
         </nav>
 
-        <div className="p-4 border-t space-y-4">
+        <div className="p-5 border-t border-zinc-100">
           {sidebarOpen && (
-            <div className="bg-muted/50 rounded-2xl p-4">
+            <div className="bg-zinc-50/50 rounded-2xl p-4 border border-zinc-100 group transition-all duration-500 hover:bg-white hover:shadow-lg hover:shadow-black/5">
               <div className="flex items-center gap-3 mb-3">
-                <div className="h-10 w-10 rounded-full bg-linear-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/30 shrink-0">
+                <div className="h-10 w-10 rounded-[12px] bg-zinc-950 flex items-center justify-center text-white font-black text-lg shadow-[0_6px_12px_-3px_rgba(0,0,0,0.2)] shrink-0 transition-transform group-hover:rotate-3">
                   {userSession.name.charAt(0).toUpperCase()}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold truncate">{userSession.name}</p>
-                  <p className="text-xs text-muted-foreground truncate">{userSession.email}</p>
-                  <p className="text-xs text-blue-600 font-bold truncate mt-1">{userSession.roleName}</p>
+                  <p className="text-[12px] font-black text-zinc-950 truncate tracking-tight">{userSession.name}</p>
+                  <p className="text-[8px] font-black text-zinc-400 tracking-widest uppercase mt-0.5">{userSession.roleName}</p>
                 </div>
               </div>
               <button 
                 onClick={handleSignOut}
                 disabled={isSigningOut}
-                className="flex w-full items-center justify-center gap-2 px-3 py-2 rounded-xl text-xs font-bold text-red-600 transition-colors hover:bg-red-50 dark:hover:bg-red-950/30 border border-red-100 dark:border-red-900/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex w-full items-center justify-center gap-2 px-3 py-2 rounded-lg text-[10px] font-black text-zinc-400 transition-all duration-300 hover:bg-red-50 hover:text-red-600 hover:border-red-100 border border-transparent disabled:opacity-50 uppercase tracking-widest"
               >
-                <LogOut className="h-3.5 w-3.5" />
-                {isSigningOut ? 'Signing Out...' : 'Sign Out'}
+                <LogOut className="h-3 w-3" />
+                {isSigningOut ? 'Wait...' : 'Exit'}
               </button>
             </div>
+          )}
+          {!sidebarOpen && (
+            <button 
+              onClick={handleSignOut}
+              className="w-full flex justify-center p-2.5 rounded-xl text-zinc-400 hover:bg-red-50 hover:text-red-600 transition-all duration-300"
+            >
+              <LogOut className="h-5 w-5" />
+            </button>
           )}
         </div>
       </aside>
 
       {/* Mobile Sidebar - Slide-out menu */}
       {sidebarOpen && (
-        <div className="fixed top-20 left-0 w-64 h-screen bg-card border-r border-slate-200 z-40 overflow-y-auto lg:hidden">
-          <div className="p-4 space-y-1.5">
-            <p className="px-3 text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-4">Main Menu</p>
+        <div className="fixed top-24 left-0 w-72 h-[calc(100vh-6rem)] bg-white border-r border-zinc-100 z-50 overflow-y-auto lg:hidden animate-in slide-in-from-left duration-300">
+          <div className="p-6 space-y-2">
+            <p className="px-5 text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-6">Operations Center</p>
             {filteredMenuItems.map((menuItem) => {
               const pageConfig = ALL_PAGES_CONFIG[menuItem.key as keyof typeof ALL_PAGES_CONFIG]
               const isActive = pathname === pageConfig?.href
@@ -547,25 +549,25 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                     <>
                       <button
                         onClick={() => toggleMenu(menuItem.key)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all duration-200 group ${
+                        className={`w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-[14px] font-black transition-all duration-300 group ${
                           isGroupActive 
-                            ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                            : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                            ? 'bg-zinc-950 text-white shadow-xl' 
+                            : 'text-zinc-500 hover:bg-zinc-50'
                         }`}
                       >
                         {IconComponent && (
-                          <IconComponent className={`h-5 w-5 transition-colors shrink-0 ${
-                            isGroupActive ? 'text-white' : 'text-muted-foreground group-hover:text-blue-600'
+                          <IconComponent className={`h-5 w-5 ${
+                            isGroupActive ? 'text-white' : 'text-zinc-400'
                           }`} />
                         )}
-                        <span className="flex-1 text-left">{menuItem.label}</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform shrink-0 ${
+                        <span className="flex-1 text-left tracking-tight">{menuItem.label}</span>
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${
                           isOpen ? 'rotate-180' : ''
                         }`} />
                       </button>
                       
                       {isOpen && menuItem.submenu && (
-                        <div className="ml-2 mt-1 space-y-1 border-l-2 border-muted pl-2">
+                        <div className="mt-2 ml-4 space-y-1 border-l border-zinc-100 pl-4">
                           {menuItem.submenu
                             .filter(sub => userSession.allowedPages.includes(sub.key))
                             .map((sub) => {
@@ -578,17 +580,13 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                                   key={sub.key}
                                   href={subConfig?.href || '#'}
                                   onClick={() => setSidebarOpen(false)}
-                                  className={`flex items-center gap-3 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 group ${
+                                  className={`flex items-center gap-3 px-4 py-3 rounded-xl text-[13px] font-bold transition-all duration-200 ${
                                     isSubActive 
-                                      ? 'bg-pink-100 dark:bg-pink-950/30 text-pink-700 dark:text-pink-300' 
-                                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                                      ? 'text-zinc-950 bg-zinc-50' 
+                                      : 'text-zinc-400'
                                   }`}
                                 >
-                                  {SubIcon && (
-                                    <SubIcon className={`h-4 w-4 ${
-                                      isSubActive ? 'text-pink-600' : 'text-muted-foreground group-hover:text-pink-600'
-                                    }`} />
-                                  )}
+                                  <span className={`h-1.5 w-1.5 rounded-full ${isSubActive ? 'bg-zinc-950' : 'bg-zinc-200'}`}></span>
                                   <span className="flex-1">{sub.label}</span>
                                 </Link>
                               )
@@ -600,18 +598,18 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                     <Link
                       href={pageConfig?.href || '#'}
                       onClick={() => setSidebarOpen(false)}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all duration-200 group ${
+                      className={`flex items-center gap-3 px-5 py-4 rounded-2xl text-[14px] font-black transition-all duration-300 group ${
                         isActive 
-                          ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' 
-                          : 'text-muted-foreground hover:bg-accent hover:text-foreground'
+                          ? 'bg-zinc-950 text-white shadow-xl' 
+                          : 'text-zinc-500 hover:bg-zinc-50'
                       }`}
                     >
                       {IconComponent && (
-                        <IconComponent className={`h-5 w-5 transition-colors shrink-0 ${
-                          isActive ? 'text-white' : 'text-muted-foreground group-hover:text-blue-600'
+                        <IconComponent className={`h-5 w-5 ${
+                          isActive ? 'text-white' : 'text-zinc-400'
                         }`} />
                       )}
-                      <span className="flex-1 text-left">{menuItem.label}</span>
+                      <span className="flex-1 text-left tracking-tight">{menuItem.label}</span>
                     </Link>
                   )}
                 </div>
@@ -622,41 +620,47 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0">
-        <header className="h-20 border-b bg-card/80 backdrop-blur-xl sticky top-0 z-40 flex items-center justify-between px-8">
+      <div className="flex-1 flex flex-col min-w-0 bg-white">
+        <header className="h-20 border-b border-zinc-100 bg-white/80 backdrop-blur-xl sticky top-0 z-40 flex items-center justify-between px-8">
           <div className="flex items-center gap-6 flex-1">
             <button 
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="hidden lg:flex p-2 hover:bg-accent rounded-lg transition-colors"
-              title={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+              className="hidden lg:flex p-2.5 hover:bg-zinc-50 rounded-xl transition-all duration-300 group"
+              title={sidebarOpen ? 'Collapse Intelligence Sidebar' : 'Expand Intelligence Sidebar'}
             >
-              {sidebarOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {sidebarOpen ? <X className="h-5 w-5 text-zinc-950 group-hover:rotate-90 transition-transform" /> : <Menu className="h-5 w-5 text-zinc-950" />}
             </button>
-            <button onClick={() => setSidebarOpen(!sidebarOpen)} className="lg:hidden p-2 hover:bg-accent rounded-lg">
-              <Menu className="h-6 w-6" />
+            <button onClick={() => setSidebarOpen(!sidebarOpen)} className="lg:hidden p-2.5 hover:bg-zinc-50 rounded-xl">
+              <Menu className="h-5 w-5 text-zinc-950" />
             </button>
-            <div className="relative max-w-md w-full hidden md:block">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <div className="relative max-w-lg w-full hidden md:block group">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400 group-focus-within:text-zinc-950 transition-colors" />
               <input 
                 type="text" 
-                placeholder="Search anything..." 
-                className="w-full pl-10 pr-4 py-2.5 bg-muted/50 border-none rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                placeholder="Search intelligence..." 
+                className="w-full pl-11 pr-5 py-2.5 bg-zinc-50 border-none rounded-xl text-[12px] font-bold text-zinc-950 focus:ring-2 focus:ring-zinc-950/5 placeholder:text-zinc-400 outline-none transition-all"
               />
             </div>
           </div>
           
-          <div className="flex items-center gap-3">
-            <div className="hidden md:block text-sm text-muted-foreground">
-              Logged in as: <span className="font-bold text-blue-600">{userSession.name}</span>
+          <div className="flex items-center gap-5">
+            <div className="hidden lg:flex items-center gap-2 pr-5 border-r border-zinc-100">
+              <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Active</span>
+            </div>
+            
+            <div className="hidden md:flex flex-col items-end">
+              <span className="text-[9px] font-black text-zinc-400 tracking-widest uppercase">System Op</span>
+              <span className="text-[12px] font-black text-zinc-950 tracking-tight">{userSession.name}</span>
             </div>
             
             <button 
               onClick={() => setShowNotifications(!showNotifications)}
-              className="p-2.5 rounded-xl hover:bg-accent relative transition-colors group"
+              className="p-3 rounded-xl hover:bg-zinc-50 relative transition-all duration-300 group"
             >
-              <Bell className="h-5 w-5 text-muted-foreground group-hover:text-foreground" />
+              <Bell className="h-4.5 w-4.5 text-zinc-400 group-hover:text-zinc-950 transition-colors" />
               {unreadCount > 0 && (
-                <span className="absolute top-2 right-2 h-5 w-5 bg-red-600 rounded-full border-2 border-card flex items-center justify-center text-[10px] font-black text-white">
+                <span className="absolute top-2 right-2 h-4.5 w-4.5 bg-zinc-950 rounded-full border-2 border-white flex items-center justify-center text-[9px] font-black text-white shadow-lg shadow-black/20">
                   {unreadCount}
                 </span>
               )}
@@ -670,59 +674,64 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 className="fixed inset-0 z-40" 
                 onClick={() => setShowNotifications(false)}
               />
-              <div className="absolute right-8 top-20 w-96 bg-card border rounded-2xl shadow-2xl z-50 max-h-96 overflow-hidden flex flex-col">
-                <div className="p-4 border-b flex items-center justify-between bg-muted/50">
+              <div className="absolute right-10 top-24 w-[420px] bg-white border border-zinc-100 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] z-50 max-h-[85vh] overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-300">
+                <div className="p-8 border-b border-zinc-50 flex items-center justify-between bg-zinc-50/50">
                   <div>
-                    <h3 className="font-black text-foreground">Notifications</h3>
-                    <p className="text-xs text-muted-foreground">{unreadCount} unread</p>
+                    <h3 className="font-black text-xl text-zinc-950 tracking-tight">Intelligence Feed</h3>
+                    <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mt-1">{unreadCount} actionable alerts</p>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     {unreadCount > 0 && (
                       <button 
                         onClick={handleMarkAllAsRead}
-                        className="text-xs font-bold text-blue-600 hover:text-blue-700 px-3 py-1 bg-blue-50 rounded-lg"
+                        className="text-[10px] font-black text-zinc-950 hover:bg-white uppercase tracking-widest px-4 py-2 bg-white border border-zinc-100 rounded-xl transition-all shadow-sm"
                       >
-                        Mark all read
+                        Clear Feed
                       </button>
                     )}
                     <button 
                       onClick={() => setShowNotifications(false)}
-                      className="p-1 hover:bg-accent rounded-lg"
+                      className="p-2 hover:bg-white rounded-xl border border-transparent hover:border-zinc-100 transition-all"
                     >
-                      <X className="w-4 h-4" />
+                      <X className="w-5 h-5 text-zinc-400 hover:text-zinc-950" />
                     </button>
                   </div>
                 </div>
 
-                <div className="overflow-y-auto flex-1">
+                <div className="overflow-y-auto flex-1 custom-scrollbar">
                   {notifications.length === 0 ? (
-                    <div className="p-12 text-center">
-                      <Bell className="w-12 h-12 text-muted-foreground mx-auto mb-4 opacity-50" />
-                      <p className="text-muted-foreground font-medium">No notifications</p>
-                      <p className="text-muted-foreground text-sm mt-1">You're all caught up!</p>
+                    <div className="p-20 text-center">
+                      <div className="h-20 w-20 bg-zinc-50 rounded-[2rem] flex items-center justify-center mx-auto mb-6">
+                        <Bell className="w-10 h-10 text-zinc-200" />
+                      </div>
+                      <p className="text-zinc-950 font-black text-lg tracking-tight">Zero Alerts</p>
+                      <p className="text-zinc-400 text-sm mt-1 font-bold">System integrity nominal.</p>
                     </div>
                   ) : (
-                    <div className="divide-y">
+                    <div className="divide-y divide-zinc-50">
                       {notifications.map((notification) => (
                         <div 
                           key={notification.id}
-                          className={`p-4 hover:bg-muted/50 transition-colors ${!notification.read ? 'bg-blue-50/50' : ''}`}
+                          className={`p-6 hover:bg-zinc-50/80 transition-all duration-300 group ${!notification.read ? 'bg-zinc-50/30 border-l-4 border-l-zinc-950' : ''}`}
                         >
-                          <div className="flex items-start gap-3">
-                            <div className={`p-2 rounded-lg ${getNotificationColor(notification.type)}`}>
+                          <div className="flex items-start gap-4">
+                            <div className={`p-3 rounded-2xl shrink-0 transition-transform group-hover:scale-110 ${getNotificationColor(notification.type)}`}>
                               {getNotificationIcon(notification.type)}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-start justify-between gap-2 mb-1">
-                                <h4 className="font-bold text-sm text-foreground">{notification.title}</h4>
+                              <div className="flex items-start justify-between gap-3 mb-1.5">
+                                <h4 className="font-black text-[14px] text-zinc-950 tracking-tight leading-tight">{notification.title}</h4>
                                 {!notification.read && (
-                                  <span className="h-2 w-2 bg-blue-600 rounded-full shrink-0 mt-1.5"></span>
+                                  <span className="h-2 w-2 bg-zinc-950 rounded-full shrink-0 animate-pulse shadow-[0_0_8px_rgba(0,0,0,0.4)] mt-1.5"></span>
                                 )}
                               </div>
-                              <p className="text-sm text-muted-foreground mb-2">{notification.message}</p>
+                              <p className="text-sm text-zinc-500 font-semibold leading-relaxed mb-4">{notification.message}</p>
                               <div className="flex items-center justify-between">
-                                <span className="text-xs text-muted-foreground">{notification.time}</span>
-                                <div className="flex gap-2">
+                                <div className="flex items-center gap-2 text-[10px] font-black text-zinc-400 uppercase tracking-widest">
+                                  <Clock className="w-3.5 h-3.5 text-zinc-300" />
+                                  {notification.time}
+                                </div>
+                                <div className="flex gap-4">
                                   {notification.link && (
                                     <Link
                                       href={notification.link}
@@ -730,24 +739,16 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                                         handleMarkAsRead(notification.id)
                                         setShowNotifications(false)
                                       }}
-                                      className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                                      className="text-[10px] font-black text-zinc-950 hover:underline uppercase tracking-widest flex items-center gap-1.5"
                                     >
-                                      View <ExternalLink className="w-3 h-3" />
+                                      Inquire <ExternalLink className="w-3 h-3" />
                                     </Link>
-                                  )}
-                                  {!notification.read && (
-                                    <button
-                                      onClick={() => handleMarkAsRead(notification.id)}
-                                      className="text-xs font-bold text-gray-600 hover:text-gray-700"
-                                    >
-                                      Mark read
-                                    </button>
                                   )}
                                   <button
                                     onClick={() => handleDeleteNotification(notification.id)}
-                                    className="text-xs font-bold text-red-600 hover:text-red-700"
+                                    className="text-[10px] font-black text-red-500 hover:text-red-700 uppercase tracking-widest"
                                   >
-                                    Delete
+                                    Retract
                                   </button>
                                 </div>
                               </div>
@@ -759,15 +760,15 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                   )}
                 </div>
 
-                <div className="p-3 border-t bg-muted/50">
+                <div className="p-6 border-t border-zinc-50 bg-zinc-50/50">
                   <button 
                     onClick={() => {
                       setShowNotifications(false)
                       router.push('/admin/equipment-permits')
                     }}
-                    className="w-full text-sm font-bold text-blue-600 hover:text-blue-700 py-2"
+                    className="w-full text-[11px] font-black text-zinc-950 uppercase tracking-[0.2em] py-4 bg-white border border-zinc-100 rounded-2xl shadow-sm hover:shadow-md transition-all"
                   >
-                    View All Notifications
+                    All Intelligence Logs
                   </button>
                 </div>
               </div>
@@ -775,8 +776,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           )}
         </header>
 
-        <main className="flex-1 p-8 overflow-y-auto bg-muted/20">
-          <div className="w-full">
+        <main className="flex-1 p-6 lg:p-8 overflow-y-auto bg-white custom-scrollbar">
+          <div className="max-w-[1600px] mx-auto w-full">
             {children}
           </div>
         </main>

@@ -670,7 +670,7 @@ export default function UnifiedFinancePage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Paid': return 'bg-green-100 text-green-700'
-      case 'Sent': return 'bg-blue-100 text-blue-700'
+      case 'Sent': return 'bg-zinc-100 text-zinc-950'
       case 'Overdue': return 'bg-red-100 text-red-700'
       case 'Draft': return 'bg-gray-100 text-gray-700'
       default: return 'bg-gray-100 text-gray-700'
@@ -679,7 +679,7 @@ export default function UnifiedFinancePage() {
 
   const getTierColor = (tier: string) => {
     switch (tier) {
-      case 'Platinum': return 'bg-blue-100 text-blue-700'
+      case 'Platinum': return 'bg-zinc-100 text-zinc-950'
       case 'Gold': return 'bg-yellow-100 text-yellow-700'
       case 'Silver': return 'bg-gray-100 text-gray-700'
       case 'Bronze': return 'bg-orange-100 text-orange-700'
@@ -748,7 +748,7 @@ export default function UnifiedFinancePage() {
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Pending</p>
-          <p className="text-2xl font-black text-blue-600 mt-1">{formatCurrency(summary.totalPending)}</p>
+          <p className="text-2xl font-black text-zinc-950 mt-1">{formatCurrency(summary.totalPending)}</p>
           <p className="text-xs text-muted-foreground mt-1">{summary.pendingInvoices} pending, {summary.overdueInvoices} overdue</p>
         </div>
         <div className="bg-card border rounded-2xl p-4">
@@ -758,7 +758,7 @@ export default function UnifiedFinancePage() {
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Net Profit</p>
-          <p className="text-2xl font-black text-purple-600 mt-1">{formatCurrency(summary.profit)}</p>
+          <p className="text-2xl font-black text-zinc-800 mt-1">{formatCurrency(summary.profit)}</p>
           <p className="text-xs text-muted-foreground mt-1">{summary.profitMargin.toFixed(1)}% margin</p>
         </div>
       </div>
@@ -777,7 +777,7 @@ export default function UnifiedFinancePage() {
             onClick={() => setActiveTab(tab.id)}
             className={`px-4 py-3 font-bold text-sm whitespace-nowrap border-b-2 transition-colors ${
               activeTab === tab.id
-                ? 'border-blue-600 text-blue-600'
+                ? 'border-zinc-950 text-zinc-950'
                 : 'border-transparent text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -790,7 +790,7 @@ export default function UnifiedFinancePage() {
       <div className="flex gap-2 flex-wrap">
         <button
           onClick={() => setShowInvoiceModal(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg font-bold text-sm hover:bg-blue-700"
+          className="flex items-center gap-2 px-4 py-2.5 bg-zinc-950 text-white rounded-lg font-bold text-sm hover:bg-zinc-950"
         >
           <Plus className="h-4 w-4" />
           Create Invoice
@@ -811,7 +811,7 @@ export default function UnifiedFinancePage() {
         </button>
         <button
           onClick={() => setShowClientModal(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-purple-600 text-white rounded-lg font-bold text-sm hover:bg-purple-700"
+          className="flex items-center gap-2 px-4 py-2.5 bg-zinc-800 text-white rounded-lg font-bold text-sm hover:bg-purple-700"
         >
           <Users className="h-4 w-4" />
           Add Client
@@ -913,7 +913,7 @@ export default function UnifiedFinancePage() {
               </div>
               <div className="flex items-center justify-between">
                 <p className="text-sm">Pending</p>
-                <p className="font-bold text-blue-600">{summary.pendingInvoices} ({formatCurrency(summary.totalPending)})</p>
+                <p className="font-bold text-zinc-950">{summary.pendingInvoices} ({formatCurrency(summary.totalPending)})</p>
               </div>
               <div className="flex items-center justify-between">
                 <p className="text-sm">Overdue</p>
@@ -933,8 +933,8 @@ export default function UnifiedFinancePage() {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                        <FileText className="h-5 w-5 text-blue-600" />
+                      <div className="h-10 w-10 rounded-full bg-zinc-100 flex items-center justify-center">
+                        <FileText className="h-5 w-5 text-zinc-950" />
                       </div>
                       <div>
                         <h3 className="font-black">{inv.invoiceNumber}</h3>
@@ -1015,7 +1015,7 @@ export default function UnifiedFinancePage() {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">Method</p>
-                      <span className="text-xs font-bold px-2 py-1 rounded bg-blue-100 text-blue-700">
+                      <span className="text-xs font-bold px-2 py-1 rounded bg-zinc-100 text-zinc-950">
                         {payment.paymentMethod}
                       </span>
                     </div>
@@ -1092,8 +1092,8 @@ export default function UnifiedFinancePage() {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
-                        <Building2 className="h-5 w-5 text-purple-600" />
+                      <div className="h-10 w-10 rounded-full bg-zinc-100 flex items-center justify-center">
+                        <Building2 className="h-5 w-5 text-zinc-800" />
                       </div>
                       <div>
                         <h3 className="font-black">{client.name}</h3>
@@ -1146,7 +1146,7 @@ export default function UnifiedFinancePage() {
       {showInvoiceModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-background rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border-b">
+            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-zinc-950/10 to-zinc-800/10 border-b">
               <h2 className="text-2xl font-black">Create Invoice</h2>
               <button onClick={() => setShowInvoiceModal(false)} className="p-2 hover:bg-muted rounded-lg">
                 <X className="h-5 w-5" />
@@ -1163,7 +1163,7 @@ export default function UnifiedFinancePage() {
                       onClick={() => setNewInvoice({ ...newInvoice, clientId: client.id })}
                       className={`w-full text-left p-3 rounded-lg border transition-colors ${
                         newInvoice.clientId === client.id
-                          ? 'bg-blue-100 border-blue-600'
+                          ? 'bg-zinc-100 border-zinc-950'
                           : 'bg-muted/50 hover:bg-muted border-muted'
                       }`}
                     >
@@ -1176,7 +1176,7 @@ export default function UnifiedFinancePage() {
                 {/* Add Custom Client Option */}
                 <button
                   onClick={() => setShowClientModal(true)}
-                  className="w-full p-3 rounded-lg border-2 border-dashed border-blue-400 text-blue-600 font-bold hover:bg-blue-50 transition-colors"
+                  className="w-full p-3 rounded-lg border-2 border-dashed border-blue-400 text-zinc-950 font-bold hover:bg-zinc-50 transition-colors"
                 >
                   + Add New Client
                 </button>
@@ -1257,7 +1257,7 @@ export default function UnifiedFinancePage() {
 
               <div>
                 <label className="text-sm font-bold mb-2 block">Attachments (Documents, Proofs, etc.)</label>
-                <div className="border-2 border-dashed border-blue-300 rounded-xl p-4 text-center bg-blue-50/50 hover:bg-blue-50 transition-colors cursor-pointer">
+                <div className="border-2 border-dashed border-blue-300 rounded-xl p-4 text-center bg-zinc-50/50 hover:bg-zinc-50 transition-colors cursor-pointer">
                   <input
                     type="file"
                     multiple
@@ -1267,7 +1267,7 @@ export default function UnifiedFinancePage() {
                     accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.txt"
                   />
                   <label htmlFor="invoice-file-upload" className="cursor-pointer block">
-                    <p className="text-sm font-bold text-blue-600">📤 Click to upload or drag & drop</p>
+                    <p className="text-sm font-bold text-zinc-950">📤 Click to upload or drag & drop</p>
                     <p className="text-xs text-muted-foreground mt-1">PDF, DOC, DOCX, XLS, XLSX, JPG, PNG, TXT</p>
                   </label>
                 </div>
@@ -1276,7 +1276,7 @@ export default function UnifiedFinancePage() {
                   <div className="mt-3 space-y-2">
                     <p className="text-xs font-bold text-muted-foreground">Attached Files:</p>
                     {newInvoice.attachments.map((file, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-2 bg-blue-50 border border-blue-200 rounded-lg">
+                      <div key={idx} className="flex items-center justify-between p-2 bg-zinc-50 border border-blue-200 rounded-lg">
                         <div className="flex items-center gap-2 flex-1">
                           <span className="text-lg">{getFileIcon(file.type)}</span>
                           <div className="min-w-0">
@@ -1315,7 +1315,7 @@ export default function UnifiedFinancePage() {
                 </button>
                 <button
                   onClick={handleAddInvoice}
-                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-sm"
+                  className="flex-1 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 font-bold text-sm"
                 >
                   Create Invoice
                 </button>
@@ -1329,7 +1329,7 @@ export default function UnifiedFinancePage() {
       {showClientModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-background rounded-3xl max-w-2xl w-full">
-            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-b">
+            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-zinc-900/10 to-zinc-800/10 border-b">
               <h2 className="text-2xl font-black">Add New Client</h2>
               <button onClick={() => setShowClientModal(false)} className="p-2 hover:bg-muted rounded-lg">
                 <X className="h-5 w-5" />
@@ -1413,7 +1413,7 @@ export default function UnifiedFinancePage() {
                 </button>
                 <button
                   onClick={handleAddClient}
-                  className="flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-bold text-sm"
+                  className="flex-1 px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 font-bold text-sm"
                 >
                   Add Client
                 </button>

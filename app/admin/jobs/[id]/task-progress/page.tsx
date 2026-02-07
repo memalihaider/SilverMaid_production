@@ -151,7 +151,7 @@ export default function TaskProgress() {
       case 'completed':
         return <CheckCircle className="w-5 h-5 text-green-600" />
       case 'in_progress':
-        return <PlayCircle className="w-5 h-5 text-blue-600" />
+        return <PlayCircle className="w-5 h-5 text-zinc-950" />
       case 'blocked':
         return <AlertCircle className="w-5 h-5 text-red-600" />
       default:
@@ -164,7 +164,7 @@ export default function TaskProgress() {
       case 'completed':
         return 'bg-green-100 text-green-700 border-green-300'
       case 'in_progress':
-        return 'bg-blue-100 text-blue-700 border-blue-300'
+        return 'bg-zinc-100 text-zinc-950 border-blue-300'
       case 'blocked':
         return 'bg-red-100 text-red-700 border-red-300'
       default:
@@ -179,7 +179,7 @@ export default function TaskProgress() {
       case 'medium':
         return 'bg-yellow-100 text-yellow-700'
       case 'low':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       default:
         return 'bg-gray-100 text-gray-700'
     }
@@ -211,7 +211,7 @@ export default function TaskProgress() {
             <div className="text-sm font-bold text-gray-900">{completedTasks}/{totalTasks} Completed</div>
             <div className="w-32 bg-gray-200 rounded-full h-2 mt-1">
               <div
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                className="bg-zinc-950 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${overallProgress}%` }}
               ></div>
             </div>
@@ -231,7 +231,7 @@ export default function TaskProgress() {
         </div>
         <div className="bg-white p-4 rounded-2xl border border-gray-200">
           <div className="flex items-center gap-3 mb-2">
-            <PlayCircle className="w-5 h-5 text-blue-600" />
+            <PlayCircle className="w-5 h-5 text-zinc-950" />
             <span className="text-sm font-bold text-gray-600">In Progress</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{inProgressTasks}</div>
@@ -257,7 +257,7 @@ export default function TaskProgress() {
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold text-gray-900">Task Details</h2>
-            <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all">
+            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-all">
               <Plus className="w-4 h-4" />
               Add Task
             </button>
@@ -325,7 +325,7 @@ export default function TaskProgress() {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
-                          className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                          className="bg-zinc-950 h-2 rounded-full transition-all duration-300"
                           style={{ width: `${task.progress}%` }}
                         ></div>
                       </div>
@@ -359,7 +359,7 @@ export default function TaskProgress() {
                     <button
                       onClick={() => handleStatusChange(task.id, 'in_progress')}
                       className={`px-3 py-2 text-sm font-bold transition-all ${
-                        task.status === 'in_progress' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+                        task.status === 'in_progress' ? 'bg-zinc-950 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
                       }`}
                     >
                       Start

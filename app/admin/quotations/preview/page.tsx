@@ -118,18 +118,18 @@ export default function QuotationPreview() {
                     onClick={() => setSelectedQuotation(quote)}
                     className={`p-4 rounded-lg cursor-pointer transition-all border ${
                       selectedQuotation.id === quote.id
-                        ? 'bg-blue-50 border-blue-300 shadow-sm'
+                        ? 'bg-zinc-50 border-blue-300 shadow-sm'
                         : 'bg-slate-50 border-slate-200 hover:border-slate-300 hover:shadow-sm'
                     }`}
                   >
                     <p className="text-sm font-bold text-slate-900">{quote.client.name}</p>
                     <p className="text-xs text-slate-600 mt-1">{quote.selectedServices[0]?.name || 'No service'}</p>
-                    <p className="text-sm font-bold text-blue-600 mt-2">AED {quote.totals.subtotal.toLocaleString()}</p>
+                    <p className="text-sm font-bold text-zinc-950 mt-2">AED {quote.totals.subtotal.toLocaleString()}</p>
                     <span className={`text-xs px-2 py-1 rounded-full mt-2 inline-block ${
                       quote.status === 'Sent'
                         ? 'bg-green-100 text-green-700'
                         : quote.status === 'Accepted'
-                        ? 'bg-blue-100 text-blue-700'
+                        ? 'bg-zinc-100 text-zinc-950'
                         : 'bg-yellow-100 text-yellow-700'
                     }`}>
                       {quote.status}
@@ -153,7 +153,7 @@ export default function QuotationPreview() {
                     selectedQuotation.status === 'Sent'
                       ? 'bg-green-100 text-green-700'
                       : selectedQuotation.status === 'Accepted'
-                      ? 'bg-blue-100 text-blue-700'
+                      ? 'bg-zinc-100 text-zinc-950'
                       : 'bg-yellow-100 text-yellow-700'
                   }`}>
                     {selectedQuotation.status}
@@ -226,7 +226,7 @@ export default function QuotationPreview() {
                     }}
                     className={`p-3 border-2 rounded-lg text-left transition-all ${
                       selectedTemplate === template.id
-                        ? 'border-blue-500 bg-blue-50'
+                        ? 'border-zinc-500 bg-zinc-50'
                         : 'border-slate-200 hover:border-slate-300'
                     }`}
                   >
@@ -250,7 +250,7 @@ export default function QuotationPreview() {
           }`}>
             {/* Template-specific header styling */}
             <div className={`p-8 ${
-              selectedTemplate === 'corporate' ? 'bg-linear-to-r from-blue-50 to-slate-50 border-b border-blue-100' :
+              selectedTemplate === 'corporate' ? 'bg-linear-to-r from-zinc-50 to-slate-50 border-b border-zinc-100' :
               selectedTemplate === 'modern' ? 'bg-slate-800 border-b border-slate-700' :
               selectedTemplate === 'elegant' ? 'bg-linear-to-r from-yellow-50 to-slate-50 border-b border-yellow-200' :
               'bg-slate-50 border-b'
@@ -260,7 +260,7 @@ export default function QuotationPreview() {
                 <div>
                   <h1 className={`text-3xl font-bold mb-1 ${
                     selectedTemplate === 'modern' ? 'text-white' : 'text-slate-900'
-                  }`}>HomeWare Services</h1>
+                  }`}>Silver Maid Services</h1>
                   <p className={`text-sm ${
                     selectedTemplate === 'modern' ? 'text-slate-300' : 'text-slate-600'
                   }`}>Professional Cleaning & Maintenance Solutions</p>
@@ -347,7 +347,7 @@ export default function QuotationPreview() {
                   <tbody>
                     {selectedQuotation.items.map((item: any) => (
                       <tr key={item.id} className={`border-b ${
-                        selectedTemplate === 'corporate' ? 'border-blue-50' :
+                        selectedTemplate === 'corporate' ? 'border-zinc-50' :
                         selectedTemplate === 'modern' ? 'border-slate-800' :
                         selectedTemplate === 'elegant' ? 'border-yellow-50' : 'border-slate-100'
                       }`}>
@@ -374,7 +374,7 @@ export default function QuotationPreview() {
               {/* Totals */}
               <div className="flex justify-end mb-8">
                 <div className={`w-72 space-y-3 ${
-                  selectedTemplate === 'corporate' ? 'bg-blue-50 p-4 rounded-lg border border-blue-100' :
+                  selectedTemplate === 'corporate' ? 'bg-zinc-50 p-4 rounded-lg border border-zinc-100' :
                   selectedTemplate === 'modern' ? 'bg-slate-800 p-4 rounded-lg border border-slate-700' :
                   selectedTemplate === 'elegant' ? 'bg-yellow-50 p-4 rounded-lg border border-yellow-200' : 'bg-slate-50 p-4 rounded-lg'
                 }`}>
@@ -395,7 +395,7 @@ export default function QuotationPreview() {
                     <span>AED {selectedQuotation.totals.subtotal.toLocaleString()}</span>
                   </div>
                   <div className={`flex justify-between text-xs pt-2 border-t ${
-                    selectedTemplate === 'corporate' ? 'border-blue-200 text-blue-700' :
+                    selectedTemplate === 'corporate' ? 'border-blue-200 text-zinc-950' :
                     selectedTemplate === 'modern' ? 'border-slate-600 text-slate-400' :
                     selectedTemplate === 'elegant' ? 'border-yellow-300 text-yellow-700' : 'border-slate-300 text-slate-600'
                   }`}>
@@ -432,10 +432,10 @@ export default function QuotationPreview() {
                     <div className={`text-xs space-y-1 ${
                       selectedTemplate === 'modern' ? 'text-slate-400' : 'text-slate-500'
                     }`}>
-                      <p>📧 info@homeware.ae</p>
+                      <p>📧 info@silvermaid.ae</p>
                       <p>📱 +971-50-123-4567</p>
                       <p>🏢 Dubai, UAE</p>
-                      <p>🌐 www.homeware.ae</p>
+                      <p>🌐 www.silvermaid.ae</p>
                     </div>
                   </div>
                 </div>
@@ -448,7 +448,7 @@ export default function QuotationPreview() {
                   <p className={`text-xs ${
                     selectedTemplate === 'modern' ? 'text-slate-400' : 'text-slate-500'
                   }`}>
-                    This quotation is valid until {selectedQuotation.expiryDate} • Thank you for choosing HomeWare Services
+                    This quotation is valid until {selectedQuotation.expiryDate} • Thank you for choosing Silver Maid Services
                   </p>
                 </div>
               </div>
@@ -464,7 +464,7 @@ export default function QuotationPreview() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <button
                 onClick={handleDownloadPDF}
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-zinc-950 text-white rounded-lg font-medium hover:bg-zinc-950 transition-colors shadow-sm"
               >
                 <Download className="h-4 w-4" />
                 PDF ({quotationTemplates.find(t => t.id === selectedTemplate)?.name})
@@ -510,7 +510,7 @@ export default function QuotationPreview() {
         <div className="space-y-3">
           {selectedQuotation.auditLog.map((log: any, idx: number) => (
             <div key={idx} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
-              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+              <div className="w-2 h-2 rounded-full bg-zinc-500"></div>
               <div className="flex-1">
                 <p className="text-sm font-medium text-slate-900">{log.action}</p>
                 <p className="text-xs text-slate-600">by {log.user} • {log.timestamp}</p>

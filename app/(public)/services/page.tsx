@@ -289,7 +289,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0 z-0 opacity-40">
           <img 
             src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=1600" 
-            alt="Homework UAE Services" 
+            alt="Silver Maid Services" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950/20 to-slate-950" />
@@ -484,7 +484,7 @@ export default function ServicesPage() {
               We offer bespoke hygiene audits and customized maintenance plans for unique requirements across the UAE.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/book-service" className="px-12 py-6 bg-primary text-white rounded-2xl font-black uppercase text-xs tracking-[0.2em] shadow-2xl shadow-primary/40 hover:bg-pink-600 transition-all active:scale-95">
+              <Link href="/book-service" className="px-12 py-6 bg-primary text-white rounded-2xl font-black uppercase text-xs tracking-[0.2em] shadow-2xl shadow-primary/40 hover:opacity-90 transition-all active:scale-95">
                 Request Custom Quote
               </Link>
               <Link href="/contact" className="px-12 py-6 bg-white/5 border border-white/10 text-white rounded-2xl font-black uppercase text-xs tracking-[0.2em] hover:bg-white/10 transition-all active:scale-95 backdrop-blur-md">

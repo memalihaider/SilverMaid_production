@@ -110,8 +110,8 @@ function JobDetailContent() {
       {/* Quick Stats Bar */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { label: 'Scheduled Date', value: job.scheduledDate, sub: job.scheduledTime, icon: Calendar, color: 'text-blue-600' },
-          { label: 'Duration', value: job.estimatedDuration, sub: 'Estimated', icon: Timer, color: 'text-indigo-600' },
+          { label: 'Scheduled Date', value: job.scheduledDate, sub: job.scheduledTime, icon: Calendar, color: 'text-zinc-950' },
+          { label: 'Duration', value: job.estimatedDuration, sub: 'Estimated', icon: Timer, color: 'text-zinc-900' },
           { label: 'Budget', value: `AED ${job.budget.toLocaleString()}`, sub: 'Fixed Price', icon: DollarSign, color: 'text-emerald-600' },
           { label: 'SLA Deadline', value: job.slaDeadline, sub: `${job.daysUntilSLA} days left`, icon: ShieldCheck, color: 'text-amber-600' },
         ].map((stat, i) => (
@@ -141,7 +141,7 @@ function JobDetailContent() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex flex-col items-center justify-center gap-1.5 px-2 py-2.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === tab.id 
-                ? 'bg-indigo-600 text-white shadow-md' 
+                ? 'bg-zinc-900 text-white shadow-md' 
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
             }`}
           >
@@ -153,19 +153,19 @@ function JobDetailContent() {
 
       {/* Workflow Quick Actions */}
       {job.status === 'Scheduled' && (
-        <div className="bg-blue-50 border border-blue-300 rounded-2xl p-6">
+        <div className="bg-zinc-50 border border-blue-300 rounded-2xl p-6">
           <h3 className="text-sm font-bold text-blue-900 mb-4 uppercase tracking-widest">Workflow Actions</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Link 
               href={`/admin/jobs/pre-job-checklist?jobId=${jobId}`}
-              className="p-4 bg-blue-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all group"
+              className="p-4 bg-zinc-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all group"
             >
-              <ClipboardCheck className="w-5 h-5 text-blue-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <ClipboardCheck className="w-5 h-5 text-zinc-950 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-blue-900">Pre-Job Checklist</span>
             </Link>
             <Link 
               href={`/admin/jobs/assignment?jobId=${jobId}`}
-              className="p-4 bg-purple-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all group"
+              className="p-4 bg-zinc-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all group"
             >
               <Users className="w-5 h-5 text-purple-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-purple-900">Assign Team</span>
@@ -201,9 +201,9 @@ function JobDetailContent() {
             </Link>
             <Link 
               href={`/admin/jobs/task-progress?jobId=${jobId}`}
-              className="p-4 bg-blue-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all group"
+              className="p-4 bg-zinc-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all group"
             >
-              <CheckSquare className="w-5 h-5 text-blue-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <CheckSquare className="w-5 h-5 text-zinc-950 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-blue-900">Task Progress</span>
             </Link>
             <Link 
@@ -244,17 +244,17 @@ function JobDetailContent() {
             </Link>
             <Link 
               href={`/admin/jobs/review-request?jobId=${jobId}`}
-              className="p-4 bg-purple-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all group"
+              className="p-4 bg-zinc-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all group"
             >
               <MessageSquare className="w-5 h-5 text-purple-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-purple-900">Review</span>
             </Link>
             <Link 
               href={`/admin/jobs/client-summary?jobId=${jobId}`}
-              className="p-4 bg-pink-100 hover:bg-pink-200 border border-pink-400 rounded-xl text-center transition-all group"
+              className="p-4 bg-zinc-100 hover:opacity-90 border border-zinc-300 rounded-xl text-center transition-all group"
             >
-              <Users className="w-5 h-5 text-pink-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-bold text-pink-900">Summary</span>
+              <Users className="w-5 h-5 text-zinc-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-bold text-zinc-900">Summary</span>
             </Link>
           </div>
         </div>
@@ -269,7 +269,7 @@ function JobDetailContent() {
               <div className="bg-white border border-gray-300 rounded-3xl p-8 space-y-6 shadow-sm">
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-indigo-600" />
+                    <FileText className="w-5 h-5 text-zinc-900" />
                     Job Description
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{job.description}</p>
@@ -286,7 +286,7 @@ function JobDetailContent() {
                   <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-widest">Required Skills</h3>
                   <div className="flex flex-wrap gap-2">
                     {job.requiredSkills.map((skill, i) => (
-                      <span key={i} className="px-3 py-1 bg-blue-100 text-blue-900 rounded-lg text-xs font-bold border border-blue-300">
+                      <span key={i} className="px-3 py-1 bg-zinc-100 text-blue-900 rounded-lg text-xs font-bold border border-blue-300">
                         {skill}
                       </span>
                     ))}
@@ -318,7 +318,7 @@ function JobDetailContent() {
                   { label: 'Equipment Readiness', status: 'Ready', icon: Zap, color: 'text-emerald-600' },
                   { label: 'Team Briefing', status: 'Pending', icon: MessageCircle, color: 'text-amber-600' },
                   { label: 'Site Access Pass', status: 'Verified', icon: ShieldCheck, color: 'text-emerald-600' },
-                  { label: 'Safety Checklist', status: 'In Progress', icon: ClipboardCheck, color: 'text-blue-600' },
+                  { label: 'Safety Checklist', status: 'In Progress', icon: ClipboardCheck, color: 'text-zinc-950' },
                 ].map((item, i) => (
                   <div key={i} className="p-4 bg-gray-50 rounded-2xl border border-gray-300 flex items-center justify-between group hover:bg-gray-100 transition-all cursor-pointer">
                     <div className="flex items-center gap-3">
@@ -341,12 +341,12 @@ function JobDetailContent() {
           <div className="bg-white border border-gray-300 rounded-3xl p-6 shadow-sm">
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-bold text-gray-900">Assigned Team</h3>
-              <button className="text-xs font-bold text-indigo-600 hover:underline">Manage</button>
+              <button className="text-xs font-bold text-zinc-900 hover:underline">Manage</button>
             </div>
             <div className="space-y-4">
               {job.assignedTeam.map((member, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl border border-gray-300">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-sm font-bold text-white">
+                  <div className="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center text-sm font-bold text-white">
                     {member.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
@@ -355,7 +355,7 @@ function JobDetailContent() {
                   </div>
                 </div>
               ))}
-              <button className="w-full py-3 border-2 border-dashed border-gray-300 rounded-2xl text-gray-600 text-sm font-bold hover:border-indigo-400 hover:text-indigo-600 transition-all flex items-center justify-center gap-2">
+              <button className="w-full py-3 border-2 border-dashed border-gray-300 rounded-2xl text-gray-600 text-sm font-bold hover:border-indigo-400 hover:text-zinc-900 transition-all flex items-center justify-center gap-2">
                 <Plus className="w-4 h-4" />
                 Add Member
               </button>
@@ -375,7 +375,7 @@ function JobDetailContent() {
                       <div className="text-[10px] text-gray-500">{file.size} • {file.type}</div>
                     </div>
                   </div>
-                  <Download className="w-4 h-4 text-gray-600 group-hover:text-indigo-600 transition-all" />
+                  <Download className="w-4 h-4 text-gray-600 group-hover:text-zinc-900 transition-all" />
                 </div>
               ))}
             </div>
@@ -390,7 +390,7 @@ function JobDetailContent() {
             <div className="space-y-6 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-px before:bg-gray-300">
               {job.history.map((event, i) => (
                 <div key={i} className="relative pl-10">
-                  <div className="absolute left-3 top-1.5 w-2 h-2 rounded-full bg-indigo-600 shadow-[0_0_10px_rgba(79,70,229,0.3)]" />
+                  <div className="absolute left-3 top-1.5 w-2 h-2 rounded-full bg-zinc-900 shadow-[0_0_10px_rgba(79,70,229,0.3)]" />
                   <div className="text-xs font-bold text-gray-900 mb-1">{event.action}</div>
                   <div className="text-[10px] text-gray-600 mb-1">{event.timestamp} • {event.user}</div>
                   <div className="text-[10px] text-gray-500 italic">{event.details}</div>
@@ -408,7 +408,7 @@ export default function JobDetailPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-zinc-900"></div>
       </div>
     }>
       <JobDetailContent />

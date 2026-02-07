@@ -38,13 +38,13 @@ export default function UserAccounts() {
   const [newUser, setNewUser] = useState({ name: '', email: '', phone: '', role: 'user', department: 'general', password: '' })
   
   const [users, setUsers] = useState([
-    { id: 1, name: 'Ahmed Al-Maktoum', email: 'ahmed@homeware.ae', phone: '+971501234567', role: 'Super Admin', department: 'Management', status: 'Active', createdDate: '2025-01-01', lastLogin: '2025-02-18 14:30', tempAccessGrants: [] },
-    { id: 2, name: 'Fatima Al-Mansouri', email: 'fatima@homeware.ae', phone: '+971502345678', role: 'Admin', department: 'Operations', status: 'Active', createdDate: '2025-01-05', lastLogin: '2025-02-18 10:15', tempAccessGrants: [] },
-    { id: 3, name: 'Mohammed Al-Nuaimi', email: 'mohammed@homeware.ae', phone: '+971503456789', role: 'Manager', department: 'HR', status: 'Active', createdDate: '2025-01-10', lastLogin: '2025-02-17 16:45', tempAccessGrants: [{ permission: 'Finance:Approve', until: '2025-02-25' }] },
-    { id: 4, name: 'Layla Al-Zaabi', email: 'layla@homeware.ae', phone: '+971504567890', role: 'Manager', department: 'Finance', status: 'Active', createdDate: '2025-01-15', lastLogin: '2025-02-18 11:20', tempAccessGrants: [] },
-    { id: 5, name: 'Khalid Al-Marri', email: 'khalid@homeware.ae', phone: '+971505678901', role: 'Supervisor', department: 'Operations', status: 'Active', createdDate: '2025-01-20', lastLogin: '2025-02-17 09:30', tempAccessGrants: [] },
-    { id: 6, name: 'Noor Al-Hassani', email: 'noor@homeware.ae', phone: '+971506789012', role: 'User', department: 'Sales', status: 'Active', createdDate: '2025-01-25', lastLogin: '2025-02-18 13:50', tempAccessGrants: [] },
-    { id: 7, name: 'Omar Al-Ketbi', email: 'omar@homeware.ae', phone: '+971507890123', role: 'User', department: 'Operations', status: 'Inactive', createdDate: '2025-02-01', lastLogin: '2025-02-10 15:20', tempAccessGrants: [] },
+    { id: 1, name: 'Ahmed Al-Maktoum', email: 'ahmed@silvermaid.ae', phone: '+971501234567', role: 'Super Admin', department: 'Management', status: 'Active', createdDate: '2025-01-01', lastLogin: '2025-02-18 14:30', tempAccessGrants: [] },
+    { id: 2, name: 'Fatima Al-Mansouri', email: 'fatima@silvermaid.ae', phone: '+971502345678', role: 'Admin', department: 'Operations', status: 'Active', createdDate: '2025-01-05', lastLogin: '2025-02-18 10:15', tempAccessGrants: [] },
+    { id: 3, name: 'Mohammed Al-Nuaimi', email: 'mohammed@silvermaid.ae', phone: '+971503456789', role: 'Manager', department: 'HR', status: 'Active', createdDate: '2025-01-10', lastLogin: '2025-02-17 16:45', tempAccessGrants: [{ permission: 'Finance:Approve', until: '2025-02-25' }] },
+    { id: 4, name: 'Layla Al-Zaabi', email: 'layla@silvermaid.ae', phone: '+971504567890', role: 'Manager', department: 'Finance', status: 'Active', createdDate: '2025-01-15', lastLogin: '2025-02-18 11:20', tempAccessGrants: [] },
+    { id: 5, name: 'Khalid Al-Marri', email: 'khalid@silvermaid.ae', phone: '+971505678901', role: 'Supervisor', department: 'Operations', status: 'Active', createdDate: '2025-01-20', lastLogin: '2025-02-17 09:30', tempAccessGrants: [] },
+    { id: 6, name: 'Noor Al-Hassani', email: 'noor@silvermaid.ae', phone: '+971506789012', role: 'User', department: 'Sales', status: 'Active', createdDate: '2025-01-25', lastLogin: '2025-02-18 13:50', tempAccessGrants: [] },
+    { id: 7, name: 'Omar Al-Ketbi', email: 'omar@silvermaid.ae', phone: '+971507890123', role: 'User', department: 'Operations', status: 'Inactive', createdDate: '2025-02-01', lastLogin: '2025-02-10 15:20', tempAccessGrants: [] },
   ])
 
   const filteredUsers = useMemo(() => {
@@ -120,10 +120,10 @@ export default function UserAccounts() {
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-10 w-10 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-200">
-                <ShieldCheck className="h-5 w-5 text-blue-600" />
+              <div className="h-10 w-10 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-200">
+                <ShieldCheck className="h-5 w-5 text-zinc-950" />
               </div>
-              <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">Identity & Access</span>
+              <span className="text-zinc-950 font-bold tracking-wider text-sm uppercase">Identity & Access</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight">User Accounts</h1>
             <p className="text-gray-600 mt-3 text-lg font-medium max-w-xl">
@@ -132,14 +132,14 @@ export default function UserAccounts() {
           </div>
           <button 
             onClick={() => { setShowForm(true); setEditingUser(null); setNewUser({ name: '', email: '', phone: '', role: 'user', department: 'general', password: '' }) }}
-            className="group relative flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 border border-blue-600 text-white rounded-2xl font-black transition-all shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98]">
+            className="group relative flex items-center gap-3 px-8 py-4 bg-zinc-950 hover:bg-zinc-950 border border-zinc-950 text-white rounded-2xl font-black transition-all shadow-xl shadow-zinc-500/20 hover:scale-[1.02] active:scale-[0.98]">
             <UserPlus className="h-5 w-5" />
             Add New User
           </button>
         </div>
         
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-blue-100 blur-[100px]"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-zinc-100 blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-indigo-100 blur-[100px]"></div>
       </div>
 
@@ -167,20 +167,20 @@ export default function UserAccounts() {
       {/* Search & Filter */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="relative flex-1 group">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 group-focus-within:text-blue-600 transition-colors" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 group-focus-within:text-zinc-950 transition-colors" />
           <input 
             type="text" 
             placeholder="Search by name, email, or department..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none text-black placeholder:text-gray-400 transition-all"
+            className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-zinc-500/50 outline-none text-black placeholder:text-gray-400 transition-all"
           />
         </div>
         <div className="flex gap-2">
           <select 
             value={filterRole} 
             onChange={(e) => setFilterRole(e.target.value)}
-            className="px-6 py-4 bg-white border border-gray-200 rounded-2xl text-gray-700 font-black text-xs uppercase tracking-widest outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
+            className="px-6 py-4 bg-white border border-gray-200 rounded-2xl text-gray-700 font-black text-xs uppercase tracking-widest outline-none focus:ring-2 focus:ring-zinc-500/50 transition-all"
           >
             <option value="all">All Roles</option>
             {roles.map(r => <option key={r} value={r} className="bg-white text-black">{r}</option>)}
@@ -188,7 +188,7 @@ export default function UserAccounts() {
           <select 
             value={filterStatus} 
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-6 py-4 bg-white border border-gray-200 rounded-2xl text-gray-700 font-black text-xs uppercase tracking-widest outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
+            className="px-6 py-4 bg-white border border-gray-200 rounded-2xl text-gray-700 font-black text-xs uppercase tracking-widest outline-none focus:ring-2 focus:ring-zinc-500/50 transition-all"
           >
             <option value="all">All Status</option>
             <option value="Active" className="bg-white text-black">Active</option>
@@ -215,11 +215,11 @@ export default function UserAccounts() {
                 <tr key={user.id} className="group hover:bg-gray-50 transition-colors">
                   <td className="px-8 py-6">
                     <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 rounded-2xl bg-blue-100 flex items-center justify-center border border-blue-200 text-blue-600 font-black text-lg">
+                      <div className="h-12 w-12 rounded-2xl bg-zinc-100 flex items-center justify-center border border-blue-200 text-zinc-950 font-black text-lg">
                         {user.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="text-black font-black group-hover:text-blue-600 transition-colors">{user.name}</p>
+                        <p className="text-black font-black group-hover:text-zinc-950 transition-colors">{user.name}</p>
                         <div className="flex items-center gap-3 mt-1">
                           <span className="text-[10px] text-gray-500 font-bold flex items-center gap-1">
                             <Mail className="h-3 w-3" /> {user.email}
@@ -235,7 +235,7 @@ export default function UserAccounts() {
                   </td>
                   <td className="px-8 py-6">
                     <div className="flex flex-col gap-1">
-                      <span className="text-xs font-black text-blue-600 uppercase tracking-widest">{user.role}</span>
+                      <span className="text-xs font-black text-zinc-950 uppercase tracking-widest">{user.role}</span>
                       <span className="text-[10px] text-gray-500 font-bold flex items-center gap-1">
                         <Building2 className="h-3 w-3" /> {user.department}
                       </span>
@@ -258,7 +258,7 @@ export default function UserAccounts() {
                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button 
                         onClick={() => handleEditUser(user.id)}
-                        className="p-2.5 bg-gray-100 hover:bg-blue-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-blue-600"
+                        className="p-2.5 bg-gray-100 hover:bg-zinc-100 border border-gray-200 rounded-xl transition-all text-gray-500 hover:text-zinc-950"
                       >
                         <Edit2 className="h-4 w-4" />
                       </button>
@@ -314,17 +314,17 @@ export default function UserAccounts() {
                     placeholder="e.g. Ahmed Al-Maktoum"
                     value={newUser.name}
                     onChange={(e) => setNewUser({...newUser, name: e.target.value})}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1">Email Address</label>
                   <input
                     type="email"
-                    placeholder="e.g. ahmed@homeware.ae"
+                    placeholder="e.g. ahmed@silvermaid.ae"
                     value={newUser.email}
                     onChange={(e) => setNewUser({...newUser, email: e.target.value})}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   />
                 </div>
                 <div className="space-y-2">
@@ -334,7 +334,7 @@ export default function UserAccounts() {
                     placeholder="e.g. +971 50 123 4567"
                     value={newUser.phone}
                     onChange={(e) => setNewUser({...newUser, phone: e.target.value})}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   />
                 </div>
                 <div className="space-y-2">
@@ -342,7 +342,7 @@ export default function UserAccounts() {
                   <select 
                     value={newUser.role} 
                     onChange={(e) => setNewUser({...newUser, role: e.target.value})}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   >
                     {roles.map(r => <option key={r} value={r.toLowerCase()} className="bg-white text-black">{r}</option>)}
                   </select>
@@ -352,7 +352,7 @@ export default function UserAccounts() {
                   <select 
                     value={newUser.department} 
                     onChange={(e) => setNewUser({...newUser, department: e.target.value})}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   >
                     {departments.map(d => <option key={d} value={d.toLowerCase()} className="bg-white text-black">{d}</option>)}
                   </select>
@@ -365,7 +365,7 @@ export default function UserAccounts() {
                       placeholder={editingUser ? "Leave blank to keep current" : "••••••••"} 
                       value={newUser.password} 
                       onChange={(e) => setNewUser({...newUser, password: e.target.value})} 
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 outline-none transition-all pr-12" 
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black placeholder-gray-400 focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all pr-12" 
                     />
                     <button 
                       onClick={() => setShowPassword(!showPassword)} 
@@ -386,7 +386,7 @@ export default function UserAccounts() {
               </button>
               <button
                 onClick={handleAddUser}
-                className="flex-1 px-6 py-4 bg-blue-600 hover:bg-blue-700 border border-blue-600 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg shadow-blue-500/20"
+                className="flex-1 px-6 py-4 bg-zinc-950 hover:bg-zinc-950 border border-zinc-950 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg shadow-zinc-500/20"
               >
                 {editingUser ? 'Update Profile' : 'Create Account'}
               </button>
@@ -439,8 +439,8 @@ export default function UserAccounts() {
 
       {/* Security Info */}
       <div className="bg-white border border-gray-200 rounded-[32px] p-8 flex flex-col md:flex-row gap-6 items-start">
-        <div className="h-14 w-14 rounded-2xl bg-blue-100 flex items-center justify-center border border-blue-200 shrink-0">
-          <Shield className="h-7 w-7 text-blue-600" />
+        <div className="h-14 w-14 rounded-2xl bg-zinc-100 flex items-center justify-center border border-blue-200 shrink-0">
+          <Shield className="h-7 w-7 text-zinc-950" />
         </div>
         <div>
           <h3 className="text-xl font-black text-black">Security Protocol Active</h3>
@@ -453,7 +453,7 @@ export default function UserAccounts() {
             <div className="flex items-center gap-2 text-[10px] font-black text-emerald-600 uppercase tracking-widest">
               <ShieldCheck className="h-4 w-4" /> End-to-End Encrypted
             </div>
-            <div className="flex items-center gap-2 text-[10px] font-black text-blue-600 uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-[10px] font-black text-zinc-950 uppercase tracking-widest">
               <Fingerprint className="h-4 w-4" /> Biometric Ready
             </div>
           </div>

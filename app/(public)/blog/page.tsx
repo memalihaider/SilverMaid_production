@@ -207,7 +207,7 @@ export default function BlogPage() {
                             post.category === 'industry-news' ? 'bg-purple-100 text-purple-700' :
                             post.category === 'customer-stories' ? 'bg-green-100 text-green-700' :
                             post.category === 'how-to' ? 'bg-orange-100 text-orange-700' :
-                            'bg-pink-100 text-pink-700'
+                            'bg-zinc-100 text-zinc-700'
                           }`}>
                             {post.category.replace(/-/g, ' ')}
                           </span>
@@ -338,7 +338,7 @@ export default function BlogPage() {
                             post.category === 'industry-news' ? 'bg-purple-100 text-purple-700' :
                             post.category === 'customer-stories' ? 'bg-green-100 text-green-700' :
                             post.category === 'how-to' ? 'bg-orange-100 text-orange-700' :
-                            'bg-pink-100 text-pink-700'
+                            'bg-zinc-100 text-zinc-700'
                           }`}>
                             {post.category.replace(/-/g, ' ')}
                           </span>
@@ -412,7 +412,7 @@ export default function BlogPage() {
                   setSelectedCategory(null)
                   setCurrentPage(1)
                 }}
-                className="mt-4 px-6 py-2 rounded-xl bg-primary text-white font-bold hover:bg-pink-600 transition-colors"
+                className="mt-4 px-6 py-2 rounded-xl bg-primary text-white font-bold hover:opacity-90 transition-colors"
               >
                 Clear Filters
               </button>

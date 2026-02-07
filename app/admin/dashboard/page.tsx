@@ -694,154 +694,128 @@ export default function AdminDashboard() {
   type Trend = 'up' | 'down' | 'neutral'
 
   return (
-    <div className="space-y-8 bg-gray-50 min-h-screen p-6">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-4xl font-black text-gray-900">Dashboard Overview</h1>
-          <p className="text-gray-600 mt-1">Welcome back, Admin. Real-time data from all systems.</p>
+    <div className="space-y-6 bg-white min-h-screen font-sans">
+      {/* Premium Header */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-zinc-100">
+        <div className="flex items-center gap-4">
+          <div className="w-1.5 h-10 bg-zinc-950 rounded-full hidden md:block"></div>
+          <div>
+            <h1 className="text-3xl font-black text-zinc-950 tracking-tighter uppercase">System Intelligence</h1>
+            <p className="text-zinc-400 text-xs font-bold tracking-tight">Monitoring global operations in real-time.</p>
+          </div>
         </div>
-       
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-zinc-50 border border-zinc-100 rounded-xl text-[9px] font-black text-zinc-500 uppercase tracking-widest leading-none">
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+            Live Metrics
+          </div>
+          <button 
+            onClick={handleExportData}
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-[10px] font-black uppercase tracking-[0.15em] hover:bg-zinc-800 transition-all shadow-lg shadow-black/10"
+          >
+            <Download className="w-3.5 h-3.5" />
+            Export Intel
+          </button>
+        </div>
       </div>
 
-      {/* Quick Action Cards - IMMEDIATE DATA */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        <Link href="/admin/jobs" className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-300 transition-all cursor-pointer">
-          <div className="flex items-start justify-between mb-4">
-            <div className="p-3 rounded-xl bg-blue-100 text-blue-600 group-hover:scale-110 transition-transform">
-              <Briefcase className="h-6 w-6" />
-            </div>
-            <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
-          </div>
-          <h3 className="text-sm font-bold text-gray-600">Active Jobs</h3>
-          <p className="text-2xl font-black text-gray-900 mt-2">{stats.activeJobs}</p>
-          <p className="text-xs text-gray-500 mt-1">{jobs.length} total jobs</p>
-        </Link>
-
-        <Link href="/admin/crm" className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-green-300 transition-all cursor-pointer">
-          <div className="flex items-start justify-between mb-4">
-            <div className="p-3 rounded-xl bg-green-100 text-green-600 group-hover:scale-110 transition-transform">
-              <Users className="h-6 w-6" />
-            </div>
-            <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-green-600 transition-colors" />
-          </div>
-          <h3 className="text-sm font-bold text-gray-600">CRM Leads</h3>
-          <p className="text-2xl font-black text-gray-900 mt-2">{leads.length}</p>
-          <p className="text-xs text-gray-500 mt-1">{leads.length} total leads</p>
-        </Link>
-
-        <Link href="/admin/quotations" className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-purple-300 transition-all cursor-pointer">
-          <div className="flex items-start justify-between mb-4">
-            <div className="p-3 rounded-xl bg-purple-100 text-purple-600 group-hover:scale-110 transition-transform">
-              <FileText className="h-6 w-6" />
-            </div>
-            <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-purple-600 transition-colors" />
-          </div>
-          <h3 className="text-sm font-bold text-gray-600">Quotations</h3>
-          <p className="text-2xl font-black text-gray-900 mt-2">{stats.pendingQuotations} </p>
-          <p className="text-xs text-gray-500 mt-1">{quotations.length} total quotes</p>
-        </Link>
-
-        <Link href="/admin/employees" className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-orange-300 transition-all cursor-pointer">
-          <div className="flex items-start justify-between mb-4">
-            <div className="p-3 rounded-xl bg-orange-100 text-orange-600 group-hover:scale-110 transition-transform">
-              <UserCog className="h-6 w-6" />
-            </div>
-            <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-orange-600 transition-colors" />
-          </div>
-          <h3 className="text-sm font-bold text-gray-600">Employees</h3>
-          <p className="text-2xl font-black text-gray-900 mt-2">{stats.activeEmployees}</p>
-          <p className="text-xs text-gray-500 mt-1">{employees.length} total Employee</p>
-        </Link>
-
-        <Link href="/admin/services" className="group bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-pink-300 transition-all cursor-pointer">
-          <div className="flex items-start justify-between mb-4">
-            <div className="p-3 rounded-xl bg-pink-100 text-pink-600 group-hover:scale-110 transition-transform">
-              <Package className="h-6 w-6" />
-            </div>
-            <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-pink-600 transition-colors" />
-          </div>
-          <h3 className="text-sm font-bold text-gray-600">Services</h3>
-          <p className="text-2xl font-black text-gray-900 mt-2">{stats.totalServices}</p>
-          <p className="text-xs text-gray-500 mt-1">View all services</p>
-        </Link>
-      </div>
-
-      {/* KPIs - IMMEDIATE DATA */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Modern KPI Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {kpis.map((kpi, index) => (
-          <div key={index} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all group cursor-pointer">
-            <div className="flex justify-between items-start mb-4">
-              <div className={`p-3 rounded-xl ${kpi.color === 'blue' ? 'bg-blue-100 text-blue-600' : 
-                                 kpi.color === 'green' ? 'bg-green-100 text-green-600' : 
-                                 kpi.color === 'purple' ? 'bg-purple-100 text-purple-600' : 
-                                 'bg-orange-100 text-orange-600'} group-hover:scale-110 transition-transform`}>
-                <kpi.icon className="h-6 w-6" />
+          <div key={index} className="bg-white p-5 rounded-[1.75rem] border border-zinc-100 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_30px_-5px_rgba(0,0,0,0.08)] transition-all duration-500 group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-20 h-20 bg-zinc-50 rounded-full -mr-6 -mt-6 transition-transform group-hover:scale-150 duration-700"></div>
+            <div className="relative z-10">
+              <div className="flex justify-between items-start mb-4">
+                <div className={`p-3 rounded-xl bg-zinc-950 text-white shadow-xl shadow-zinc-200 group-hover:scale-105 transition-transform duration-500`}>
+                  <kpi.icon className="h-5 w-5" />
+                </div>
+                <div className={`flex items-center px-2 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest ${
+                  kpi.trend === 'up' ? 'bg-zinc-50 text-zinc-950 border border-zinc-100' : 
+                  kpi.trend === 'down' ? 'bg-red-50 text-red-500 border border-red-50' : 
+                  'bg-zinc-50 text-zinc-400 border border-zinc-50'
+                }`}>
+                  {kpi.change}
+                </div>
               </div>
-              <div className={`flex items-center px-2.5 py-1 rounded-full text-xs font-bold ${
-                kpi.trend === 'up' ? 'bg-green-100 text-green-700' : 
-                kpi.trend === 'down' ? 'bg-red-100 text-red-700' : 
-                'bg-gray-100 text-gray-700'
-              }`}>
-                {kpi.change}
-                {kpi.trend === 'up' ? <ArrowUpRight className="ml-1 h-3 w-3" /> : 
-                 kpi.trend === 'down' ? <ArrowDownRight className="ml-1 h-3 w-3" /> : 
-                 null}
-              </div>
+              <h3 className="text-[9px] font-black text-zinc-400 uppercase tracking-[0.25em] mb-0.5">{kpi.title}</h3>
+              <p className="text-3xl font-black text-zinc-950 tracking-tighter leading-none">{kpi.value}</p>
             </div>
-            <h3 className="text-sm font-bold text-gray-600">{kpi.title}</h3>
-            <p className="text-3xl font-black text-gray-900 mt-2">{kpi.value}</p>
           </div>
         ))}
       </div>
 
-      {/* Main Charts - IMMEDIATE DATA */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-          <div className="flex justify-between items-center mb-8">
-            <div>
-              <h3 className="text-xl font-black text-gray-900">Revenue Overview</h3>
-              <p className="text-sm text-gray-500">Last 6 months performance</p>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg text-xs font-bold">
-                <div className="h-2 w-2 rounded-full bg-blue-600"></div>
-                Revenue
+      {/* Quick Action Dock */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        {[
+          { label: 'Active Jobs', val: stats.activeJobs, icon: Briefcase, href: '/admin/jobs', color: 'bg-zinc-100' },
+          { label: 'CRM Leads', val: leads.length, icon: Users, href: '/admin/crm', color: 'bg-zinc-950 text-white' },
+          { label: 'Quotations', val: stats.pendingQuotations, icon: FileText, href: '/admin/quotations', color: 'bg-zinc-100' },
+          { label: 'Team', val: stats.activeEmployees, icon: UserCog, href: '/admin/hr', color: 'bg-zinc-100' },
+          { label: 'Services', val: stats.totalServices, icon: Package, href: '/admin/products', color: 'bg-zinc-100' }
+        ].map((item, i) => (
+          <Link key={i} href={item.href} className={`flex flex-col p-4 rounded-[1.5rem] border border-zinc-100 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all group ${item.color.includes('zinc-950') ? 'bg-zinc-950' : 'bg-white'}`}>
+            <div className="flex items-center justify-between mb-6">
+              <div className={`p-2.5 rounded-[14px] ${item.color.includes('zinc-950') ? 'bg-white/10 text-white' : 'bg-zinc-50 text-zinc-950'} group-hover:scale-105 transition-transform`}>
+                <item.icon className="h-4.5 w-4.5" />
               </div>
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg text-xs font-bold">
-                <div className="h-2 w-2 rounded-full bg-purple-500"></div>
-                Expenses
+              <ChevronRight className={`h-3.5 w-3.5 ${item.color.includes('zinc-950') ? 'text-zinc-500' : 'text-zinc-300'} group-hover:translate-x-0.5 transition-all`} />
+            </div>
+            <p className={`text-[9px] font-black uppercase tracking-widest mb-0.5 ${item.color.includes('zinc-950') ? 'text-zinc-500' : 'text-zinc-400'}`}>{item.label}</p>
+            <p className={`text-xl font-black tracking-tighter leading-none ${item.color.includes('zinc-950') ? 'text-white' : 'text-zinc-950'}`}>{item.val}</p>
+          </Link>
+        ))}
+      </div>
+
+      {/* Intelligence Boards */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-white p-6 rounded-[1.5rem] border border-zinc-100 shadow-sm hover:shadow-md transition-all">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div>
+              <h3 className="text-lg font-black text-zinc-950 tracking-tighter uppercase leading-none italic">Revenue <span className="text-zinc-400">Analytics</span></h3>
+              <p className="text-zinc-400 text-[9px] font-black uppercase tracking-widest mt-1">Operational Growth Matrix</p>
+            </div>
+            <div className="flex gap-2">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-zinc-50 rounded-lg border border-zinc-100">
+                <div className="h-1.5 w-1.5 rounded-full bg-zinc-950"></div>
+                <span className="text-[8px] font-black uppercase tracking-widest text-zinc-500">Revenue</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 bg-zinc-50 rounded-lg border border-zinc-100">
+                <div className="h-1.5 w-1.5 rounded-full bg-zinc-200"></div>
+                <span className="text-[8px] font-black uppercase tracking-widest text-zinc-500">Expense</span>
               </div>
             </div>
           </div>
-          <div className="h-87.5 w-full">
+          <div className="h-72 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={salesData}>
                 <defs>
                   <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.1}/>
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#000000" stopOpacity={0.05}/>
+                    <stop offset="95%" stopColor="#000000" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#6b7280' }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#6b7280' }} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 9, fill: '#a1a1aa', fontWeight: 900 }} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9, fill: '#a1a1aa', fontWeight: 700 }} />
                 <Tooltip 
                   formatter={(value) => [`AED ${value}`, '']}
-                  labelFormatter={(label) => `Month: ${label}`}
-                  contentStyle={{ backgroundColor: '#fff', borderColor: '#e5e7eb', borderRadius: '12px' }} 
+                  labelFormatter={(label) => `${label}`}
+                  contentStyle={{ backgroundColor: '#000', border: 'none', borderRadius: '12px', padding: '10px' }}
+                  itemStyle={{ color: '#fff', fontSize: '11px', fontWeight: '800' }}
+                  labelStyle={{ color: '#71717a', fontSize: '9px', fontWeight: '800', marginBottom: '4px', textTransform: 'uppercase' }}
                 />
-                <Area type="monotone" dataKey="sales" stroke="#3b82f6" strokeWidth={3} fillOpacity={1} fill="url(#colorSales)" name="Revenue" />
-                <Area type="monotone" dataKey="expenses" stroke="#a855f7" strokeWidth={2} fill="transparent" strokeDasharray="5 5" name="Expenses" />
+                <Area type="monotone" dataKey="sales" stroke="#18181b" strokeWidth={3} fillOpacity={1} fill="url(#colorSales)" name="Revenue" />
+                <Area type="monotone" dataKey="expenses" stroke="#d4d4d8" strokeWidth={1.5} fill="transparent" strokeDasharray="8 4" name="Expenses" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-          <h3 className="text-xl font-black text-gray-900 mb-2">Lead Distribution</h3>
-          <p className="text-sm text-gray-500 mb-8">Leads by pipeline stage</p>
-          <div className="h-75 w-full relative">
+        <div className="bg-white p-6 rounded-[1.5rem] border border-zinc-100 shadow-sm hover:shadow-md transition-all flex flex-col">
+          <h3 className="text-lg font-black text-zinc-950 tracking-tighter uppercase mb-0.5 italic">Pipeline <span className="text-zinc-400">Logic</span></h3>
+          <p className="text-zinc-400 text-[9px] font-black uppercase tracking-widest mb-8">Lead Conversion Map</p>
+          
+          <div className="h-64 w-full relative mb-6">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie 
@@ -850,153 +824,154 @@ export default function AdminDashboard() {
                   cy="50%" 
                   innerRadius={70} 
                   outerRadius={90} 
-                  paddingAngle={2} 
+                  paddingAngle={5} 
                   dataKey="value"
-                  label={(entry) => entry.name}
                 >
                   {leadData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
+                    <Cell 
+                      key={`cell-${index}`} 
+                      fill={['#09090b', '#27272a', '#52525b', '#a1a1aa', '#e4e4e7'][index % 5]} 
+                      stroke="none"
+                    />
                   ))}
                 </Pie>
-                <Tooltip formatter={(value) => [`${value} leads`, 'Count']} />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: '#000', border: 'none', borderRadius: '12px', padding: '10px' }}
+                  itemStyle={{ color: '#fff', fontSize: '11px', fontWeight: '800' }}
+                />
               </PieChart>
             </ResponsiveContainer>
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-3xl font-black text-gray-900">{leads.length}</span>
-              <span className="text-xs font-bold text-gray-500 uppercase">Total Leads</span>
+              <span className="text-3xl font-black text-zinc-950 tracking-tighter italic">{leads.length}</span>
+              <span className="text-[8px] font-black text-zinc-400 uppercase tracking-widest">Leads</span>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3 mt-6">
+
+          <div className="space-y-2.5 mt-auto">
             {leadData.map((item, i) => (
-              <div key={i} className="flex items-center gap-2 p-2 bg-gray-100 rounded-lg">
-                <div className="h-2 w-2 rounded-full" style={{ backgroundColor: item.color }}></div>
-                <span className="text-xs font-bold text-gray-700">{item.name}</span>
-                <span className="text-xs font-black ml-auto text-gray-900">{item.value}</span>
+              <div key={i} className="flex items-center gap-3 p-4 bg-zinc-50 rounded-2xl border border-zinc-100/50 group hover:bg-zinc-100 transition-colors">
+                <div className="h-3 w-3 rounded-full shadow-sm" style={{ backgroundColor: ['#09090b', '#27272a', '#52525b', '#a1a1aa', '#e4e4e7'][i % 5] }}></div>
+                <span className="text-xs font-black text-zinc-500 uppercase tracking-widest">{item.name}</span>
+                <span className="text-lg font-black ml-auto text-zinc-950 tracking-tighter">{item.value}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Recent Activity & Health - IMMEDIATE DATA */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-            <h3 className="text-xl font-black text-gray-900">Recent Activity</h3>
+      {/* Operational Logs & Health */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-white rounded-2xl border border-zinc-100 shadow-sm overflow-hidden transition-all hover:shadow-md">
+          <div className="p-5 border-b border-zinc-50 flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-black text-zinc-950 tracking-tighter uppercase italic">Operational <span className="text-zinc-400">Status</span></h3>
+              <p className="text-zinc-400 text-[9px] font-black uppercase tracking-widest mt-0.5">Real-time intelligence feed</p>
+            </div>
             <button 
               onClick={handleViewLog}
-              className="text-sm text-blue-600 font-bold hover:underline"
+              className="px-3 py-1.5 bg-zinc-50 border border-zinc-100 rounded-lg text-[8px] font-black uppercase tracking-widest text-zinc-500 hover:bg-zinc-950 hover:text-white transition-all"
             >
-              View All Logs
+              Registry
             </button>
           </div>
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-zinc-50 px-3">
             {recentActivities.map((activity) => {
               let Icon = CheckCircle2
-              let color = 'text-green-600'
-              let bg = 'bg-green-100'
               
               switch(activity.type) {
-                case 'job':
-                  Icon = Briefcase
-                  color = 'text-blue-600'
-                  bg = 'bg-blue-100'
-                  break
-                case 'lead':
-                  Icon = Users
-                  color = 'text-purple-600'
-                  bg = 'bg-purple-100'
-                  break
-                case 'quotation':
-                  Icon = FileText
-                  color = 'text-orange-600'
-                  bg = 'bg-orange-100'
-                  break
-                case 'booking':
-                  Icon = Calendar
-                  color = 'text-pink-600'
-                  bg = 'bg-pink-100'
-                  break
-                case 'system':
-                  Icon = ShieldCheck
-                  color = 'text-gray-600'
-                  bg = 'bg-gray-100'
-                  break
-                case 'info':
-                  Icon = AlertCircle
-                  color = 'text-yellow-600'
-                  bg = 'bg-yellow-100'
-                  break
+                case 'job': Icon = Briefcase; break
+                case 'lead': Icon = Users; break
+                case 'quotation': Icon = FileText; break
+                case 'booking': Icon = Calendar; break
               }
               
               return (
-                <div key={activity.id} className="p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors group">
-                  <div className={`p-2.5 rounded-xl ${bg}`}>
-                    <Icon className={`h-5 w-5 ${color}`} />
+                <div key={activity.id} className="p-3.5 flex items-center gap-4 hover:bg-zinc-50/80 transition-all group rounded-xl my-1 border border-transparent hover:border-zinc-100">
+                  <div className="p-2.5 rounded-xl bg-zinc-50 border border-zinc-100 group-hover:scale-105 transition-transform">
+                    <Icon className="h-3.5 w-3.5 text-zinc-600" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-gray-900">
-                      <span className="font-black">{activity.user}</span> {activity.action} <span className="text-blue-600 font-bold">{activity.target}</span>
+                    <p className="text-[11px] font-bold text-zinc-900 leading-tight">
+                      <span className="text-zinc-950 font-black">{activity.user}</span>
+                      <span className="mx-1 text-zinc-400 font-medium">{activity.action}</span>
+                      <span className="text-zinc-950 font-black tracking-tight tracking-tighter">{activity.target}</span>
                     </p>
-                    <p className="text-xs text-gray-500 mt-0.5">{activity.time}</p>
+                    <p className="text-[8px] font-black text-zinc-400 uppercase tracking-widest mt-1 flex items-center gap-1">
+                       <Clock className="w-2.5 h-2.5" />
+                       {activity.time}
+                    </p>
                   </div>
+                  <ChevronRight className="w-3 h-3 text-zinc-300 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                 </div>
               )
             })}
           </div>
         </div>
 
-        {/* Health Card */}
-        <div className="bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-gray-900 shadow-xl relative overflow-hidden border border-blue-200">
-          <div className="relative z-10 space-y-6">
-            <div>
-              <h3 className="text-2xl font-black mb-2">System Health</h3>
-             
-            </div>
-            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 space-y-3 border border-blue-200">
-              <div className="flex justify-between text-sm font-bold text-gray-900">
-                <span>Data Collections</span>
-                <span>10/10</span>
+        {/* Global Security & Health */}
+        <div className="space-y-4">
+          <div className="bg-zinc-950 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden group border border-zinc-900">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -mr-24 -mt-24 blur-3xl group-hover:bg-white/10 transition-colors duration-700"></div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-white/10 rounded-lg">
+                   <ShieldCheck className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-black tracking-tight uppercase italic">Security <span className="text-zinc-500">Core</span></h3>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-1 h-1 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <span className="text-[8px] font-black text-zinc-500 uppercase tracking-widest leading-none">Status: Active</span>
+                  </div>
+                </div>
               </div>
-              <div className="h-2.5 bg-gray-200 rounded-full overflow-hidden">
-                <div className="h-full bg-blue-600 w-full rounded-full"></div>
+
+              <div className="space-y-4">
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-[8px] font-black text-zinc-500 uppercase tracking-widest">
+                    <span>Protocol Integrity</span>
+                    <span className="text-white italic">100%</span>
+                  </div>
+                  <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-white w-full rounded-full"></div>
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-[8px] font-black text-zinc-500 uppercase tracking-widest">
+                    <span>Sync Stability</span>
+                    <span className="text-white italic">94%</span>
+                  </div>
+                  <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-zinc-500 w-[94%] rounded-full"></div>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-between text-sm font-bold text-gray-900">
-                <span>Real-time Updates</span>
-                <span>Active</span>
+
+              <div className="grid grid-cols-2 gap-2 mt-6">
+                {[
+                  { label: 'Cloud', val: 'Active' },
+                  { label: 'Registry', val: 'Optimum' },
+                ].map((stat, idx) => (
+                  <div key={idx} className="p-2.5 bg-white/5 rounded-xl border border-white/5">
+                    <p className="text-[7px] font-black text-zinc-500 uppercase tracking-widest mb-0.5">{stat.label}</p>
+                    <p className="text-[10px] font-black text-white italic">{stat.val}</p>
+                  </div>
+                ))}
               </div>
-              <div className="h-2.5 bg-gray-200 rounded-full overflow-hidden">
-                <div className="h-full bg-green-500 w-full rounded-full"></div>
-              </div>
-              <div className="flex justify-between text-sm font-bold text-gray-900">
-                <span>Database Status</span>
-                <span>Connected</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-white/60 backdrop-blur-sm rounded-lg p-3 text-center border border-blue-200">
-                <p className="text-xs text-gray-500">Services</p>
-                <p className="text-xl font-black text-gray-900">{stats.totalServices}</p>
-              </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-lg p-3 text-center border border-blue-200">
-                <p className="text-xs text-gray-500">Products</p>
-                <p className="text-xl font-black text-gray-900">{stats.totalProducts}</p>
-              </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-lg p-3 text-center border border-blue-200">
-                <p className="text-xs text-gray-500">Surveys</p>
-                <p className="text-xl font-black text-gray-900">{stats.activeSurveys}</p>
-              </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-lg p-3 text-center border border-blue-200">
-                <p className="text-xs text-gray-500">Clients</p>
-                <p className="text-xl font-black text-gray-900">{stats.totalClients}</p>
-              </div>
-            </div>
-            <div className="text-center">
-              <p className="text-xs text-gray-600 mb-2">Last updated: {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
-             
             </div>
           </div>
-          <div className="absolute -right-12 -bottom-12 w-40 h-40 bg-blue-300/10 rounded-full blur-3xl"></div>
+
+          <div className="bg-white border border-zinc-100 rounded-2xl p-4 shadow-sm flex items-center justify-between">
+             <div>
+               <p className="text-[8px] font-black text-zinc-400 uppercase tracking-widest italic">Temporal Sync</p>
+               <p className="text-[10px] font-black text-zinc-950 uppercase mt-0.5">{new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} GST</p>
+             </div>
+             <div className="flex gap-1">
+                {[1,2,3].map(i => <div key={i} className={`h-1 w-1 rounded-full ${i===3 ? 'bg-zinc-200' : 'bg-zinc-950'}`}></div>)}
+             </div>
+          </div>
         </div>
       </div>
     </div>

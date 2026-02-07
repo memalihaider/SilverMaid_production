@@ -179,7 +179,7 @@ export default function ReviewRequestPage() {
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Reviews Requested</p>
-          <p className="text-2xl font-bold text-blue-600">{stats.requested}</p>
+          <p className="text-2xl font-bold text-zinc-950">{stats.requested}</p>
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Reviews Completed</p>
@@ -192,7 +192,7 @@ export default function ReviewRequestPage() {
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Referrals Generated</p>
-          <p className="text-2xl font-bold text-purple-600">{stats.referralsGenerated}</p>
+          <p className="text-2xl font-bold text-zinc-800">{stats.referralsGenerated}</p>
         </div>
       </div>
 
@@ -278,7 +278,7 @@ export default function ReviewRequestPage() {
                   ? 'bg-green-100 text-green-700'
                   : getSmartTimingRecommendation(selectedJob).includes('Wait')
                     ? 'bg-gray-100 text-gray-700'
-                    : 'bg-blue-100 text-blue-700'
+                    : 'bg-zinc-100 text-zinc-950'
               }`}>
                 {getSmartTimingRecommendation(selectedJob)}
               </p>
@@ -287,7 +287,7 @@ export default function ReviewRequestPage() {
 
             <div>
               <p className="text-sm text-gray-600 mb-2">Incentive Suggestion</p>
-              <p className="font-semibold text-sm px-3 py-2 bg-purple-100 text-purple-700 rounded">
+              <p className="font-semibold text-sm px-3 py-2 bg-zinc-100 text-purple-700 rounded">
                 {getIncentiveSuggestion(selectedJob)}
               </p>
             </div>
@@ -386,7 +386,7 @@ export default function ReviewRequestPage() {
                 {selectedJob.review.status === 'Pending' && (
                   <button
                     onClick={() => handleCompleteReview(selectedJob.id)}
-                    className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-sm"
+                    className="w-full px-4 py-3 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 font-medium text-sm"
                   >
                     Mark as Completed
                   </button>
@@ -439,7 +439,7 @@ export default function ReviewRequestPage() {
                       onClick={() => setReviewForm({ ...reviewForm, incentiveOffered: incentive })}
                       className={`w-full px-4 py-2 rounded border-2 transition-colors text-left ${
                         reviewForm.incentiveOffered === incentive
-                          ? 'border-purple-600 bg-purple-50'
+                          ? 'border-zinc-800 bg-zinc-50'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
@@ -449,7 +449,7 @@ export default function ReviewRequestPage() {
                 </div>
               </div>
 
-              <div className="p-3 bg-blue-50 border border-blue-200 rounded text-sm text-blue-800">
+              <div className="p-3 bg-zinc-50 border border-blue-200 rounded text-sm text-blue-800">
                 <p className="font-semibold mb-1">Smart Timing:</p>
                 <p>Request will be sent immediately to maximize engagement while the experience is fresh.</p>
               </div>

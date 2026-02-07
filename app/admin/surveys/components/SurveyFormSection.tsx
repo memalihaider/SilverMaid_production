@@ -957,7 +957,7 @@
 //                   <div className="flex items-center gap-1">
 //                     <button
 //                       onClick={() => loadSurvey(survey)}
-//                       className="p-1.5 hover:bg-blue-50 rounded text-blue-600 transition-colors"
+//                       className="p-1.5 hover:bg-zinc-50 rounded text-zinc-950 transition-colors"
 //                       title="Edit survey"
 //                     >
 //                       <Eye className="w-4 h-4" />
@@ -2207,7 +2207,7 @@ export default function SurveyFormSection() {
                     </button>
                     <button
                       onClick={() => loadSurvey(survey)}
-                      className="p-1.5 hover:bg-blue-50 rounded text-blue-600 transition-colors"
+                      className="p-1.5 hover:bg-zinc-50 rounded text-zinc-950 transition-colors"
                       title="Edit survey"
                     >
                       <Edit2 className="w-4 h-4" />

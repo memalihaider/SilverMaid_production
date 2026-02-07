@@ -469,11 +469,11 @@ export default function NewJobForm({ onClose, onSave }: NewJobFormProps) {
             {formData.requiredSkills.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {formData.requiredSkills.map((skill) => (
-                  <span key={skill} className="px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-xs font-bold flex items-center gap-2 border border-blue-300">
+                  <span key={skill} className="px-3 py-1 bg-zinc-100 text-blue-900 rounded-full text-xs font-bold flex items-center gap-2 border border-blue-300">
                     {skill}
                     <button
                       onClick={() => removeSkill(skill)}
-                      className="hover:text-blue-700"
+                      className="hover:text-zinc-950"
                     >
                       <X className="h-3 w-3" />
                     </button>
@@ -547,7 +547,7 @@ export default function NewJobForm({ onClose, onSave }: NewJobFormProps) {
             {formData.tags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {formData.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-purple-100 text-purple-900 rounded-full text-xs font-bold flex items-center gap-2 border border-purple-300">
+                  <span key={tag} className="px-3 py-1 bg-zinc-100 text-purple-900 rounded-full text-xs font-bold flex items-center gap-2 border border-purple-300">
                     {tag}
                     <button
                       onClick={() => removeTag(tag)}

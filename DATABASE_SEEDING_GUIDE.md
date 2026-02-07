@@ -1,10 +1,10 @@
 # Database Seeding & Test Data Guide
 
 ## Overview
-Complete guide for populating the Homeware Admin Portal database with realistic test data.
+Complete guide for populating the Silver Maid Admin Portal database with realistic test data.
 
 ## Pre-Seeding Checklist
-- [ ] Database created (homeware_erp)
+- [ ] Database created (silvermaid_erp)
 - [ ] All 73 tables created
 - [ ] Foreign key constraints enabled
 - [ ] Indexes created
@@ -80,14 +80,14 @@ WHERE name IN ('view_announcements', 'view_own_data');
 ### 1.4 Create System Users
 ```sql
 INSERT INTO users (id, name, email, phone, role_id, role_name, status, department, join_date, last_login) VALUES
-('USR001', 'Ahmed Al-Mazrouei', 'ahmed.mazrouei@homeware.com', '+971501234567', 'ROLE001', 'Super Admin', 'Active', 'Executive', '2026-01-01', NOW()),
-('USR002', 'Fatima Al-Ketbi', 'fatima.ketbi@homeware.com', '+971501234568', 'ROLE002', 'Admin', 'Active', 'Administration', '2026-01-05', NOW()),
-('USR003', 'Mohammed Hassan', 'mohammed.hassan@homeware.com', '+971501234569', 'ROLE003', 'Manager', 'Active', 'Operations', '2026-01-08', NOW()),
-('USR004', 'Sarah Johnson', 'sarah.johnson@homeware.com', '+971501234570', 'ROLE003', 'Manager', 'Active', 'Finance', '2026-01-10', NOW()),
-('USR005', 'Ali Al-Mansoori', 'ali.mansoori@homeware.com', '+971501234571', 'ROLE004', 'Supervisor', 'Active', 'HR', '2026-01-12', NOW()),
-('USR006', 'Nora Al-Kaabi', 'nora.kaabi@homeware.com', '+971501234572', 'ROLE004', 'Supervisor', 'Active', 'HR', '2026-01-15', NULL),
-('USR007', 'Karim Al-Raisi', 'karim.raisi@homeware.com', '+971501234573', 'ROLE005', 'User', 'Active', 'Operations', '2026-01-18', NULL),
-('USR008', 'Leila Al-Mazrouei', 'leila.mazrouei@homeware.com', '+971501234574', 'ROLE005', 'User', 'Inactive', 'Marketing', '2026-01-20', '2026-01-25');
+('USR001', 'Ahmed Al-Mazrouei', 'ahmed.mazrouei@silvermaid.com', '+971501234567', 'ROLE001', 'Super Admin', 'Active', 'Executive', '2026-01-01', NOW()),
+('USR002', 'Fatima Al-Ketbi', 'fatima.ketbi@silvermaid.com', '+971501234568', 'ROLE002', 'Admin', 'Active', 'Administration', '2026-01-05', NOW()),
+('USR003', 'Mohammed Hassan', 'mohammed.hassan@silvermaid.com', '+971501234569', 'ROLE003', 'Manager', 'Active', 'Operations', '2026-01-08', NOW()),
+('USR004', 'Sarah Johnson', 'sarah.johnson@silvermaid.com', '+971501234570', 'ROLE003', 'Manager', 'Active', 'Finance', '2026-01-10', NOW()),
+('USR005', 'Ali Al-Mansoori', 'ali.mansoori@silvermaid.com', '+971501234571', 'ROLE004', 'Supervisor', 'Active', 'HR', '2026-01-12', NOW()),
+('USR006', 'Nora Al-Kaabi', 'nora.kaabi@silvermaid.com', '+971501234572', 'ROLE004', 'Supervisor', 'Active', 'HR', '2026-01-15', NULL),
+('USR007', 'Karim Al-Raisi', 'karim.raisi@silvermaid.com', '+971501234573', 'ROLE005', 'User', 'Active', 'Operations', '2026-01-18', NULL),
+('USR008', 'Leila Al-Mazrouei', 'leila.mazrouei@silvermaid.com', '+971501234574', 'ROLE005', 'User', 'Inactive', 'Marketing', '2026-01-20', '2026-01-25');
 ```
 
 ### 1.5 Create Audit Log Entries
@@ -108,12 +108,12 @@ INSERT INTO audit_logs (id, user_id, user_name, action, module, details, timesta
 ### 2.1 Create Employees
 ```sql
 INSERT INTO employees (id, name, email, phone, role, position, department, status, join_date, location, rating, nationality_country, date_of_birth) VALUES
-('EMP001', 'Ahmed Al-Mazrouei', 'ahmed@homeware.com', '+971501234567', 'Executive Director', 'Director', 'Executive', 'Active', '2020-01-15', 'Dubai HQ', 4.8, 'UAE', '1985-03-20'),
-('EMP002', 'Fatima Al-Ketbi', 'fatima@homeware.com', '+971501234568', 'Admin Manager', 'Manager', 'Administration', 'Active', '2021-01-10', 'Dubai HQ', 4.6, 'UAE', '1988-07-15'),
-('EMP003', 'Mohammed Hassan', 'mohammed@homeware.com', '+971501234569', 'Operations Manager', 'Manager', 'Operations', 'Active', '2021-03-01', 'Dubai HQ', 4.5, 'Egypt', '1986-05-10'),
-('EMP004', 'Sarah Johnson', 'sarah@homeware.com', '+971501234570', 'Finance Manager', 'Manager', 'Finance', 'Active', '2021-06-15', 'Dubai HQ', 4.7, 'USA', '1987-12-25'),
-('EMP005', 'Ali Al-Mansoori', 'ali@homeware.com', '+971501234571', 'HR Supervisor', 'Supervisor', 'HR', 'Active', '2022-01-20', 'Dubai HQ', 4.4, 'UAE', '1990-02-14'),
-('EMP006', 'Nora Al-Kaabi', 'nora@homeware.com', '+971501234572', 'HR Officer', 'Officer', 'HR', 'On Leave', '2022-06-01', 'Dubai HQ', 4.3, 'UAE', '1992-08-30');
+('EMP001', 'Ahmed Al-Mazrouei', 'ahmed@silvermaid.com', '+971501234567', 'Executive Director', 'Director', 'Executive', 'Active', '2020-01-15', 'Dubai HQ', 4.8, 'UAE', '1985-03-20'),
+('EMP002', 'Fatima Al-Ketbi', 'fatima@silvermaid.com', '+971501234568', 'Admin Manager', 'Manager', 'Administration', 'Active', '2021-01-10', 'Dubai HQ', 4.6, 'UAE', '1988-07-15'),
+('EMP003', 'Mohammed Hassan', 'mohammed@silvermaid.com', '+971501234569', 'Operations Manager', 'Manager', 'Operations', 'Active', '2021-03-01', 'Dubai HQ', 4.5, 'Egypt', '1986-05-10'),
+('EMP004', 'Sarah Johnson', 'sarah@silvermaid.com', '+971501234570', 'Finance Manager', 'Manager', 'Finance', 'Active', '2021-06-15', 'Dubai HQ', 4.7, 'USA', '1987-12-25'),
+('EMP005', 'Ali Al-Mansoori', 'ali@silvermaid.com', '+971501234571', 'HR Supervisor', 'Supervisor', 'HR', 'Active', '2022-01-20', 'Dubai HQ', 4.4, 'UAE', '1990-02-14'),
+('EMP006', 'Nora Al-Kaabi', 'nora@silvermaid.com', '+971501234572', 'HR Officer', 'Officer', 'HR', 'On Leave', '2022-06-01', 'Dubai HQ', 4.3, 'UAE', '1992-08-30');
 ```
 
 ### 2.2 Create Salaries
@@ -130,12 +130,12 @@ INSERT INTO salaries (id, employee_id, basic_salary, housing_allowance, transpor
 ### 2.3 Create Employee Visas
 ```sql
 INSERT INTO employee_visas (id, employee_id, visa_type, visa_number, issue_date, expiry_date, sponsor_name, status, days_until_expiry) VALUES
-('VIS001', 'EMP001', 'employee', 'VIS00001', '2020-01-15', '2028-01-14', 'Homeware LLC', 'active', 714),
-('VIS002', 'EMP002', 'employee', 'VIS00002', '2021-01-10', '2027-01-09', 'Homeware LLC', 'active', 349),
-('VIS003', 'EMP003', 'employee', 'VIS00003', '2021-03-01', '2027-02-28', 'Homeware LLC', 'active', 396),
-('VIS004', 'EMP004', 'employee', 'VIS00004', '2021-06-15', '2027-06-14', 'Homeware LLC', 'active', 503),
-('VIS005', 'EMP005', 'employee', 'VIS00005', '2022-01-20', '2026-01-19', 'Homeware LLC', 'expiring_soon', 26),
-('VIS006', 'EMP006', 'employee', 'VIS00006', '2022-06-01', '2026-05-31', 'Homeware LLC', 'expiring_soon', 154);
+('VIS001', 'EMP001', 'employee', 'VIS00001', '2020-01-15', '2028-01-14', 'Silver Maid LLC', 'active', 714),
+('VIS002', 'EMP002', 'employee', 'VIS00002', '2021-01-10', '2027-01-09', 'Silver Maid LLC', 'active', 349),
+('VIS003', 'EMP003', 'employee', 'VIS00003', '2021-03-01', '2027-02-28', 'Silver Maid LLC', 'active', 396),
+('VIS004', 'EMP004', 'employee', 'VIS00004', '2021-06-15', '2027-06-14', 'Silver Maid LLC', 'active', 503),
+('VIS005', 'EMP005', 'employee', 'VIS00005', '2022-01-20', '2026-01-19', 'Silver Maid LLC', 'expiring_soon', 26),
+('VIS006', 'EMP006', 'employee', 'VIS00006', '2022-06-01', '2026-05-31', 'Silver Maid LLC', 'expiring_soon', 154);
 ```
 
 ### 2.4 Create Attendance Records
@@ -334,7 +334,7 @@ INSERT INTO survey_questions (id, survey_id, question_text, question_type, displ
 INSERT INTO blog_categories (id, name, slug, description, status) VALUES
 ('BLOGCAT001', 'Cleaning Tips', 'cleaning-tips', 'Expert tips for maintaining cleanliness', 'Active'),
 ('BLOGCAT002', 'Industry News', 'industry-news', 'Latest news in cleaning and maintenance industry', 'Active'),
-('BLOGCAT003', 'Company Updates', 'company-updates', 'Homeware company news and updates', 'Active');
+('BLOGCAT003', 'Company Updates', 'company-updates', 'Silver Maid company news and updates', 'Active');
 ```
 
 ### 9.2 Create Blog Posts
@@ -342,7 +342,7 @@ INSERT INTO blog_categories (id, name, slug, description, status) VALUES
 INSERT INTO blog_posts (id, title, slug, excerpt, category_id, author_id, author_name, status, publish_date) VALUES
 ('BLOG001', 'Top 10 Cleaning Tips for Your Office', 'top-10-cleaning-tips', 'Learn the best practices for maintaining a clean and productive office environment', 'BLOGCAT001', 'USR004', 'Sarah Johnson', 'Published', NOW()),
 ('BLOG002', 'Sustainable Cleaning Practices', 'sustainable-cleaning', 'Discover eco-friendly cleaning methods that protect the environment', 'BLOGCAT001', 'USR003', 'Mohammed Hassan', 'Published', NOW()),
-('BLOG003', 'Homeware Wins Best Service Award', 'award-announcement', 'We are proud to announce our recognition in the industry', 'BLOGCAT003', 'USR002', 'Fatima Al-Ketbi', 'Published', NOW());
+('BLOG003', 'Silver Maid Wins Best Service Award', 'award-announcement', 'We are proud to announce our recognition in the industry', 'BLOGCAT003', 'USR002', 'Fatima Al-Ketbi', 'Published', NOW());
 ```
 
 ## Verification Queries

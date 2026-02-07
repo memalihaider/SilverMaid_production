@@ -11,7 +11,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-white text-slate-900 transition-colors duration-300">
       {/* Top Bar - Enhanced */}
-      <div className="bg-gradient-to-r from-primary via-primary to-pink-700 text-white py-3 hidden md:block border-b border-white/10">
+      <div className="bg-zinc-950 text-white py-3 hidden md:block border-b border-white/10">
         <div className="container mx-auto px-4 flex justify-between items-center text-xs font-bold">
           <div className="flex items-center gap-8">
             <a href="tel:80046639675" className="flex items-center gap-2 hover:text-white/90 transition-all group">
@@ -20,11 +20,11 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
               </div>
               <span className="tracking-wider">80046639675</span>
             </a>
-            <a href="mailto:services@homeworkuae.com" className="flex items-center gap-2 hover:text-white/90 transition-all group">
+            <a href="mailto:services@silvermaid.ae" className="flex items-center gap-2 hover:text-white/90 transition-all group">
               <div className="h-7 w-7 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all">
                 <Mail className="h-3.5 w-3.5" />
               </div>
-              <span className="tracking-wide">services@homeworkuae.com</span>
+              <span className="tracking-wide">services@silvermaid.ae</span>
             </a>
           </div>
           <div className="flex items-center gap-3">
@@ -42,12 +42,12 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b border-slate-200/60 bg-white/90 backdrop-blur-xl shadow-lg shadow-slate-200/50">
         <div className="container mx-auto flex h-20 items-center justify-between px-4">
           <a href="/" className="flex items-center gap-3 group">
-            <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-primary to-pink-700 flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-primary/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-              H
+            <div className="h-12 w-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-black/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+              S
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-black tracking-tight text-slate-900 leading-none">HOMEWORK</span>
-              <span className="text-[11px] font-black tracking-[0.25em] text-primary leading-none mt-1.5">UAE CLEANING</span>
+              <span className="text-2xl font-black tracking-tight text-slate-900 leading-none uppercase">Silver Maid</span>
+              <span className="text-[11px] font-black tracking-[0.25em] text-zinc-500 leading-none mt-1.5 uppercase">Premium Cleaning</span>
             </div>
           </a>
 
@@ -211,7 +211,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-4">
             <a 
               href="/book-service" 
-              className="inline-flex h-12 items-center justify-center rounded-2xl bg-gradient-to-r from-primary to-pink-700 px-8 text-sm font-black text-white shadow-xl shadow-primary/30 transition-all hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 active:scale-95 tracking-wider border-2 border-white/20"
+              className="inline-flex h-12 items-center justify-center rounded-2xl bg-zinc-950 px-8 text-sm font-black text-white shadow-xl shadow-black/20 transition-all hover:shadow-2xl hover:shadow-black/40 hover:scale-105 active:scale-95 tracking-wider border-2 border-white/20"
             >
               BOOK NOW
             </a>
@@ -245,7 +245,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
                    <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shrink-0 shadow-lg">
                     <Mail className="h-4 w-4" />
                   </div>
-                  <a href="mailto:services@homeworkuae.com" className="group-hover:text-white transition-colors">services@homeworkuae.com</a>
+                  <a href="mailto:services@silvermaid.ae" className="group-hover:text-white transition-colors">services@silvermaid.ae</a>
                 </li>
               </ul>
             </div>
@@ -280,7 +280,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
                   placeholder="and updates to your email…" 
                   className="w-full bg-slate-800 border-none rounded-2xl py-5 px-6 text-xs font-bold focus:ring-2 focus:ring-primary outline-none placeholder:text-slate-500 shadow-inner"
                 />
-                <button className="absolute right-2 top-2 h-11 w-11 bg-primary rounded-xl flex items-center justify-center hover:bg-pink-600 transition-all shadow-lg hover:scale-110">
+                <button className="absolute right-2 top-2 h-11 w-11 bg-primary rounded-xl flex items-center justify-center hover:opacity-90 transition-all shadow-lg hover:scale-110">
                   <Send className="h-4 w-4" />
                 </button>
               </div>
@@ -288,7 +288,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
           </div>
           
           <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-[10px] text-slate-500 font-black uppercase tracking-[0.3em]">Copyright ©2024 Home Work Uae</p>
+            <p className="text-[10px] text-zinc-500 font-black uppercase tracking-[0.3em]">Copyright ©2026 Silver Maid UAE</p>
             <div className="flex items-center gap-6">
               <a href="#" className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all hover:scale-110 shadow-lg group">
                 <Facebook className="h-5 w-5 text-slate-400 group-hover:text-white" />
@@ -341,7 +341,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
           className="pointer-events-auto group relative"
         >
           {/* Main button */}
-          <div className="h-14 w-14 bg-slate-900 text-white rounded-full shadow-[0_6px_24px_rgba(0,0,0,0.25)] flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 border-3 border-white/10 hover:border-white hover:shadow-[0_10px_32px_rgba(219,39,119,0.4)]">
+          <div className="h-14 w-14 bg-zinc-950 text-white rounded-full shadow-[0_6px_24px_rgba(0,0,0,0.25)] flex items-center justify-center hover:bg-zinc-800 hover:scale-105 transition-all duration-300 border-3 border-white/10 hover:border-white hover:shadow-[0_10px_32px_rgba(0,0,0,0.4)]">
             <Phone className="h-6 w-6" />
           </div>
           
@@ -353,11 +353,11 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
 
         {/* Email Button - Tertiary */}
         <a 
-          href="mailto:services@homeworkuae.com" 
+          href="mailto:services@silvermaid.ae" 
           className="pointer-events-auto group relative"
         >
           {/* Main button */}
-          <div className="h-12 w-12 bg-primary text-white rounded-full shadow-[0_4px_16px_rgba(219,39,119,0.25)] flex items-center justify-center hover:scale-105 transition-all duration-300 border-2 border-white/5 hover:border-white hover:shadow-[0_8px_24px_rgba(219,39,119,0.35)]">
+          <div className="h-12 w-12 bg-primary text-primary-foreground rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] flex items-center justify-center hover:scale-105 transition-all duration-300 border-2 border-white/5 hover:border-white hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
             <Mail className="h-5 w-5" />
           </div>
           

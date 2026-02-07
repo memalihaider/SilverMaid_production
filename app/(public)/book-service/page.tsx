@@ -102,7 +102,7 @@ const SuccessPopup = ({
           </button>
 
           {/* Background Pattern */}
-          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-primary via-pink-500 to-purple-500" />
+          <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-primary via-zinc-600 to-purple-500" />
 
           {/* Content */}
           <div className="pt-14 pb-5 px-5">
@@ -196,7 +196,7 @@ const SuccessPopup = ({
             <div className="flex gap-3">
               <button
                 onClick={onClose}
-                className="flex-1 py-2 bg-gradient-to-r from-primary to-pink-500 text-white rounded-2xl font-bold text-sm hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/25"
+                className="flex-1 py-2 bg-gradient-to-r from-primary to-zinc-800 text-white rounded-2xl font-bold text-sm hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/25"
               >
                 Done, Got It
               </button>
@@ -464,7 +464,7 @@ export default function BookService() {
                       href="tel:80046639675"
                       className="text-white hover:text-primary transition-colors"
                     >
-                      800-HOMEWORK
+                      800-SILVERMAID
                     </a>
                   </p>
                 </div>
@@ -729,7 +729,7 @@ export default function BookService() {
 
                     <button
                       type="submit"
-                      className="h-16 px-12 bg-primary text-white rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl shadow-primary/30 hover:bg-pink-600 transition-all flex items-center gap-4 active:scale-95 flex-1 md:flex-initial justify-center group"
+                      className="h-16 px-12 bg-primary text-white rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-2xl shadow-primary/30 hover:opacity-90 transition-all flex items-center gap-4 active:scale-95 flex-1 md:flex-initial justify-center group"
                     >
                       {step === totalSteps ? "Complete Booking" : "Continue"}
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

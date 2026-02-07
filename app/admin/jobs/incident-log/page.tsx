@@ -88,7 +88,7 @@ export default function IncidentLog() {
       case 'Medium':
         return 'bg-yellow-100 text-yellow-700 border-yellow-300'
       case 'Low':
-        return 'bg-blue-100 text-blue-700 border-blue-300'
+        return 'bg-zinc-100 text-zinc-950 border-blue-300'
       default:
         return 'bg-gray-100 text-gray-700'
     }
@@ -101,7 +101,7 @@ export default function IncidentLog() {
       case 'Escalated':
         return 'bg-red-100 text-red-700'
       case 'In Progress':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       default:
         return 'bg-gray-100 text-gray-700'
     }
@@ -144,7 +144,7 @@ export default function IncidentLog() {
           <h1 className="text-3xl font-bold">Incident Log</h1>
           <p className="text-muted-foreground">Real-time issue escalation and cost estimation</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors">
           <AlertTriangle className="h-4 w-4" />
           Report Incident
         </button>
@@ -170,7 +170,7 @@ export default function IncidentLog() {
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Incident Costs</p>
-          <p className="text-2xl font-bold text-pink-600">AED {stats.totalCost.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-primary">AED {stats.totalCost.toLocaleString()}</p>
         </div>
       </div>
 
@@ -179,7 +179,7 @@ export default function IncidentLog() {
         <select
           value={filterSeverity}
           onChange={(e) => setFilterSeverity(e.target.value)}
-          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-sm"
+          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none text-sm"
         >
           <option value="all">All Severity</option>
           <option value="Critical">Critical</option>
@@ -190,7 +190,7 @@ export default function IncidentLog() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-sm"
+          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none text-sm"
         >
           <option value="all">All Status</option>
           <option value="Resolved">Resolved</option>
@@ -209,7 +209,7 @@ export default function IncidentLog() {
               onClick={() => setSelectedIncidentId(incident.id)}
               className={`w-full text-left p-3 rounded-lg border transition-colors ${
                 selectedIncidentId === incident.id
-                  ? 'bg-pink-50 dark:bg-pink-950/30 border-pink-300 dark:border-pink-700'
+                  ? 'bg-zinc-100 dark:bg-zinc-900/30 border-zinc-300 dark:border-zinc-300'
                   : 'bg-card hover:bg-muted border-border'
               }`}
             >
@@ -248,7 +248,7 @@ export default function IncidentLog() {
                   <span className={`text-xs font-bold px-3 py-1 rounded-full border ${getSeverityColor(selectedIncident.severity)}`}>
                     {selectedIncident.severity}
                   </span>
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-purple-100 text-purple-700">
+                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-zinc-100 text-purple-700">
                     {selectedIncident.type}
                   </span>
                   <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700">
@@ -275,7 +275,7 @@ export default function IncidentLog() {
                 </div>
                 <div className="bg-muted p-3 rounded-lg">
                   <p className="text-muted-foreground text-xs mb-1">Cost Estimate</p>
-                  <p className="font-semibold text-pink-600">AED {selectedIncident.costEstimate}</p>
+                  <p className="font-semibold text-primary">AED {selectedIncident.costEstimate}</p>
                 </div>
                 <div className="bg-muted p-3 rounded-lg">
                   <p className="text-muted-foreground text-xs mb-1">Time to Resolve</p>
@@ -301,7 +301,7 @@ export default function IncidentLog() {
                   {selectedIncident.actions.map((action: any, idx: number) => (
                     <div key={idx} className="flex gap-3 pb-2 border-b last:border-b-0">
                       <div className="shrink-0">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-pink-100 text-pink-600 text-xs font-bold">
+                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-zinc-100 text-primary text-xs font-bold">
                           {idx + 1}
                         </div>
                       </div>
@@ -319,7 +319,7 @@ export default function IncidentLog() {
               {selectedIncident.status === 'Escalated' && (
                 <button
                   onClick={() => setShowEscalationModal(true)}
-                  className="w-full px-3 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-3 py-2 bg-zinc-950 text-white rounded-lg text-sm font-medium hover:bg-zinc-950 transition-colors flex items-center justify-center gap-2"
                 >
                   <Send className="h-4 w-4" />
                   Add Follow-up Action
@@ -341,21 +341,21 @@ export default function IncidentLog() {
           <div className="bg-background border rounded-lg p-6 max-w-md w-full mx-4">
             <h2 className="text-lg font-bold mb-4">Add Follow-up Action</h2>
             <div className="space-y-4 mb-4">
-              <select className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none text-sm">
+              <select className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none text-sm">
                 <option>Select Action Type</option>
                 <option>Escalate to Management</option>
                 <option>Contact External Authority</option>
                 <option>Schedule On-site Inspection</option>
                 <option>Document for Insurance</option>
               </select>
-              <textarea placeholder="Action details..." className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none text-sm min-h-24" />
-              <input type="text" placeholder="Assigned to" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none text-sm" />
+              <textarea placeholder="Action details..." className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none text-sm min-h-24" />
+              <input type="text" placeholder="Assigned to" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none text-sm" />
             </div>
             <div className="flex gap-2">
               <button onClick={() => setShowEscalationModal(false)} className="flex-1 px-3 py-2 border rounded-lg hover:bg-muted transition-colors text-sm">
                 Cancel
               </button>
-              <button onClick={() => setShowEscalationModal(false)} className="flex-1 px-3 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors text-sm">
+              <button onClick={() => setShowEscalationModal(false)} className="flex-1 px-3 py-2 bg-primary text-white rounded-lg hover:opacity-90 transition-colors text-sm">
                 Add Action
               </button>
             </div>

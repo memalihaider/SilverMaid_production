@@ -29,7 +29,7 @@ interface JobListProps {
 
 const STATUS_COLORS: Record<JobStatus, string> = {
   'PENDING': 'bg-gray-100 text-gray-600',
-  'SCHEDULED': 'bg-blue-100 text-blue-600',
+  'SCHEDULED': 'bg-zinc-100 text-zinc-950',
   'IN_PROGRESS': 'bg-black text-white',
   'COMPLETED': 'bg-green-100 text-green-600',
   'CANCELLED': 'bg-red-100 text-red-600'
@@ -37,7 +37,7 @@ const STATUS_COLORS: Record<JobStatus, string> = {
 
 const PRIORITY_COLORS: Record<JobPriority, string> = {
   'LOW': 'bg-slate-50 text-slate-400',
-  'MEDIUM': 'bg-blue-50 text-blue-500',
+  'MEDIUM': 'bg-zinc-50 text-zinc-500',
   'HIGH': 'bg-orange-50 text-orange-600',
   'CRITICAL': 'bg-red-50 text-red-600'
 }
@@ -108,10 +108,10 @@ export default function JobList({ jobs, onUpdateStatus, onDelete }: JobListProps
               <tr key={job.id} className="group hover:bg-gray-50/80 transition-all">
                 <td className="px-6 py-5">
                   <div className="flex items-center gap-4">
-                    <div className={`w-1 h-10 ${job.status === 'IN_PROGRESS' ? 'bg-blue-600 animate-pulse' : 'bg-gray-200'}`} />
+                    <div className={`w-1 h-10 ${job.status === 'IN_PROGRESS' ? 'bg-zinc-950 animate-pulse' : 'bg-gray-200'}`} />
                     <div>
                       <div className="flex items-center gap-2 mb-0.5">
-                        <span className="text-[10px] font-black text-blue-600 uppercase italic tracking-tighter">{job.jobId}</span>
+                        <span className="text-[10px] font-black text-zinc-950 uppercase italic tracking-tighter">{job.jobId}</span>
                         <span className={`px-1.5 py-0.5 text-[8px] font-black uppercase tracking-widest ${PRIORITY_COLORS[job.priority]}`}>
                           {job.priority}
                         </span>

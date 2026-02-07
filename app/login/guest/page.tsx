@@ -42,7 +42,7 @@ export default function GuestLoginPage() {
   };
 
   const fillDemoCredentials = () => {
-    setEmail('guest@homeware.ae');
+    setEmail('guest@silvermaid.ae');
     setPassword('Demo@123');
   };
 
@@ -54,7 +54,7 @@ export default function GuestLoginPage() {
     const session: SessionData = {
       user: {
         uid: 'guest-temp',
-        email: 'guest@homeware.ae',
+        email: 'guest@silvermaid.ae',
         name: 'Guest User'
       },
       allowedPages: ['announcements', 'catalog'],
@@ -149,7 +149,7 @@ export default function GuestLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-white placeholder-slate-400"
-                placeholder="guest@homeware.ae"
+                placeholder="guest@silvermaid.ae"
                 required
               />
             </div>
@@ -210,7 +210,7 @@ export default function GuestLoginPage() {
             <p className="text-xs text-slate-400 mb-2 text-center">Demo Credentials</p>
             <div className="flex justify-between items-center text-sm">
               <div>
-                <p className="text-slate-300 font-mono text-xs">guest@homeware.ae</p>
+                <p className="text-slate-300 font-mono text-xs">guest@silvermaid.ae</p>
                 <p className="text-slate-400 font-mono text-xs">Demo@123</p>
               </div>
               <button
@@ -226,7 +226,7 @@ export default function GuestLoginPage() {
 
         {/* Footer */}
         <p className="text-center text-slate-500 text-sm mt-8">
-          © 2026 Homeware. All rights reserved.
+          © 2026 Silver Maid. All rights reserved.
         </p>
       </div>
     </div>

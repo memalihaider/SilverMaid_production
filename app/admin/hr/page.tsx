@@ -81,7 +81,7 @@ export default function HRDashboard() {
           </p>
         </div>
         <Link href="/admin/hr/attendance">
-          <button className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl font-bold text-sm hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20">
+          <button className="flex items-center gap-2 px-4 py-2.5 bg-zinc-950 text-white rounded-xl font-bold text-sm hover:bg-zinc-950 transition-colors shadow-lg shadow-zinc-500/20">
             <Clock className="h-4 w-4" />
             Mark Attendance
           </button>
@@ -96,8 +96,8 @@ export default function HRDashboard() {
               <p className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest">Total Staff</p>
               <p className="text-2xl font-black text-foreground mt-1">{totalEmployees}</p>
             </div>
-            <div className="h-10 w-10 rounded-lg bg-blue-100 dark:bg-blue-950/30 flex items-center justify-center shrink-0">
-              <Users className="h-5 w-5 text-blue-600" />
+            <div className="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-blue-950/30 flex items-center justify-center shrink-0">
+              <Users className="h-5 w-5 text-zinc-950" />
             </div>
           </div>
         </div>
@@ -118,10 +118,10 @@ export default function HRDashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest">On Job</p>
-              <p className="text-2xl font-black text-purple-600 mt-1">{onJobCount}</p>
+              <p className="text-2xl font-black text-zinc-800 mt-1">{onJobCount}</p>
             </div>
-            <div className="h-10 w-10 rounded-lg bg-purple-100 dark:bg-purple-950/30 flex items-center justify-center shrink-0">
-              <Briefcase className="h-5 w-5 text-purple-600" />
+            <div className="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-purple-950/30 flex items-center justify-center shrink-0">
+              <Briefcase className="h-5 w-5 text-zinc-800" />
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function HRDashboard() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-3 px-4 font-bold flex items-center gap-2 border-b-2 transition-all ${
                   activeTab === tab.id
-                    ? 'border-blue-600 text-blue-600'
+                    ? 'border-zinc-950 text-zinc-950'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -205,7 +205,7 @@ export default function HRDashboard() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">On Job</span>
-                  <span className="font-black text-purple-600">{onJobCount}</span>
+                  <span className="font-black text-zinc-800">{onJobCount}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Late</span>
@@ -281,13 +281,13 @@ export default function HRDashboard() {
                 placeholder="Search by name or email..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-zinc-500 outline-none"
               />
             </div>
             <select
               value={filterDepartment}
               onChange={(e) => setFilterDepartment(e.target.value)}
-              className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-zinc-500 outline-none"
             >
               <option value="all">All Departments</option>
               {Object.keys(departments).map(dept => (
@@ -297,7 +297,7 @@ export default function HRDashboard() {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-zinc-500 outline-none"
             >
               <option value="all">All Status</option>
               <option value="Active">Active</option>
@@ -314,7 +314,7 @@ export default function HRDashboard() {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="h-10 w-10 rounded-lg bg-blue-100 dark:bg-blue-950/30 flex items-center justify-center font-black text-blue-600">
+                        <div className="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-blue-950/30 flex items-center justify-center font-black text-zinc-950">
                           {emp.name.charAt(0)}
                         </div>
                         <div>
@@ -348,7 +348,7 @@ export default function HRDashboard() {
                         {emp.status}
                       </span>
                       <Link href={`/admin/hr/employee-directory?id=${emp.id}`}>
-                        <button className="p-2 hover:bg-blue-100 rounded-lg text-blue-600 transition-colors">
+                        <button className="p-2 hover:bg-zinc-100 rounded-lg text-zinc-950 transition-colors">
                           <Eye className="h-4 w-4" />
                         </button>
                       </Link>
@@ -376,13 +376,13 @@ export default function HRDashboard() {
                     <div className="flex items-center gap-3 mb-2">
                       <div className={`h-2.5 w-2.5 rounded-full ${
                         att.status === 'Present' ? 'bg-green-600' :
-                        att.status === 'On Job' ? 'bg-purple-600' :
+                        att.status === 'On Job' ? 'bg-zinc-800' :
                         att.status === 'Late' ? 'bg-amber-600' : 'bg-red-600'
                       }`} />
                       <p className="font-black">{att.employeeName}</p>
                       <span className={`px-2 py-1 rounded-lg text-xs font-bold ${
                         att.status === 'Present' ? 'bg-green-100 text-green-700' :
-                        att.status === 'On Job' ? 'bg-purple-100 text-purple-700' :
+                        att.status === 'On Job' ? 'bg-zinc-100 text-purple-700' :
                         att.status === 'Late' ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'
                       }`}>
                         {att.status}
@@ -404,7 +404,7 @@ export default function HRDashboard() {
                       {att.jobTitle && (
                         <div>
                           <p className="text-xs text-muted-foreground">Job</p>
-                          <p className="font-bold text-purple-600">{att.jobTitle}</p>
+                          <p className="font-bold text-zinc-800">{att.jobTitle}</p>
                         </div>
                       )}
                     </div>

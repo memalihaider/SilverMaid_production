@@ -425,10 +425,10 @@ export default function AuditLogs() {
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-10 w-10 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-200">
-                <Terminal className="h-5 w-5 text-blue-600" />
+              <div className="h-10 w-10 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-200">
+                <Terminal className="h-5 w-5 text-zinc-950" />
               </div>
-              <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">System Forensics</span>
+              <span className="text-zinc-950 font-bold tracking-wider text-sm uppercase">System Forensics</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">Audit Logs</h1>
             <p className="text-gray-600 mt-3 text-lg font-medium max-w-xl">
@@ -445,14 +445,14 @@ export default function AuditLogs() {
                   : 'bg-gray-100 hover:bg-gray-200 text-black border-gray-300'
               }`}
             >
-              <Download className="h-5 w-5 text-blue-600" />
+              <Download className="h-5 w-5 text-zinc-950" />
               Export Logs
             </button>
           </div>
         </div>
         
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-blue-50 blur-[100px]"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-zinc-50 blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-indigo-50 blur-[100px]"></div>
       </div>
 
@@ -494,7 +494,7 @@ export default function AuditLogs() {
           <div key={idx} className="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between mb-4">
               <div className={`p-2 rounded-xl ${
-                stat.color === 'blue' ? 'bg-blue-100 text-blue-600' :
+                stat.color === 'blue' ? 'bg-zinc-100 text-zinc-950' :
                 stat.color === 'emerald' ? 'bg-emerald-100 text-emerald-600' :
                 stat.color === 'amber' ? 'bg-amber-100 text-amber-600' :
                 'bg-rose-100 text-rose-600'
@@ -513,13 +513,13 @@ export default function AuditLogs() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-8 space-y-6">
           <div className="relative group">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-600 transition-colors" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-zinc-950 transition-colors" />
             <input 
               type="text" 
               placeholder="Search logs by user, email, action, or resource..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500/50 outline-none text-black placeholder:text-gray-500 transition-all"
+              className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-zinc-500/50 outline-none text-black placeholder:text-gray-500 transition-all"
             />
           </div>
 
@@ -547,7 +547,7 @@ export default function AuditLogs() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-3">
-                          <span className="text-lg font-black text-black group-hover:text-blue-600 transition-colors">{log.action}</span>
+                          <span className="text-lg font-black text-black group-hover:text-zinc-950 transition-colors">{log.action}</span>
                           <span className="px-2 py-0.5 rounded-md bg-gray-100 text-[10px] font-black text-gray-600 uppercase tracking-widest border border-gray-200">
                             {log.resource}
                           </span>
@@ -557,7 +557,7 @@ export default function AuditLogs() {
                             </span>
                           )}
                           {log.roleName && (
-                            <span className="px-2 py-0.5 rounded-md bg-blue-100 text-[10px] font-black text-blue-600 uppercase tracking-widest border border-blue-200">
+                            <span className="px-2 py-0.5 rounded-md bg-zinc-100 text-[10px] font-black text-zinc-950 uppercase tracking-widest border border-blue-200">
                               {log.roleName}
                             </span>
                           )}
@@ -570,14 +570,14 @@ export default function AuditLogs() {
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                         <div className="flex items-center gap-2 text-gray-600">
-                          <User className="h-4 w-4 text-blue-600" />
+                          <User className="h-4 w-4 text-zinc-950" />
                           <div>
                             <span className="font-bold text-black block">{log.userName}</span>
                             <span className="text-xs text-gray-500">{log.userEmail}</span>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 text-gray-600">
-                          <Globe className="h-4 w-4 text-indigo-600" />
+                          <Globe className="h-4 w-4 text-zinc-900" />
                           <span>{log.ipAddress}</span>
                         </div>
                         <div className="flex items-center gap-2 text-gray-600">
@@ -585,7 +585,7 @@ export default function AuditLogs() {
                           <span>Risk: {log.riskScore} ({getRiskLevel(log.riskScore)})</span>
                         </div>
                         <div className="flex justify-end">
-                          <button className="text-blue-600 hover:text-blue-700 text-xs font-black uppercase tracking-widest flex items-center gap-1">
+                          <button className="text-zinc-950 hover:text-zinc-950 text-xs font-black uppercase tracking-widest flex items-center gap-1">
                             Details <ArrowRight className="h-3 w-3" />
                           </button>
                         </div>
@@ -604,7 +604,7 @@ export default function AuditLogs() {
                 {auditLogs.length === 0 && (
                   <button 
                     onClick={refreshData}
-                    className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-all"
+                    className="mt-4 px-6 py-2 bg-zinc-950 hover:bg-zinc-950 text-white rounded-xl font-bold transition-all"
                   >
                     Refresh Data
                   </button>
@@ -619,7 +619,7 @@ export default function AuditLogs() {
           <div className="bg-white border border-gray-200 rounded-[32px] p-8 space-y-8 shadow-sm">
             <div>
               <h3 className="text-lg font-black text-black mb-6 flex items-center gap-2">
-                <Filter className="h-5 w-5 text-blue-600" />
+                <Filter className="h-5 w-5 text-zinc-950" />
                 Refine Logs
               </h3>
               
@@ -629,7 +629,7 @@ export default function AuditLogs() {
                   <select 
                     value={filterUser} 
                     onChange={(e) => setFilterUser(e.target.value)}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   >
                     <option value="all" className="bg-white text-black">All Users</option>
                     {users.map(u => (
@@ -643,7 +643,7 @@ export default function AuditLogs() {
                   <select 
                     value={filterAction} 
                     onChange={(e) => setFilterAction(e.target.value)}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   >
                     <option value="all" className="bg-white text-black">All Actions</option>
                     {actions.map(a => (
@@ -657,7 +657,7 @@ export default function AuditLogs() {
                   <select 
                     value={filterRisk} 
                     onChange={(e) => setFilterRisk(e.target.value)}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   >
                     <option value="all" className="bg-white text-black">All Risk Levels</option>
                     <option value="Low" className="bg-white text-emerald-600">Low Risk</option>
@@ -671,7 +671,7 @@ export default function AuditLogs() {
 
             <div className="pt-8 border-t border-gray-200">
               <h3 className="text-lg font-black text-black mb-6 flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-indigo-600" />
+                <Calendar className="h-5 w-5 text-zinc-900" />
                 Date Range
               </h3>
               <div className="space-y-4">
@@ -681,7 +681,7 @@ export default function AuditLogs() {
                     type="date" 
                     value={dateFrom} 
                     onChange={(e) => setDateFrom(e.target.value)}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   />
                 </div>
                 <div className="space-y-2">
@@ -690,7 +690,7 @@ export default function AuditLogs() {
                     type="date" 
                     value={dateTo} 
                     onChange={(e) => setDateTo(e.target.value)}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-blue-500/50 outline-none transition-all"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-zinc-500/50 outline-none transition-all"
                   />
                 </div>
               </div>
@@ -698,7 +698,7 @@ export default function AuditLogs() {
 
             <button 
               onClick={refreshData}
-              className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg"
+              className="w-full py-4 bg-zinc-950 hover:bg-zinc-950 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg"
             >
               Refresh & Reset Filters
             </button>
@@ -725,7 +725,7 @@ export default function AuditLogs() {
               </div>
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
                 <span className="text-xs font-bold text-gray-600">Active Users</span>
-                <span className="text-xs font-black text-blue-600">{users.length}</span>
+                <span className="text-xs font-black text-zinc-950">{users.length}</span>
               </div>
             </div>
           </div>
@@ -739,7 +739,7 @@ export default function AuditLogs() {
             <div className="flex items-center justify-between p-8 border-b border-gray-200">
               <div className="flex items-center gap-4">
                 <div className={`h-12 w-12 rounded-xl flex items-center justify-center border ${
-                  selectedLog.riskScore > 75 ? 'bg-red-100 border-red-200 text-red-600' : 'bg-blue-100 border-blue-200 text-blue-600'
+                  selectedLog.riskScore > 75 ? 'bg-red-100 border-red-200 text-red-600' : 'bg-zinc-100 border-blue-200 text-zinc-950'
                 }`}>
                   <Terminal className="h-6 w-6" />
                 </div>
@@ -760,7 +760,7 @@ export default function AuditLogs() {
                   <p className="text-lg font-black text-black">{selectedLog.userName}</p>
                   <p className="text-sm text-gray-600 mt-1">{selectedLog.userEmail}</p>
                   {selectedLog.roleName && (
-                    <p className="text-xs text-blue-600 mt-1 font-bold">Role: {selectedLog.roleName}</p>
+                    <p className="text-xs text-zinc-950 mt-1 font-bold">Role: {selectedLog.roleName}</p>
                   )}
                 </div>
                 <div className="p-4 bg-gray-50 rounded-2xl border border-gray-200">
@@ -802,8 +802,8 @@ export default function AuditLogs() {
                 </div>
               )}
 
-              <div className="p-6 bg-blue-50 border border-blue-200 rounded-2xl flex items-start gap-4">
-                <Fingerprint className="h-6 w-6 text-blue-600 shrink-0" />
+              <div className="p-6 bg-zinc-50 border border-blue-200 rounded-2xl flex items-start gap-4">
+                <Fingerprint className="h-6 w-6 text-zinc-950 shrink-0" />
                 <div>
                   <h5 className="text-sm font-black text-black">System Metadata</h5>
                   <p className="text-xs text-gray-600 mt-1 leading-relaxed">
@@ -851,7 +851,7 @@ export default function AuditLogs() {
                   document.body.removeChild(a)
                   window.URL.revokeObjectURL(url)
                 }}
-                className="flex-1 px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg flex items-center justify-center gap-2"
+                className="flex-1 px-6 py-4 bg-zinc-950 hover:bg-zinc-950 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg flex items-center justify-center gap-2"
               >
                 <Download className="h-5 w-5" />
                 Download Report

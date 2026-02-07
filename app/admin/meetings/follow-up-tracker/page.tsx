@@ -206,11 +206,11 @@ export default function FollowUpTracker() {
       case 'implemented':
         return 'bg-green-100 text-green-700'
       case 'in-progress':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       case 'pending':
         return 'bg-yellow-100 text-yellow-700'
       case 'scheduled':
-        return 'bg-purple-100 text-purple-700'
+        return 'bg-zinc-100 text-purple-700'
       default:
         return 'bg-gray-100 text-gray-700'
     }
@@ -237,9 +237,9 @@ export default function FollowUpTracker() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'meeting': return 'bg-blue-50 text-blue-600 border-blue-200'
+      case 'meeting': return 'bg-zinc-50 text-zinc-950 border-blue-200'
       case 'note': return 'bg-green-50 text-green-600 border-green-200'
-      case 'decision': return 'bg-purple-50 text-purple-600 border-purple-200'
+      case 'decision': return 'bg-zinc-50 text-zinc-800 border-purple-200'
       case 'action': return 'bg-orange-50 text-orange-600 border-orange-200'
       default: return 'bg-gray-50 text-gray-600 border-gray-200'
     }
@@ -257,15 +257,15 @@ export default function FollowUpTracker() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-8 gap-3">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+        <div className="bg-zinc-50 border border-blue-200 rounded-lg p-3">
           <p className="text-xs text-muted-foreground mb-1">Total Items</p>
-          <p className="text-2xl font-black text-blue-700">{stats.total}</p>
+          <p className="text-2xl font-black text-zinc-950">{stats.total}</p>
         </div>
         <div className="bg-green-50 border border-green-200 rounded-lg p-3">
           <p className="text-xs text-muted-foreground mb-1">Meetings</p>
           <p className="text-2xl font-black text-green-700">{stats.meetings}</p>
         </div>
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
+        <div className="bg-zinc-50 border border-purple-200 rounded-lg p-3">
           <p className="text-xs text-muted-foreground mb-1">Notes</p>
           <p className="text-2xl font-black text-purple-700">{stats.notes}</p>
         </div>
@@ -281,7 +281,7 @@ export default function FollowUpTracker() {
           <p className="text-xs text-muted-foreground mb-1">Completed</p>
           <p className="text-2xl font-black text-green-800">{stats.completed}</p>
         </div>
-        <div className="bg-blue-100 border border-blue-300 rounded-lg p-3">
+        <div className="bg-zinc-100 border border-blue-300 rounded-lg p-3">
           <p className="text-xs text-muted-foreground mb-1">In Progress</p>
           <p className="text-2xl font-black text-blue-800">{stats.inProgress}</p>
         </div>
@@ -299,7 +299,7 @@ export default function FollowUpTracker() {
             onClick={() => setSelectedTab(tab)}
             className={`px-4 py-3 font-bold text-sm border-b-2 transition-colors capitalize flex items-center gap-2 ${
               selectedTab === tab
-                ? 'border-blue-600 text-blue-600'
+                ? 'border-zinc-950 text-zinc-950'
                 : 'border-transparent text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -321,7 +321,7 @@ export default function FollowUpTracker() {
               placeholder="Search items, descriptions, jobs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
         </div>
@@ -331,7 +331,7 @@ export default function FollowUpTracker() {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
             >
               {statuses.map(status => (
                 <option key={status} value={status}>
@@ -345,7 +345,7 @@ export default function FollowUpTracker() {
             <select
               value={filterPriority}
               onChange={(e) => setFilterPriority(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
             >
               {priorities.map(priority => (
                 <option key={priority} value={priority}>
@@ -359,7 +359,7 @@ export default function FollowUpTracker() {
             <select
               value={filterOwner}
               onChange={(e) => setFilterOwner(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
             >
               {owners.map(owner => (
                 <option key={owner} value={owner}>
@@ -370,7 +370,7 @@ export default function FollowUpTracker() {
           </div>
           <div>
             <label className="text-xs font-bold text-muted-foreground mb-2 block">Type</label>
-            <select className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+            <select className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm">
               <option value="all">All Types</option>
               <option value="meeting">Meetings</option>
               <option value="note">Notes</option>
@@ -432,7 +432,7 @@ export default function FollowUpTracker() {
                   {'linkedJob' in item && item.linkedJob && (
                     <div className="text-sm">
                       <p className="text-xs text-gray-500 mb-1">Linked Job</p>
-                      <p className="font-semibold text-blue-600">{item.linkedJob}</p>
+                      <p className="font-semibold text-zinc-950">{item.linkedJob}</p>
                     </div>
                   )}
                   {'location' in item && item.location && (
@@ -475,7 +475,7 @@ export default function FollowUpTracker() {
                       <div
                         className={`h-2 rounded-full ${
                           item.status === 'completed' ? 'bg-green-600' :
-                          item.status === 'in-progress' ? 'bg-blue-600' : 'bg-yellow-600'
+                          item.status === 'in-progress' ? 'bg-zinc-950' : 'bg-yellow-600'
                         }`}
                         style={{ width: `${item.progressPercent}%` }}
                       ></div>
@@ -491,7 +491,7 @@ export default function FollowUpTracker() {
       {/* TIMELINE TAB - Chronological View */}
       {selectedTab === 'timeline' && (
         <div className="space-y-6">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
             <h3 className="font-bold mb-4 flex items-center gap-2">
               <Clock className="h-5 w-5" />
               Today's Timeline - {todayDate}
@@ -504,7 +504,7 @@ export default function FollowUpTracker() {
               .map((item, index) => (
                 <div key={item.id} className="mb-4 pb-4 border-b last:border-0">
                   <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 text-blue-700 rounded-lg p-3 text-center min-w-20">
+                    <div className="bg-zinc-100 text-zinc-950 rounded-lg p-3 text-center min-w-20">
                       <p className="font-bold text-lg">{'time' in item ? item.time || 'N/A' : 'N/A'}</p>
                       <p className="text-xs">Time</p>
                     </div>
@@ -596,7 +596,7 @@ export default function FollowUpTracker() {
                     <p className="text-sm text-gray-500">{ownerItems.length} items total</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-black text-blue-600">{completionRate}%</p>
+                    <p className="text-2xl font-black text-zinc-950">{completionRate}%</p>
                     <p className="text-xs text-gray-500">{completed}/{total} completed</p>
                   </div>
                 </div>
@@ -636,9 +636,9 @@ export default function FollowUpTracker() {
       )}
 
       {/* Info Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <Zap className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+          <Zap className="h-5 w-5 text-zinc-950 shrink-0 mt-0.5" />
           <div>
             <p className="font-bold text-blue-900">Today's Follow-Up Summary - {todayDate}</p>
             <p className="text-sm text-blue-800 mt-1">
@@ -646,7 +646,7 @@ export default function FollowUpTracker() {
               {' '}{stats.decisions} decisions, and {stats.actions} action items. 
               Overall completion rate: {stats.completionRate}%
             </p>
-            <p className="text-xs text-blue-700 mt-2">
+            <p className="text-xs text-zinc-950 mt-2">
               Data fetched from Firebase collections: meetingCalender, notes, decisions, actionItems
             </p>
           </div>

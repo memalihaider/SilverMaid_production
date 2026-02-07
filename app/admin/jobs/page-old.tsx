@@ -211,7 +211,7 @@ function JobBoardContent() {
       case 'Medium':
         return 'bg-yellow-100 text-yellow-700'
       default:
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
     }
   }
 
@@ -220,9 +220,9 @@ function JobBoardContent() {
       case 'Completed':
         return 'bg-green-100 text-green-700'
       case 'In Progress':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       case 'Scheduled':
-        return 'bg-purple-100 text-purple-700'
+        return 'bg-zinc-100 text-purple-700'
       case 'Pending':
         return 'bg-yellow-100 text-yellow-700'
       default:
@@ -309,7 +309,7 @@ function JobBoardContent() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleAddJob}
-            className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors"
           >
             <Plus className="w-4 h-4" />
             New Job
@@ -327,7 +327,7 @@ function JobBoardContent() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search jobs by title, client, location, skills, or tags..."
-              className="w-full pl-10 pr-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+              className="w-full pl-10 pr-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
             />
           </div>
 
@@ -335,7 +335,7 @@ function JobBoardContent() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+              className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
             >
               <option value="all">All Status</option>
               <option value="Pending">Pending</option>
@@ -347,7 +347,7 @@ function JobBoardContent() {
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+              className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
             >
               <option value="all">All Priority</option>
               <option value="Critical">Critical</option>
@@ -364,7 +364,7 @@ function JobBoardContent() {
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job) => {
             return (
-              <div key={job.id} className="bg-card border rounded-lg p-4 hover:border-pink-600 hover:shadow-md transition-all">
+              <div key={job.id} className="bg-card border rounded-lg p-4 hover:border-primary hover:shadow-md transition-all">
                 <div className="flex items-start gap-4">
                   {/* Job Content */}
                   <div className="flex-1">
@@ -378,7 +378,7 @@ function JobBoardContent() {
                                 {job.priority}
                               </span>
                             </div>
-                            <p className="text-xs text-muted-foreground hover:text-blue-600 hover:underline">
+                            <p className="text-xs text-muted-foreground hover:text-zinc-950 hover:underline">
                               {job.client}
                             </p>
                           </div>
@@ -432,7 +432,7 @@ function JobBoardContent() {
                                     e.preventDefault()
                                     updateJobStatus(job.id, 'In Progress')
                                   }}
-                                  className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                                  className="text-xs px-2 py-1 bg-zinc-100 text-zinc-950 rounded hover:bg-blue-200"
                                 >
                                   Start
                                 </button>
@@ -454,7 +454,7 @@ function JobBoardContent() {
                                     e.preventDefault()
                                     updateJobStatus(job.id, 'Completed')
                                   }}
-                                  className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded hover:bg-purple-200"
+                                  className="text-xs px-2 py-1 bg-zinc-100 text-purple-700 rounded hover:bg-purple-200"
                                 >
                                   Complete
                                 </button>
@@ -505,7 +505,7 @@ function JobBoardContent() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {jobTemplates.map((template) => (
-                  <div key={template.id} className="border rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all">
+                  <div key={template.id} className="border rounded-lg p-4 hover:border-zinc-500 hover:shadow-md transition-all">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
                         <h3 className="font-semibold text-lg">{template.name}</h3>
@@ -513,7 +513,7 @@ function JobBoardContent() {
                       </div>
                       <button
                         onClick={() => applyTemplate(template)}
-                        className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                        className="px-3 py-1 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors text-sm"
                       >
                         Use Template
                       </button>
@@ -571,7 +571,7 @@ function JobBoardContent() {
                         type="text"
                         value={newJob.title}
                         onChange={(e) => setNewJob({...newJob, title: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         placeholder="Enter job title"
                       />
                     </div>
@@ -581,7 +581,7 @@ function JobBoardContent() {
                         <select
                           value={newJob.client}
                           onChange={(e) => setNewJob({...newJob, client: e.target.value})}
-                          className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                          className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         >
                           <option value="">Select a client</option>
                           {availableClients.map((client) => (
@@ -607,7 +607,7 @@ function JobBoardContent() {
                     <textarea
                       value={newJob.description}
                       onChange={(e) => setNewJob({...newJob, description: e.target.value})}
-                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       rows={3}
                       placeholder="Job description and requirements"
                     />
@@ -624,7 +624,7 @@ function JobBoardContent() {
                       <select
                         value={newJob.priority}
                         onChange={(e) => setNewJob({...newJob, priority: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       >
                         <option value="Low">Low</option>
                         <option value="Medium">Medium</option>
@@ -637,7 +637,7 @@ function JobBoardContent() {
                       <select
                         value={newJob.riskLevel}
                         onChange={(e) => setNewJob({...newJob, riskLevel: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       >
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
@@ -654,7 +654,7 @@ function JobBoardContent() {
                         type="date"
                         value={newJob.scheduledDate}
                         onChange={(e) => setNewJob({...newJob, scheduledDate: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       />
                     </div>
                     <div>
@@ -663,7 +663,7 @@ function JobBoardContent() {
                         type="time"
                         value={newJob.scheduledTime}
                         onChange={(e) => setNewJob({...newJob, scheduledTime: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       />
                     </div>
                     <div>
@@ -672,7 +672,7 @@ function JobBoardContent() {
                         type="time"
                         value={newJob.endTime}
                         onChange={(e) => setNewJob({...newJob, endTime: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       />
                     </div>
                   </div>
@@ -684,7 +684,7 @@ function JobBoardContent() {
                         type="date"
                         value={newJob.slaDeadline}
                         onChange={(e) => setNewJob({...newJob, slaDeadline: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       />
                     </div>
                     <div>
@@ -693,7 +693,7 @@ function JobBoardContent() {
                         type="text"
                         value={newJob.estimatedDuration}
                         onChange={(e) => setNewJob({...newJob, estimatedDuration: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         placeholder="e.g., 8 hours"
                       />
                     </div>
@@ -711,7 +711,7 @@ function JobBoardContent() {
                         type="text"
                         value={newJob.location}
                         onChange={(e) => setNewJob({...newJob, location: e.target.value})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         placeholder="Enter location"
                       />
                     </div>
@@ -721,7 +721,7 @@ function JobBoardContent() {
                         type="number"
                         value={newJob.teamRequired}
                         onChange={(e) => setNewJob({...newJob, teamRequired: parseInt(e.target.value) || 1})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         min="1"
                       />
                     </div>
@@ -733,7 +733,7 @@ function JobBoardContent() {
                       type="text"
                       value={newJob.requiredSkills.join(', ')}
                       onChange={(e) => setNewJob({...newJob, requiredSkills: e.target.value.split(',').map(s => s.trim()).filter(s => s)})}
-                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       placeholder="e.g., Floor Cleaning, Window Cleaning, Safety Certification"
                     />
                   </div>
@@ -744,7 +744,7 @@ function JobBoardContent() {
                       type="text"
                       value={newJob.permits.join(', ')}
                       onChange={(e) => setNewJob({...newJob, permits: e.target.value.split(',').map(s => s.trim()).filter(s => s)})}
-                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       placeholder="e.g., Building Access Pass, Biohazard Permit"
                     />
                   </div>
@@ -761,7 +761,7 @@ function JobBoardContent() {
                         type="number"
                         value={newJob.budget}
                         onChange={(e) => setNewJob({...newJob, budget: parseInt(e.target.value) || 0})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         min="0"
                       />
                     </div>
@@ -771,7 +771,7 @@ function JobBoardContent() {
                         type="text"
                         value={newJob.tags.join(', ')}
                         onChange={(e) => setNewJob({...newJob, tags: e.target.value.split(',').map(s => s.trim()).filter(s => s)})}
-                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                        className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         placeholder="e.g., office, deep-cleaning, urgent"
                       />
                     </div>
@@ -782,7 +782,7 @@ function JobBoardContent() {
                     <textarea
                       value={newJob.specialInstructions}
                       onChange={(e) => setNewJob({...newJob, specialInstructions: e.target.value})}
-                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                       rows={2}
                       placeholder="Any special instructions or notes"
                     />
@@ -811,7 +811,7 @@ function JobBoardContent() {
                 </button>
                 <button
                   onClick={handleSaveJob}
-                  className="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700"
+                  className="px-4 py-2 bg-primary text-white rounded-lg hover:opacity-90"
                 >
                   Create Job
                 </button>
@@ -842,7 +842,7 @@ function JobBoardContent() {
                     <div
                       key={client.id}
                       onClick={() => handleClientSelect(client)}
-                      className="p-4 border rounded-lg hover:border-blue-500 hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="p-4 border rounded-lg hover:border-zinc-500 hover:bg-zinc-50 cursor-pointer transition-colors"
                     >
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
@@ -850,7 +850,7 @@ function JobBoardContent() {
                             <User className="h-4 w-4 text-gray-400" />
                             <h3 className="font-medium text-gray-900">{client.name}</h3>
                             <span className={`text-xs px-2 py-0.5 rounded-full ${
-                              client.tier === 'Platinum' ? 'bg-purple-100 text-purple-700' :
+                              client.tier === 'Platinum' ? 'bg-zinc-100 text-purple-700' :
                               client.tier === 'Gold' ? 'bg-yellow-100 text-yellow-700' :
                               client.tier === 'Silver' ? 'bg-gray-100 text-gray-700' :
                               'bg-orange-100 text-orange-700'
@@ -993,7 +993,7 @@ function JobBoardContent() {
                     type="file"
                     multiple
                     accept="image/*"
-                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-zinc-50 file:text-zinc-950 hover:file:bg-zinc-100"
                   />
                 </div>
               </div>
@@ -1039,7 +1039,7 @@ export default function JobBoard() {
   return (
     <Suspense fallback={
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-zinc-500"></div>
       </div>
     }>
       <JobBoardContent />

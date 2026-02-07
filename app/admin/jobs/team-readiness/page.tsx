@@ -163,7 +163,7 @@ export default function TeamReadiness() {
           <h1 className="text-3xl font-bold">Team Readiness</h1>
           <p className="text-muted-foreground">Compliance scoring, certification tracking, and grooming standards</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors">
           <Shield className="h-4 w-4" />
           Compliance Report
         </button>
@@ -181,7 +181,7 @@ export default function TeamReadiness() {
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Avg. Readiness</p>
-          <p className="text-2xl font-bold text-blue-600">{stats.averageReadiness}%</p>
+          <p className="text-2xl font-bold text-zinc-950">{stats.averageReadiness}%</p>
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Ready for Deployment</p>
@@ -292,7 +292,7 @@ export default function TeamReadiness() {
                             <p className="text-xs text-muted-foreground mb-1">Certifications</p>
                             <div className="flex flex-wrap gap-1">
                               {member.certifications.map((cert: string, idx: number) => (
-                                <span key={idx} className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
+                                <span key={idx} className="text-xs bg-zinc-100 text-zinc-950 px-2 py-0.5 rounded">
                                   {cert}
                                 </span>
                               ))}

@@ -234,7 +234,7 @@ export default function QuotationBuilder() {
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
-            <User className="h-5 w-5 text-blue-500" />
+            <User className="h-5 w-5 text-zinc-500" />
             Client Selection
           </h2>
           <div className="flex items-center gap-2 text-xs text-slate-400">
@@ -249,7 +249,7 @@ export default function QuotationBuilder() {
               <label className="block text-xs font-medium text-slate-500 uppercase tracking-wider">Select Client</label>
               <button
                 onClick={() => setShowNewClientModal(true)}
-                className="text-xs text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-1"
+                className="text-xs text-zinc-950 hover:text-zinc-950 font-semibold flex items-center gap-1"
               >
                 <Plus className="h-3 w-3" />
                 Add Client
@@ -257,7 +257,7 @@ export default function QuotationBuilder() {
             </div>
             <select
               onChange={(e) => handleClientSelect(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all text-slate-900"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-slate-900"
             >
               <option value="">Choose a client...</option>
               {clients.map(client => (
@@ -287,7 +287,7 @@ export default function QuotationBuilder() {
             <textarea
               value={quotationData.shippingAddress}
               onChange={(e) => setQuotationData({ ...quotationData, shippingAddress: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all text-sm"
+              className="w-full px-4 py-2 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-sm"
               rows={2}
               placeholder="Enter service location address..."
             />
@@ -298,7 +298,7 @@ export default function QuotationBuilder() {
       {/* Quote Details */}
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <h2 className="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-2">
-          <FileText className="h-5 w-5 text-blue-500" />
+          <FileText className="h-5 w-5 text-zinc-500" />
           Quote Details
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -309,7 +309,7 @@ export default function QuotationBuilder() {
                 type="text"
                 value={quotationData.quoteName}
                 onChange={(e) => setQuotationData({ ...quotationData, quoteName: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 placeholder="Auto-generated or custom name"
               />
             </div>
@@ -319,7 +319,7 @@ export default function QuotationBuilder() {
                 type="text"
                 value={quotationData.projectName}
                 onChange={(e) => setQuotationData({ ...quotationData, projectName: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 placeholder="e.g. Q4 Office Renovation"
               />
             </div>
@@ -332,7 +332,7 @@ export default function QuotationBuilder() {
                   type="date"
                   value={quotationData.validUntil}
                   onChange={(e) => setQuotationData({ ...quotationData, validUntil: e.target.value })}
-                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 />
               </div>
               <div>
@@ -341,7 +341,7 @@ export default function QuotationBuilder() {
                   type="text"
                   value={quotationData.referenceNumber}
                   onChange={(e) => setQuotationData({ ...quotationData, referenceNumber: e.target.value })}
-                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                   placeholder="PO-12345"
                 />
               </div>
@@ -352,7 +352,7 @@ export default function QuotationBuilder() {
                 type="number"
                 value={quotationData.paymentTerms}
                 onChange={(e) => setQuotationData({ ...quotationData, paymentTerms: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
               />
             </div>
           </div>
@@ -363,7 +363,7 @@ export default function QuotationBuilder() {
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
-            <ShoppingCart className="h-5 w-5 text-blue-500" />
+            <ShoppingCart className="h-5 w-5 text-zinc-500" />
             Services & Items
           </h2>
           <button
@@ -388,7 +388,7 @@ export default function QuotationBuilder() {
                   <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1 ml-1">Service Selection</label>
                   <select
                     onChange={(e) => handleServiceSelect(item.id, e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+                    className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-zinc-500 text-sm"
                   >
                     <option value="">Select a service...</option>
                     {availableServices.map(service => (
@@ -402,7 +402,7 @@ export default function QuotationBuilder() {
                     type="number"
                     value={item.quantity}
                     onChange={(e) => updateLineItem(item.id, 'quantity', parseInt(e.target.value) || 0)}
-                    className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+                    className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-zinc-500 text-sm"
                   />
                 </div>
                 <div className="col-span-2">
@@ -411,7 +411,7 @@ export default function QuotationBuilder() {
                     type="number"
                     value={item.price}
                     onChange={(e) => updateLineItem(item.id, 'price', parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+                    className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-zinc-500 text-sm"
                   />
                 </div>
                 <div className="col-span-2 text-right">
@@ -439,7 +439,7 @@ export default function QuotationBuilder() {
             <h2 className="text-lg font-semibold text-slate-900">Notes & AI</h2>
             <button
               onClick={generateAiDescription}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition-all text-xs font-bold"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-50 text-zinc-950 rounded-xl hover:bg-zinc-100 transition-all text-xs font-bold"
             >
               <Sparkles className="h-3.5 w-3.5" />
               AI Suggestion
@@ -448,7 +448,7 @@ export default function QuotationBuilder() {
           <textarea
             value={quotationData.notes}
             onChange={(e) => setQuotationData({ ...quotationData, notes: e.target.value })}
-            className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all text-sm"
+            className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-sm"
             rows={6}
             placeholder="Add notes or use AI to generate professional descriptions..."
           />
@@ -460,7 +460,7 @@ export default function QuotationBuilder() {
             <select
               value={quotationData.currency}
               onChange={(e) => setQuotationData({ ...quotationData, currency: e.target.value })}
-              className="bg-slate-800 border-none rounded-lg px-3 py-1 text-xs text-white focus:ring-1 focus:ring-blue-500"
+              className="bg-slate-800 border-none rounded-lg px-3 py-1 text-xs text-white focus:ring-1 focus:ring-zinc-500"
             >
               <option value="USD">USD ($)</option>
               <option value="EUR">EUR (€)</option>
@@ -582,12 +582,12 @@ export default function QuotationBuilder() {
           </div>
         )}
         
-        <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
+        <div className="mt-6 p-4 bg-zinc-50 rounded-xl border border-zinc-100">
           <div className="flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 text-blue-600 mt-0.5" />
+            <AlertCircle className="h-5 w-5 text-zinc-950 mt-0.5" />
             <div>
               <p className="text-sm font-medium text-blue-900">Payment Information</p>
-              <p className="text-xs text-blue-700 mt-1">
+              <p className="text-xs text-zinc-950 mt-1">
                 Upload supporting documents such as payment terms, invoicing details, bank account information, or payment method documentation.
               </p>
             </div>
@@ -602,7 +602,7 @@ export default function QuotationBuilder() {
           <Save className="h-4 w-4" />
           Save Draft
         </button>
-        <button className="px-8 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all font-semibold shadow-lg shadow-blue-500/25 flex items-center gap-2">
+        <button className="px-8 py-3 bg-zinc-950 text-white rounded-xl hover:bg-zinc-950 transition-all font-semibold shadow-lg shadow-zinc-500/25 flex items-center gap-2">
           <Send className="h-4 w-4" />
           Finalize & Send
         </button>
@@ -617,7 +617,7 @@ export default function QuotationBuilder() {
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
-            <FileCheck className="h-5 w-5 text-purple-500" />
+            <FileCheck className="h-5 w-5 text-zinc-500" />
             Contract Information
           </h2>
           <div className="flex items-center gap-2 text-xs text-slate-400">
@@ -632,7 +632,7 @@ export default function QuotationBuilder() {
               <label className="block text-xs font-medium text-slate-500 uppercase tracking-wider">Select Client for Contract</label>
               <button
                 onClick={() => setShowNewClientModal(true)}
-                className="text-xs text-purple-600 hover:text-purple-700 font-semibold flex items-center gap-1"
+                className="text-xs text-zinc-800 hover:text-purple-700 font-semibold flex items-center gap-1"
               >
                 <Plus className="h-3 w-3" />
                 Add Client
@@ -640,7 +640,7 @@ export default function QuotationBuilder() {
             </div>
             <select
               onChange={(e) => handleClientSelect(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all text-slate-900"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-slate-900"
             >
               <option value="">Choose a client...</option>
               {clients.map(client => (
@@ -655,7 +655,7 @@ export default function QuotationBuilder() {
               type="text"
               value={contractData.contractTitle}
               onChange={(e) => setContractData({ ...contractData, contractTitle: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
               placeholder="e.g. Annual Maintenance Agreement"
             />
           </div>
@@ -673,7 +673,7 @@ export default function QuotationBuilder() {
             <textarea
               value={contractData.clientAddress}
               onChange={(e) => setContractData({ ...contractData, clientAddress: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all text-sm"
+              className="w-full px-4 py-2 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-sm"
               rows={2}
               placeholder="Client's registered address..."
             />
@@ -684,7 +684,7 @@ export default function QuotationBuilder() {
       {/* Quotation Reference */}
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <h2 className="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-2">
-          <FileText className="h-5 w-5 text-purple-500" />
+          <FileText className="h-5 w-5 text-zinc-500" />
           Related Quotation
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -694,7 +694,7 @@ export default function QuotationBuilder() {
               type="text"
               value={contractData.quotationReference}
               onChange={(e) => setContractData({ ...contractData, quotationReference: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
               placeholder="e.g. QT-12345 or Quotation for Office Cleaning"
             />
           </div>
@@ -704,14 +704,14 @@ export default function QuotationBuilder() {
               type="text"
               value={contractData.quotationId}
               onChange={(e) => setContractData({ ...contractData, quotationId: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
               placeholder="Link to existing quotation ID"
             />
           </div>
         </div>
-        <div className="mt-4 p-4 bg-purple-50 rounded-xl border border-purple-100">
+        <div className="mt-4 p-4 bg-zinc-50 rounded-xl border border-zinc-100">
           <div className="flex items-start gap-3">
-            <FileText className="h-5 w-5 text-purple-600 mt-0.5" />
+            <FileText className="h-5 w-5 text-zinc-800 mt-0.5" />
             <div>
               <p className="text-sm font-medium text-purple-900">Quotation Integration</p>
               <p className="text-xs text-purple-700 mt-1">
@@ -725,7 +725,7 @@ export default function QuotationBuilder() {
       {/* Dates & Value */}
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <h2 className="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-2">
-          <Calendar className="h-5 w-5 text-purple-500" />
+          <Calendar className="h-5 w-5 text-zinc-500" />
           Timeline & Value
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -735,7 +735,7 @@ export default function QuotationBuilder() {
               type="date"
               value={contractData.startDate}
               onChange={(e) => setContractData({ ...contractData, startDate: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
             />
           </div>
           <div>
@@ -744,7 +744,7 @@ export default function QuotationBuilder() {
               type="date"
               value={contractData.endDate}
               onChange={(e) => setContractData({ ...contractData, endDate: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
             />
           </div>
           <div>
@@ -753,7 +753,7 @@ export default function QuotationBuilder() {
               type="number"
               value={contractData.contractValue}
               onChange={(e) => setContractData({ ...contractData, contractValue: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
               placeholder="0.00"
             />
           </div>
@@ -763,7 +763,7 @@ export default function QuotationBuilder() {
               type="number"
               value={contractData.terminationNotice}
               onChange={(e) => setContractData({ ...contractData, terminationNotice: e.target.value })}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
               placeholder="30"
             />
           </div>
@@ -773,7 +773,7 @@ export default function QuotationBuilder() {
       {/* Legal & Signatories */}
       <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
         <h2 className="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-2">
-          <Settings className="h-5 w-5 text-purple-500" />
+          <Settings className="h-5 w-5 text-zinc-500" />
           Legal & Signatories
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -785,7 +785,7 @@ export default function QuotationBuilder() {
                   type="text"
                   value={contractData.governingLaw}
                   onChange={(e) => setContractData({ ...contractData, governingLaw: e.target.value })}
-                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 />
               </div>
               <div>
@@ -793,7 +793,7 @@ export default function QuotationBuilder() {
                 <select
                   value={contractData.confidentialityLevel}
                   onChange={(e) => setContractData({ ...contractData, confidentialityLevel: e.target.value })}
-                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+                  className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 >
                   <option value="Standard">Standard</option>
                   <option value="High">High</option>
@@ -807,7 +807,7 @@ export default function QuotationBuilder() {
                 type="text"
                 value={contractData.liabilityLimit}
                 onChange={(e) => setContractData({ ...contractData, liabilityLimit: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 placeholder="e.g. 1,000,000 or Full Contract Value"
               />
             </div>
@@ -819,7 +819,7 @@ export default function QuotationBuilder() {
                 type="text"
                 value={contractData.signatoryName}
                 onChange={(e) => setContractData({ ...contractData, signatoryName: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 placeholder="Full legal name"
               />
             </div>
@@ -829,7 +829,7 @@ export default function QuotationBuilder() {
                 type="text"
                 value={contractData.signatoryTitle}
                 onChange={(e) => setContractData({ ...contractData, signatoryTitle: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all"
+                className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                 placeholder="e.g. CEO, Managing Director"
               />
             </div>
@@ -844,7 +844,7 @@ export default function QuotationBuilder() {
           <textarea
             value={contractData.scopeOfWork}
             onChange={(e) => setContractData({ ...contractData, scopeOfWork: e.target.value })}
-            className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all text-sm"
+            className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-sm"
             rows={8}
             placeholder="Detailed description of services to be provided..."
           />
@@ -855,7 +855,7 @@ export default function QuotationBuilder() {
             <h2 className="text-lg font-semibold text-slate-900">Terms & Clauses</h2>
             <button
               onClick={generateAiContractTerms}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-600 rounded-xl hover:bg-purple-100 transition-all text-xs font-bold"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-50 text-zinc-800 rounded-xl hover:bg-zinc-100 transition-all text-xs font-bold"
             >
               <Sparkles className="h-3.5 w-3.5" />
               AI Clause
@@ -864,7 +864,7 @@ export default function QuotationBuilder() {
           <textarea
             value={contractData.terms}
             onChange={(e) => setContractData({ ...contractData, terms: e.target.value })}
-            className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-purple-500 transition-all text-sm"
+            className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-sm"
             rows={8}
             placeholder="Legal terms, conditions, and AI-generated clauses..."
           />
@@ -880,7 +880,7 @@ export default function QuotationBuilder() {
           <Save className="h-4 w-4" />
           Save Draft
         </button>
-        <button className="px-8 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all font-semibold shadow-lg shadow-purple-500/25 flex items-center gap-2">
+        <button className="px-8 py-3 bg-zinc-800 text-white rounded-xl hover:bg-purple-700 transition-all font-semibold shadow-lg shadow-zinc-500/25 flex items-center gap-2">
           <Send className="h-4 w-4" />
           Finalize & Sign
         </button>
@@ -890,14 +890,14 @@ export default function QuotationBuilder() {
 
   // ==================== MAIN RENDER ====================
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-slate-50 py-8">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-zinc-50 to-slate-50 py-8">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-4xl font-extrabold text-slate-900 flex items-center gap-3">
-                <div className="p-2 bg-linear-to-br from-blue-500 to-indigo-600 rounded-xl text-white">
+                <div className="p-2 bg-linear-to-br from-zinc-500 to-zinc-900 rounded-xl text-white">
                   <Sparkles className="h-8 w-8" />
                 </div>
                 Document Builder
@@ -912,7 +912,7 @@ export default function QuotationBuilder() {
               onClick={() => setBuilderMode('quotation')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
                 builderMode === 'quotation'
-                  ? 'bg-blue-600 text-white shadow-md'
+                  ? 'bg-zinc-950 text-white shadow-md'
                   : 'text-slate-700 hover:bg-slate-100'
               }`}
             >
@@ -923,7 +923,7 @@ export default function QuotationBuilder() {
               onClick={() => setBuilderMode('contract')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
                 builderMode === 'contract'
-                  ? 'bg-purple-600 text-white shadow-md'
+                  ? 'bg-zinc-800 text-white shadow-md'
                   : 'text-slate-700 hover:bg-slate-100'
               }`}
             >
@@ -959,7 +959,7 @@ export default function QuotationBuilder() {
                     type="text"
                     value={newClient.name}
                     onChange={(e) => setNewClient({ ...newClient, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                     placeholder="John Doe"
                   />
                 </div>
@@ -970,7 +970,7 @@ export default function QuotationBuilder() {
                     type="text"
                     value={newClient.company}
                     onChange={(e) => setNewClient({ ...newClient, company: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                     placeholder="Tech Solutions Inc."
                   />
                 </div>
@@ -981,7 +981,7 @@ export default function QuotationBuilder() {
                     type="email"
                     value={newClient.email}
                     onChange={(e) => setNewClient({ ...newClient, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -992,7 +992,7 @@ export default function QuotationBuilder() {
                     type="tel"
                     value={newClient.phone}
                     onChange={(e) => setNewClient({ ...newClient, phone: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all"
                     placeholder="+1 234 567 890"
                   />
                 </div>
@@ -1002,7 +1002,7 @@ export default function QuotationBuilder() {
                   <textarea
                     value={newClient.address}
                     onChange={(e) => setNewClient({ ...newClient, address: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all text-sm"
+                    className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-zinc-500 transition-all text-sm"
                     rows={2}
                     placeholder="123 Main St, City, State, ZIP"
                   />
@@ -1019,7 +1019,7 @@ export default function QuotationBuilder() {
                 <button
                   onClick={handleAddNewClient}
                   disabled={!newClient.name || !newClient.company || !newClient.email}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-6 py-2 bg-zinc-950 text-white rounded-xl hover:bg-zinc-950 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   <Plus className="h-4 w-4" />
                   Add Client

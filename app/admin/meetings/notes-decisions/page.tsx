@@ -709,8 +709,8 @@ export default function NotesDecisions() {
     switch (status) {
       case 'Approved':
       case 'completed': return 'bg-green-100 text-green-700'
-      case 'Implemented': return 'bg-purple-100 text-purple-700'
-      case 'in-progress': return 'bg-blue-100 text-blue-700'
+      case 'Implemented': return 'bg-zinc-100 text-purple-700'
+      case 'in-progress': return 'bg-zinc-100 text-zinc-950'
       case 'Pending':
       case 'pending': return 'bg-yellow-100 text-yellow-700'
       case 'Rejected':
@@ -744,7 +744,7 @@ export default function NotesDecisions() {
         <div className="flex gap-2">
           <button 
             onClick={() => setShowNoteForm(!showNoteForm)} 
-            className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-3 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
           >
             <Plus className="h-5 w-5" />
             <span className="font-bold">{showNoteForm ? 'Cancel' : 'Add Note'}</span>
@@ -758,7 +758,7 @@ export default function NotesDecisions() {
           </button>
           <button 
             onClick={() => setShowActionForm(!showActionForm)} 
-            className="flex items-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-3 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 transition-colors"
           >
             <Target className="h-5 w-5" />
             <span className="font-bold">{showActionForm ? 'Cancel' : 'Add Action'}</span>
@@ -788,9 +788,9 @@ export default function NotesDecisions() {
                 type="date"
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
-                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
               />
-              <div className="px-3 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm flex items-center gap-2">
+              <div className="px-3 py-2 bg-zinc-50 text-zinc-950 rounded-lg text-sm flex items-center gap-2">
                 <Filter className="h-4 w-4" />
                 Filter
               </div>
@@ -806,13 +806,13 @@ export default function NotesDecisions() {
             <div className="w-full">
               <label className="text-xs font-bold text-muted-foreground mb-2 block">Quick Stats</label>
               <div className="flex gap-2">
-                <span className="flex-1 text-center px-3 py-2 bg-blue-50 text-blue-700 rounded-lg text-xs">
+                <span className="flex-1 text-center px-3 py-2 bg-zinc-50 text-zinc-950 rounded-lg text-xs">
                   {filteredNotes.length} Notes
                 </span>
                 <span className="flex-1 text-center px-3 py-2 bg-green-50 text-green-700 rounded-lg text-xs">
                   {filteredDecisions.length} Decisions
                 </span>
-                <span className="flex-1 text-center px-3 py-2 bg-purple-50 text-purple-700 rounded-lg text-xs">
+                <span className="flex-1 text-center px-3 py-2 bg-zinc-50 text-purple-700 rounded-lg text-xs">
                   {filteredActionItems.length} Actions
                 </span>
               </div>
@@ -823,13 +823,13 @@ export default function NotesDecisions() {
 
       {/* Note Form Modal */}
       {showNoteForm && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-4">
+        <div className="bg-zinc-50 border border-blue-200 rounded-lg p-6 space-y-4">
           <h3 className="font-bold text-lg">Add New Meeting Note</h3>
           
           <select
             value={newNote.meetingId}
             onChange={(e) => setNewNote({...newNote, meetingId: e.target.value})}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             required
           >
             <option value="">Select Meeting *</option>
@@ -844,7 +844,7 @@ export default function NotesDecisions() {
             placeholder="Meeting Notes *" 
             value={newNote.notes}
             onChange={(e) => setNewNote({...newNote, notes: e.target.value})}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 h-40"
             required
           />
           
@@ -854,20 +854,20 @@ export default function NotesDecisions() {
               placeholder="Linked Job (optional)" 
               value={newNote.linkedJob}
               onChange={(e) => setNewNote({...newNote, linkedJob: e.target.value})}
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             />
             <input 
               type="text" 
               placeholder="Linked Client (optional)" 
               value={newNote.linkedClient}
               onChange={(e) => setNewNote({...newNote, linkedClient: e.target.value})}
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
           
           <div className="flex gap-2 justify-end">
             <button onClick={() => setShowNoteForm(false)} className="px-4 py-2 border rounded-lg hover:bg-gray-100 transition-colors">Cancel</button>
-            <button onClick={handleAddNote} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-bold">
+            <button onClick={handleAddNote} className="px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors font-bold">
               Save Note
             </button>
           </div>
@@ -946,7 +946,7 @@ export default function NotesDecisions() {
 
       {/* Action Form Modal */}
       {showActionForm && (
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 space-y-4">
+        <div className="bg-zinc-50 border border-purple-200 rounded-lg p-6 space-y-4">
           <h3 className="font-bold text-lg">Add New Action Item</h3>
           
           <input 
@@ -954,7 +954,7 @@ export default function NotesDecisions() {
             placeholder="Action Title *" 
             value={newAction.title}
             onChange={(e) => setNewAction({...newAction, title: e.target.value})}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             required
           />
           
@@ -962,7 +962,7 @@ export default function NotesDecisions() {
             placeholder="Action Description *" 
             value={newAction.description}
             onChange={(e) => setNewAction({...newAction, description: e.target.value})}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 h-32"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 h-32"
             required
           />
           
@@ -972,14 +972,14 @@ export default function NotesDecisions() {
               placeholder="Owner *" 
               value={newAction.owner}
               onChange={(e) => setNewAction({...newAction, owner: e.target.value})}
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
               required
             />
             
             <select
               value={newAction.priority}
               onChange={(e) => setNewAction({...newAction, priority: e.target.value as any})}
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             >
               <option value="Low">Low Priority</option>
               <option value="Medium">Medium Priority</option>
@@ -993,7 +993,7 @@ export default function NotesDecisions() {
               placeholder="Due Date *" 
               value={newAction.dueDate}
               onChange={(e) => setNewAction({...newAction, dueDate: e.target.value})}
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
               required
             />
             
@@ -1002,14 +1002,14 @@ export default function NotesDecisions() {
               placeholder="Linked Job (optional)" 
               value={newAction.linkedJob}
               onChange={(e) => setNewAction({...newAction, linkedJob: e.target.value})}
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
           
           <select
             value={newAction.meetingId}
             onChange={(e) => setNewAction({...newAction, meetingId: e.target.value})}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
           >
             <option value="">Select Meeting (optional)</option>
             {meetings.map(meeting => (
@@ -1021,7 +1021,7 @@ export default function NotesDecisions() {
           
           <div className="flex gap-2 justify-end">
             <button onClick={() => setShowActionForm(false)} className="px-4 py-2 border rounded-lg hover:bg-gray-100 transition-colors">Cancel</button>
-            <button onClick={handleAddAction} className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-bold">
+            <button onClick={handleAddAction} className="px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 transition-colors font-bold">
               Add Action
             </button>
           </div>
@@ -1030,10 +1030,10 @@ export default function NotesDecisions() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-        <div className="bg-linear-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-4">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-100 border border-blue-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Notes</p>
-          <p className="text-3xl font-black text-blue-700">{stats.totalNotes}</p>
-          <p className="text-xs text-blue-600 mt-1">{stats.recentNotes} this week</p>
+          <p className="text-3xl font-black text-zinc-950">{stats.totalNotes}</p>
+          <p className="text-xs text-zinc-950 mt-1">{stats.recentNotes} this week</p>
         </div>
         
         <div className="bg-linear-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-4">
@@ -1042,10 +1042,10 @@ export default function NotesDecisions() {
           <p className="text-xs text-green-600 mt-1">{stats.approvedDecisions} approved</p>
         </div>
         
-        <div className="bg-linear-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-4">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-100 border border-purple-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Implemented</p>
           <p className="text-3xl font-black text-purple-700">{stats.implementedDecisions}</p>
-          <p className="text-xs text-purple-600 mt-1">Decisions</p>
+          <p className="text-xs text-zinc-800 mt-1">Decisions</p>
         </div>
         
         <div className="bg-linear-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-lg p-4">
@@ -1075,7 +1075,7 @@ export default function NotesDecisions() {
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-3 font-bold text-sm border-b-2 transition-colors capitalize flex items-center gap-2 ${
               activeTab === tab
-                ? 'border-blue-600 text-blue-600'
+                ? 'border-zinc-950 text-zinc-950'
                 : 'border-transparent text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -1084,9 +1084,9 @@ export default function NotesDecisions() {
             {tab === 'actions' && <Target className="h-4 w-4" />}
             {tab === 'history' && <History className="h-4 w-4" />}
             {tab}
-            {tab === 'notes' && <span className="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full">{filteredNotes.length}</span>}
+            {tab === 'notes' && <span className="bg-zinc-100 text-zinc-950 text-xs px-2 py-0.5 rounded-full">{filteredNotes.length}</span>}
             {tab === 'decisions' && <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">{filteredDecisions.length}</span>}
-            {tab === 'actions' && <span className="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full">{filteredActionItems.length}</span>}
+            {tab === 'actions' && <span className="bg-zinc-100 text-purple-700 text-xs px-2 py-0.5 rounded-full">{filteredActionItems.length}</span>}
           </button>
         ))}
       </div>
@@ -1101,14 +1101,14 @@ export default function NotesDecisions() {
               placeholder="Search notes, decisions, action items..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
           
           <select
             value={selectedMeeting}
             onChange={(e) => setSelectedMeeting(e.target.value)}
-            className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
           >
             <option value="all">All Meetings</option>
             {meetings.map(meeting => (
@@ -1132,7 +1132,7 @@ export default function NotesDecisions() {
               )}
               <button 
                 onClick={() => setShowNoteForm(true)}
-                className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="mt-4 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
               >
                 Add Note
               </button>
@@ -1140,9 +1140,9 @@ export default function NotesDecisions() {
           ) : (
             <>
               {selectedDate && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
                   <div className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-blue-600" />
+                    <Calendar className="h-5 w-5 text-zinc-950" />
                     <p className="font-bold text-blue-900">
                       Showing notes for: {selectedDate}
                     </p>
@@ -1172,7 +1172,7 @@ export default function NotesDecisions() {
                       {(note.linkedJob || note.linkedClient) && (
                         <div className="flex items-center gap-2 mt-2">
                           {note.linkedJob && (
-                            <a href={`/admin/jobs/detail?id=${note.linkedJob}`} className="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded hover:bg-pink-200 transition-colors flex items-center gap-1">
+                            <a href={`/admin/jobs/detail?id=${note.linkedJob}`} className="text-xs bg-zinc-100 text-zinc-700 px-2 py-1 rounded hover:opacity-90 transition-colors flex items-center gap-1">
                               <LinkIcon className="h-3 w-3" />
                               {note.linkedJob}
                             </a>
@@ -1188,7 +1188,7 @@ export default function NotesDecisions() {
                     <div className="flex gap-2">
                       <button 
                         onClick={() => startEditNote(note)}
-                        className="p-2 hover:bg-blue-100 text-blue-600 rounded transition-colors"
+                        className="p-2 hover:bg-zinc-100 text-zinc-950 rounded transition-colors"
                         title="Edit Note"
                       >
                         <Edit2 className="h-4 w-4" />
@@ -1209,12 +1209,12 @@ export default function NotesDecisions() {
                       <textarea
                         value={editedNoteText}
                         onChange={(e) => setEditedNoteText(e.target.value)}
-                        className="w-full h-32 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full h-32 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                       <div className="flex gap-2">
                         <button 
                           onClick={() => handleUpdateNote(note.id)}
-                          className="px-3 py-2 bg-blue-600 text-white rounded text-xs font-bold hover:bg-blue-700 transition-colors flex items-center gap-1"
+                          className="px-3 py-2 bg-zinc-950 text-white rounded text-xs font-bold hover:bg-zinc-950 transition-colors flex items-center gap-1"
                         >
                           <Save className="h-3 w-3" />
                           Save Note
@@ -1238,12 +1238,12 @@ export default function NotesDecisions() {
                   )}
 
                   {/* Related Decisions & Actions */}
-                  <div className="grid grid-cols-3 gap-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="grid grid-cols-3 gap-3 p-3 bg-zinc-50 rounded-lg border border-blue-200">
                     <div className="text-center">
-                      <p className="text-2xl font-black text-blue-700">
+                      <p className="text-2xl font-black text-zinc-950">
                         {decisions.filter(d => d.noteId === note.id).length}
                       </p>
-                      <p className="text-xs text-blue-600">Related Decisions</p>
+                      <p className="text-xs text-zinc-950">Related Decisions</p>
                     </div>
                     <div className="text-center">
                       <p className="text-2xl font-black text-green-700">
@@ -1437,7 +1437,7 @@ export default function NotesDecisions() {
                   {editingDecisionId !== decision.id && decision.linkedItems.length > 0 && (
                     <div className="flex flex-wrap gap-2 pt-2 border-t">
                       {decision.linkedItems.map((item, idx) => (
-                        <span key={idx} className="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded flex items-center gap-1">
+                        <span key={idx} className="text-xs bg-zinc-100 text-zinc-700 px-2 py-1 rounded flex items-center gap-1">
                           <LinkIcon className="h-3 w-3" />
                           {item}
                         </span>
@@ -1453,7 +1453,7 @@ export default function NotesDecisions() {
                       <div className="flex gap-2">
                         <button 
                           onClick={() => startEditDecision(decision)}
-                          className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition-colors"
+                          className="text-xs px-2 py-1 bg-zinc-100 text-zinc-950 rounded hover:bg-blue-200 transition-colors"
                         >
                           Edit
                         </button>
@@ -1485,7 +1485,7 @@ export default function NotesDecisions() {
               )}
               <button 
                 onClick={() => setShowActionForm(true)}
-                className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="mt-4 px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 transition-colors"
               >
                 Add Action
               </button>
@@ -1493,9 +1493,9 @@ export default function NotesDecisions() {
           ) : (
             <>
               {selectedDate && (
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                <div className="bg-zinc-50 border border-purple-200 rounded-lg p-4">
                   <div className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-purple-600" />
+                    <Calendar className="h-5 w-5 text-zinc-800" />
                     <p className="font-bold text-purple-900">
                       Showing actions for: {selectedDate}
                     </p>
@@ -1576,7 +1576,7 @@ export default function NotesDecisions() {
                           <div className="flex gap-2">
                             <button 
                               onClick={() => handleUpdateAction(item.id)}
-                              className="px-3 py-1 bg-purple-600 text-white rounded text-xs font-bold hover:bg-purple-700"
+                              className="px-3 py-1 bg-zinc-800 text-white rounded text-xs font-bold hover:bg-purple-700"
                             >
                               Save
                             </button>
@@ -1644,8 +1644,8 @@ export default function NotesDecisions() {
                   </div>
 
                   {editingActionId !== item.id && item.linkedJob && (
-                    <div className="p-2 bg-pink-50 border border-pink-200 rounded">
-                      <a href={`/admin/jobs/detail?id=${item.linkedJob}`} className="text-xs text-pink-700 font-bold hover:text-pink-900 flex items-center gap-1">
+                    <div className="p-2 bg-zinc-100 border border-zinc-300 rounded">
+                      <a href={`/admin/jobs/detail?id=${item.linkedJob}`} className="text-xs text-zinc-700 font-bold hover:text-zinc-900 flex items-center gap-1">
                         <Briefcase className="h-3 w-3" />
                         Linked to Job: {item.linkedJob}
                       </a>
@@ -1660,7 +1660,7 @@ export default function NotesDecisions() {
                       <div className="flex gap-2">
                         <button 
                           onClick={() => startEditAction(item)}
-                          className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition-colors"
+                          className="text-xs px-2 py-1 bg-zinc-100 text-zinc-950 rounded hover:bg-blue-200 transition-colors"
                         >
                           Edit
                         </button>
@@ -1718,7 +1718,7 @@ export default function NotesDecisions() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-blue-600 mt-2"></div>
+                            <div className="h-2 w-2 rounded-full bg-zinc-950 mt-2"></div>
                             <p className="font-bold text-sm">Note Added: {note.meetingTitle}</p>
                           </div>
                           <p className="text-xs text-muted-foreground mt-1">
@@ -1777,7 +1777,7 @@ export default function NotesDecisions() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-purple-600 mt-2"></div>
+                            <div className="h-2 w-2 rounded-full bg-zinc-800 mt-2"></div>
                             <p className="font-bold text-sm">Action: {action.title}</p>
                             <span className={`text-xs px-2 py-0.5 rounded ${getStatusColor(action.status)}`}>
                               {action.status}

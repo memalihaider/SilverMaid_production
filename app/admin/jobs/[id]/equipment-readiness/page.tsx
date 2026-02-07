@@ -176,7 +176,7 @@ export default function EquipmentReadiness() {
       case 'available':
         return <CheckCircle className="w-5 h-5 text-green-600" />
       case 'in_use':
-        return <Clock className="w-5 h-5 text-blue-600" />
+        return <Clock className="w-5 h-5 text-zinc-950" />
       case 'maintenance':
         return <Wrench className="w-5 h-5 text-orange-600" />
       case 'damaged':
@@ -191,7 +191,7 @@ export default function EquipmentReadiness() {
       case 'available':
         return 'bg-green-100 text-green-700 border-green-300'
       case 'in_use':
-        return 'bg-blue-100 text-blue-700 border-blue-300'
+        return 'bg-zinc-100 text-zinc-950 border-blue-300'
       case 'maintenance':
         return 'bg-orange-100 text-orange-700 border-orange-300'
       case 'damaged':
@@ -206,7 +206,7 @@ export default function EquipmentReadiness() {
       case 'excellent':
         return 'bg-green-100 text-green-700'
       case 'good':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       case 'fair':
         return 'bg-yellow-100 text-yellow-700'
       case 'poor':
@@ -257,7 +257,7 @@ export default function EquipmentReadiness() {
             <div className="text-sm font-bold text-gray-900">{assignedEquipment}/{totalEquipment} Assigned</div>
             <div className="w-32 bg-gray-200 rounded-full h-2 mt-1">
               <div
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                className="bg-zinc-950 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${(assignedEquipment / totalEquipment) * 100}%` }}
               ></div>
             </div>
@@ -285,7 +285,7 @@ export default function EquipmentReadiness() {
         </div>
         <div className="bg-white p-4 rounded-2xl border border-gray-200">
           <div className="flex items-center gap-3 mb-2">
-            <Clock className="w-5 h-5 text-blue-600" />
+            <Clock className="w-5 h-5 text-zinc-950" />
             <span className="text-sm font-bold text-gray-600">In Use</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{equipment.filter(e => e.status === 'in_use').length}</div>
@@ -299,7 +299,7 @@ export default function EquipmentReadiness() {
         </div>
         <div className="bg-white p-4 rounded-2xl border border-gray-200">
           <div className="flex items-center gap-3 mb-2">
-            <Package className="w-5 h-5 text-purple-600" />
+            <Package className="w-5 h-5 text-zinc-800" />
             <span className="text-sm font-bold text-gray-600">Assigned</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{assignedEquipment}</div>
@@ -320,13 +320,13 @@ export default function EquipmentReadiness() {
                     placeholder="Search equipment..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   {categories.map(category => (
                     <option key={category} value={category}>
@@ -351,7 +351,7 @@ export default function EquipmentReadiness() {
                           {item.condition}
                         </span>
                         {item.assigned && (
-                          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">
+                          <span className="px-2 py-1 bg-zinc-100 text-zinc-950 rounded-full text-xs font-bold">
                             Assigned
                           </span>
                         )}
@@ -366,7 +366,7 @@ export default function EquipmentReadiness() {
                     <span className={`px-3 py-1 rounded-full text-xs font-bold border ${getStatusColor(item.status)}`}>
                       {item.status.replace('_', ' ')}
                     </span>
-                    <button className="px-3 py-1 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all text-sm">
+                    <button className="px-3 py-1 text-zinc-950 hover:text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all text-sm">
                       {item.assigned ? 'Unassign' : 'Assign'}
                     </button>
                   </div>
@@ -427,7 +427,7 @@ export default function EquipmentReadiness() {
           </div>
 
           <div className="p-4 border-t border-gray-200">
-            <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all">
+            <button className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-all">
               <Plus className="w-4 h-4" />
               Request Supplies
             </button>

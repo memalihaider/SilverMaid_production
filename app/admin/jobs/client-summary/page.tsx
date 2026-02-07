@@ -122,15 +122,15 @@ export default function ClientSummaryPage() {
   }
 
   const getLoyaltyColor = (status: string) => {
-    if (status === 'VIP Tier') return 'bg-purple-100 text-purple-700'
-    if (status === 'Premium Tier') return 'bg-blue-100 text-blue-700'
+    if (status === 'VIP Tier') return 'bg-zinc-100 text-purple-700'
+    if (status === 'Premium Tier') return 'bg-zinc-100 text-zinc-950'
     return 'bg-gray-100 text-gray-700'
   }
 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-linear-to-r from-indigo-600 to-blue-600 rounded-lg p-6 text-white">
+      <div className="bg-linear-to-r from-zinc-900 to-zinc-950 rounded-lg p-6 text-white">
         <h1 className="text-3xl font-bold">Client Summary & Insights</h1>
         <p className="text-indigo-100 mt-1">Customer history, quality scores, satisfaction trends, and repeat service suggestions</p>
       </div>
@@ -139,7 +139,7 @@ export default function ClientSummaryPage() {
       <div className="grid grid-cols-6 gap-4">
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Total Clients</p>
-          <p className="text-2xl font-bold text-indigo-600">{stats.totalClients}</p>
+          <p className="text-2xl font-bold text-zinc-900">{stats.totalClients}</p>
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Avg Satisfaction</p>
@@ -151,15 +151,15 @@ export default function ClientSummaryPage() {
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Referral Eligible</p>
-          <p className="text-2xl font-bold text-pink-600">{stats.referralEligible}</p>
+          <p className="text-2xl font-bold text-primary">{stats.referralEligible}</p>
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Total Revenue</p>
-          <p className="text-2xl font-bold text-purple-600">${stats.totalRevenue.toFixed(0)}</p>
+          <p className="text-2xl font-bold text-zinc-800">${stats.totalRevenue.toFixed(0)}</p>
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Avg Client Value</p>
-          <p className="text-2xl font-bold text-blue-600">${stats.avgClientValue}</p>
+          <p className="text-2xl font-bold text-zinc-950">${stats.avgClientValue}</p>
         </div>
       </div>
 
@@ -171,7 +171,7 @@ export default function ClientSummaryPage() {
             onClick={() => setSelectedClientId(client.id)}
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${
               selectedClientId === client.id
-                ? 'bg-indigo-600 text-white'
+                ? 'bg-zinc-900 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -184,7 +184,7 @@ export default function ClientSummaryPage() {
         {/* Client Profile */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Users className="w-5 h-5 text-indigo-600" />
+            <Users className="w-5 h-5 text-zinc-900" />
             Client Profile
           </h2>
           <div className="space-y-3">
@@ -217,7 +217,7 @@ export default function ClientSummaryPage() {
         {/* Satisfaction & Quality */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-indigo-600" />
+            <TrendingUp className="w-5 h-5 text-zinc-900" />
             Satisfaction & Quality
           </h2>
           <div className="space-y-4">
@@ -262,7 +262,7 @@ export default function ClientSummaryPage() {
                     key={i}
                     className={`flex-1 py-2 px-1 rounded text-center text-xs font-bold text-white ${
                       score >= 9 ? 'bg-green-600' :
-                      score >= 7 ? 'bg-blue-600' :
+                      score >= 7 ? 'bg-zinc-950' :
                       'bg-yellow-600'
                     }`}
                   >
@@ -277,22 +277,22 @@ export default function ClientSummaryPage() {
         {/* Service History */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <History className="w-5 h-5 text-indigo-600" />
+            <History className="w-5 h-5 text-zinc-900" />
             Service History
           </h2>
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
                 <p className="text-sm text-gray-600">Total Services</p>
-                <p className="text-2xl font-bold text-indigo-600">{selectedClient.totalServices}</p>
+                <p className="text-2xl font-bold text-zinc-900">{selectedClient.totalServices}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Spent</p>
-                <p className="text-2xl font-bold text-blue-600">${selectedClient.totalSpent.toFixed(2)}</p>
+                <p className="text-2xl font-bold text-zinc-950">${selectedClient.totalSpent.toFixed(2)}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Monthly Average</p>
-                <p className="text-lg font-bold text-purple-600">${selectedClient.monthlyAverage.toFixed(2)}</p>
+                <p className="text-lg font-bold text-zinc-800">${selectedClient.monthlyAverage.toFixed(2)}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Payment Reliability</p>
@@ -323,26 +323,26 @@ export default function ClientSummaryPage() {
         {/* Repeat Service & Referral */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Repeat2 className="w-5 h-5 text-indigo-600" />
+            <Repeat2 className="w-5 h-5 text-zinc-900" />
             Repeat Service & Referrals
           </h2>
           <div className="space-y-4">
             <div>
               <p className="text-sm text-gray-600 mb-2">Next Service Recommendation</p>
-              <div className="p-3 bg-blue-50 border border-blue-200 rounded">
+              <div className="p-3 bg-zinc-50 border border-blue-200 rounded">
                 <p className="font-semibold text-blue-900">{selectedClient.repeatServiceSuggestion.service}</p>
                 <p className="text-sm text-blue-800 mt-1">{selectedClient.repeatServiceSuggestion.recommendation}</p>
-                <p className="text-xs text-blue-700 mt-1">📅 In {selectedClient.repeatServiceSuggestion.daysUntilDue} days</p>
+                <p className="text-xs text-zinc-950 mt-1">📅 In {selectedClient.repeatServiceSuggestion.daysUntilDue} days</p>
               </div>
             </div>
 
             <div>
               <p className="text-sm text-gray-600 mb-2">Referral Status</p>
               {selectedClient.referralTrigger ? (
-                <div className="p-3 bg-pink-50 border border-pink-200 rounded">
-                  <p className="font-semibold text-pink-900">✓ Eligible for Referral Reward</p>
-                  <p className="text-sm text-pink-800 mt-1">{selectedClient.referralReward}</p>
-                  <button className="mt-2 w-full px-3 py-1 bg-pink-600 text-white rounded text-sm hover:bg-pink-700">
+                <div className="p-3 bg-zinc-100 border border-zinc-300 rounded">
+                  <p className="font-semibold text-zinc-900">✓ Eligible for Referral Reward</p>
+                  <p className="text-sm text-zinc-800 mt-1">{selectedClient.referralReward}</p>
+                  <button className="mt-2 w-full px-3 py-1 bg-primary text-white rounded text-sm hover:opacity-90">
                     Send Referral Bonus
                   </button>
                 </div>
@@ -365,7 +365,7 @@ export default function ClientSummaryPage() {
         {/* Comprehensive Timeline */}
         <div className="bg-white rounded-lg border border-gray-200 p-6 col-span-2">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Activity className="w-5 h-5 text-indigo-600" />
+            <Activity className="w-5 h-5 text-zinc-900" />
             Full Service Timeline
           </h2>
           <div className="space-y-3 max-h-64 overflow-y-auto">

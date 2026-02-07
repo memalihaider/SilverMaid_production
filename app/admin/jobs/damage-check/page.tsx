@@ -79,7 +79,7 @@ export default function DamageCheck() {
       case 'Medium':
         return 'bg-yellow-100 text-yellow-700'
       case 'Low':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       default:
         return 'bg-gray-100 text-gray-700'
     }
@@ -88,7 +88,7 @@ export default function DamageCheck() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Documented':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       case 'Escalated':
         return 'bg-red-100 text-red-700'
       case 'Resolved':
@@ -118,7 +118,7 @@ export default function DamageCheck() {
         </div>
         <button
           onClick={() => setShowNewDamageModal(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors"
         >
           <Camera className="h-4 w-4" />
           Report Damage
@@ -141,7 +141,7 @@ export default function DamageCheck() {
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Estimated Cost</p>
-          <p className="text-2xl font-bold text-pink-600">AED {stats.totalCost.toLocaleString()}</p>
+          <p className="text-2xl font-bold text-primary">AED {stats.totalCost.toLocaleString()}</p>
         </div>
       </div>
 
@@ -153,7 +153,7 @@ export default function DamageCheck() {
             onClick={() => setSelectedJobId(job.id)}
             className={`shrink-0 px-4 py-2 rounded-lg font-medium transition-colors ${
               selectedJobId === job.id
-                ? 'bg-pink-600 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-muted text-foreground hover:bg-muted/80'
             }`}
           >
@@ -176,7 +176,7 @@ export default function DamageCheck() {
                       <h3 className="font-bold text-sm flex items-center gap-2 mb-1">
                         <AlertTriangle className={`h-4 w-4 ${
                           damage.severity === 'High' ? 'text-red-600' :
-                          damage.severity === 'Medium' ? 'text-yellow-600' : 'text-blue-600'
+                          damage.severity === 'Medium' ? 'text-yellow-600' : 'text-zinc-950'
                         }`} />
                         {damage.type}
                       </h3>
@@ -201,7 +201,7 @@ export default function DamageCheck() {
                       <MapPin className="h-3 w-3" />
                       GPS Tagged
                     </div>
-                    <div className="text-pink-600 font-semibold">
+                    <div className="text-primary font-semibold">
                       AED {damage.estimatedRepairCost}
                     </div>
                   </div>
@@ -239,9 +239,9 @@ export default function DamageCheck() {
                     </div>
 
                     {/* Photo Metadata */}
-                    <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs">
+                    <div className="bg-zinc-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-xs">
                       <p className="font-semibold text-blue-900 dark:text-blue-300 mb-2">Photo Metadata</p>
-                      <div className="space-y-1 text-blue-700 dark:text-blue-400">
+                      <div className="space-y-1 text-zinc-950 dark:text-blue-400">
                         <p>📸 Timestamp: {damage.photoTimestamp}</p>
                         <p>📍 Location: {damage.photoLocation}</p>
                         <p>🔐 Verified: Yes</p>
@@ -252,7 +252,7 @@ export default function DamageCheck() {
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div>
                         <p className="text-muted-foreground text-xs mb-1">Estimated Repair Cost</p>
-                        <p className="font-semibold text-lg text-pink-600">AED {damage.estimatedRepairCost}</p>
+                        <p className="font-semibold text-lg text-primary">AED {damage.estimatedRepairCost}</p>
                       </div>
                       <div>
                         <p className="text-muted-foreground text-xs mb-1">Responsibility</p>
@@ -268,7 +268,7 @@ export default function DamageCheck() {
 
                     {/* Actions */}
                     <div className="flex gap-2 pt-3 border-t">
-                      <button className="flex-1 px-3 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                      <button className="flex-1 px-3 py-2 bg-zinc-950 text-white text-sm rounded-lg hover:bg-zinc-950 transition-colors font-medium">
                         View Full Image
                       </button>
                       {damage.status !== 'Resolved' && (
@@ -296,21 +296,21 @@ export default function DamageCheck() {
           <div className="bg-background border rounded-lg p-6 max-w-md w-full mx-4">
             <h2 className="text-lg font-bold mb-4">Report Damage</h2>
             <div className="space-y-4 mb-4">
-              <input type="text" placeholder="Damage Type" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none" />
-              <input type="text" placeholder="Location" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none" />
-              <select className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none">
+              <input type="text" placeholder="Damage Type" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none" />
+              <input type="text" placeholder="Location" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none" />
+              <select className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none">
                 <option>Low Severity</option>
                 <option>Medium Severity</option>
                 <option>High Severity</option>
               </select>
-              <textarea placeholder="Description" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none min-h-24" />
-              <input type="number" placeholder="Estimated Cost (AED)" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none" />
+              <textarea placeholder="Description" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none min-h-24" />
+              <input type="number" placeholder="Estimated Cost (AED)" className="w-full p-2 border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none" />
             </div>
             <div className="flex gap-2">
               <button onClick={() => setShowNewDamageModal(false)} className="flex-1 px-3 py-2 border rounded-lg hover:bg-muted transition-colors">
                 Cancel
               </button>
-              <button onClick={() => setShowNewDamageModal(false)} className="flex-1 px-3 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors">
+              <button onClick={() => setShowNewDamageModal(false)} className="flex-1 px-3 py-2 bg-primary text-white rounded-lg hover:opacity-90 transition-colors">
                 Report Damage
               </button>
             </div>

@@ -184,13 +184,13 @@ function FeedbackCollectionContent() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-4">
         {jobIdParam && (
-          <Link href={`/admin/jobs/${jobIdParam}`} className="text-purple-600 hover:text-purple-700">
+          <Link href={`/admin/jobs/${jobIdParam}`} className="text-zinc-800 hover:text-purple-700">
             <ArrowLeft className="h-5 w-5" />
           </Link>
         )}
-        <div className="bg-linear-to-r from-purple-600 to-pink-600 rounded-lg p-6 text-white flex-1">
+        <div className="bg-linear-to-r from-zinc-800 to-black rounded-lg p-6 text-white flex-1">
           <h1 className="text-3xl font-bold">Feedback Collection</h1>
-          <p className="text-purple-100 mt-1">NPS scoring, sentiment analysis, and customer satisfaction tracking</p>
+          <p className="text-zinc-100 mt-1">NPS scoring, sentiment analysis, and customer satisfaction tracking</p>
         </div>
       </div>
 
@@ -198,11 +198,11 @@ function FeedbackCollectionContent() {
       <div className="grid grid-cols-4 gap-4">
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Feedback Collected</p>
-          <p className="text-2xl font-bold text-purple-600">{stats.collected}/{stats.total}</p>
+          <p className="text-2xl font-bold text-zinc-800">{stats.collected}/{stats.total}</p>
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Average NPS Score</p>
-          <p className="text-2xl font-bold text-blue-600">{stats.avgNps}</p>
+          <p className="text-2xl font-bold text-zinc-950">{stats.avgNps}</p>
           <p className="text-xs text-gray-500 mt-1">{stats.promoters} promoters, {stats.detractors} detractors</p>
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
@@ -226,7 +226,7 @@ function FeedbackCollectionContent() {
             onClick={() => setSelectedJobId(job.id)}
             className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${
               selectedJobId === job.id
-                ? 'bg-purple-600 text-white'
+                ? 'bg-zinc-800 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -240,7 +240,7 @@ function FeedbackCollectionContent() {
         {/* Feedback Summary */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <MessageSquare className="w-5 h-5 text-purple-600" />
+            <MessageSquare className="w-5 h-5 text-zinc-800" />
             Feedback Summary
           </h2>
           <div className="space-y-4">
@@ -249,12 +249,12 @@ function FeedbackCollectionContent() {
                 <div>
                   <p className="text-sm text-gray-600 mb-2">NPS Score</p>
                   <div className="flex items-end gap-2">
-                    <span className="text-4xl font-bold text-purple-600">{selectedJob.feedback.npsScore}</span>
+                    <span className="text-4xl font-bold text-zinc-800">{selectedJob.feedback.npsScore}</span>
                     <span className="text-gray-500 mb-1">/ 10</span>
                   </div>
                   <p className={`text-sm mt-2 px-3 py-1 rounded w-fit ${
                     selectedJob.feedback.npsScore >= 9 ? 'bg-green-100 text-green-700' :
-                    selectedJob.feedback.npsScore >= 7 ? 'bg-blue-100 text-blue-700' :
+                    selectedJob.feedback.npsScore >= 7 ? 'bg-zinc-100 text-zinc-950' :
                     'bg-yellow-100 text-yellow-700'
                   }`}>
                     {selectedJob.feedback.npsScore >= 9 ? 'Promoter' : selectedJob.feedback.npsScore >= 7 ? 'Neutral' : 'Detractor'}
@@ -269,7 +269,7 @@ function FeedbackCollectionContent() {
                         key={i}
                         className={`flex-1 h-2 rounded ${
                           i < selectedJob.feedback.satisfactionRating
-                            ? 'bg-purple-600'
+                            ? 'bg-zinc-800'
                             : 'bg-gray-300'
                         }`}
                       />
@@ -291,7 +291,7 @@ function FeedbackCollectionContent() {
                   </div>
                   <p className={`text-sm mt-2 px-3 py-1 rounded w-fit font-semibold ${
                     selectedJob.feedback.sentiment === 'Very Positive' ? 'bg-green-100 text-green-700' :
-                    selectedJob.feedback.sentiment === 'Positive' ? 'bg-blue-100 text-blue-700' :
+                    selectedJob.feedback.sentiment === 'Positive' ? 'bg-zinc-100 text-zinc-950' :
                     selectedJob.feedback.sentiment === 'Neutral' ? 'bg-gray-100 text-gray-700' :
                     'bg-red-100 text-red-700'
                   }`}>
@@ -319,7 +319,7 @@ function FeedbackCollectionContent() {
         {/* Category Ratings */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-purple-600" />
+            <TrendingUp className="w-5 h-5 text-zinc-800" />
             Category Ratings
           </h2>
           {selectedJob.feedback.collected ? (
@@ -328,14 +328,14 @@ function FeedbackCollectionContent() {
                 <div key={category}>
                   <div className="flex justify-between mb-1">
                     <p className="text-sm font-medium text-gray-700 capitalize">{category.replace(/([A-Z])/g, ' $1').trim()}</p>
-                    <p className="text-sm font-bold text-purple-600">{rating}/5</p>
+                    <p className="text-sm font-bold text-zinc-800">{rating}/5</p>
                   </div>
                   <div className="flex gap-1">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <div
                         key={i}
                         className={`flex-1 h-2 rounded ${
-                          i < rating ? 'bg-purple-600' : 'bg-gray-300'
+                          i < rating ? 'bg-zinc-800' : 'bg-gray-300'
                         }`}
                       />
                     ))}
@@ -351,11 +351,11 @@ function FeedbackCollectionContent() {
         {/* Customer Comment */}
         <div className="bg-white rounded-lg border border-gray-200 p-6 col-span-2">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <MessageSquare className="w-5 h-5 text-purple-600" />
+            <MessageSquare className="w-5 h-5 text-zinc-800" />
             Customer Comment
           </h2>
           {selectedJob.feedback.collected && selectedJob.feedback.comment ? (
-            <div className="p-4 bg-purple-50 border-l-4 border-purple-600 rounded">
+            <div className="p-4 bg-zinc-50 border-l-4 border-zinc-800 rounded">
               <p className="text-gray-800 italic">"{selectedJob.feedback.comment}"</p>
             </div>
           ) : (
@@ -366,7 +366,7 @@ function FeedbackCollectionContent() {
         {/* Actions */}
         <div className="bg-white rounded-lg border border-gray-200 p-6 col-span-2">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Zap className="w-5 h-5 text-purple-600" />
+            <Zap className="w-5 h-5 text-zinc-800" />
             Feedback Actions
           </h2>
           <button
@@ -385,7 +385,7 @@ function FeedbackCollectionContent() {
               }
               setShowFeedbackModal(true)
             }}
-            className="w-full px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium flex items-center justify-center gap-2"
+            className="w-full px-4 py-3 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 font-medium flex items-center justify-center gap-2"
           >
             <Send className="w-4 h-4" />
             {selectedJob.feedback.collected ? 'Update Feedback' : 'Send Feedback Request'}
@@ -412,7 +412,7 @@ function FeedbackCollectionContent() {
                   onChange={(e) => setFeedbackForm({ ...feedbackForm, npsScore: parseInt(e.target.value) })}
                   className="w-full"
                 />
-                <p className="text-center font-bold mt-1 text-purple-600">{feedbackForm.npsScore}</p>
+                <p className="text-center font-bold mt-1 text-zinc-800">{feedbackForm.npsScore}</p>
               </div>
 
               <div>
@@ -426,7 +426,7 @@ function FeedbackCollectionContent() {
                       onClick={() => setFeedbackForm({ ...feedbackForm, satisfactionRating: star })}
                       className={`px-3 py-2 rounded ${
                         feedbackForm.satisfactionRating === star
-                          ? 'bg-purple-600 text-white'
+                          ? 'bg-zinc-800 text-white'
                           : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                       }`}
                     >
@@ -461,7 +461,7 @@ function FeedbackCollectionContent() {
                   value={feedbackForm.comment}
                   onChange={(e) => setFeedbackForm({ ...feedbackForm, comment: e.target.value })}
                   placeholder="What did the customer say about the service?"
-                  className="w-full p-2 border border-gray-300 rounded-lg h-20 resize-none focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-2 border border-gray-300 rounded-lg h-20 resize-none focus:outline-none focus:ring-2 focus:ring-zinc-800"
                 />
               </div>
             </div>
@@ -475,7 +475,7 @@ function FeedbackCollectionContent() {
               </button>
               <button
                 onClick={handleSubmitFeedback}
-                className="flex-1 px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 font-medium"
+                className="flex-1 px-4 py-2 bg-zinc-800 text-white rounded hover:bg-purple-700 font-medium"
               >
                 Submit Feedback
               </button>
@@ -486,18 +486,18 @@ function FeedbackCollectionContent() {
 
       {/* Workflow Navigation */}
       {jobIdParam && (
-        <div className="bg-linear-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-6">
+        <div className="bg-zinc-50 border border-purple-200 rounded-lg p-6">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="font-bold mb-2">Feedback Collected</h3>
               <p className="text-sm text-muted-foreground">Request formal review from client for portfolio</p>
             </div>
             <div className="flex gap-2">
-              <Link href={`/admin/jobs/${jobIdParam}`} className="flex items-center gap-2 px-4 py-2 border border-purple-300 bg-white rounded-lg hover:bg-purple-50 transition-colors">
+              <Link href={`/admin/jobs/${jobIdParam}`} className="flex items-center gap-2 px-4 py-2 border border-purple-300 bg-white rounded-lg hover:bg-zinc-50 transition-colors">
                 <ArrowLeft className="h-4 w-4" />
                 Back to Job
               </Link>
-              <Link href={`/admin/jobs/review-request?jobId=${jobIdParam}`} className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+              <Link href={`/admin/jobs/review-request?jobId=${jobIdParam}`} className="flex items-center gap-2 px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 transition-colors">
                 Request Review
                 <ArrowRight className="h-4 w-4" />
               </Link>

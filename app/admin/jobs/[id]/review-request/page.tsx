@@ -136,7 +136,7 @@ export default function ReviewRequest() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed': return 'bg-green-100 text-green-700 border-green-300'
-      case 'in_progress': return 'bg-blue-100 text-blue-700 border-blue-300'
+      case 'in_progress': return 'bg-zinc-100 text-zinc-950 border-blue-300'
       case 'pending': return 'bg-yellow-100 text-yellow-700 border-yellow-300'
       default: return 'bg-gray-100 text-gray-700 border-gray-300'
     }
@@ -188,8 +188,8 @@ export default function ReviewRequest() {
             <div key={review.id} className="bg-white rounded-2xl p-6 border border-gray-200">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                    <User className="w-5 h-5 text-blue-600" />
+                  <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center">
+                    <User className="w-5 h-5 text-zinc-950" />
                   </div>
                   <div>
                     <div className="font-bold text-gray-900">{review.employeeName}</div>
@@ -203,7 +203,7 @@ export default function ReviewRequest() {
                   {review.status !== 'completed' && (
                     <button
                       onClick={() => setSelectedReview(review)}
-                      className="px-3 py-1 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700"
+                      className="px-3 py-1 bg-zinc-950 text-white text-sm rounded-lg hover:bg-zinc-950"
                     >
                       Review
                     </button>
@@ -230,8 +230,8 @@ export default function ReviewRequest() {
         {selectedReview && (
           <div className="bg-white rounded-2xl p-6 border border-gray-200">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                <User className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center">
+                <User className="w-6 h-6 text-zinc-950" />
               </div>
               <div>
                 <div className="text-lg font-bold text-gray-900">{selectedReview.employeeName}</div>
@@ -260,7 +260,7 @@ export default function ReviewRequest() {
                   value={selectedReview.comments}
                   onChange={(e) => updateComments(selectedReview.id, e.target.value)}
                   placeholder="Provide detailed feedback..."
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   rows={6}
                 />
               </div>
@@ -269,7 +269,7 @@ export default function ReviewRequest() {
                 <button
                   onClick={() => submitReview(selectedReview.id)}
                   disabled={Object.values(selectedReview.categories).some(r => r === 0) || isSubmitting}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
                   <Send className="w-4 h-4" />
                   {isSubmitting ? 'Submitting...' : 'Submit Review'}

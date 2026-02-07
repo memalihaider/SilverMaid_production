@@ -200,9 +200,9 @@ export default function PermissionMatrix() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="h-10 w-10 rounded-xl bg-indigo-100 flex items-center justify-center border border-indigo-200">
-                <Fingerprint className="h-5 w-5 text-indigo-600" />
+                <Fingerprint className="h-5 w-5 text-zinc-900" />
               </div>
-              <span className="text-indigo-600 font-bold tracking-wider text-sm uppercase">User Permissions</span>
+              <span className="text-zinc-900 font-bold tracking-wider text-sm uppercase">User Permissions</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">Permission Matrix</h1>
             <p className="text-gray-600 mt-3 text-lg font-medium max-w-xl">
@@ -219,12 +219,12 @@ export default function PermissionMatrix() {
         
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-indigo-50 blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-blue-50 blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-zinc-50 blur-[100px]"></div>
       </div>
 
       {/* Search */}
       <div className="relative group">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-indigo-600 transition-colors" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-zinc-900 transition-colors" />
         <input 
           type="text" 
           placeholder="Search users by name, email or role..." 
@@ -239,7 +239,7 @@ export default function PermissionMatrix() {
         {/* Left Column - Users List */}
         <div className="lg:col-span-1 space-y-3">
           <h3 className="text-lg font-black text-black flex items-center gap-2">
-            <Users className="h-5 w-5 text-indigo-600" />
+            <Users className="h-5 w-5 text-zinc-900" />
             Users ({filteredUsers.length})
           </h3>
           
@@ -254,7 +254,7 @@ export default function PermissionMatrix() {
                   onClick={() => setSelectedUser(user.id)}
                   className={`w-full text-left p-4 rounded-xl transition-all duration-200 ${
                     isSelected 
-                      ? 'bg-indigo-600 text-white shadow-lg scale-[1.02]' 
+                      ? 'bg-zinc-900 text-white shadow-lg scale-[1.02]' 
                       : 'bg-gray-100 hover:bg-gray-200 text-black border border-gray-200'
                   }`}
                 >
@@ -307,7 +307,7 @@ export default function PermissionMatrix() {
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4">
                     <div className="h-16 w-16 rounded-2xl bg-indigo-100 flex items-center justify-center border border-indigo-200">
-                      <Users className="h-8 w-8 text-indigo-600" />
+                      <Users className="h-8 w-8 text-zinc-900" />
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-black">{selectedUserData.name}</h2>
@@ -327,7 +327,7 @@ export default function PermissionMatrix() {
                   </div>
                   <div className="flex flex-col items-end gap-2">
                     <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Role</span>
-                    <span className="px-4 py-2 bg-indigo-100 text-indigo-600 rounded-lg text-sm font-bold">
+                    <span className="px-4 py-2 bg-indigo-100 text-zinc-900 rounded-lg text-sm font-bold">
                       {selectedUserData.roleName}
                     </span>
                   </div>
@@ -397,7 +397,7 @@ export default function PermissionMatrix() {
               {/* Permissions Details */}
               <div className="bg-white border border-gray-200 rounded-[32px] p-8">
                 <h3 className="text-xl font-black text-black mb-6 flex items-center gap-2">
-                  <Lock className="h-5 w-5 text-indigo-600" />
+                  <Lock className="h-5 w-5 text-zinc-900" />
                   Page Permissions
                 </h3>
 
@@ -406,7 +406,7 @@ export default function PermissionMatrix() {
                   {Object.entries(groupPagesByCategory(selectedUserData.allowedPages)).map(([category, pages]) => (
                     <div key={category} className="space-y-3">
                       <h4 className="text-sm font-bold text-gray-700 border-b pb-2 flex items-center gap-2">
-                        <span className="text-indigo-600">{category}</span>
+                        <span className="text-zinc-900">{category}</span>
                         <span className="text-xs text-gray-500 font-normal">
                           ({pages.length} {pages.length === 1 ? 'page' : 'pages'})
                         </span>
@@ -431,18 +431,18 @@ export default function PermissionMatrix() {
                 {/* Access Summary */}
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <h4 className="text-sm font-bold text-gray-700 mb-3">Access Summary</h4>
-                  <div className="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                  <div className="bg-zinc-50 p-4 rounded-xl border border-blue-200">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm font-bold text-blue-700">
+                        <p className="text-sm font-bold text-zinc-950">
                           📊 {selectedUserData.name} has access to {selectedUserData.allowedPages.length} of {TOTAL_PAGES} pages
                         </p>
-                        <p className="text-xs text-blue-600 mt-1">
+                        <p className="text-xs text-zinc-950 mt-1">
                           That's {((selectedUserData.allowedPages.length / TOTAL_PAGES) * 100).toFixed(1)}% of total system pages
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest">Risk Level</p>
+                        <p className="text-[10px] font-black text-zinc-950 uppercase tracking-widest">Risk Level</p>
                         <div className="mt-1">
                           {(() => {
                             const risk = getRiskLevel(selectedUserData.allowedPages)
@@ -479,7 +479,7 @@ export default function PermissionMatrix() {
       {/* Security Info */}
       <div className="bg-white border border-gray-200 rounded-[32px] p-8 flex flex-col md:flex-row gap-6 items-start">
         <div className="h-14 w-14 rounded-2xl bg-indigo-100 flex items-center justify-center border border-indigo-200 shrink-0">
-          <Shield className="h-7 w-7 text-indigo-600" />
+          <Shield className="h-7 w-7 text-zinc-900" />
         </div>
         <div>
           <h3 className="text-xl font-black text-black">Permission Governance</h3>
@@ -492,10 +492,10 @@ export default function PermissionMatrix() {
             <div className="flex items-center gap-2 text-[10px] font-black text-emerald-600 uppercase tracking-widest">
               <ShieldCheck className="h-4 w-4" /> Real Data from Firebase
             </div>
-            <div className="flex items-center gap-2 text-[10px] font-black text-indigo-600 uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-[10px] font-black text-zinc-900 uppercase tracking-widest">
               <Activity className="h-4 w-4" /> Live Permissions
             </div>
-            <div className="flex items-center gap-2 text-[10px] font-black text-blue-600 uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-[10px] font-black text-zinc-950 uppercase tracking-widest">
               <Users className="h-4 w-4" /> {userRoles.length} Active Users
             </div>
           </div>

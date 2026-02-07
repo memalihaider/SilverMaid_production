@@ -285,7 +285,7 @@ export default function QuotationApproval() {
         </div>
         <div className="bg-white p-3 border border-gray-300 rounded shadow-none">
           <p className="text-[10px] uppercase font-bold text-gray-400">Services</p>
-          <p className="text-2xl font-black text-blue-600">
+          <p className="text-2xl font-black text-zinc-950">
             {quotations.reduce((sum, q) => sum + (q.services?.length || 0), 0)}
           </p>
         </div>

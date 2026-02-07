@@ -172,7 +172,7 @@ export default function ScheduleCalendar() {
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-900/20">
+          <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-indigo-500 text-white rounded-xl transition-all shadow-lg shadow-indigo-900/20">
             <Plus className="w-4 h-4" />
             <span>New Job</span>
           </button>
@@ -234,7 +234,7 @@ export default function ScheduleCalendar() {
                           className={`text-[10px] p-1.5 rounded-lg border-l-2 cursor-move transition-all hover:scale-[1.02] ${
                             job.priority === 'Critical' ? 'bg-rose-500/10 border-rose-500 text-rose-400' :
                             job.priority === 'High' ? 'bg-orange-500/10 border-orange-500 text-orange-400' :
-                            'bg-blue-500/10 border-blue-500 text-blue-400'
+                            'bg-zinc-500/10 border-zinc-500 text-blue-400'
                           }`}
                         >
                           <div className="font-bold truncate">{job.title}</div>
@@ -295,7 +295,7 @@ export default function ScheduleCalendar() {
               {[
                 { label: 'Critical', color: 'bg-rose-500' },
                 { label: 'High Priority', color: 'bg-orange-500' },
-                { label: 'Standard', color: 'bg-blue-500' },
+                { label: 'Standard', color: 'bg-zinc-500' },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className={`w-2 h-2 rounded-full ${item.color}`} />
@@ -306,7 +306,7 @@ export default function ScheduleCalendar() {
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-indigo-600/10 border border-indigo-500/20 rounded-3xl p-6">
+          <div className="bg-zinc-900/10 border border-indigo-500/20 rounded-3xl p-6">
             <h3 className="font-bold text-indigo-400 mb-4 text-sm">Operational Health</h3>
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-indigo-500/20 rounded-lg">
@@ -314,7 +314,7 @@ export default function ScheduleCalendar() {
               </div>
               <div className="text-xs text-slate-300">No critical conflicts detected for the next 48 hours.</div>
             </div>
-            <button className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl text-xs font-bold transition-all shadow-lg shadow-indigo-900/20">
+            <button className="w-full py-3 bg-zinc-900 hover:bg-indigo-500 text-white rounded-2xl text-xs font-bold transition-all shadow-lg shadow-indigo-900/20">
               Auto-Optimize Schedule
             </button>
           </div>

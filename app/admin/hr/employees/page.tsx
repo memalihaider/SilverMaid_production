@@ -132,7 +132,7 @@ export default function EmployeesPage() {
               onClick={() => setViewMode('grid')}
               className={`px-3 py-2 rounded-lg text-sm font-bold transition-all ${
                 viewMode === 'grid'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-zinc-950 text-white'
                   : 'bg-muted/50 text-muted-foreground'
               }`}
             >
@@ -142,7 +142,7 @@ export default function EmployeesPage() {
               onClick={() => setViewMode('list')}
               className={`px-3 py-2 rounded-lg text-sm font-bold transition-all ${
                 viewMode === 'list'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-zinc-950 text-white'
                   : 'bg-muted/50 text-muted-foreground'
               }`}
             >
@@ -203,7 +203,7 @@ export default function EmployeesPage() {
           {filteredEmployees.map(employee => (
             <div key={employee.id} className="bg-card border rounded-2xl overflow-hidden hover:shadow-lg transition-all">
               {/* Profile Section */}
-              <div className="p-4 bg-gradient-to-r from-blue-600/10 to-purple-600/10">
+              <div className="p-4 bg-gradient-to-r from-zinc-950/10 to-zinc-800/10">
                 <div className="flex items-start gap-3 mb-3">
                   {employee.profileImage ? (
                     <img
@@ -212,7 +212,7 @@ export default function EmployeesPage() {
                       className="h-12 w-12 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                    <div className="h-12 w-12 rounded-full bg-zinc-950 flex items-center justify-center text-white font-bold">
                       {employee.name.charAt(0)}
                     </div>
                   )}
@@ -238,15 +238,15 @@ export default function EmployeesPage() {
               {/* Contact Info */}
               <div className="p-4 space-y-2 border-t">
                 <div className="flex items-center gap-2 text-sm">
-                  <Mail className="h-4 w-4 text-blue-600" />
+                  <Mail className="h-4 w-4 text-zinc-950" />
                   <span className="text-xs text-muted-foreground truncate">{employee.email}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <Phone className="h-4 w-4 text-blue-600" />
+                  <Phone className="h-4 w-4 text-zinc-950" />
                   <span className="text-xs text-muted-foreground">{employee.phone}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <MapPin className="h-4 w-4 text-blue-600" />
+                  <MapPin className="h-4 w-4 text-zinc-950" />
                   <span className="text-xs text-muted-foreground">{employee.location}</span>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function EmployeesPage() {
               {/* Action Button */}
               <button
                 onClick={() => handleViewDetails(employee)}
-                className="w-full px-4 py-3 border-t font-bold text-sm text-blue-600 hover:bg-muted/50 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-4 py-3 border-t font-bold text-sm text-zinc-950 hover:bg-muted/50 transition-colors flex items-center justify-center gap-2"
               >
                 <Eye className="h-4 w-4" />
                 View Details
@@ -295,7 +295,7 @@ export default function EmployeesPage() {
                         className="h-14 w-14 rounded-full object-cover"
                       />
                     ) : (
-                      <div className="h-14 w-14 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                      <div className="h-14 w-14 rounded-full bg-zinc-950 flex items-center justify-center text-white font-bold">
                         {employee.name.charAt(0)}
                       </div>
                     )}
@@ -360,7 +360,7 @@ export default function EmployeesPage() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-background rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border-b">
+            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-zinc-950/10 to-zinc-800/10 border-b">
               <h2 className="text-2xl font-black">Employee Details</h2>
               <button
                 onClick={() => setShowDetails(false)}
@@ -374,7 +374,7 @@ export default function EmployeesPage() {
               {/* Personal Info */}
               <div>
                 <h3 className="text-lg font-black mb-4 flex items-center gap-2">
-                  <Users className="h-5 w-5 text-blue-600" />
+                  <Users className="h-5 w-5 text-zinc-950" />
                   Personal Information
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -408,7 +408,7 @@ export default function EmployeesPage() {
               {/* Work Info */}
               <div>
                 <h3 className="text-lg font-black mb-4 flex items-center gap-2">
-                  <Briefcase className="h-5 w-5 text-blue-600" />
+                  <Briefcase className="h-5 w-5 text-zinc-950" />
                   Work Information
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -458,11 +458,11 @@ export default function EmployeesPage() {
                     <p className="text-xs text-green-700 font-bold uppercase">Base Salary</p>
                     <p className="text-xl font-black text-green-700">AED {selectedEmployee.salary.basic.toLocaleString()}</p>
                   </div>
-                  <div className="bg-blue-100/50 rounded-lg p-4 border-2 border-blue-600">
-                    <p className="text-xs text-blue-700 font-bold uppercase">Housing</p>
-                    <p className="text-xl font-black text-blue-700">AED {selectedEmployee.salary.housing.toLocaleString()}</p>
+                  <div className="bg-zinc-100/50 rounded-lg p-4 border-2 border-zinc-950">
+                    <p className="text-xs text-zinc-950 font-bold uppercase">Housing</p>
+                    <p className="text-xl font-black text-zinc-950">AED {selectedEmployee.salary.housing.toLocaleString()}</p>
                   </div>
-                  <div className="bg-purple-100/50 rounded-lg p-4 border-2 border-purple-600">
+                  <div className="bg-zinc-100/50 rounded-lg p-4 border-2 border-zinc-800">
                     <p className="text-xs text-purple-700 font-bold uppercase">Total</p>
                     <p className="text-xl font-black text-purple-700">AED {selectedEmployee.salary.total.toLocaleString()}</p>
                   </div>
@@ -505,7 +505,7 @@ export default function EmployeesPage() {
 
                 <div>
                   <h3 className="text-lg font-black mb-3 flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-blue-600" />
+                    <Shield className="h-5 w-5 text-zinc-950" />
                     Visa Details
                   </h3>
                   <div className="space-y-2">

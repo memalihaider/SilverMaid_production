@@ -108,13 +108,13 @@ export default function Contact() {
                     </div>
                   </a>
 
-                  <a href="mailto:services@homeworkuae.com" className="flex gap-6 group cursor-pointer border-b border-white/5 pb-8">
+                  <a href="mailto:services@silvermaid.ae" className="flex gap-6 group cursor-pointer border-b border-white/5 pb-8">
                     <div className="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-all shadow-xl">
                       <Mail className="h-7 w-7" />
                     </div>
                     <div>
                       <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Email Inquiry</div>
-                      <div className="text-xl font-black group-hover:text-primary transition-colors truncate max-w-[200px] md:max-w-none">services@homeworkuae.com</div>
+                      <div className="text-xl font-black group-hover:text-primary transition-colors truncate max-w-[200px] md:max-w-none">services@silvermaid.ae</div>
                       <div className="text-slate-400 font-medium text-sm italic">Response within 2 hours</div>
                     </div>
                   </a>

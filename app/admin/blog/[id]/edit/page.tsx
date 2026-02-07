@@ -60,7 +60,7 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
       <div className="min-h-screen pt-20 bg-slate-50 flex items-center justify-center">
         <div className="text-center">
           <p className="text-lg text-slate-600 font-medium mb-4">Post not found</p>
-          <Link href="/admin/blog" className="text-primary hover:text-pink-600 font-bold">
+          <Link href="/admin/blog" className="text-primary hover:text-primary font-bold">
             Back to Blog
           </Link>
         </div>
@@ -78,7 +78,7 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
         >
           <Link 
             href="/admin/blog"
-            className="inline-flex items-center gap-2 text-primary hover:text-pink-600 font-bold mb-6 transition-colors"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary font-bold mb-6 transition-colors"
           >
             <ArrowLeft className="h-5 w-5" /> Back to Blog
           </Link>
@@ -216,7 +216,7 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-primary px-8 py-5 rounded-2xl font-black text-white hover:bg-pink-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 uppercase tracking-widest"
+              className="w-full bg-primary px-8 py-5 rounded-2xl font-black text-white hover:opacity-90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 uppercase tracking-widest"
             >
               <Save className="h-5 w-5" /> {isSubmitting ? 'Updating...' : 'Update Post'}
             </button>
@@ -243,11 +243,11 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
                 <div className="p-6">
                   <div className="mb-3">
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                      formData.category === 'cleaning-tips' ? 'bg-blue-100 text-blue-700' :
-                      formData.category === 'industry-news' ? 'bg-purple-100 text-purple-700' :
+                      formData.category === 'cleaning-tips' ? 'bg-zinc-100 text-zinc-950' :
+                      formData.category === 'industry-news' ? 'bg-zinc-100 text-purple-700' :
                       formData.category === 'customer-stories' ? 'bg-green-100 text-green-700' :
                       formData.category === 'how-to' ? 'bg-orange-100 text-orange-700' :
-                      'bg-pink-100 text-pink-700'
+                      'bg-zinc-100 text-zinc-700'
                     }`}>
                       {formData.category}
                     </span>

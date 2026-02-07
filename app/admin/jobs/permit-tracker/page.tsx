@@ -71,7 +71,7 @@ export default function PermitTracker() {
       case 'Expired':
         return 'bg-red-100 text-red-700'
       case 'Pending':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       default:
         return 'bg-gray-100 text-gray-700'
     }
@@ -124,7 +124,7 @@ export default function PermitTracker() {
           <h1 className="text-3xl font-bold">Permit Tracker</h1>
           <p className="text-muted-foreground">Auto-reminders, compliance tracking, and expiry forecasting</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors">
           <Download className="h-4 w-4" />
           Export Permits
         </button>
@@ -150,7 +150,7 @@ export default function PermitTracker() {
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Pending Verification</p>
-          <p className="text-2xl font-bold text-blue-600">{stats.pendingVerification}</p>
+          <p className="text-2xl font-bold text-zinc-950">{stats.pendingVerification}</p>
         </div>
       </div>
 
@@ -159,7 +159,7 @@ export default function PermitTracker() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value)}
-          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
         >
           <option value="all">All Status</option>
           <option value="Active">Active</option>
@@ -172,7 +172,7 @@ export default function PermitTracker() {
           placeholder="Search permits..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-1 px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+          className="flex-1 px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
         />
       </div>
 
@@ -199,7 +199,7 @@ export default function PermitTracker() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-pink-600">{daysUntilExpiry}d</div>
+                    <div className="text-2xl font-bold text-primary">{daysUntilExpiry}d</div>
                     <p className="text-xs text-muted-foreground">until expiry</p>
                   </div>
                 </div>

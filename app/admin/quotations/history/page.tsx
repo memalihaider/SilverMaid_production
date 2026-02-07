@@ -44,7 +44,7 @@ export default function QuotationHistory() {
       case 'Expired':
         return 'bg-gray-100 text-gray-700'
       case 'Active':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       default:
         return 'bg-yellow-100 text-yellow-700'
     }
@@ -86,14 +86,14 @@ export default function QuotationHistory() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search by client or service..."
-            className="w-full pl-10 pr-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+            className="w-full pl-10 pr-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+          className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
         >
           <option value="all">All Status</option>
           <option value="Accepted">Accepted</option>
@@ -113,7 +113,7 @@ export default function QuotationHistory() {
                 onClick={() => setSelectedQuotation(history)}
                 className={`p-3 rounded-lg cursor-pointer transition-all border-l-4 ${
                   selectedQuotation.id === history.id
-                    ? 'bg-pink-100 dark:bg-pink-950/30 border-l-pink-600 border'
+                    ? 'bg-zinc-100 dark:bg-zinc-950/30 border-l-primary border'
                     : 'bg-muted border-l-gray-300 hover:border-l-pink-300'
                 }`}
               >
@@ -122,7 +122,7 @@ export default function QuotationHistory() {
                   {getAcceptanceIcon(history.status)}
                 </div>
                 <p className="text-xs text-muted-foreground">{history.selectedServices[0]?.name || 'No service'}</p>
-                <p className="text-xs font-bold text-pink-600 mt-1">v{history.version}</p>
+                <p className="text-xs font-bold text-primary mt-1">v{history.version}</p>
               </div>
             ))}
           </div>
@@ -172,7 +172,7 @@ export default function QuotationHistory() {
                       <p className="text-xs text-muted-foreground">{log.changes || 'Quotation updated'}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-bold text-pink-600">v{selectedQuotation.version}</p>
+                      <p className="text-sm font-bold text-primary">v{selectedQuotation.version}</p>
                       <span className={`text-xs font-bold px-2 py-0.5 rounded ${getStatusColor(selectedQuotation.status)}`}>
                         {selectedQuotation.status}
                       </span>
@@ -190,7 +190,7 @@ export default function QuotationHistory() {
                     </div>
                     <button
                       onClick={() => handleDownloadVersion(selectedQuotation.version)}
-                      className="text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1 justify-center"
+                      className="text-zinc-950 hover:text-zinc-950 font-bold flex items-center gap-1 justify-center"
                     >
                       <Download className="h-3 w-3" />
                       Download
@@ -205,7 +205,7 @@ export default function QuotationHistory() {
           <div className={`rounded-lg p-4 space-y-2 border ${
             selectedQuotation.status === 'Expired'
               ? 'bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-900/30'
-              : 'bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900/30'
+              : 'bg-zinc-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900/30'
           }`}>
             <h3 className="text-sm font-bold flex items-center gap-2">
               <RefreshCw className="h-4 w-4" />
@@ -232,7 +232,7 @@ export default function QuotationHistory() {
                 {selectedQuotation.status === 'Accepted' && (
                   <button
                     onClick={handleRenewQuotation}
-                    className="w-full mt-2 px-3 py-1.5 bg-pink-600 text-white rounded font-bold text-sm hover:bg-pink-700 transition-colors"
+                    className="w-full mt-2 px-3 py-1.5 bg-primary text-white rounded font-bold text-sm hover:opacity-90 transition-colors"
                   >
                     Create Renewal Quote
                   </button>
@@ -257,7 +257,7 @@ export default function QuotationHistory() {
           <div className="space-y-3 max-h-64 overflow-y-auto">
             {selectedQuotation.auditLog.map((log: any, idx: number) => (
               <div key={idx} className="flex gap-3 text-sm">
-                <div className="w-2 h-2 rounded-full bg-pink-600 mt-2 shrink-0"></div>
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0"></div>
                 <div className="flex-1">
                   <p className="font-bold">{log.action}</p>
                   <p className="text-muted-foreground text-xs">{log.details}</p>

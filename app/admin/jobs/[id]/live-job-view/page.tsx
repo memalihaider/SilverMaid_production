@@ -206,7 +206,7 @@ export default function LiveJobView() {
       case 'medium':
         return 'bg-yellow-100 text-yellow-700 border-yellow-300'
       case 'low':
-        return 'bg-blue-100 text-blue-700 border-blue-300'
+        return 'bg-zinc-100 text-zinc-950 border-blue-300'
       default:
         return 'bg-gray-100 text-gray-700 border-gray-300'
     }
@@ -256,7 +256,7 @@ export default function LiveJobView() {
             <div className="text-sm text-gray-600">Progress</div>
             <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
               <div
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                className="bg-zinc-950 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${job.progress}%` }}
               ></div>
             </div>
@@ -289,7 +289,7 @@ export default function LiveJobView() {
                 <div key={member.id} className="p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-sm font-bold text-white">
+                      <div className="w-10 h-10 rounded-xl bg-zinc-950 flex items-center justify-center text-sm font-bold text-white">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </div>
                       <div>
@@ -333,7 +333,7 @@ export default function LiveJobView() {
               <button
                 onClick={handleMicToggle}
                 className={`p-4 rounded-full transition-all ${
-                  isMicOn ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-600 text-white'
+                  isMicOn ? 'bg-zinc-950 text-white hover:bg-zinc-950' : 'bg-gray-600 text-white'
                 }`}
                 disabled={!isCallActive}
               >
@@ -343,18 +343,18 @@ export default function LiveJobView() {
               <button
                 onClick={handleVideoToggle}
                 className={`p-4 rounded-full transition-all ${
-                  isVideoOn ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-600 text-white'
+                  isVideoOn ? 'bg-zinc-950 text-white hover:bg-zinc-950' : 'bg-gray-600 text-white'
                 }`}
                 disabled={!isCallActive}
               >
                 {isVideoOn ? <Video className="w-6 h-6" /> : <VideoOff className="w-6 h-6" />}
               </button>
 
-              <button className="p-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all">
+              <button className="p-4 bg-zinc-950 text-white rounded-full hover:bg-zinc-950 transition-all">
                 <MessageSquare className="w-6 h-6" />
               </button>
 
-              <button className="p-4 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">
+              <button className="p-4 bg-zinc-800 text-white rounded-full hover:bg-purple-700 transition-all">
                 <Camera className="w-6 h-6" />
               </button>
             </div>
@@ -385,11 +385,11 @@ export default function LiveJobView() {
                     <div className="flex items-start gap-3">
                       <div className={`p-1 rounded-full ${
                         update.status === 'completed' ? 'bg-green-100' :
-                        update.status === 'in_progress' ? 'bg-blue-100' :
+                        update.status === 'in_progress' ? 'bg-zinc-100' :
                         'bg-yellow-100'
                       }`}>
                         {update.status === 'completed' ? <CheckCircle className="w-4 h-4 text-green-600" /> :
-                         update.status === 'in_progress' ? <Navigation className="w-4 h-4 text-blue-600" /> :
+                         update.status === 'in_progress' ? <Navigation className="w-4 h-4 text-zinc-950" /> :
                          <Clock className="w-4 h-4 text-yellow-600" />}
                       </div>
                       <div className="flex-1">
@@ -420,7 +420,7 @@ export default function LiveJobView() {
                         incident.severity === 'critical' ? 'text-red-600' :
                         incident.severity === 'high' ? 'text-orange-600' :
                         incident.severity === 'medium' ? 'text-yellow-600' :
-                        'text-blue-600'
+                        'text-zinc-950'
                       }`} />
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">

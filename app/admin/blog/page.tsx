@@ -45,7 +45,7 @@ export default function AdminBlogPage() {
             </div>
             <Link 
               href="/admin/blog/new"
-              className="inline-flex items-center gap-2 bg-primary px-8 py-4 rounded-2xl font-black text-white hover:bg-pink-600 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary px-8 py-4 rounded-2xl font-black text-white hover:opacity-90 transition-colors"
             >
               <Plus className="h-5 w-5" /> New Post
             </Link>
@@ -121,11 +121,11 @@ export default function AdminBlogPage() {
                     </td>
                     <td className="px-6 py-4">
                       <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                        post.category === 'cleaning-tips' ? 'bg-blue-100 text-blue-700' :
-                        post.category === 'industry-news' ? 'bg-purple-100 text-purple-700' :
+                        post.category === 'cleaning-tips' ? 'bg-zinc-100 text-zinc-950' :
+                        post.category === 'industry-news' ? 'bg-zinc-100 text-purple-700' :
                         post.category === 'customer-stories' ? 'bg-green-100 text-green-700' :
                         post.category === 'how-to' ? 'bg-orange-100 text-orange-700' :
-                        'bg-pink-100 text-pink-700'
+                        'bg-zinc-100 text-zinc-700'
                       }`}>
                         {post.category}
                       </span>
@@ -151,7 +151,7 @@ export default function AdminBlogPage() {
                       <div className="flex justify-center items-center gap-3">
                         <Link
                           href={`/admin/blog/${post.id}/edit`}
-                          className="p-2 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors"
+                          className="p-2 rounded-lg bg-zinc-100 text-zinc-950 hover:bg-blue-200 transition-colors"
                           title="Edit"
                         >
                           <Edit2 className="h-4 w-4" />
@@ -195,7 +195,7 @@ export default function AdminBlogPage() {
             <div className="text-slate-600 font-bold">Featured Posts</div>
           </div>
           <div className="bg-white p-8 rounded-2xl border-2 border-slate-200">
-            <div className="text-4xl font-black text-purple-600 mb-2">{posts.reduce((sum, p) => sum + p.views, 0).toLocaleString()}</div>
+            <div className="text-4xl font-black text-zinc-800 mb-2">{posts.reduce((sum, p) => sum + p.views, 0).toLocaleString()}</div>
             <div className="text-slate-600 font-bold">Total Views</div>
           </div>
           <div className="bg-white p-8 rounded-2xl border-2 border-slate-200">

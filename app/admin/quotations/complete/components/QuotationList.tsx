@@ -126,7 +126,7 @@ export default function QuotationList({ onEdit, onView, onSend, refreshTrigger }
       case 'accepted':
         return 'bg-green-100 text-green-700 border border-green-200'
       case 'sent':
-        return 'bg-blue-100 text-blue-700 border border-blue-200'
+        return 'bg-zinc-100 text-zinc-950 border border-blue-200'
       case 'rejected':
         return 'bg-red-100 text-red-700 border border-red-200'
       case 'draft':
@@ -252,7 +252,7 @@ export default function QuotationList({ onEdit, onView, onSend, refreshTrigger }
         </div>
         <div className="bg-white p-3 border border-gray-300 rounded shadow-none">
           <p className="text-[10px] uppercase font-bold text-gray-400">Sent</p>
-          <p className="text-2xl font-black text-blue-700">
+          <p className="text-2xl font-black text-zinc-950">
             {quotations.filter(q => q.status === 'Sent').length}
           </p>
         </div>

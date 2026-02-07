@@ -296,12 +296,12 @@ export default function ManagerDashboard() {
               <p className="text-xs text-slate-400 mt-1">View approvals</p>
             </Link>
 
-            <Link href="/manager/reports" className="group bg-slate-800 p-6 rounded-2xl border border-slate-700 shadow-sm hover:shadow-lg hover:border-pink-500/50 transition-all cursor-pointer">
+            <Link href="/manager/reports" className="group bg-slate-800 p-6 rounded-2xl border border-slate-700 shadow-sm hover:shadow-lg hover:border-zinc-300/50 transition-all cursor-pointer">
               <div className="flex items-start justify-between mb-4">
-                <div className="p-3 rounded-xl bg-pink-500/20 text-pink-400 group-hover:scale-110 transition-transform">
+                <div className="p-3 rounded-xl bg-primary/20 text-zinc-500 group-hover:scale-110 transition-transform">
                   <BarChart3 className="h-6 w-6" />
                 </div>
-                <ChevronRight className="h-5 w-5 text-slate-500 group-hover:text-pink-400 transition-colors" />
+                <ChevronRight className="h-5 w-5 text-slate-500 group-hover:text-zinc-500 transition-colors" />
               </div>
               <h3 className="text-sm font-bold text-slate-300">Reports</h3>
               <p className="text-2xl font-black text-white mt-2">4</p>

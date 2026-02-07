@@ -65,12 +65,12 @@ export default function SurveyResults() {
                 onClick={() => setSelectedSurvey(survey.id)}
                 className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
                   selectedSurvey === survey.id
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-zinc-950 text-white shadow-md'
                     : 'bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-600'
                 }`}
               >
                 <p className="font-semibold text-sm">{survey.title}</p>
-                <p className={`text-xs ${selectedSurvey === survey.id ? 'text-blue-100' : 'text-gray-600 dark:text-gray-400'}`}>
+                <p className={`text-xs ${selectedSurvey === survey.id ? 'text-zinc-100' : 'text-gray-600 dark:text-gray-400'}`}>
                   {MOCK_RESPONSES.filter(r => r.surveyId === survey.id).length} responses
                 </p>
               </button>
@@ -110,7 +110,7 @@ export default function SurveyResults() {
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">Responses ({surveyResponses.length})</h3>
-                    <button className="flex items-center gap-2 px-3 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                    <button className="flex items-center gap-2 px-3 py-2 text-sm bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg transition-colors">
                       <Download className="w-4 h-4" />
                       Export
                     </button>

@@ -23,9 +23,9 @@ export default function Settings() {
   const [showSave, setShowSave] = useState(false)
   const [profileData, setProfileData] = useState({
     fullName: 'Admin User',
-    email: 'admin@homeware.ae',
+    email: 'admin@silvermaid.ae',
     phone: '+971-50-1234567',
-    company: 'Homework UAE',
+    company: 'Silver Maid UAE',
     role: 'Administrator'
   })
   const [notificationSettings, setNotificationSettings] = useState({
@@ -41,7 +41,7 @@ export default function Settings() {
     passwordExpiry: '90'
   })
   const [billingSettings, setBillingSettings] = useState({
-    billingEmail: 'billing@homeware.ae',
+    billingEmail: 'billing@silvermaid.ae',
     paymentMethod: 'Bank Transfer',
     invoiceFrequency: 'Monthly',
     autoRenewal: true
@@ -112,7 +112,7 @@ export default function Settings() {
                 onClick={() => setActiveSection(section.id)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                   activeSection === section.id 
-                    ? 'bg-pink-600 text-white shadow-md' 
+                    ? 'bg-primary text-white shadow-md' 
                     : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                 }`}
               >
@@ -139,7 +139,7 @@ export default function Settings() {
                     type="text"
                     value={profileData.fullName}
                     onChange={(e) => handleProfileChange('fullName', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
@@ -149,7 +149,7 @@ export default function Settings() {
                     type="email"
                     value={profileData.email}
                     onChange={(e) => handleProfileChange('email', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
@@ -159,7 +159,7 @@ export default function Settings() {
                     type="tel"
                     value={profileData.phone}
                     onChange={(e) => handleProfileChange('phone', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
@@ -169,7 +169,7 @@ export default function Settings() {
                     type="text"
                     value={profileData.company}
                     onChange={(e) => handleProfileChange('company', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
@@ -178,7 +178,7 @@ export default function Settings() {
                   <select
                     value={profileData.role}
                     onChange={(e) => handleProfileChange('role', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>Administrator</option>
                     <option>Manager</option>
@@ -189,7 +189,7 @@ export default function Settings() {
 
                 <button
                   onClick={() => alert('Password change functionality would open a secure dialog')}
-                  className="w-full px-4 py-2 border border-pink-600 text-pink-600 rounded-lg text-sm font-medium hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors mt-4"
+                  className="w-full px-4 py-2 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-zinc-100 dark:hover:opacity-90/20 transition-colors mt-4"
                 >
                   <Lock className="inline-block mr-2 h-4 w-4" />
                   Change Password
@@ -264,7 +264,7 @@ export default function Settings() {
                   <select
                     value={securitySettings.sessionTimeout}
                     onChange={(e) => handleSecurityChange('sessionTimeout', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>15</option>
                     <option>30</option>
@@ -278,7 +278,7 @@ export default function Settings() {
                   <select
                     value={securitySettings.passwordExpiry}
                     onChange={(e) => handleSecurityChange('passwordExpiry', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>30</option>
                     <option>60</option>
@@ -287,7 +287,7 @@ export default function Settings() {
                   </select>
                 </div>
 
-                <button className="w-full px-4 py-2 border border-pink-600 text-pink-600 rounded-lg text-sm font-medium hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors mt-4">
+                <button className="w-full px-4 py-2 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-zinc-100 dark:hover:opacity-90/20 transition-colors mt-4">
                   View Active Sessions
                 </button>
               </div>
@@ -299,8 +299,8 @@ export default function Settings() {
             <div className="bg-card rounded-xl border shadow-sm p-6 space-y-6">
               <h2 className="text-xl font-bold">Billing & Subscription</h2>
 
-              <div className="bg-pink-50 dark:bg-pink-900/20 border border-pink-200 dark:border-pink-800 rounded-lg p-4 mb-6">
-                <p className="text-sm text-pink-900 dark:text-pink-200">
+              <div className="bg-zinc-100 dark:bg-zinc-900/20 border border-zinc-300 dark:border-zinc-300 rounded-lg p-4 mb-6">
+                <p className="text-sm text-zinc-900 dark:text-white">
                   <strong>Current Plan:</strong> Professional Plan - AED 5,000/month (Active until Dec 31, 2025)
                 </p>
               </div>
@@ -312,7 +312,7 @@ export default function Settings() {
                     type="email"
                     value={billingSettings.billingEmail}
                     onChange={(e) => handleBillingChange('billingEmail', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
@@ -321,7 +321,7 @@ export default function Settings() {
                   <select
                     value={billingSettings.paymentMethod}
                     onChange={(e) => handleBillingChange('paymentMethod', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>Credit Card</option>
                     <option>Bank Transfer</option>
@@ -334,7 +334,7 @@ export default function Settings() {
                   <select
                     value={billingSettings.invoiceFrequency}
                     onChange={(e) => handleBillingChange('invoiceFrequency', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>Monthly</option>
                     <option>Quarterly</option>
@@ -361,7 +361,7 @@ export default function Settings() {
                   </button>
                 </div>
 
-                <button className="w-full px-4 py-2 border border-pink-600 text-pink-600 rounded-lg text-sm font-medium hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors mt-4">
+                <button className="w-full px-4 py-2 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-zinc-100 dark:hover:opacity-90/20 transition-colors mt-4">
                   View Invoices
                 </button>
               </div>
@@ -379,7 +379,7 @@ export default function Settings() {
                   <select
                     value={generalSettings.theme}
                     onChange={(e) => handleGeneralChange('theme', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>light</option>
                     <option>dark</option>
@@ -392,7 +392,7 @@ export default function Settings() {
                   <select
                     value={generalSettings.language}
                     onChange={(e) => handleGeneralChange('language', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>English</option>
                     <option>Arabic</option>
@@ -405,7 +405,7 @@ export default function Settings() {
                   <select
                     value={generalSettings.timezone}
                     onChange={(e) => handleGeneralChange('timezone', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>UAE (GMT+4)</option>
                     <option>UK (GMT+0)</option>
@@ -419,7 +419,7 @@ export default function Settings() {
                   <select
                     value={generalSettings.dateFormat}
                     onChange={(e) => handleGeneralChange('dateFormat', e.target.value)}
-                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="w-full px-4 py-2 bg-muted border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option>DD/MM/YYYY</option>
                     <option>MM/DD/YYYY</option>
@@ -434,12 +434,12 @@ export default function Settings() {
 
       {/* Save Button */}
       {showSave && (
-        <div className="fixed bottom-6 right-6 bg-pink-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <div className="fixed bottom-6 right-6 bg-primary text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-300">
           <Save className="h-4 w-4" />
           <span className="font-medium">Changes detected</span>
           <button
             onClick={handleSaveSettings}
-            className="ml-4 px-4 py-1.5 bg-white text-pink-600 rounded font-medium text-sm hover:bg-pink-50 transition-colors"
+            className="ml-4 px-4 py-1.5 bg-white text-primary rounded font-medium text-sm hover:bg-zinc-100 transition-colors"
           >
             Save Changes
           </button>

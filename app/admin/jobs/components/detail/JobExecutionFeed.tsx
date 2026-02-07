@@ -20,7 +20,7 @@ interface JobExecutionFeedProps {
 
 const TYPE_STYLES = {
   'SUCCESS': { icon: CheckCircle, color: 'text-green-500', bg: 'bg-green-500' },
-  'INFO': { icon: Info, color: 'text-blue-500', bg: 'bg-blue-500' },
+  'INFO': { icon: Info, color: 'text-zinc-500', bg: 'bg-zinc-500' },
   'WARNING': { icon: AlertTriangle, color: 'text-orange-500', bg: 'bg-orange-500' },
   'ALERT': { icon: Zap, color: 'text-red-500', bg: 'bg-red-500' }
 }
@@ -30,7 +30,7 @@ export default function JobExecutionFeed({ job }: JobExecutionFeedProps) {
     <div className="bg-white border border-gray-200 h-full flex flex-col">
       <div className="p-6 border-b border-gray-200 bg-gray-50/50 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <Activity className="h-4 w-4 text-blue-600" />
+          <Activity className="h-4 w-4 text-zinc-950" />
           <h3 className="text-[10px] font-black uppercase tracking-[0.2em]">Live Telemetry Feed</h3>
         </div>
         <div className="flex items-center gap-2">

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Eye, EyeOff, ArrowLeft, Building2, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, ArrowLeft, Building2, Shield, Lock, Mail, Loader2, Sparkles, ChevronRight } from 'lucide-react';
 import { validateCredentials, storeSession } from '@/lib/auth';
 
 export default function AdminLogin() {
@@ -11,7 +11,6 @@ export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -21,188 +20,162 @@ export default function AdminLogin() {
     setIsLoading(true);
 
     try {
-      console.log('Attempting login with:', { email, password: '***', portal: 'admin' });
       const authResponse = await validateCredentials('admin', email, password);
-      console.log('Auth response:', authResponse);
       
       if (authResponse.success && authResponse.session) {
-        console.log('Login successful, storing session...');
         storeSession(authResponse.session);
         router.push('/admin/dashboard');
       } else {
-        console.log('Login failed:', authResponse.message);
-        setError(authResponse.message || authResponse.error || 'Login failed');
+        setError(authResponse.message || 'Verification failed. Please check your credentials.');
       }
     } catch (err) {
-      console.error('Login error:', err);
-      setError('An unexpected error occurred');
+      setError('An unexpected system error occurred');
     }
     
     setIsLoading(false);
   };
 
   const fillDemoCredentials = () => {
-    setEmail('admin@homeware.ae');
+    setEmail('admin@silvermaid.ae');
     setPassword('Demo@123');
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
-      {/* Background elements */}
+    <div className="min-h-screen bg-[#050505] flex items-center justify-center p-4 relative overflow-hidden font-sans">
+      {/* Dynamic Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-zinc-800/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-zinc-900/30 rounded-full blur-[120px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)]"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-md">
-        {/* Back button */}
+      <div className="relative z-10 w-full max-w-[440px]">
+        {/* Navigation */}
         <Link
           href="/login"
-          className="inline-flex items-center text-slate-400 hover:text-white transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-all mb-8 group"
         >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to portal selection
+          <div className="p-2 bg-zinc-900 border border-zinc-800 rounded-lg group-hover:border-zinc-700">
+            <ArrowLeft className="w-4 h-4" />
+          </div>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em]">Portal Registry</span>
         </Link>
 
-        {/* Card */}
-        <div className="bg-slate-700/40 backdrop-blur-xl border border-slate-600/50 rounded-2xl p-8 shadow-2xl">
-          {/* Header */}
-          <div className="flex items-center justify-center mb-8">
-            <div className="bg-blue-500/20 w-14 h-14 rounded-xl flex items-center justify-center">
-              <Building2 className="w-7 h-7 text-blue-400" />
+        {/* Logo Section */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center mb-6 relative">
+             <div className="absolute inset-0 bg-white/5 blur-2xl rounded-full scale-150 animate-pulse"></div>
+            <div className="relative w-20 h-20 bg-gradient-to-br from-zinc-800 to-black border border-white/10 rounded-3xl flex items-center justify-center shadow-2xl rotate-3">
+              <Shield className="w-10 h-10 text-white" />
             </div>
           </div>
-
-          <h1 className="text-2xl font-bold text-white text-center mb-2">
-            Admin Portal
+          <h1 className="text-3xl font-black text-white tracking-tighter uppercase mb-2">
+            ADMIN SYSTEM
           </h1>
-          <p className="text-slate-400 text-center mb-8">
-            Sign in to your admin account
-          </p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900/80 border border-zinc-800/50 rounded-full">
+            <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+            <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em]">Restricted Access</span>
+          </div>
+        </div>
 
-          {/* Error message */}
+        {/* Login Card */}
+        <div className="bg-[#0f0f0f]/80 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-white mb-1">Administrative Login</h2>
+            <p className="text-zinc-500 text-sm">Authorized personnel only</p>
+          </div>
+
           {error && (
-            <div className="bg-red-500/10 border border-red-500/30 text-red-300 px-4 py-3 rounded-lg mb-6 text-sm">
+            <div className="bg-red-500/10 border border-red-500/20 text-red-100 px-4 py-3 rounded-2xl mb-6 text-[11px] font-bold flex items-center gap-3">
+              <div className="w-1.5 h-4 bg-red-500 rounded-full"></div>
               {error}
             </div>
           )}
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Email field */}
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
-                placeholder="admin@homeware.ae"
-                required
-              />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em] ml-1">Terminal ID (Email)</label>
+              <div className="relative group/input">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                  <Mail className="w-4 h-4 text-zinc-600 group-focus-within/input:text-white transition-colors" />
+                </div>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-12 pr-4 py-4 bg-zinc-900/50 border border-zinc-800/50 rounded-2xl text-white placeholder-zinc-700 focus:outline-none focus:border-white/20 focus:bg-zinc-900 transition-all text-sm font-medium"
+                  placeholder="admin@silvermaid.ae"
+                  required
+                />
+              </div>
             </div>
 
-            {/* Password field */}
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
-                Password
-              </label>
-              <div className="relative">
+            <div className="space-y-2">
+              <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em] ml-1">Universal Key</label>
+              <div className="relative group/input">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                  <Lock className="w-4 h-4 text-zinc-600 group-focus-within/input:text-white transition-colors" />
+                </div>
                 <input
-                  id="password"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all pr-12"
+                  className="w-full pl-12 pr-12 py-4 bg-zinc-900/50 border border-zinc-800/50 rounded-2xl text-white placeholder-zinc-700 focus:outline-none focus:border-white/20 focus:bg-zinc-900 transition-all text-sm font-medium"
                   placeholder="••••••••"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-300 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-600 hover:text-white transition-colors p-1"
                 >
-                  {showPassword ? (
-                    <EyeOff className="w-5 h-5" />
-                  ) : (
-                    <Eye className="w-5 h-5" />
-                  )}
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
             </div>
 
-            {/* Remember me checkbox */}
-            <div className="flex items-center">
-              <input
-                id="remember"
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-                className="w-4 h-4 bg-slate-800/50 border border-slate-600 rounded cursor-pointer accent-blue-500"
-              />
-              <label htmlFor="remember" className="ml-3 text-sm text-slate-400 cursor-pointer hover:text-slate-300 transition-colors">
-                Remember me for 30 days
-              </label>
-            </div>
-
-            {/* Forgot password link */}
-            <div className="text-right">
-              <Link
-                href="/login/admin/forgot-password"
-                className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                Forgot password?
-              </Link>
-            </div>
-
-            {/* Submit button */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+              className="w-full py-5 bg-white text-black font-black uppercase tracking-[0.2em] text-[11px] rounded-2xl hover:bg-zinc-200 active:scale-[0.98] transition-all shadow-xl shadow-white/5 disabled:opacity-50 disabled:cursor-not-allowed group/btn relative overflow-hidden"
             >
-              {isLoading ? (
-                <span className="flex items-center justify-center">
-                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></span>
-                  Signing in...
-                </span>
-              ) : (
-                'Sign In'
-              )}
+              <div className="relative z-10 flex items-center justify-center gap-2">
+                {isLoading ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <>
+                    Access Dashboard
+                    <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </>
+                )}
+              </div>
             </button>
           </form>
 
-          {/* Demo credentials info */}
-          <div className="mt-8 pt-6 border-t border-slate-600/30">
-            <p className="text-xs text-slate-500 text-center mb-3">Demo Credentials</p>
-            <div className="bg-slate-800/50 rounded-lg p-3 space-y-2 text-xs">
-              <div className="flex justify-between items-center">
-                <span className="text-slate-400">Email:</span>
-                <code className="text-slate-300 font-mono">admin@homeware.ae</code>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-400">Password:</span>
-                <code className="text-slate-300 font-mono">Demo@123</code>
-              </div>
-              <button
-                type="button"
+          {/* Quick Access */}
+          <div className="mt-8 pt-6 border-t border-white/5 flex flex-col gap-4">
+               <button 
                 onClick={fillDemoCredentials}
-                className="w-full mt-2 py-1.5 bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 text-xs font-medium rounded transition-colors"
-              >
-                Use Demo Credentials
-              </button>
-            </div>
+                className="flex items-center justify-between p-4 bg-zinc-900/40 border border-zinc-800 rounded-2xl hover:border-zinc-700 transition-all group/demo"
+               >
+                 <div className="flex flex-col items-start translate-x-0 group-hover/demo:translate-x-1 transition-transform">
+                    <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-1">Testing Mode</span>
+                    <span className="text-xs text-white">Load demo credentials</span>
+                 </div>
+                 <Sparkles className="w-5 h-5 text-zinc-600 group-hover/demo:text-white transition-colors" />
+               </button>
           </div>
         </div>
 
-        {/* Support link */}
-        <p className="text-center text-slate-400 text-sm mt-8">
-          Need help? <a href="mailto:support@homeware.ae" className="text-blue-400 hover:text-blue-300">Contact support</a>
-        </p>
+        <div className="mt-10 text-center">
+          <p className="text-[10px] font-black text-zinc-700 uppercase tracking-[0.4em]">
+            SYSTEM CLASSIFIED ▪ LEVEL 1 SECURE
+          </p>
+        </div>
       </div>
     </div>
   );
 }
+

@@ -95,8 +95,8 @@ export default function ProductDashboard({ products: initialProducts, categories
       value: totalProducts.toString(),
       subValue: `${activeProducts} active`,
       icon: Package,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      color: 'text-zinc-950',
+      bgColor: 'bg-zinc-50',
       ...calculateTrend(totalProducts)
     },
     {
@@ -104,8 +104,8 @@ export default function ProductDashboard({ products: initialProducts, categories
       value: totalServices.toString(),
       subValue: `${activeServices} active`,
       icon: Zap,
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      color: 'text-zinc-800',
+      bgColor: 'bg-zinc-50',
       ...calculateTrend(totalServices)
     },
     {
@@ -206,14 +206,14 @@ export default function ProductDashboard({ products: initialProducts, categories
 
       {/* Second Row with Summary */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-blue-50 border border-blue-100 p-4">
+        <div className="bg-zinc-50 border border-zinc-100 p-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-blue-100 rounded">
-              <Box className="h-5 w-5 text-blue-600" />
+            <div className="p-2 bg-zinc-100 rounded">
+              <Box className="h-5 w-5 text-zinc-950" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-blue-700">Product Summary</p>
-              <p className="text-xs text-blue-600">{totalProducts} items</p>
+              <p className="text-xs font-bold uppercase tracking-wider text-zinc-950">Product Summary</p>
+              <p className="text-xs text-zinc-950">{totalProducts} items</p>
             </div>
           </div>
           <div className="space-y-2">
@@ -232,14 +232,14 @@ export default function ProductDashboard({ products: initialProducts, categories
           </div>
         </div>
 
-        <div className="bg-purple-50 border border-purple-100 p-4">
+        <div className="bg-zinc-50 border border-zinc-100 p-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-purple-100 rounded">
-              <Zap className="h-5 w-5 text-purple-600" />
+            <div className="p-2 bg-zinc-100 rounded">
+              <Zap className="h-5 w-5 text-zinc-800" />
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-purple-700">Service Summary</p>
-              <p className="text-xs text-purple-600">{totalServices} items</p>
+              <p className="text-xs text-zinc-800">{totalServices} items</p>
             </div>
           </div>
           <div className="space-y-2">
@@ -332,12 +332,12 @@ export default function ProductDashboard({ products: initialProducts, categories
               recentItems.map((item) => (
                 <div key={item.id} className="flex justify-between items-center p-3 border border-gray-100 hover:border-gray-300 transition-all">
                   <div className="flex items-center gap-3">
-                    <div className={`w-2 h-10 ${item.type === 'PRODUCT' ? 'bg-blue-500' : 'bg-purple-500'}`} />
+                    <div className={`w-2 h-10 ${item.type === 'PRODUCT' ? 'bg-zinc-500' : 'bg-zinc-500'}`} />
                     <div>
                       <p className="text-sm font-bold text-black">{item.name}</p>
                       <div className="flex items-center gap-2">
                         <span className="text-[10px] text-gray-500 uppercase">{item.sku}</span>
-                        <span className={`text-[10px] px-1.5 py-0.5 rounded ${item.type === 'PRODUCT' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700'}`}>
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded ${item.type === 'PRODUCT' ? 'bg-zinc-100 text-zinc-950' : 'bg-zinc-100 text-purple-700'}`}>
                           {item.type}
                         </span>
                         <span className={`text-[10px] px-1.5 py-0.5 rounded ${item.categoryId ? 'bg-gray-100 text-gray-700' : 'bg-gray-200 text-gray-500'}`}>

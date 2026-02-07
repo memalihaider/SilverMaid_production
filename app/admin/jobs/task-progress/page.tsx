@@ -71,7 +71,7 @@ export default function TaskProgress() {
       case 'Completed':
         return 'bg-green-100 text-green-700'
       case 'In Progress':
-        return 'bg-blue-100 text-blue-700'
+        return 'bg-zinc-100 text-zinc-950'
       case 'Pending':
         return 'bg-yellow-100 text-yellow-700'
       default:
@@ -84,9 +84,9 @@ export default function TaskProgress() {
       case 'completed':
         return 'border-l-green-600 bg-green-50 dark:bg-green-950/20'
       case 'milestone':
-        return 'border-l-blue-600 bg-blue-50 dark:bg-blue-950/20'
+        return 'border-l-zinc-950 bg-zinc-50 dark:bg-blue-950/20'
       case 'started':
-        return 'border-l-purple-600 bg-purple-50 dark:bg-purple-950/20'
+        return 'border-l-zinc-800 bg-zinc-50 dark:bg-purple-950/20'
       case 'update':
         return 'border-l-gray-600 bg-gray-50 dark:bg-gray-950/20'
       default:
@@ -154,7 +154,7 @@ export default function TaskProgress() {
           </div>
           <div className="bg-card border rounded-lg p-3">
             <p className="text-xs text-muted-foreground">In Progress</p>
-            <p className="text-2xl font-bold text-blue-600">{stats.inProgress}</p>
+            <p className="text-2xl font-bold text-zinc-950">{stats.inProgress}</p>
           </div>
           <div className="bg-card border rounded-lg p-3">
             <p className="text-xs text-muted-foreground">Pending</p>
@@ -175,7 +175,7 @@ export default function TaskProgress() {
             onClick={() => setSelectedJobId(job.id)}
             className={`shrink-0 px-4 py-2 rounded-lg font-medium transition-colors ${
               selectedJobId === job.id
-                ? 'bg-pink-600 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-muted text-foreground hover:bg-muted/80'
             }`}
           >
@@ -209,7 +209,7 @@ export default function TaskProgress() {
                 <div className="mb-3">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs font-semibold">Progress</span>
-                    <span className="text-xs font-bold text-pink-600">{task.progress}%</span>
+                    <span className="text-xs font-bold text-primary">{task.progress}%</span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                     <div
@@ -217,7 +217,7 @@ export default function TaskProgress() {
                         task.status === 'Completed'
                           ? 'bg-green-600'
                           : task.status === 'In Progress'
-                          ? 'bg-blue-600'
+                          ? 'bg-zinc-950'
                           : 'bg-gray-400'
                       }`}
                       style={{ width: `${task.progress}%` }}
@@ -298,12 +298,12 @@ export default function TaskProgress() {
                           value={supervisorMessage}
                           onChange={(e) => setSupervisorMessage(e.target.value)}
                           placeholder="Add supervisor update..."
-                          className="flex-1 px-3 py-2 text-sm border rounded-lg bg-muted focus:ring-2 focus:ring-pink-500 outline-none"
+                          className="flex-1 px-3 py-2 text-sm border rounded-lg bg-muted focus:ring-2 focus:ring-primary outline-none"
                         />
                         <button
                           onClick={() => addSupervisorUpdate(task.id)}
                           disabled={!supervisorMessage.trim()}
-                          className="px-3 py-2 bg-pink-600 text-white rounded-lg text-sm font-medium hover:bg-pink-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="px-3 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <Send className="h-4 w-4" />
                         </button>

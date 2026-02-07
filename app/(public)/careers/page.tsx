@@ -51,7 +51,7 @@ export default function Careers() {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
               <h2 className="text-sm font-black text-primary uppercase tracking-[0.2em]">Our Culture</h2>
-              <h3 className="text-4xl font-black text-slate-900 leading-tight">Why Work at <span className="text-primary">Homework UAE?</span></h3>
+              <h3 className="text-4xl font-black text-slate-900 leading-tight">Why Work at <span className="text-primary">Silver Maid?</span></h3>
               <p className="text-slate-600 text-lg leading-relaxed">
                 We believe that happy employees lead to happy customers. We foster a culture of respect, growth, and excellence.
               </p>
@@ -63,7 +63,7 @@ export default function Careers() {
                   { title: "Diverse Team", icon: Users }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div className="h-10 w-10 rounded-xl bg-pink-50 flex items-center justify-center text-primary shrink-0">
+                    <div className="h-10 w-10 rounded-xl bg-zinc-100 flex items-center justify-center text-primary shrink-0">
                       <item.icon className="h-5 w-5" />
                     </div>
                     <span className="text-slate-900 font-black text-sm">{item.title}</span>
@@ -100,7 +100,7 @@ export default function Careers() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-3">
-                      <span className="px-4 py-1 bg-pink-50 text-primary text-xs font-black rounded-full uppercase tracking-widest">{job.type}</span>
+                      <span className="px-4 py-1 bg-zinc-100 text-primary text-xs font-black rounded-full uppercase tracking-widest">{job.type}</span>
                       <span className="px-4 py-1 bg-slate-100 text-slate-600 text-xs font-black rounded-full uppercase tracking-widest flex items-center gap-1">
                         <MapPin className="h-3 w-3" /> {job.location}
                       </span>

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Homeware Management System implements a comprehensive multi-portal authentication and authorization system supporting 6 distinct portals, each tailored for specific user roles and workflows.
+The Silver Maid Management System implements a comprehensive multi-portal authentication and authorization system supporting 6 distinct portals, each tailored for specific user roles and workflows.
 
 ---
 
@@ -61,14 +61,14 @@ getDefaultPermissionsForRole(role: RoleLevel): string[]
 
 All portals use the same password format:
 - **Password:** `Demo@123`
-- **Email Pattern:** `{portal}@homeware.ae`
+- **Email Pattern:** `{portal}@silvermaid.ae`
 
 | Portal | Email | Password |
 |--------|-------|----------|
-| Admin | admin@homeware.ae | Demo@123 |
-| Manager | manager@homeware.ae | Demo@123 |
-| Supervisor | supervisor@homeware.ae | Demo@123 |
-| Employee | employee@homeware.ae | Demo@123 |
+| Admin | admin@silvermaid.ae | Demo@123 |
+| Manager | manager@silvermaid.ae | Demo@123 |
+| Supervisor | supervisor@silvermaid.ae | Demo@123 |
+| Employee | employee@silvermaid.ae | Demo@123 |
 | Client | client@homeware.ae | Demo@123 |
 | Guest | guest@homeware.ae | Demo@123 |
 
@@ -243,7 +243,7 @@ All portals use the same password format:
 
 **Dashboard Sections:**
 - Guest notice (prompt to register)
-- About Homeware (company info)
+- About Silver Maid (company info)
 - Service Categories (6 categories)
 - Latest Announcements
 - Featured Products
@@ -347,7 +347,7 @@ See: `/DATABASE_SCHEMA_PORTAL_UPDATE.sql`
 
 ### Session Storage
 
-Sessions are stored in localStorage with the key `homeware_session`:
+Sessions are stored in localStorage with the key `silvermaid_session`:
 
 ```typescript
 interface StoredSession {

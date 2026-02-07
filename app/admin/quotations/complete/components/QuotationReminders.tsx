@@ -258,12 +258,12 @@ export default function QuotationReminders() {
 
         {/* Communication Options Banner */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-          <div className="bg-blue-50 border border-blue-200 rounded p-3">
+          <div className="bg-zinc-50 border border-blue-200 rounded p-3">
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-blue-600" />
-              <p className="text-xs font-bold text-blue-700">Email with PDF</p>
+              <Mail className="w-4 h-4 text-zinc-950" />
+              <p className="text-xs font-bold text-zinc-950">Email with PDF</p>
             </div>
-            <p className="text-[11px] text-blue-600 mt-1">
+            <p className="text-[11px] text-zinc-950 mt-1">
               Opens Gmail with PDF attached
             </p>
           </div>
@@ -376,12 +376,12 @@ export default function QuotationReminders() {
                             emailSent
                               ? 'bg-green-500 text-white cursor-not-allowed'
                               : emailStatus === 'sending'
-                              ? 'bg-blue-500 text-white cursor-not-allowed'
+                              ? 'bg-zinc-500 text-white cursor-not-allowed'
                               : emailStatus === 'error'
                               ? 'bg-red-500 text-white hover:bg-red-600'
                               : !q.email
                               ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                              : 'bg-blue-500 text-white hover:bg-blue-600'
+                              : 'bg-zinc-500 text-white hover:bg-zinc-950'
                           }`}
                         >
                           <div className="flex items-center gap-1">
@@ -493,7 +493,7 @@ export default function QuotationReminders() {
           <div className="flex items-center gap-4">
             <div className="text-right">
               <div className="flex items-center gap-1">
-                <Mail className="w-4 h-4 text-blue-500" />
+                <Mail className="w-4 h-4 text-zinc-500" />
                 <p className="text-[11px] font-bold text-gray-700">Email with PDF</p>
               </div>
               <p className="text-[10px] text-gray-500">Opens Gmail automatically</p>

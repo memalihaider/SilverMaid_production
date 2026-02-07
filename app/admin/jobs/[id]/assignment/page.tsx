@@ -249,7 +249,7 @@ export default function JobAssignment() {
                   <div key={assignment.memberId} className="p-4 bg-gray-50 rounded-xl border border-gray-200">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-sm font-bold text-white">
+                        <div className="w-10 h-10 rounded-xl bg-zinc-950 flex items-center justify-center text-sm font-bold text-white">
                           {member.name.split(' ').map(n => n[0]).join('')}
                         </div>
                         <div>
@@ -288,13 +288,13 @@ export default function JobAssignment() {
                     placeholder="Search members..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <select
                   value={filterAvailability}
                   onChange={(e) => setFilterAvailability(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="all">All Availability</option>
                   <option value="available">Available</option>
@@ -312,7 +312,7 @@ export default function JobAssignment() {
                   <div key={member.id} className="p-4 border border-gray-200 rounded-xl hover:border-blue-300 transition-all">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-sm font-bold text-white">
+                        <div className="w-12 h-12 rounded-xl bg-zinc-950 flex items-center justify-center text-sm font-bold text-white">
                           {member.name.split(' ').map(n => n[0]).join('')}
                         </div>
                         <div>
@@ -352,7 +352,7 @@ export default function JobAssignment() {
                           className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${
                             isAssigned
                               ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                              : 'bg-blue-600 text-white hover:bg-blue-700'
+                              : 'bg-zinc-950 text-white hover:bg-zinc-950'
                           }`}
                         >
                           {isAssigned ? 'Remove' : 'Assign'}
@@ -366,7 +366,7 @@ export default function JobAssignment() {
                         {member.skills.map((skill, i) => (
                           <span key={i} className={`px-2 py-1 rounded text-xs font-bold ${
                             job.requiredSkills.includes(skill)
-                              ? 'bg-blue-100 text-blue-700'
+                              ? 'bg-zinc-100 text-zinc-950'
                               : 'bg-gray-100 text-gray-600'
                           }`}>
                             {skill}

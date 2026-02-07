@@ -92,7 +92,7 @@ export default function FloorDeepCleaning() {
 
               <motion.a 
                 href="/book-service"
-                className="inline-flex items-center gap-4 bg-primary px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-white shadow-2xl shadow-primary/30 hover:bg-pink-600 transition-colors"
+                className="inline-flex items-center gap-4 bg-primary px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-white shadow-2xl shadow-primary/30 hover:opacity-90 transition-colors"
                 whileTap={{ scale: 0.95 }}
               >
                 Book Floor Deep Clean <ArrowRight className="h-5 w-5" />

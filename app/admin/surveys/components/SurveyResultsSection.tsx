@@ -370,7 +370,7 @@ export default function SurveyResultsSection({ surveys }: Props) {
                   </div>
                   <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase ${
                     selectedSurveyData.status === 'published' ? 'bg-green-100 text-green-800' :
-                    selectedSurveyData.status === 'active' ? 'bg-blue-100 text-blue-800' :
+                    selectedSurveyData.status === 'active' ? 'bg-zinc-100 text-blue-800' :
                     selectedSurveyData.status === 'draft' ? 'bg-yellow-100 text-yellow-800' :
                     'bg-gray-100 text-gray-800'
                   }`}>
@@ -426,7 +426,7 @@ export default function SurveyResultsSection({ surveys }: Props) {
                           </h5>
                           
                           <div className="mb-2">
-                            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                            <span className="text-xs bg-zinc-100 text-blue-800 px-2 py-1 rounded">
                               {analysis.summary}
                             </span>
                           </div>
@@ -444,7 +444,7 @@ export default function SurveyResultsSection({ surveys }: Props) {
                                         <span className="text-gray-600">{detail.count} ({detail.percentage}%)</span>
                                         <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
                                           <div 
-                                            className="h-full bg-blue-600"
+                                            className="h-full bg-zinc-950"
                                             style={{ width: `${detail.percentage}%` }}
                                           ></div>
                                         </div>

@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Homework UAE - Professional Hygiene Solutions",
-  description: "UAE's premier hygiene solution provider, dedicated to creating fresh, clean, and productive environments for homes and offices.",
+  title: "Silver Maid - Professional Cleaning Solutions",
+  description: "Premium professional cleaning and hygiene solutions, dedicated to creating fresh, clean, and productive environments for homes and offices.",
 };
 
 export default function RootLayout({

@@ -581,7 +581,7 @@ export default function MarketingDashboard() {
     switch (status) {
       case 'hot': return 'bg-red-100 text-red-800 border-red-300'
       case 'warm': return 'bg-amber-100 text-amber-800 border-amber-300'
-      case 'cold': return 'bg-blue-100 text-blue-800 border-blue-300'
+      case 'cold': return 'bg-zinc-100 text-blue-800 border-blue-300'
       default: return 'bg-gray-100 text-gray-800 border-gray-300'
     }
   }
@@ -589,7 +589,7 @@ export default function MarketingDashboard() {
   const getCampaignStatusColor = (status: string) => {
     switch (status) {
       case 'active': return 'bg-green-100 text-green-800'
-      case 'scheduled': return 'bg-blue-100 text-blue-800'
+      case 'scheduled': return 'bg-zinc-100 text-blue-800'
       case 'completed': return 'bg-gray-100 text-gray-800'
       case 'paused': return 'bg-amber-100 text-amber-800'
       default: return 'bg-gray-100 text-gray-800'
@@ -633,7 +633,7 @@ export default function MarketingDashboard() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-zinc-950 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading real-time data from Firebase...</p>
         </div>
       </div>
@@ -651,10 +651,10 @@ export default function MarketingDashboard() {
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-10 w-10 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-300">
-                <Target className="h-5 w-5 text-blue-600" />
+              <div className="h-10 w-10 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-300">
+                <Target className="h-5 w-5 text-zinc-950" />
               </div>
-              <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">Marketing Hub</span>
+              <span className="text-zinc-950 font-bold tracking-wider text-sm uppercase">Marketing Hub</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight text-black">Marketing Dashboard</h1>
             <p className="text-gray-600 mt-3 text-lg font-medium max-w-xl">
@@ -664,7 +664,7 @@ export default function MarketingDashboard() {
           <div className="flex gap-3">
             <button
               onClick={() => setShowNewCampaignModal(true)}
-              className="group relative flex items-center gap-3 px-6 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black transition-all shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98]"
+              className="group relative flex items-center gap-3 px-6 py-4 bg-zinc-950 hover:bg-zinc-500 text-white rounded-2xl font-black transition-all shadow-xl shadow-zinc-500/20 hover:scale-[1.02] active:scale-[0.98]"
             >
               <Plus className="h-5 w-5" />
               New Campaign
@@ -680,7 +680,7 @@ export default function MarketingDashboard() {
         </div>
 
         {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-blue-100 blur-[100px]"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-zinc-100 blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-emerald-100 blur-[100px]"></div>
       </div>
 
@@ -688,8 +688,8 @@ export default function MarketingDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white rounded-2xl p-6 border border-gray-300 shadow-lg">
           <div className="flex items-center justify-between mb-4">
-            <div className="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-300">
-              <Users className="h-6 w-6 text-blue-600" />
+            <div className="h-12 w-12 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-300">
+              <Users className="h-6 w-6 text-zinc-950" />
             </div>
             <span className="text-green-600 font-bold text-sm">+{((analytics.totalLeads / 10) * 100).toFixed(1)}%</span>
           </div>
@@ -712,8 +712,8 @@ export default function MarketingDashboard() {
 
         <div className="bg-white rounded-2xl p-6 border border-gray-300 shadow-lg">
           <div className="flex items-center justify-between mb-4">
-            <div className="h-12 w-12 rounded-xl bg-purple-100 flex items-center justify-center border border-purple-300">
-              <Target className="h-6 w-6 text-purple-600" />
+            <div className="h-12 w-12 rounded-xl bg-zinc-100 flex items-center justify-center border border-purple-300">
+              <Target className="h-6 w-6 text-zinc-800" />
             </div>
             <span className="text-green-600 font-bold text-sm">+{((analytics.activeCampaigns / 5) * 100).toFixed(1)}%</span>
           </div>
@@ -749,7 +749,7 @@ export default function MarketingDashboard() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex items-center gap-3 px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
               activeTab === tab.id
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20'
+                ? 'bg-zinc-950 text-white shadow-lg shadow-zinc-950/20'
                 : 'text-gray-600 hover:text-black'
             }`}
           >
@@ -805,7 +805,7 @@ export default function MarketingDashboard() {
                 }
                 setShowNewEmailModal(true)
               }}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="px-6 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <Mail className="h-4 w-4 inline mr-2" />
               Send Email to Selected
@@ -862,7 +862,7 @@ export default function MarketingDashboard() {
                             {lead.name.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
-                            <p className="font-black text-black text-sm group-hover:text-blue-600 transition-colors">{lead.name}</p>
+                            <p className="font-black text-black text-sm group-hover:text-zinc-950 transition-colors">{lead.name}</p>
                             <p className="text-gray-600 text-xs">{lead.email}</p>
                             <p className="text-gray-500 text-xs">{lead.company}</p>
                           </div>
@@ -886,10 +886,10 @@ export default function MarketingDashboard() {
                         <div className="flex items-center gap-2">
                           <button 
                             onClick={() => handleViewLead(lead)}
-                            className="p-2 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="p-2 hover:bg-zinc-50 rounded-lg transition-colors"
                             title="View Details"
                           >
-                            <Eye className="h-4 w-4 text-blue-600" />
+                            <Eye className="h-4 w-4 text-zinc-950" />
                           </button>
                           <button 
                             onClick={() => handleEditLead(lead)}
@@ -930,7 +930,7 @@ export default function MarketingDashboard() {
       {activeTab === 'campaigns' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {campaigns.map((campaign) => (
-            <div key={campaign.id} className="bg-white p-8 rounded-[32px] border border-gray-300 group hover:border-blue-500/30 transition-all shadow-lg">
+            <div key={campaign.id} className="bg-white p-8 rounded-[32px] border border-gray-300 group hover:border-zinc-500/30 transition-all shadow-lg">
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <h3 className="text-2xl font-black text-black">{campaign.name}</h3>
@@ -958,14 +958,14 @@ export default function MarketingDashboard() {
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
                   <p className="text-[10px] font-black text-gray-600 uppercase tracking-widest mb-2">Clicked</p>
                   <p className="text-2xl font-black text-black">{campaign.clicked.toLocaleString()}</p>
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mt-1">
+                  <p className="text-[10px] font-black text-zinc-950 uppercase tracking-widest mt-1">
                     {campaign.sent > 0 ? ((campaign.clicked / campaign.sent) * 100).toFixed(1) : '0.0'}% rate
                   </p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
                   <p className="text-[10px] font-black text-gray-600 uppercase tracking-widest mb-2">Converted</p>
                   <p className="text-2xl font-black text-black">{campaign.converted.toLocaleString()}</p>
-                  <p className="text-[10px] font-black text-purple-600 uppercase tracking-widest mt-1">
+                  <p className="text-[10px] font-black text-zinc-800 uppercase tracking-widest mt-1">
                     {campaign.sent > 0 ? ((campaign.converted / campaign.sent) * 100).toFixed(1) : '0.0'}% rate
                   </p>
                 </div>
@@ -1009,10 +1009,10 @@ export default function MarketingDashboard() {
                       })
                       setShowEditCampaignModal(true)
                     }}
-                    className="p-3 hover:bg-blue-50 rounded-xl transition-colors"
+                    className="p-3 hover:bg-zinc-50 rounded-xl transition-colors"
                     title="Edit Campaign"
                   >
-                    <Settings className="h-5 w-5 text-blue-600" />
+                    <Settings className="h-5 w-5 text-zinc-950" />
                   </button>
                   <button 
                     onClick={() => handleDeleteCampaign(campaign.id)}
@@ -1042,7 +1042,7 @@ export default function MarketingDashboard() {
                   resetEmailForm()
                   setShowNewEmailModal(true)
                 }}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="px-6 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 <Plus className="h-4 w-4 inline mr-2" />
                 Schedule Email
@@ -1053,8 +1053,8 @@ export default function MarketingDashboard() {
               {scheduledEmails.map((email) => (
                 <div key={email.id} className="flex items-center justify-between p-6 bg-gray-50 rounded-2xl border border-gray-200">
                   <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-300">
-                      <Mail className="h-6 w-6 text-blue-600" />
+                    <div className="h-12 w-12 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-300">
+                      <Mail className="h-6 w-6 text-zinc-950" />
                     </div>
                     <div>
                       <h4 className="font-black text-black">{email.subject}</h4>
@@ -1065,15 +1065,15 @@ export default function MarketingDashboard() {
                   <div className="flex items-center gap-4">
                     <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest ${
                       email.status === 'sent' ? 'bg-emerald-100 text-emerald-800' :
-                      email.status === 'scheduled' ? 'bg-blue-100 text-blue-800' :
+                      email.status === 'scheduled' ? 'bg-zinc-100 text-blue-800' :
                       'bg-gray-100 text-gray-800'
                     }`}>
                       {email.status}
                     </span>
                     <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest ${
                       email.type === 'reminder' ? 'bg-amber-100 text-amber-800' :
-                      email.type === 'promotional' ? 'bg-purple-100 text-purple-800' :
-                      'bg-blue-100 text-blue-800'
+                      email.type === 'promotional' ? 'bg-zinc-100 text-purple-800' :
+                      'bg-zinc-100 text-blue-800'
                     }`}>
                       {email.type}
                     </span>
@@ -1139,7 +1139,7 @@ export default function MarketingDashboard() {
                   <div key={lead.id} className="border border-gray-200 rounded-2xl overflow-hidden">
                     <div className="p-6 bg-gray-50 flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="h-12 w-12 rounded-xl bg-blue-100 border border-blue-300 flex items-center justify-center text-black font-black text-sm">
+                        <div className="h-12 w-12 rounded-xl bg-zinc-100 border border-blue-300 flex items-center justify-center text-black font-black text-sm">
                           {lead.name.split(' ').map(n => n[0]).join('')}
                         </div>
                         <div>
@@ -1157,7 +1157,7 @@ export default function MarketingDashboard() {
                             setCurrentLead(lead)
                             setShowFollowUpModal(true)
                           }}
-                          className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold transition-all"
+                          className="px-4 py-2 bg-zinc-950 hover:bg-zinc-500 text-white rounded-lg font-bold transition-all"
                         >
                           <Plus className="h-4 w-4 inline mr-1" />
                           Add Follow-up
@@ -1171,9 +1171,9 @@ export default function MarketingDashboard() {
                         {leadFollowUps.map((followUp) => (
                           <div key={followUp.id} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200">
                             <div className="h-10 w-10 rounded-lg bg-gray-100 flex items-center justify-center">
-                              {followUp.type === 'email' && <Mail className="h-5 w-5 text-blue-600" />}
+                              {followUp.type === 'email' && <Mail className="h-5 w-5 text-zinc-950" />}
                               {followUp.type === 'phone' && <Phone className="h-5 w-5 text-green-600" />}
-                              {followUp.type === 'meeting' && <Video className="h-5 w-5 text-purple-600" />}
+                              {followUp.type === 'meeting' && <Video className="h-5 w-5 text-zinc-800" />}
                               {followUp.type === 'sms' && <MessageSquare className="h-5 w-5 text-amber-600" />}
                             </div>
                             <div className="flex-1">
@@ -1181,7 +1181,7 @@ export default function MarketingDashboard() {
                                 <h6 className="font-black text-black text-sm">{followUp.subject}</h6>
                                 <span className={`text-xs px-2 py-1 rounded-full font-bold ${
                                   followUp.status === 'completed' ? 'bg-green-100 text-green-800' :
-                                  followUp.status === 'scheduled' ? 'bg-blue-100 text-blue-800' :
+                                  followUp.status === 'scheduled' ? 'bg-zinc-100 text-blue-800' :
                                   'bg-gray-100 text-gray-800'
                                 }`}>
                                   {followUp.status}
@@ -1217,7 +1217,7 @@ export default function MarketingDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-[32px] border border-gray-300 shadow-lg">
             <h3 className="text-xl font-black text-black mb-6 flex items-center gap-3">
-              <BarChart3 className="h-6 w-6 text-blue-600" />
+              <BarChart3 className="h-6 w-6 text-zinc-950" />
               Campaign Performance
             </h3>
             <div className="space-y-6">
@@ -1240,14 +1240,14 @@ export default function MarketingDashboard() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-blue-50 rounded-2xl border border-blue-200">
+              <div className="flex items-center justify-between p-4 bg-zinc-50 rounded-2xl border border-blue-200">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <Activity className="h-5 w-5 text-blue-600" />
+                  <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center">
+                    <Activity className="h-5 w-5 text-zinc-950" />
                   </div>
                   <div>
                     <p className="font-black text-blue-800">Click Rate</p>
-                    <p className="text-sm text-blue-700">Engagement metric</p>
+                    <p className="text-sm text-zinc-950">Engagement metric</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -1255,14 +1255,14 @@ export default function MarketingDashboard() {
                     {campaigns.length > 0 ? 
                       ((campaigns.reduce((sum, c) => sum + c.clicked, 0) / campaigns.reduce((sum, c) => sum + c.sent, 1)) * 100).toFixed(1) : '0.0'}%
                   </p>
-                  <p className="text-sm text-blue-600">From real campaign data</p>
+                  <p className="text-sm text-zinc-950">From real campaign data</p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-purple-50 rounded-2xl border border-purple-200">
+              <div className="flex items-center justify-between p-4 bg-zinc-50 rounded-2xl border border-purple-200">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-purple-100 flex items-center justify-center">
-                    <TrendingUp className="h-5 w-5 text-purple-600" />
+                  <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center">
+                    <TrendingUp className="h-5 w-5 text-zinc-800" />
                   </div>
                   <div>
                     <p className="font-black text-purple-800">Conversion Rate</p>
@@ -1271,7 +1271,7 @@ export default function MarketingDashboard() {
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-black text-purple-800">{analytics.conversionRate}%</p>
-                  <p className="text-sm text-purple-600">From real campaign data</p>
+                  <p className="text-sm text-zinc-800">From real campaign data</p>
                 </div>
               </div>
             </div>
@@ -1325,15 +1325,15 @@ export default function MarketingDashboard() {
 
               <div className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-200">
                 <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <span className="text-xs font-black text-blue-600">C</span>
+                  <div className="h-8 w-8 rounded-lg bg-zinc-100 flex items-center justify-center">
+                    <span className="text-xs font-black text-zinc-950">C</span>
                   </div>
                   <span className="font-medium text-black">Cold Leads</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-blue-500 rounded-full" 
+                      className="h-full bg-zinc-500 rounded-full" 
                       style={{width: `${(analytics.coldLeads / analytics.totalLeads) * 100 || 0}%`}}
                     ></div>
                   </div>
@@ -1385,7 +1385,7 @@ export default function MarketingDashboard() {
                     value={leadForm.name}
                     onChange={(e) => setLeadForm({...leadForm, name: e.target.value})}
                     placeholder="Enter full name..."
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -1395,7 +1395,7 @@ export default function MarketingDashboard() {
                     value={leadForm.email}
                     onChange={(e) => setLeadForm({...leadForm, email: e.target.value})}
                     placeholder="email@example.com"
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1408,7 +1408,7 @@ export default function MarketingDashboard() {
                     value={leadForm.phone}
                     onChange={(e) => setLeadForm({...leadForm, phone: e.target.value})}
                     placeholder="+971 50 xxx xxxx"
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -1418,7 +1418,7 @@ export default function MarketingDashboard() {
                     value={leadForm.company}
                     onChange={(e) => setLeadForm({...leadForm, company: e.target.value})}
                     placeholder="Company name"
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1429,7 +1429,7 @@ export default function MarketingDashboard() {
                   <select
                     value={leadForm.status}
                     onChange={(e) => setLeadForm({...leadForm, status: e.target.value as 'hot' | 'warm' | 'cold'})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   >
                     <option value="cold">Cold Lead</option>
                     <option value="warm">Warm Lead</option>
@@ -1443,7 +1443,7 @@ export default function MarketingDashboard() {
                     value={leadForm.source}
                     onChange={(e) => setLeadForm({...leadForm, source: e.target.value})}
                     placeholder="e.g., Website, Referral"
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1456,7 +1456,7 @@ export default function MarketingDashboard() {
                     value={leadForm.interest}
                     onChange={(e) => setLeadForm({...leadForm, interest: e.target.value})}
                     placeholder="e.g., Kitchen Renovation"
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -1466,7 +1466,7 @@ export default function MarketingDashboard() {
                     value={leadForm.budget}
                     onChange={(e) => setLeadForm({...leadForm, budget: e.target.value})}
                     placeholder="e.g., AED 50,000 - 100,000"
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1477,7 +1477,7 @@ export default function MarketingDashboard() {
                   type="date"
                   value={leadForm.nextFollowUp}
                   onChange={(e) => setLeadForm({...leadForm, nextFollowUp: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1488,7 +1488,7 @@ export default function MarketingDashboard() {
                   onChange={(e) => setLeadForm({...leadForm, notes: e.target.value})}
                   placeholder="Additional notes about this lead..."
                   rows={3}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1504,7 +1504,7 @@ export default function MarketingDashboard() {
                 </button>
                 <button 
                   onClick={handleAddLead}
-                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all"
+                  className="flex-1 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all"
                 >
                   <Save className="h-4 w-4 inline mr-2" />
                   Add Lead
@@ -1533,7 +1533,7 @@ export default function MarketingDashboard() {
                     type="text"
                     value={leadForm.name}
                     onChange={(e) => setLeadForm({...leadForm, name: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -1542,7 +1542,7 @@ export default function MarketingDashboard() {
                     type="email"
                     value={leadForm.email}
                     onChange={(e) => setLeadForm({...leadForm, email: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1554,7 +1554,7 @@ export default function MarketingDashboard() {
                     type="tel"
                     value={leadForm.phone}
                     onChange={(e) => setLeadForm({...leadForm, phone: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -1563,7 +1563,7 @@ export default function MarketingDashboard() {
                     type="text"
                     value={leadForm.company}
                     onChange={(e) => setLeadForm({...leadForm, company: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1574,7 +1574,7 @@ export default function MarketingDashboard() {
                   <select
                     value={leadForm.status}
                     onChange={(e) => setLeadForm({...leadForm, status: e.target.value as 'hot' | 'warm' | 'cold'})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   >
                     <option value="cold">Cold Lead</option>
                     <option value="warm">Warm Lead</option>
@@ -1587,7 +1587,7 @@ export default function MarketingDashboard() {
                     type="text"
                     value={leadForm.source}
                     onChange={(e) => setLeadForm({...leadForm, source: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1599,7 +1599,7 @@ export default function MarketingDashboard() {
                     type="text"
                     value={leadForm.interest}
                     onChange={(e) => setLeadForm({...leadForm, interest: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -1608,7 +1608,7 @@ export default function MarketingDashboard() {
                     type="text"
                     value={leadForm.budget}
                     onChange={(e) => setLeadForm({...leadForm, budget: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1619,7 +1619,7 @@ export default function MarketingDashboard() {
                   type="date"
                   value={leadForm.nextFollowUp}
                   onChange={(e) => setLeadForm({...leadForm, nextFollowUp: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1629,7 +1629,7 @@ export default function MarketingDashboard() {
                   value={leadForm.notes}
                   onChange={(e) => setLeadForm({...leadForm, notes: e.target.value})}
                   rows={3}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1646,7 +1646,7 @@ export default function MarketingDashboard() {
                 </button>
                 <button 
                   onClick={handleUpdateLead}
-                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all"
+                  className="flex-1 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all"
                 >
                   <Save className="h-4 w-4 inline mr-2" />
                   Update Lead
@@ -1669,7 +1669,7 @@ export default function MarketingDashboard() {
             </div>
             <div className="space-y-6">
               <div className="flex items-center gap-4 pb-6 border-b">
-                <div className="h-16 w-16 rounded-xl bg-blue-100 border border-blue-300 flex items-center justify-center text-black font-black text-lg">
+                <div className="h-16 w-16 rounded-xl bg-zinc-100 border border-blue-300 flex items-center justify-center text-black font-black text-lg">
                   {currentLead.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
@@ -1756,7 +1756,7 @@ export default function MarketingDashboard() {
                     setShowViewLeadModal(false)
                     handleEditLead(currentLead)
                   }}
-                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all"
+                  className="flex-1 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all"
                 >
                   <Edit className="h-4 w-4 inline mr-2" />
                   Edit Lead
@@ -1788,7 +1788,7 @@ export default function MarketingDashboard() {
                 <select
                   value={followUpForm.type}
                   onChange={(e) => setFollowUpForm({...followUpForm, type: e.target.value as any})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="email">Email</option>
                   <option value="phone">Phone Call</option>
@@ -1804,7 +1804,7 @@ export default function MarketingDashboard() {
                   value={followUpForm.subject}
                   onChange={(e) => setFollowUpForm({...followUpForm, subject: e.target.value})}
                   placeholder="Brief description..."
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1815,7 +1815,7 @@ export default function MarketingDashboard() {
                   onChange={(e) => setFollowUpForm({...followUpForm, message: e.target.value})}
                   placeholder="Detailed notes about this communication..."
                   rows={4}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1825,7 +1825,7 @@ export default function MarketingDashboard() {
                   type="date"
                   value={followUpForm.scheduledDate}
                   onChange={(e) => setFollowUpForm({...followUpForm, scheduledDate: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
                 <p className="text-xs text-gray-500 mt-1">Leave empty if already completed</p>
               </div>
@@ -1842,7 +1842,7 @@ export default function MarketingDashboard() {
                 </button>
                 <button 
                   onClick={handleAddFollowUp}
-                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all"
+                  className="flex-1 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all"
                 >
                   <Save className="h-4 w-4 inline mr-2" />
                   Save Follow-up
@@ -1871,7 +1871,7 @@ export default function MarketingDashboard() {
                   value={campaignForm.name}
                   onChange={(e) => setCampaignForm({...campaignForm, name: e.target.value})}
                   placeholder="Enter campaign name..."
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1880,7 +1880,7 @@ export default function MarketingDashboard() {
                 <select 
                   value={campaignForm.type}
                   onChange={(e) => setCampaignForm({...campaignForm, type: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option>Email Campaign</option>
                   <option>SMS Campaign</option>
@@ -1894,7 +1894,7 @@ export default function MarketingDashboard() {
                 <select 
                   value={campaignForm.targetAudience}
                   onChange={(e) => setCampaignForm({...campaignForm, targetAudience: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option>All Leads</option>
                   <option>Hot Leads Only</option>
@@ -1911,7 +1911,7 @@ export default function MarketingDashboard() {
                     type="date"
                     value={campaignForm.startDate}
                     onChange={(e) => setCampaignForm({...campaignForm, startDate: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -1920,7 +1920,7 @@ export default function MarketingDashboard() {
                     type="date"
                     value={campaignForm.endDate}
                     onChange={(e) => setCampaignForm({...campaignForm, endDate: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -1932,7 +1932,7 @@ export default function MarketingDashboard() {
                   value={campaignForm.budget}
                   onChange={(e) => setCampaignForm({...campaignForm, budget: e.target.value})}
                   placeholder="e.g., AED 5,000"
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1943,7 +1943,7 @@ export default function MarketingDashboard() {
                   onChange={(e) => setCampaignForm({...campaignForm, description: e.target.value})}
                   placeholder="Campaign objectives and details..."
                   rows={3}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1959,7 +1959,7 @@ export default function MarketingDashboard() {
                 </button>
                 <button 
                   onClick={handleAddCampaign}
-                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all"
+                  className="flex-1 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all"
                 >
                   <Save className="h-4 w-4 inline mr-2" />
                   Create Campaign
@@ -1987,7 +1987,7 @@ export default function MarketingDashboard() {
                   type="text"
                   value={campaignForm.name}
                   onChange={(e) => setCampaignForm({...campaignForm, name: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -1996,7 +1996,7 @@ export default function MarketingDashboard() {
                 <select 
                   value={campaignForm.type}
                   onChange={(e) => setCampaignForm({...campaignForm, type: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option>Email Campaign</option>
                   <option>SMS Campaign</option>
@@ -2010,7 +2010,7 @@ export default function MarketingDashboard() {
                 <select 
                   value={campaignForm.targetAudience}
                   onChange={(e) => setCampaignForm({...campaignForm, targetAudience: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option>All Leads</option>
                   <option>Hot Leads Only</option>
@@ -2027,7 +2027,7 @@ export default function MarketingDashboard() {
                     type="date"
                     value={campaignForm.startDate}
                     onChange={(e) => setCampaignForm({...campaignForm, startDate: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
                 <div>
@@ -2036,7 +2036,7 @@ export default function MarketingDashboard() {
                     type="date"
                     value={campaignForm.endDate}
                     onChange={(e) => setCampaignForm({...campaignForm, endDate: e.target.value})}
-                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                 </div>
               </div>
@@ -2047,7 +2047,7 @@ export default function MarketingDashboard() {
                   type="text"
                   value={campaignForm.budget}
                   onChange={(e) => setCampaignForm({...campaignForm, budget: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -2057,7 +2057,7 @@ export default function MarketingDashboard() {
                   value={campaignForm.description}
                   onChange={(e) => setCampaignForm({...campaignForm, description: e.target.value})}
                   rows={3}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -2074,7 +2074,7 @@ export default function MarketingDashboard() {
                 </button>
                 <button 
                   onClick={handleUpdateCampaign}
-                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all"
+                  className="flex-1 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all"
                 >
                   <Save className="h-4 w-4 inline mr-2" />
                   Update Campaign
@@ -2101,7 +2101,7 @@ export default function MarketingDashboard() {
             </div>
             <div className="space-y-4">
               {selectedLeads.length > 0 && !currentEmail && (
-                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                <div className="p-4 bg-zinc-50 rounded-xl border border-blue-200">
                   <p className="text-sm font-bold text-blue-900">
                     <Bell className="h-4 w-4 inline mr-2" />
                     Sending to {selectedLeads.length} selected lead(s)
@@ -2116,7 +2116,7 @@ export default function MarketingDashboard() {
                   value={emailForm.subject}
                   onChange={(e) => setEmailForm({...emailForm, subject: e.target.value})}
                   placeholder="Enter email subject..."
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -2129,7 +2129,7 @@ export default function MarketingDashboard() {
                       value={emailForm.recipient}
                       onChange={(e) => setEmailForm({...emailForm, recipient: e.target.value})}
                       placeholder="Lead name or segment"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
 
@@ -2140,7 +2140,7 @@ export default function MarketingDashboard() {
                       value={emailForm.recipientEmail}
                       onChange={(e) => setEmailForm({...emailForm, recipientEmail: e.target.value})}
                       placeholder="email@example.com"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
                 </>
@@ -2151,7 +2151,7 @@ export default function MarketingDashboard() {
                 <select
                   value={emailForm.type}
                   onChange={(e) => setEmailForm({...emailForm, type: e.target.value as any})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="follow-up">Follow-up</option>
                   <option value="reminder">Reminder</option>
@@ -2165,7 +2165,7 @@ export default function MarketingDashboard() {
                   type="datetime-local"
                   value={emailForm.scheduledTime}
                   onChange={(e) => setEmailForm({...emailForm, scheduledTime: e.target.value})}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -2176,7 +2176,7 @@ export default function MarketingDashboard() {
                   onChange={(e) => setEmailForm({...emailForm, message: e.target.value})}
                   placeholder="Email message content..."
                   rows={5}
-                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
 
@@ -2193,7 +2193,7 @@ export default function MarketingDashboard() {
                 </button>
                 <button 
                   onClick={handleAddEmail}
-                  className="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-all"
+                  className="flex-1 py-3 bg-zinc-950 hover:bg-zinc-500 text-white rounded-xl font-bold transition-all"
                 >
                   <Send className="h-4 w-4 inline mr-2" />
                   Schedule Email

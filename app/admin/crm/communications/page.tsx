@@ -175,11 +175,11 @@ export default function CommunicationLog() {
   // Templates remain same
   const templates: Template = {
     followUp: {
-      email: "Hi {{name}},\n\nFollowing up on our previous conversation regarding the {{service}} proposal.\n\nWould you be available for a call this week to discuss next steps?\n\nBest regards,\nHomework UAE Sales Team",
+      email: "Hi {{name}},\n\nFollowing up on our previous conversation regarding the {{service}} proposal.\n\nWould you be available for a call this week to discuss next steps?\n\nBest regards,\nSilver Maid Sales Team",
       whatsapp: "Hi {{name}}! 👋 Following up on the proposal I shared earlier. Keen to discuss how we can help with your {{service}} needs. Available for a quick call? 📞"
     },
     proposal: {
-      email: "Dear {{name}},\n\nPlease find attached the customized proposal for {{service}}.\n\nKey highlights:\n• Cost-effective solution\n• 24/7 support\n• Flexible scheduling\n\nLooking forward to your thoughts.\n\nBest regards,\nHomework UAE",
+      email: "Dear {{name}},\n\nPlease find attached the customized proposal for {{service}}.\n\nKey highlights:\n• Cost-effective solution\n• 24/7 support\n• Flexible scheduling\n\nLooking forward to your thoughts.\n\nBest regards,\nSilver Maid",
       whatsapp: "Hi {{name}}! 📋 Sent you the proposal for {{service}}. It covers everything we discussed. Let me know if you have any questions! 💼"
     }
   }
@@ -342,10 +342,10 @@ export default function CommunicationLog() {
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <MessageSquare className="h-5 w-5 text-blue-600" />
+                <div className="h-10 w-10 rounded-lg bg-zinc-50 flex items-center justify-center">
+                  <MessageSquare className="h-5 w-5 text-zinc-950" />
                 </div>
-                <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Communications</span>
+                <span className="text-zinc-950 font-semibold text-sm uppercase tracking-wide">Communications</span>
               </div>
               <h1 className="text-3xl font-bold text-gray-900">Communication Log</h1>
               <p className="text-gray-600 mt-2 text-lg">
@@ -365,7 +365,7 @@ export default function CommunicationLog() {
               </button>
               <button
                 onClick={() => setShowTemplate(true)}
-                className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg font-semibold transition-colors"
               >
                 <Zap className="h-4 w-4" />
                 Templates
@@ -396,10 +396,10 @@ export default function CommunicationLog() {
 
             <button
               onClick={() => setShowTemplate(true)}
-              className="flex items-center gap-3 p-4 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors group"
+              className="flex items-center gap-3 p-4 bg-zinc-50 hover:bg-zinc-100 border border-blue-200 rounded-lg transition-colors group"
             >
-              <div className="p-2 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition-colors">
-                <Zap className="h-5 w-5 text-blue-600" />
+              <div className="p-2 bg-zinc-100 rounded-lg group-hover:bg-blue-200 transition-colors">
+                <Zap className="h-5 w-5 text-zinc-950" />
               </div>
               <div className="text-left">
                 <p className="text-sm font-semibold text-gray-900">Use Templates</p>
@@ -453,10 +453,10 @@ export default function CommunicationLog() {
                 const todayComms = communications.filter(c => c.date === today)
                 alert(`You had ${todayComms.length} communications today.`)
               }}
-              className="flex items-center gap-3 p-4 bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-lg transition-colors group"
+              className="flex items-center gap-3 p-4 bg-zinc-50 hover:bg-zinc-100 border border-purple-200 rounded-lg transition-colors group"
             >
-              <div className="p-2 bg-purple-100 rounded-lg group-hover:bg-purple-200 transition-colors">
-                <Calendar className="h-5 w-5 text-purple-600" />
+              <div className="p-2 bg-zinc-100 rounded-lg group-hover:bg-purple-200 transition-colors">
+                <Calendar className="h-5 w-5 text-zinc-800" />
               </div>
               <div className="text-left">
                 <p className="text-sm font-semibold text-gray-900">Today's Activity</p>
@@ -476,7 +476,7 @@ export default function CommunicationLog() {
               className="flex items-center gap-3 p-4 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg transition-colors group"
             >
               <div className="p-2 bg-indigo-100 rounded-lg group-hover:bg-indigo-200 transition-colors">
-                <CheckCircle className="h-5 w-5 text-indigo-600" />
+                <CheckCircle className="h-5 w-5 text-zinc-900" />
               </div>
               <div className="text-left">
                 <p className="text-sm font-semibold text-gray-900">Scheduled Tasks</p>
@@ -498,10 +498,10 @@ export default function CommunicationLog() {
           ].map((stat, idx) => (
             <div key={idx} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <div className="flex items-center justify-between mb-4">
-                <div className={`p-2 rounded-lg ${stat.color === 'blue' ? 'bg-blue-50 text-blue-600' : 
+                <div className={`p-2 rounded-lg ${stat.color === 'blue' ? 'bg-zinc-50 text-zinc-950' : 
                                stat.color === 'green' ? 'bg-green-50 text-green-600' :
                                stat.color === 'red' ? 'bg-red-50 text-red-600' :
-                               stat.color === 'indigo' ? 'bg-indigo-50 text-indigo-600' :
+                               stat.color === 'indigo' ? 'bg-indigo-50 text-zinc-900' :
                                'bg-gray-50 text-gray-600'}`}>
                   <stat.icon className="h-5 w-5" />
                 </div>
@@ -522,14 +522,14 @@ export default function CommunicationLog() {
               placeholder="Search communications..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-gray-900 placeholder:text-gray-500"
+              className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-zinc-500 outline-none text-gray-900 placeholder:text-gray-500"
             />
           </div>
           <div className="flex gap-4">
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none min-w-35"
+              className="px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-zinc-500 focus:border-zinc-500 outline-none min-w-35"
             >
               <option value="All">All Channels</option>
               <option value="email">Email</option>
@@ -539,7 +539,7 @@ export default function CommunicationLog() {
             <select
               value={filterSentiment}
               onChange={(e) => setFilterSentiment(e.target.value)}
-              className="px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none min-w-35"
+              className="px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-zinc-500 focus:border-zinc-500 outline-none min-w-35"
             >
               <option value="All">All Sentiments</option>
               <option value="positive">Positive</option>
@@ -589,8 +589,8 @@ export default function CommunicationLog() {
                       <tr key={comm.id} className="hover:bg-gray-50 transition-colors">
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
-                            <div className="h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center">
-                              <span className="text-sm font-semibold text-blue-600">
+                            <div className="h-10 w-10 rounded-lg bg-zinc-50 flex items-center justify-center">
+                              <span className="text-sm font-semibold text-zinc-950">
                                 {comm.leadName?.split(' ').map((n: string) => n[0]).join('') || 'NA'}
                               </span>
                             </div>
@@ -604,9 +604,9 @@ export default function CommunicationLog() {
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-2">
-                            {comm.type === 'email' && <Mail className="h-4 w-4 text-indigo-600" />}
+                            {comm.type === 'email' && <Mail className="h-4 w-4 text-zinc-900" />}
                             {comm.type === 'whatsapp' && <MessageCircle className="h-4 w-4 text-green-600" />}
-                            {comm.type === 'call' && <Phone className="h-4 w-4 text-blue-600" />}
+                            {comm.type === 'call' && <Phone className="h-4 w-4 text-zinc-950" />}
                             <span className="text-sm font-medium text-gray-900 capitalize">{comm.type}</span>
                           </div>
                         </td>
@@ -629,7 +629,7 @@ export default function CommunicationLog() {
                           <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold ${
                             comm.priority === 'urgent' ? 'bg-red-100 text-red-800' :
                             comm.priority === 'high' ? 'bg-orange-100 text-orange-800' :
-                            comm.priority === 'low' ? 'bg-blue-100 text-blue-800' :
+                            comm.priority === 'low' ? 'bg-zinc-100 text-blue-800' :
                             'bg-gray-100 text-gray-800'
                           }`}>
                             {comm.priority || 'normal'}
@@ -643,7 +643,7 @@ export default function CommunicationLog() {
                         </td>
                         <td className="px-6 py-4">
                           <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold ${
-                            comm.status === 'sent' ? 'bg-blue-100 text-blue-800' :
+                            comm.status === 'sent' ? 'bg-zinc-100 text-blue-800' :
                             comm.status === 'completed' ? 'bg-green-100 text-green-800' :
                             'bg-yellow-100 text-yellow-800'
                           }`}>
@@ -658,7 +658,7 @@ export default function CommunicationLog() {
                                   setSelectedLeadForHistory(leadData)
                                   setShowLeadHistory(true)
                                 }}
-                                className="p-2 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                                className="p-2 text-gray-400 hover:text-zinc-800 hover:bg-zinc-50 rounded-lg transition-colors"
                                 title="View Lead Communication History"
                               >
                                 <Clock className="h-4 w-4" />
@@ -666,7 +666,7 @@ export default function CommunicationLog() {
                             )}
                             <button
                               onClick={() => setSelectedLead(leadData || null)}
-                              className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                              className="p-2 text-gray-400 hover:text-zinc-950 hover:bg-zinc-50 rounded-lg transition-colors"
                               title="View Lead Details"
                               disabled={!leadData}
                             >
@@ -703,8 +703,8 @@ export default function CommunicationLog() {
             <div className="bg-white border border-gray-200 rounded-xl shadow-xl w-full max-w-4xl overflow-hidden">
               <div className="flex items-center justify-between p-6 border-b border-gray-200">
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                    <Zap className="h-6 w-6 text-blue-600" />
+                  <div className="h-12 w-12 rounded-lg bg-zinc-50 flex items-center justify-center">
+                    <Zap className="h-6 w-6 text-zinc-950" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-gray-900">Communication Templates</h2>
@@ -723,7 +723,7 @@ export default function CommunicationLog() {
                       <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">{key.replace(/([A-Z])/g, ' $1')}</h4>
                       <div className="flex gap-2">
                         <button 
-                          className="p-2 bg-white hover:bg-blue-50 border border-gray-200 rounded-lg text-gray-600 hover:text-blue-600 transition-colors"
+                          className="p-2 bg-white hover:bg-zinc-50 border border-gray-200 rounded-lg text-gray-600 hover:text-zinc-950 transition-colors"
                           onClick={() => {
                             setNewCommData(prev => ({
                               ...prev,
@@ -992,8 +992,8 @@ export default function CommunicationLog() {
             <div className="bg-white border border-gray-200 rounded-xl shadow-xl w-full max-w-2xl overflow-hidden">
               <div className="flex items-center justify-between p-6 border-b border-gray-200">
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                    <User className="h-6 w-6 text-blue-600" />
+                  <div className="h-12 w-12 rounded-lg bg-zinc-50 flex items-center justify-center">
+                    <User className="h-6 w-6 text-zinc-950" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-gray-900">{selectedLead.name}</h2>
@@ -1024,8 +1024,8 @@ export default function CommunicationLog() {
                     <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold mt-1 ${
                       selectedLead.status === 'Won' ? 'bg-green-100 text-green-800' :
                       selectedLead.status === 'Negotiation' ? 'bg-yellow-100 text-yellow-800' :
-                      selectedLead.status === 'Proposal' ? 'bg-blue-100 text-blue-800' :
-                      selectedLead.status === 'Qualified' ? 'bg-purple-100 text-purple-800' :
+                      selectedLead.status === 'Proposal' ? 'bg-zinc-100 text-blue-800' :
+                      selectedLead.status === 'Qualified' ? 'bg-zinc-100 text-purple-800' :
                       selectedLead.status === 'Contacted' ? 'bg-indigo-100 text-indigo-800' :
                       'bg-gray-100 text-gray-800'
                     }`}>
@@ -1044,7 +1044,7 @@ export default function CommunicationLog() {
                     <div>
                       <label className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Website</label>
                       <p className="text-gray-900 mt-1">
-                        <a href={`https://${selectedLead.website}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">
+                        <a href={`https://${selectedLead.website}`} target="_blank" rel="noopener noreferrer" className="text-zinc-950 hover:text-blue-800 underline">
                           {selectedLead.website}
                         </a>
                       </p>
@@ -1078,9 +1078,9 @@ export default function CommunicationLog() {
                     {communications.filter(c => c.leadId === selectedLead.id).slice(0, 3).map((comm) => (
                       <div key={comm.id} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
                         <div className="shrink-0">
-                          {comm.type === 'email' && <Mail className="h-4 w-4 text-indigo-600 mt-0.5" />}
+                          {comm.type === 'email' && <Mail className="h-4 w-4 text-zinc-900 mt-0.5" />}
                           {comm.type === 'whatsapp' && <MessageCircle className="h-4 w-4 text-green-600 mt-0.5" />}
-                          {comm.type === 'call' && <Phone className="h-4 w-4 text-blue-600 mt-0.5" />}
+                          {comm.type === 'call' && <Phone className="h-4 w-4 text-zinc-950 mt-0.5" />}
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-sm text-gray-700 truncate">{comm.message}</p>
@@ -1105,7 +1105,7 @@ export default function CommunicationLog() {
               <div className="p-6 bg-gray-50 flex justify-end border-t border-gray-200">
                 <button
                   onClick={() => setSelectedLead(null)}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+                  className="px-6 py-3 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg font-semibold transition-colors"
                 >
                   Close
                 </button>
@@ -1120,8 +1120,8 @@ export default function CommunicationLog() {
             <div className="bg-white border border-gray-200 rounded-xl shadow-xl w-full max-w-4xl overflow-hidden">
               <div className="flex items-center justify-between p-6 border-b border-gray-200">
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-purple-50 flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-purple-600" />
+                  <div className="h-12 w-12 rounded-lg bg-zinc-50 flex items-center justify-center">
+                    <Clock className="h-6 w-6 text-zinc-800" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-gray-900">Communication History</h2>
@@ -1153,9 +1153,9 @@ export default function CommunicationLog() {
                       <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                         <div className="flex items-center gap-3">
                           <div className={`p-2 rounded-lg ${
-                            stat.color === 'blue' ? 'bg-blue-100 text-blue-600' :
+                            stat.color === 'blue' ? 'bg-zinc-100 text-zinc-950' :
                             stat.color === 'green' ? 'bg-green-100 text-green-600' :
-                            'bg-indigo-100 text-indigo-600'
+                            'bg-indigo-100 text-zinc-900'
                           }`}>
                             <stat.icon className="h-4 w-4" />
                           </div>
@@ -1201,10 +1201,10 @@ export default function CommunicationLog() {
                         <div key={comm.id} className="flex gap-4 p-4 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
                           <div className="shrink-0">
                             <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                              comm.type === 'email' ? 'bg-indigo-100 text-indigo-600' :
+                              comm.type === 'email' ? 'bg-indigo-100 text-zinc-900' :
                               comm.type === 'whatsapp' ? 'bg-green-100 text-green-600' :
-                              comm.type === 'call' ? 'bg-blue-100 text-blue-600' :
-                              'bg-purple-100 text-purple-600'
+                              comm.type === 'call' ? 'bg-zinc-100 text-zinc-950' :
+                              'bg-zinc-100 text-zinc-800'
                             }`}>
                               {comm.type === 'email' && <Mail className="h-5 w-5" />}
                               {comm.type === 'whatsapp' && <MessageCircle className="h-5 w-5" />}
@@ -1228,7 +1228,7 @@ export default function CommunicationLog() {
                                   {comm.sentiment}
                                 </span>
                                 <span className={`inline-flex px-2 py-1 rounded-full text-xs font-semibold ${
-                                  comm.status === 'sent' ? 'bg-blue-100 text-blue-800' :
+                                  comm.status === 'sent' ? 'bg-zinc-100 text-blue-800' :
                                   comm.status === 'completed' ? 'bg-green-100 text-green-800' :
                                   comm.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
                                   'bg-gray-100 text-gray-800'
@@ -1246,12 +1246,12 @@ export default function CommunicationLog() {
                                 <AlertCircle className={`h-4 w-4 ${
                                   comm.priority === 'urgent' ? 'text-red-500' :
                                   comm.priority === 'high' ? 'text-orange-500' :
-                                  'text-blue-500'
+                                  'text-zinc-500'
                                 }`} />
                                 <span className={`text-xs font-semibold uppercase ${
                                   comm.priority === 'urgent' ? 'text-red-700' :
                                   comm.priority === 'high' ? 'text-orange-700' :
-                                  'text-blue-700'
+                                  'text-zinc-950'
                                 }`}>
                                   {comm.priority} Priority
                                 </span>

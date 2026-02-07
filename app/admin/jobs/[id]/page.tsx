@@ -593,7 +593,7 @@ export default function JobDetailPage() {
   if (!job) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600 mb-4"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-zinc-900 mb-4"></div>
         <p className="text-gray-600">Loading job details...</p>
       </div>
     )
@@ -624,7 +624,7 @@ export default function JobDetailPage() {
                 job.priority === 'Critical' ? 'bg-red-100 text-red-700' :
                 job.priority === 'High' ? 'bg-orange-100 text-orange-700' :
                 job.priority === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
-                'bg-blue-100 text-blue-700'
+                'bg-zinc-100 text-zinc-950'
               }`}>
                 {job.priority}
               </span>
@@ -656,7 +656,7 @@ export default function JobDetailPage() {
          
           <button
             onClick={() => setShowStatusModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-all"
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl font-medium hover:bg-zinc-950 transition-all"
           >
             <RefreshCw className="w-4 h-4" />
             <span>Update Status</span>
@@ -677,14 +677,14 @@ export default function JobDetailPage() {
             }) : 'Not Scheduled', 
             sub: job.scheduledTime || '', 
             icon: Calendar, 
-            color: 'text-blue-600' 
+            color: 'text-zinc-950' 
           },
           { 
             label: 'Duration', 
             value: job.estimatedDuration || 'Not set', 
             sub: 'Estimated', 
             icon: Timer, 
-            color: 'text-indigo-600' 
+            color: 'text-zinc-900' 
           },
           { 
             label: 'Budget', 
@@ -746,17 +746,17 @@ export default function JobDetailPage() {
       )}
 
       {job.status === 'Scheduled' && (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-300 rounded-2xl p-6">
+        <div className="bg-gradient-to-r from-zinc-50 to-indigo-50 border border-blue-300 rounded-2xl p-6">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-bold text-blue-900 flex items-center gap-2">
               <Calendar className="w-5 h-5" />
               Pre-Execution Workflow
             </h3>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-blue-700">Progress: {progressMetrics.overallReadiness}%</span>
+              <span className="text-sm font-medium text-zinc-950">Progress: {progressMetrics.overallReadiness}%</span>
               <div className="w-24 bg-blue-200 rounded-full h-2">
                 <div 
-                  className="bg-blue-600 h-2 rounded-full transition-all duration-500" 
+                  className="bg-zinc-950 h-2 rounded-full transition-all duration-500" 
                   style={{ width: `${progressMetrics.overallReadiness}%` }}
                 ></div>
               </div>
@@ -765,15 +765,15 @@ export default function JobDetailPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <button
               onClick={() => setActiveTab('pre-execution')}
-              className="group p-4 bg-blue-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all hover:scale-105"
+              className="group p-4 bg-zinc-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all hover:scale-105"
             >
-              <ClipboardCheck className="w-6 h-6 text-blue-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <ClipboardCheck className="w-6 h-6 text-zinc-950 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-blue-900">Pre-Job Checklist</span>
-              <div className="text-[10px] text-blue-700 mt-1">{progressMetrics.checklistCompletion}% Complete</div>
+              <div className="text-[10px] text-zinc-950 mt-1">{progressMetrics.checklistCompletion}% Complete</div>
             </button>
             <button
               onClick={() => setActiveTab('team')}
-              className="group p-4 bg-purple-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all hover:scale-105"
+              className="group p-4 bg-zinc-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all hover:scale-105"
             >
               <Users className="w-6 h-6 text-purple-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-purple-900">Team Assignment</span>
@@ -824,11 +824,11 @@ export default function JobDetailPage() {
             </button>
             <button
               onClick={() => setActiveTab('tasks')}
-              className="group p-4 bg-blue-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all hover:scale-105"
+              className="group p-4 bg-zinc-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all hover:scale-105"
             >
-              <CheckSquare className="w-6 h-6 text-blue-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <CheckSquare className="w-6 h-6 text-zinc-950 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-blue-900">Task Progress</span>
-              <div className="text-[10px] text-blue-700 mt-1">Track Completion</div>
+              <div className="text-[10px] text-zinc-950 mt-1">Track Completion</div>
             </button>
             <button
               onClick={() => setActiveTab('notes')}
@@ -889,7 +889,7 @@ export default function JobDetailPage() {
             </button>
             <button
               onClick={() => setActiveTab('completion')}
-              className="group p-4 bg-purple-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all hover:scale-105"
+              className="group p-4 bg-zinc-100 hover:bg-purple-200 border border-purple-400 rounded-xl text-center transition-all hover:scale-105"
             >
               <MessageSquare className="w-6 h-6 text-purple-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-purple-900">Review Request</span>
@@ -897,19 +897,19 @@ export default function JobDetailPage() {
             </button>
             <button
               onClick={() => setActiveTab('completion')}
-              className="group p-4 bg-pink-100 hover:bg-pink-200 border border-pink-400 rounded-xl text-center transition-all hover:scale-105"
+              className="group p-4 bg-zinc-100 hover:opacity-90 border border-zinc-300 rounded-xl text-center transition-all hover:scale-105"
             >
-              <FileText className="w-6 h-6 text-pink-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-bold text-pink-900">Client Summary</span>
-              <div className="text-[10px] text-pink-700 mt-1">Final Report</div>
+              <FileText className="w-6 h-6 text-zinc-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-bold text-zinc-900">Client Summary</span>
+              <div className="text-[10px] text-zinc-700 mt-1">Final Report</div>
             </button>
             <Link
               href={`/admin/finance/invoice-generator?jobId=${jobId}`}
-              className="group p-4 bg-blue-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all hover:scale-105"
+              className="group p-4 bg-zinc-100 hover:bg-blue-200 border border-blue-400 rounded-xl text-center transition-all hover:scale-105"
             >
-              <DollarSign className="w-6 h-6 text-blue-700 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+              <DollarSign className="w-6 h-6 text-zinc-950 mx-auto mb-2 group-hover:scale-110 transition-transform" />
               <span className="text-xs font-bold text-blue-900">Generate Invoice</span>
-              <div className="text-[10px] text-blue-700 mt-1">Billing Process</div>
+              <div className="text-[10px] text-zinc-950 mt-1">Billing Process</div>
             </Link>
           </div>
         </div>
@@ -934,7 +934,7 @@ export default function JobDetailPage() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex flex-col items-center justify-center gap-1.5 px-2 py-2.5 rounded-xl text-xs font-bold transition-all ${
               activeTab === tab.id
-                ? 'bg-indigo-600 text-white shadow-md'
+                ? 'bg-zinc-900 text-white shadow-md'
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
             }`}
           >
@@ -953,7 +953,7 @@ export default function JobDetailPage() {
               <div className="bg-white border border-gray-300 rounded-3xl p-8 space-y-6 shadow-sm">
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <FileText className="w-5 w-5 text-indigo-600" />
+                    <FileText className="w-5 w-5 text-zinc-900" />
                     Job Description
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{job.description || 'No description provided'}</p>
@@ -973,7 +973,7 @@ export default function JobDetailPage() {
                   <div className="flex flex-wrap gap-2">
                     {job.requiredSkills && job.requiredSkills.length > 0 ? (
                       job.requiredSkills.map((skill: string, i: number) => (
-                        <span key={i} className="px-3 py-1 bg-blue-100 text-blue-900 rounded-lg text-xs font-bold border border-blue-300">
+                        <span key={i} className="px-3 py-1 bg-zinc-100 text-blue-900 rounded-lg text-xs font-bold border border-blue-300">
                           {skill}
                         </span>
                       ))
@@ -1044,12 +1044,12 @@ export default function JobDetailPage() {
             <div className="bg-white border border-gray-300 rounded-3xl p-8 shadow-sm">
               <div className="flex items-center justify-between mb-8">
                 <h3 className="text-xl font-bold text-gray-900">Pre-Execution Phase</h3>
-                <span className="text-xs font-bold text-blue-900 px-3 py-1 bg-blue-100 rounded-full">Preparation Stage</span>
+                <span className="text-xs font-bold text-blue-900 px-3 py-1 bg-zinc-100 rounded-full">Preparation Stage</span>
               </div>
 
               {/* Pre-Execution Checklist */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+                <div className="bg-gradient-to-br from-zinc-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
                   <h4 className="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2">
                     <ClipboardCheck className="w-5 h-5" />
                     Pre-Job Checklist
@@ -1061,7 +1061,7 @@ export default function JobDetailPage() {
                           type="checkbox"
                           checked={check.status}
                           onChange={() => handleChecklistChange(i)}
-                          className="rounded border-blue-300 text-blue-600 focus:ring-blue-500"
+                          className="rounded border-blue-300 text-zinc-950 focus:ring-zinc-500"
                         />
                         <span className="text-sm text-gray-900">{check.item}</span>
                       </label>
@@ -1069,7 +1069,7 @@ export default function JobDetailPage() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6">
+                <div className="bg-gradient-to-br from-zinc-50 to-zinc-50 border border-purple-200 rounded-2xl p-6">
                   <h4 className="text-lg font-bold text-purple-900 mb-4 flex items-center gap-2">
                     <Users className="w-5 h-5" />
                     Team Readiness
@@ -1196,18 +1196,18 @@ export default function JobDetailPage() {
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+                <div className="bg-gradient-to-br from-zinc-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <Clock className="w-5 h-5 text-blue-600" />
+                    <Clock className="w-5 h-5 text-zinc-950" />
                     <span className="text-sm font-bold text-blue-900">Time Tracking</span>
                   </div>
                   <div className="text-2xl font-bold text-blue-900 mb-2">
                     {executionTime.elapsedHours}.{String(executionTime.elapsedMinutes).padStart(2, '0')}h
                   </div>
-                  <div className="text-xs text-blue-700 mb-2">
+                  <div className="text-xs text-zinc-950 mb-2">
                     Elapsed: {executionTime.elapsedHours}h {executionTime.elapsedMinutes}m
                   </div>
-                  <div className="text-xs text-blue-600">
+                  <div className="text-xs text-zinc-950">
                     Estimated completion: {executionTime.estimatedCompletion}h
                   </div>
                 </div>
@@ -1235,7 +1235,7 @@ export default function JobDetailPage() {
                             onChange={(e) => handleTaskStatusChange(i, e.target.value)}
                             className={`text-xs font-bold px-2 py-1 rounded-full border cursor-pointer transition-all ${
                               task.status === 'completed' ? 'bg-green-100 text-green-700 border-green-300' :
-                              task.status === 'in-progress' ? 'bg-blue-100 text-blue-700 border-blue-300' :
+                              task.status === 'in-progress' ? 'bg-zinc-100 text-zinc-950 border-blue-300' :
                               'bg-gray-100 text-gray-700 border-gray-300'
                             }`}
                           >
@@ -1298,7 +1298,7 @@ export default function JobDetailPage() {
                       <button
                         key={stage}
                         onClick={() => handleUploadPhoto(stage)}
-                        className="aspect-square bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center hover:border-blue-500 hover:bg-blue-50 transition-all"
+                        className="aspect-square bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center hover:border-zinc-500 hover:bg-zinc-50 transition-all"
                       >
                         <div className="text-center">
                           <Camera className="h-6 w-6 text-gray-400 mx-auto mb-1" />
@@ -1308,11 +1308,11 @@ export default function JobDetailPage() {
                     ))}
                     <button
                       onClick={() => document.getElementById('photo-input')?.click()}
-                      className="aspect-square bg-blue-50 border-2 border-dashed border-blue-300 rounded-lg flex items-center justify-center hover:bg-blue-100 transition-all"
+                      className="aspect-square bg-zinc-50 border-2 border-dashed border-blue-300 rounded-lg flex items-center justify-center hover:bg-zinc-100 transition-all"
                     >
                       <div className="text-center">
-                        <Plus className="h-6 w-6 text-blue-600 mx-auto mb-1" />
-                        <p className="text-xs text-blue-600">Add Photo</p>
+                        <Plus className="h-6 w-6 text-zinc-950 mx-auto mb-1" />
+                        <p className="text-xs text-zinc-950">Add Photo</p>
                       </div>
                     </button>
                     <input
@@ -1344,13 +1344,13 @@ export default function JobDetailPage() {
                 <textarea
                   value={executionNotes}
                   onChange={(e) => setExecutionNotes(e.target.value)}
-                  className="w-full h-24 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full h-24 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   placeholder="Add real-time notes about job execution..."
                 ></textarea>
                 <div className="flex justify-end mt-3">
                   <button
                     onClick={handleSaveExecutionNotes}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-all disabled:bg-gray-400"
+                    className="px-4 py-2 bg-zinc-950 text-white rounded-lg font-bold hover:bg-zinc-950 transition-all disabled:bg-gray-400"
                     disabled={!executionNotes.trim()}
                   >
                     Save Notes
@@ -1367,7 +1367,7 @@ export default function JobDetailPage() {
                   <h3 className="text-xl font-bold text-gray-900">Job Notes & Reminders</h3>
                   <button
                     onClick={() => setShowJobNoteModal(true)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-all"
+                    className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl font-medium hover:bg-zinc-950 transition-all"
                   >
                     <Plus className="w-4 h-4" />
                     <span>Add Note</span>
@@ -1377,12 +1377,12 @@ export default function JobDetailPage() {
                 {/* Notes */}
                 <div className="mb-8">
                   <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <MessageSquare className="w-5 h-5 text-blue-600" />
+                    <MessageSquare className="w-5 h-5 text-zinc-950" />
                     Notes
                   </h4>
                   <div className="space-y-3">
                     {jobNotes.map((note, i) => (
-                      <div key={note.id} className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-5">
+                      <div key={note.id} className="bg-gradient-to-r from-zinc-50 to-indigo-50 border border-blue-200 rounded-2xl p-5">
                         <div className="flex items-start justify-between mb-2">
                           <div>
                             <div className="text-sm text-gray-900">{note.text}</div>
@@ -1498,7 +1498,7 @@ export default function JobDetailPage() {
               <h3 className="text-xl font-bold text-gray-900 mb-8">Team Member Management</h3>
               <div className="space-y-5">
                 {taskAssignments.map((assignment, idx) => (
-                  <div key={assignment.id} className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6">
+                  <div key={assignment.id} className="bg-gradient-to-r from-zinc-50 to-zinc-50 border border-purple-200 rounded-2xl p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <h4 className="font-bold text-gray-900 mb-1">{assignment.taskName}</h4>
@@ -1509,7 +1509,7 @@ export default function JobDetailPage() {
                       <select
                         value={assignment.assignedTo}
                         onChange={(e) => handleReassignTeamMember(idx, e.target.value)}
-                        className="flex-1 px-4 py-2 border border-purple-300 rounded-lg bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="flex-1 px-4 py-2 border border-purple-300 rounded-lg bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       >
                         <option value="">Select a team member...</option>
                         {teamMembers.map((member) => (
@@ -1518,7 +1518,7 @@ export default function JobDetailPage() {
                           </option>
                         ))}
                       </select>
-                      <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all font-medium">
+                      <button className="px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-purple-700 transition-all font-medium">
                         Replace Duty
                       </button>
                     </div>
@@ -1544,19 +1544,19 @@ export default function JobDetailPage() {
                   </div>
                   <div className="text-xs text-green-600 mt-2">{teamMembers.length} team members</div>
                 </div>
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
-                  <div className="text-sm font-medium text-blue-700 mb-1">Average Rate/Hour</div>
+                <div className="bg-gradient-to-br from-zinc-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+                  <div className="text-sm font-medium text-zinc-950 mb-1">Average Rate/Hour</div>
                   <div className="text-3xl font-bold text-blue-900">
                     AED {Math.round(teamMembers.reduce((sum, m) => sum + m.hourlyRate, 0) / teamMembers.length)}
                   </div>
-                  <div className="text-xs text-blue-600 mt-2">Across all roles</div>
+                  <div className="text-xs text-zinc-950 mt-2">Across all roles</div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6">
+                <div className="bg-gradient-to-br from-zinc-50 to-zinc-50 border border-purple-200 rounded-2xl p-6">
                   <div className="text-sm font-medium text-purple-700 mb-1">Total Estimated Hours</div>
                   <div className="text-3xl font-bold text-purple-900">
                     {teamMembers.reduce((sum, m) => sum + m.estimatedHours, 0)} hrs
                   </div>
-                  <div className="text-xs text-purple-600 mt-2">Project duration</div>
+                  <div className="text-xs text-zinc-800 mt-2">Project duration</div>
                 </div>
               </div>
 
@@ -1625,7 +1625,7 @@ export default function JobDetailPage() {
                       </div>
                       <div className="text-right">
                         <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
-                          feedback.category === 'performance' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'
+                          feedback.category === 'performance' ? 'bg-zinc-100 text-blue-800' : 'bg-zinc-100 text-purple-800'
                         }`}>
                           {feedback.category.charAt(0).toUpperCase() + feedback.category.slice(1)}
                         </span>
@@ -1700,7 +1700,7 @@ export default function JobDetailPage() {
             <div className="space-y-6 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-px before:bg-gray-300">
               {activityLog.map((event, i) => (
                 <div key={i} className="relative pl-10">
-                  <div className="absolute left-3 top-1.5 w-2 h-2 rounded-full bg-indigo-600 shadow-[0_0_10px_rgba(79,70,229,0.3)]" />
+                  <div className="absolute left-3 top-1.5 w-2 h-2 rounded-full bg-zinc-900 shadow-[0_0_10px_rgba(79,70,229,0.3)]" />
                   <div className="text-xs font-bold text-gray-900 mb-1">{event.action}</div>
                   <div className="text-[10px] text-gray-600 mb-1">
                     {new Date(event.timestamp).toLocaleDateString()} • {event.user}
@@ -1747,7 +1747,7 @@ export default function JobDetailPage() {
                     <option.icon className={`w-4 h-4 ${option.color.split(' ')[1]}`} />
                   </div>
                   <span className="font-bold text-gray-900">{option.label}</span>
-                  {job.status === option.status && <CheckCircle className="w-4 h-4 text-indigo-600 ml-auto" />}
+                  {job.status === option.status && <CheckCircle className="w-4 h-4 text-zinc-900 ml-auto" />}
                 </button>
               ))}
             </div>
@@ -1773,7 +1773,7 @@ export default function JobDetailPage() {
                 value={newJobNote}
                 onChange={(e) => setNewJobNote(e.target.value)}
                 placeholder="Enter your note..."
-                className="w-full h-32 p-4 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full h-32 p-4 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-zinc-500"
               />
               <div className="flex items-center gap-3">
                 <button
@@ -1784,7 +1784,7 @@ export default function JobDetailPage() {
                 </button>
                 <button
                   onClick={handleAddJobNote}
-                  className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-950 text-white rounded-xl font-bold hover:bg-zinc-950 transition-all"
                 >
                   Add Note
                 </button>
@@ -1889,7 +1889,7 @@ export default function JobDetailPage() {
             <div className="space-y-6">
               {selectedTaskForReminder ? (
                 <>
-                  <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                  <div className="p-4 bg-zinc-50 border border-blue-200 rounded-xl">
                     <div className="text-sm font-medium text-blue-900">Task</div>
                     <div className="text-sm font-bold text-gray-900 mt-1">{selectedTaskForReminder.task}</div>
                   </div>

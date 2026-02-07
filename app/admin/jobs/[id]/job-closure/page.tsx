@@ -186,7 +186,7 @@ export default function JobClosure() {
               value={finalNotes}
               onChange={(e) => setFinalNotes(e.target.value)}
               placeholder="Add any final notes or observations..."
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
               rows={6}
             />
           </div>

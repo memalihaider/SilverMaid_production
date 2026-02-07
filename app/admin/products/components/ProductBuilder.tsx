@@ -448,7 +448,7 @@ export default function ProductBuilder({ product, categories = [], onSave, onCan
                       <button
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
-                        className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all"
+                        className="w-full px-4 py-3 bg-zinc-950 hover:bg-zinc-950 text-white text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all"
                       >
                         <Camera className="h-4 w-4" />
                         Select from Gallery

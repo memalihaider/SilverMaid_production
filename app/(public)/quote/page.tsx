@@ -7,7 +7,7 @@ export default function Quote() {
   return (
     <div className="flex flex-col overflow-hidden min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-linear-to-r from-primary via-pink-600 to-primary text-white overflow-hidden">
+      <section className="relative py-24 md:py-32 bg-linear-to-r from-primary via-zinc-700 to-primary text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-white rounded-full blur-3xl" />
@@ -84,7 +84,7 @@ export default function Quote() {
 
             {/* Email */}
             <motion.a
-              href="mailto:services@homeworkuae.com"
+              href="mailto:services@silvermaid.ae"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

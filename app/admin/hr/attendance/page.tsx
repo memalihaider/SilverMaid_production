@@ -678,9 +678,9 @@ export default function AttendancePage() {
       case 'Present': return 'bg-green-100 text-green-700'
       case 'Late': return 'bg-yellow-100 text-yellow-700'
       case 'Absent': return 'bg-red-100 text-red-700'
-      case 'Half Day': return 'bg-blue-100 text-blue-700'
-      case 'Full Leave': return 'bg-purple-100 text-purple-700'
-      case 'Sick Leave': return 'bg-pink-100 text-pink-700'
+      case 'Half Day': return 'bg-zinc-100 text-zinc-950'
+      case 'Full Leave': return 'bg-zinc-100 text-purple-700'
+      case 'Sick Leave': return 'bg-zinc-100 text-zinc-700'
       case 'On Job': return 'bg-indigo-100 text-indigo-700'
       default: return 'bg-gray-100 text-gray-700'
     }
@@ -706,9 +706,9 @@ export default function AttendancePage() {
       case 'Present': return 'bg-green-500 text-white'
       case 'Late': return 'bg-yellow-500 text-white'
       case 'Absent': return 'bg-red-500 text-white'
-      case 'Half Day': return 'bg-blue-500 text-white'
-      case 'Full Leave': return 'bg-purple-500 text-white'
-      case 'Sick Leave': return 'bg-pink-500 text-white'
+      case 'Half Day': return 'bg-zinc-500 text-white'
+      case 'Full Leave': return 'bg-zinc-500 text-white'
+      case 'Sick Leave': return 'bg-zinc-1000 text-white'
       case 'On Job': return 'bg-indigo-500 text-white'
       default: return 'bg-gray-200 text-gray-700'
     }
@@ -815,15 +815,15 @@ export default function AttendancePage() {
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Half Day</p>
-          <p className="text-2xl font-black text-blue-600 mt-1">{stats.halfDay}</p>
+          <p className="text-2xl font-black text-zinc-950 mt-1">{stats.halfDay}</p>
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">On Job</p>
-          <p className="text-2xl font-black text-indigo-600 mt-1">{stats.onJob}</p>
+          <p className="text-2xl font-black text-zinc-900 mt-1">{stats.onJob}</p>
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Leave</p>
-          <p className="text-2xl font-black text-purple-600 mt-1">{stats.fullLeave + stats.sickLeave}</p>
+          <p className="text-2xl font-black text-zinc-800 mt-1">{stats.fullLeave + stats.sickLeave}</p>
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Late</p>
@@ -857,14 +857,14 @@ export default function AttendancePage() {
         </button>
         <button
           onClick={() => handleBulkMark('Half Day')}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-zinc-500 text-white rounded-lg font-medium hover:bg-zinc-950 transition-colors"
         >
           <Clock4 className="h-4 w-4" />
           Mark All Half Day
         </button>
         <button
           onClick={() => handleBulkMark('Full Leave')}
-          className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-white rounded-lg font-medium hover:bg-purple-600 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-zinc-500 text-white rounded-lg font-medium hover:bg-zinc-800 transition-colors"
         >
           <Home className="h-4 w-4" />
           Mark All Leave
@@ -887,7 +887,7 @@ export default function AttendancePage() {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`py-3 px-4 font-bold flex items-center gap-2 border-b-2 transition-all ${
                   activeTab === tab.id
-                    ? 'border-blue-600 text-blue-600'
+                    ? 'border-zinc-950 text-zinc-950'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -948,10 +948,10 @@ export default function AttendancePage() {
                         <div className="flex items-center gap-3 mb-2">
                           <div className={`h-2.5 w-2.5 rounded-full ${
                             record.status === 'Present' ? 'bg-green-600' :
-                            record.status === 'On Job' ? 'bg-indigo-600' :
-                            record.status === 'Half Day' ? 'bg-blue-600' :
-                            record.status === 'Full Leave' ? 'bg-purple-600' :
-                            record.status === 'Sick Leave' ? 'bg-pink-600' :
+                            record.status === 'On Job' ? 'bg-zinc-900' :
+                            record.status === 'Half Day' ? 'bg-zinc-950' :
+                            record.status === 'Full Leave' ? 'bg-zinc-800' :
+                            record.status === 'Sick Leave' ? 'bg-primary' :
                             record.status === 'Late' ? 'bg-yellow-600' : 'bg-red-600'
                           }`} />
                           <div>
@@ -991,7 +991,7 @@ export default function AttendancePage() {
                           {record.jobTitle && (
                             <div>
                               <p className="text-xs text-muted-foreground">Job</p>
-                              <p className="font-bold text-purple-600 text-xs">{record.jobTitle}</p>
+                              <p className="font-bold text-zinc-800 text-xs">{record.jobTitle}</p>
                             </div>
                           )}
                         </div>
@@ -1013,7 +1013,7 @@ export default function AttendancePage() {
                           </button>
                           <button
                             onClick={() => handleQuickStatusChange(record.id, 'Half Day')}
-                            className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded hover:bg-blue-200 transition-colors"
+                            className="px-2 py-1 bg-zinc-100 text-zinc-950 text-xs rounded hover:bg-blue-200 transition-colors"
                             title="Mark Half Day"
                           >
                             Half Day
@@ -1027,7 +1027,7 @@ export default function AttendancePage() {
                           </button>
                           <button
                             onClick={() => handleQuickStatusChange(record.id, 'Full Leave')}
-                            className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded hover:bg-purple-200 transition-colors"
+                            className="px-2 py-1 bg-zinc-100 text-purple-700 text-xs rounded hover:bg-purple-200 transition-colors"
                             title="Mark Leave"
                           >
                             Leave
@@ -1071,7 +1071,7 @@ export default function AttendancePage() {
                   <p className="text-sm mt-1">Mark attendance for employees using the buttons above</p>
                   <button 
                     onClick={() => handleBulkMark('Present')}
-                    className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="mt-4 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
                   >
                     Mark All Present
                   </button>
@@ -1094,7 +1094,7 @@ export default function AttendancePage() {
                 <select
                   value={markForm.employeeId}
                   onChange={(e) => setMarkForm({ ...markForm, employeeId: e.target.value })}
-                  className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="">Select Employee</option>
                   {employees.map(emp => (
@@ -1110,10 +1110,10 @@ export default function AttendancePage() {
                 <div className="grid grid-cols-2 gap-2">
                   {[
                     { value: 'Present', label: 'Present', color: 'bg-green-500' },
-                    { value: 'Half Day', label: 'Half Day', color: 'bg-blue-500' },
+                    { value: 'Half Day', label: 'Half Day', color: 'bg-zinc-500' },
                     { value: 'Absent', label: 'Absent', color: 'bg-red-500' },
-                    { value: 'Full Leave', label: 'Full Leave', color: 'bg-purple-500' },
-                    { value: 'Sick Leave', label: 'Sick Leave', color: 'bg-pink-500' },
+                    { value: 'Full Leave', label: 'Full Leave', color: 'bg-zinc-500' },
+                    { value: 'Sick Leave', label: 'Sick Leave', color: 'bg-zinc-1000' },
                     { value: 'On Job', label: 'On Job', color: 'bg-indigo-500' },
                     { value: 'Late', label: 'Late', color: 'bg-yellow-500' }
                   ].map(status => (
@@ -1138,7 +1138,7 @@ export default function AttendancePage() {
                         type="time"
                         value={markForm.clockIn}
                         onChange={(e) => setMarkForm({ ...markForm, clockIn: e.target.value })}
-                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                     <div>
@@ -1147,7 +1147,7 @@ export default function AttendancePage() {
                         type="time"
                         value={markForm.clockOut}
                         onChange={(e) => setMarkForm({ ...markForm, clockOut: e.target.value })}
-                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                   </div>
@@ -1160,7 +1160,7 @@ export default function AttendancePage() {
                         placeholder="e.g., JOB001"
                         value={markForm.jobId}
                         onChange={(e) => setMarkForm({ ...markForm, jobId: e.target.value })}
-                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                     <div>
@@ -1170,7 +1170,7 @@ export default function AttendancePage() {
                         placeholder="e.g., Villa Deep Cleaning"
                         value={markForm.jobTitle}
                         onChange={(e) => setMarkForm({ ...markForm, jobTitle: e.target.value })}
-                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                       />
                     </div>
                   </div>
@@ -1183,7 +1183,7 @@ export default function AttendancePage() {
                       step="0.5"
                       value={markForm.overtimeHours}
                       onChange={(e) => setMarkForm({ ...markForm, overtimeHours: e.target.value })}
-                      className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                   </div>
                 </>
@@ -1195,12 +1195,12 @@ export default function AttendancePage() {
                   placeholder="Add any notes..."
                   value={markForm.notes}
                   onChange={(e) => setMarkForm({ ...markForm, notes: e.target.value })}
-                  className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 h-20 resize-none"
+                  className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 h-20 resize-none"
                 />
               </div>
               <button
                 onClick={handleMarkAttendance}
-                className="w-full px-4 py-2.5 bg-blue-600 text-white rounded-lg font-bold text-sm hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-2.5 bg-zinc-950 text-white rounded-lg font-bold text-sm hover:bg-zinc-950 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={!markForm.employeeId}
               >
                 <CheckCircle2 className="h-4 w-4" />
@@ -1217,7 +1217,7 @@ export default function AttendancePage() {
                   <span><strong>Present:</strong> Full day attendance (8 hours)</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <div className="h-2 w-2 rounded-full bg-zinc-500"></div>
                   <span><strong>Half Day:</strong> 4 working hours</span>
                 </li>
                 <li className="flex items-center gap-2">
@@ -1225,11 +1225,11 @@ export default function AttendancePage() {
                   <span><strong>Absent:</strong> No attendance</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                  <div className="h-2 w-2 rounded-full bg-zinc-500"></div>
                   <span><strong>Full Leave:</strong> Planned absence</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-pink-500"></div>
+                  <div className="h-2 w-2 rounded-full bg-zinc-1000"></div>
                   <span><strong>Sick Leave:</strong> Medical absence</span>
                 </li>
                 <li className="flex items-center gap-2">
@@ -1270,7 +1270,7 @@ export default function AttendancePage() {
                 <select
                   value={selectedEmployee}
                   onChange={(e) => setSelectedEmployee(e.target.value)}
-                  className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="">Select Employee</option>
                   {employees.map(emp => (
@@ -1294,7 +1294,7 @@ export default function AttendancePage() {
                     type="month"
                     value={selectedMonth}
                     onChange={(e) => setSelectedMonth(e.target.value)}
-                    className="flex-1 px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500"
                   />
                   <button
                     onClick={() => navigateMonth('next')}
@@ -1314,9 +1314,9 @@ export default function AttendancePage() {
                 <p className="text-sm text-gray-500 mt-2">
                   Please choose an employee from the dropdown above to see their monthly attendance report
                 </p>
-                <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-lg max-w-md mx-auto">
-                  <p className="text-sm font-bold text-blue-700 mb-2">How it works:</p>
-                  <ul className="text-sm text-blue-600 space-y-1">
+                <div className="mt-6 p-4 bg-zinc-50 border border-zinc-100 rounded-lg max-w-md mx-auto">
+                  <p className="text-sm font-bold text-zinc-950 mb-2">How it works:</p>
+                  <ul className="text-sm text-zinc-950 space-y-1">
                     <li>• Select an employee from the dropdown</li>
                     <li>• Choose the month you want to view</li>
                     <li>• See detailed daily attendance calendar</li>
@@ -1338,7 +1338,7 @@ export default function AttendancePage() {
                 </div>
 
                 {/* Employee Info - Jab employee select ho */}
-                <div className="mb-6 p-4 bg-blue-50 border border-blue-100 rounded-lg">
+                <div className="mb-6 p-4 bg-zinc-50 border border-zinc-100 rounded-lg">
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="font-bold text-lg">{monthlyReport.employee.name}</h4>
@@ -1347,7 +1347,7 @@ export default function AttendancePage() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-bold text-blue-700">
+                      <p className="text-sm font-bold text-zinc-950">
                         {new Date(`${monthlyReport.month}-01`).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                       </p>
                       <p className="text-xs text-gray-500">
@@ -1369,17 +1369,17 @@ export default function AttendancePage() {
                       <p className="text-xs text-red-700 font-bold uppercase">Absent</p>
                       <p className="text-xl font-black text-red-600">{monthlyReport.summary.absent}</p>
                     </div>
-                    <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
-                      <p className="text-xs text-blue-700 font-bold uppercase">Half Day</p>
-                      <p className="text-xl font-black text-blue-600">{monthlyReport.summary.halfDay}</p>
+                    <div className="bg-zinc-50 border border-zinc-100 rounded-xl p-3">
+                      <p className="text-xs text-zinc-950 font-bold uppercase">Half Day</p>
+                      <p className="text-xl font-black text-zinc-950">{monthlyReport.summary.halfDay}</p>
                     </div>
-                    <div className="bg-purple-50 border border-purple-100 rounded-xl p-3">
+                    <div className="bg-zinc-50 border border-zinc-100 rounded-xl p-3">
                       <p className="text-xs text-purple-700 font-bold uppercase">Leave</p>
-                      <p className="text-xl font-black text-purple-600">{monthlyReport.summary.fullLeave + monthlyReport.summary.sickLeave}</p>
+                      <p className="text-xl font-black text-zinc-800">{monthlyReport.summary.fullLeave + monthlyReport.summary.sickLeave}</p>
                     </div>
                     <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-3">
                       <p className="text-xs text-indigo-700 font-bold uppercase">On Job</p>
-                      <p className="text-xl font-black text-indigo-600">{monthlyReport.summary.onJob}</p>
+                      <p className="text-xl font-black text-zinc-900">{monthlyReport.summary.onJob}</p>
                     </div>
                     <div className="bg-yellow-50 border border-yellow-100 rounded-xl p-3">
                       <p className="text-xs text-yellow-700 font-bold uppercase">Late</p>
@@ -1414,14 +1414,14 @@ export default function AttendancePage() {
                       return (
                         <div
                           key={day.date}
-                          className={`min-h-24 border rounded-lg p-2 ${day.isWeekend ? 'bg-gray-50' : 'bg-white'} ${isToday ? 'ring-2 ring-blue-500' : ''}`}
+                          className={`min-h-24 border rounded-lg p-2 ${day.isWeekend ? 'bg-gray-50' : 'bg-white'} ${isToday ? 'ring-2 ring-zinc-500' : ''}`}
                         >
                           <div className="flex justify-between items-start mb-1">
                             <span className={`text-sm font-bold ${day.isWeekend ? 'text-gray-500' : 'text-gray-700'}`}>
                               {dayNum}
                             </span>
                             {isToday && (
-                              <span className="text-xs bg-blue-100 text-blue-700 px-1 py-0.5 rounded">Today</span>
+                              <span className="text-xs bg-zinc-100 text-zinc-950 px-1 py-0.5 rounded">Today</span>
                             )}
                           </div>
                           
@@ -1438,7 +1438,7 @@ export default function AttendancePage() {
                                   <span className="font-medium">{day.clockOut}</span>
                                 </div>
                                 {day.workingHours > 0 && (
-                                  <div className="text-xs text-blue-600 font-medium">
+                                  <div className="text-xs text-zinc-950 font-medium">
                                     {day.workingHours}h
                                   </div>
                                 )}
@@ -1469,11 +1469,11 @@ export default function AttendancePage() {
                         <span>Absent</span>
                       </div>
                       <div className="flex items-center gap-1 text-xs">
-                        <div className="h-3 w-3 rounded-sm bg-blue-500"></div>
+                        <div className="h-3 w-3 rounded-sm bg-zinc-500"></div>
                         <span>Half Day</span>
                       </div>
                       <div className="flex items-center gap-1 text-xs">
-                        <div className="h-3 w-3 rounded-sm bg-purple-500"></div>
+                        <div className="h-3 w-3 rounded-sm bg-zinc-500"></div>
                         <span>Leave</span>
                       </div>
                       <div className="flex items-center gap-1 text-xs">
@@ -1485,7 +1485,7 @@ export default function AttendancePage() {
                         <span>Late</span>
                       </div>
                       <div className="flex items-center gap-1 text-xs">
-                        <div className="h-3 w-3 rounded-sm bg-pink-500"></div>
+                        <div className="h-3 w-3 rounded-sm bg-zinc-1000"></div>
                         <span>Sick Leave</span>
                       </div>
                     </div>

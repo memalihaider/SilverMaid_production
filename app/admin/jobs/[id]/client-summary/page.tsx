@@ -123,7 +123,7 @@ export default function ClientSummary() {
           <button
             onClick={handleSendEmail}
             disabled={isSending}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             <Send className="w-4 h-4" />
             {isSending ? 'Sending...' : 'Send to Client'}
@@ -214,7 +214,7 @@ export default function ClientSummary() {
             <div className="space-y-3">
               {summary.recommendations.map((rec, index) => (
                 <div key={index} className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 shrink-0" />
+                  <div className="w-2 h-2 bg-zinc-950 rounded-full mt-2 shrink-0" />
                   <span className="text-sm text-gray-700">{rec}</span>
                 </div>
               ))}
@@ -252,19 +252,19 @@ export default function ClientSummary() {
             </div>
           </div>
 
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+          <div className="bg-zinc-50 p-4 rounded-lg border border-blue-200">
             <div className="flex items-center gap-2 text-blue-800 mb-2">
               <MessageSquare className="w-5 h-5" />
               <div className="text-sm font-medium">Quick Actions</div>
             </div>
             <div className="space-y-2">
-              <button className="w-full text-left text-sm text-blue-700 hover:text-blue-900">
+              <button className="w-full text-left text-sm text-zinc-950 hover:text-blue-900">
                 Schedule follow-up call
               </button>
-              <button className="w-full text-left text-sm text-blue-700 hover:text-blue-900">
+              <button className="w-full text-left text-sm text-zinc-950 hover:text-blue-900">
                 Send thank you note
               </button>
-              <button className="w-full text-left text-sm text-blue-700 hover:text-blue-900">
+              <button className="w-full text-left text-sm text-zinc-950 hover:text-blue-900">
                 Request referral
               </button>
             </div>

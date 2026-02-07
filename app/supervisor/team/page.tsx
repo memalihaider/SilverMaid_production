@@ -23,14 +23,14 @@ import {
 import { getSession, type SessionData } from '@/lib/auth';
 
 const teamMembers = [
-  { id: '1', name: 'Ahmed Hassan', role: 'Senior Technician', status: 'present', checkIn: '07:55 AM', job: 'JOB-2024-001', phone: '+971501234567', email: 'ahmed@homeware.com', rating: 4.8 },
-  { id: '2', name: 'Mohammed Ali', role: 'Technician', status: 'present', checkIn: '08:02 AM', job: 'JOB-2024-001', phone: '+971501234568', email: 'mohammed@homeware.com', rating: 4.6 },
-  { id: '3', name: 'Sara Al Maktoum', role: 'Technician', status: 'present', checkIn: '07:58 AM', job: 'Office', phone: '+971501234569', email: 'sara@homeware.com', rating: 4.7 },
-  { id: '4', name: 'Omar Rashid', role: 'Technician', status: 'late', checkIn: '08:15 AM', job: 'JOB-2024-004', phone: '+971501234570', email: 'omar@homeware.com', rating: 4.5 },
-  { id: '5', name: 'Fatima Khalid', role: 'Technician', status: 'on-leave', checkIn: null, job: null, phone: '+971501234571', email: 'fatima@homeware.com', rating: 4.9 },
-  { id: '6', name: 'Hassan Ahmad', role: 'Technician', status: 'present', checkIn: '08:00 AM', job: 'JOB-2024-002', phone: '+971501234572', email: 'hassan@homeware.com', rating: 4.7 },
-  { id: '7', name: 'Layla Noor', role: 'Senior Technician', status: 'present', checkIn: '07:50 AM', job: 'JOB-2024-003', phone: '+971501234573', email: 'layla@homeware.com', rating: 4.8 },
-  { id: '8', name: 'Yusuf Kareem', role: 'Technician', status: 'absent', checkIn: null, job: null, phone: '+971501234574', email: 'yusuf@homeware.com', rating: 4.4 },
+  { id: '1', name: 'Ahmed Hassan', role: 'Senior Technician', status: 'present', checkIn: '07:55 AM', job: 'JOB-2024-001', phone: '+971501234567', email: 'ahmed@silvermaid.com', rating: 4.8 },
+  { id: '2', name: 'Mohammed Ali', role: 'Technician', status: 'present', checkIn: '08:02 AM', job: 'JOB-2024-001', phone: '+971501234568', email: 'mohammed@silvermaid.com', rating: 4.6 },
+  { id: '3', name: 'Sara Al Maktoum', role: 'Technician', status: 'present', checkIn: '07:58 AM', job: 'Office', phone: '+971501234569', email: 'sara@silvermaid.com', rating: 4.7 },
+  { id: '4', name: 'Omar Rashid', role: 'Technician', status: 'late', checkIn: '08:15 AM', job: 'JOB-2024-004', phone: '+971501234570', email: 'omar@silvermaid.com', rating: 4.5 },
+  { id: '5', name: 'Fatima Khalid', role: 'Technician', status: 'on-leave', checkIn: null, job: null, phone: '+971501234571', email: 'fatima@silvermaid.com', rating: 4.9 },
+  { id: '6', name: 'Hassan Ahmad', role: 'Technician', status: 'present', checkIn: '08:00 AM', job: 'JOB-2024-002', phone: '+971501234572', email: 'hassan@silvermaid.com', rating: 4.7 },
+  { id: '7', name: 'Layla Noor', role: 'Senior Technician', status: 'present', checkIn: '07:50 AM', job: 'JOB-2024-003', phone: '+971501234573', email: 'layla@silvermaid.com', rating: 4.8 },
+  { id: '8', name: 'Yusuf Kareem', role: 'Technician', status: 'absent', checkIn: null, job: null, phone: '+971501234574', email: 'yusuf@silvermaid.com', rating: 4.4 },
 ];
 
 export default function TeamPage() {

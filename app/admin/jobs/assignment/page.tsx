@@ -408,7 +408,7 @@ export default function TeamAssignment() {
             <p className="text-gray-600 mt-1">Convert won leads into scheduled service assignments</p>
           </div>
           <div className="flex items-center gap-3">
-            <div className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+            <div className="px-3 py-1 bg-zinc-100 text-blue-800 rounded-full text-sm font-medium">
               {wonLeads.filter(l => !l.assigned).length} Pending Leads
             </div>
             <div className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
@@ -425,8 +425,8 @@ export default function TeamAssignment() {
                 <p className="text-sm font-medium text-gray-600">Total Value</p>
                 <p className="text-xl font-bold text-gray-900">AED {stats.totalValue.toLocaleString()}</p>
               </div>
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <Briefcase className="h-5 w-5 text-blue-600" />
+              <div className="p-2 bg-zinc-100 rounded-lg">
+                <Briefcase className="h-5 w-5 text-zinc-950" />
               </div>
             </div>
           </div>
@@ -458,8 +458,8 @@ export default function TeamAssignment() {
                 <p className="text-sm font-medium text-gray-600">Surveys Completed</p>
                 <p className="text-xl font-bold text-gray-900">{stats.completedSurveys}</p>
               </div>
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <ClipboardList className="h-5 w-5 text-purple-600" />
+              <div className="p-2 bg-zinc-100 rounded-lg">
+                <ClipboardList className="h-5 w-5 text-zinc-800" />
               </div>
             </div>
           </div>
@@ -472,7 +472,7 @@ export default function TeamAssignment() {
               onClick={() => setActiveTab('leads')}
               className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                 activeTab === 'leads'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-zinc-950 text-white'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -482,7 +482,7 @@ export default function TeamAssignment() {
               onClick={() => setActiveTab('assignments')}
               className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                 activeTab === 'assignments'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-zinc-950 text-white'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -500,14 +500,14 @@ export default function TeamAssignment() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={activeTab === 'leads' ? "Search leads..." : "Search assignments..."}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
             />
           </div>
           {activeTab === 'assignments' && (
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
             >
               <option value="All">All Status</option>
               <option value="Pending">Pending</option>
@@ -533,8 +533,8 @@ export default function TeamAssignment() {
                 <div key={lead.id} className="bg-white rounded-lg border border-gray-200 p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                        <span className="text-sm font-semibold text-blue-700">
+                      <div className="h-10 w-10 rounded-full bg-zinc-100 flex items-center justify-center">
+                        <span className="text-sm font-semibold text-zinc-950">
                           {lead.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
@@ -560,7 +560,7 @@ export default function TeamAssignment() {
                           setSelectedLead(lead)
                           setShowCreateAssignment(true)
                         }}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+                        className="px-4 py-2 bg-zinc-950 hover:bg-zinc-950 text-white text-sm font-medium rounded-lg transition-colors"
                       >
                         Create Assignment
                       </button>
@@ -571,7 +571,7 @@ export default function TeamAssignment() {
                       <div className="flex items-center gap-4">
                         <span className="text-sm text-gray-600">Service: {lead.serviceType}</span>
                         {lead.surveyRequired && (
-                          <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">
+                          <span className="px-2 py-1 bg-zinc-100 text-purple-800 rounded-full text-xs font-medium">
                             Survey Required
                           </span>
                         )}
@@ -598,11 +598,11 @@ export default function TeamAssignment() {
                     <div className="flex items-center gap-4">
                       <div className={`h-10 w-10 rounded-full flex items-center justify-center ${
                         assignment.status === 'Completed' ? 'bg-green-100' :
-                        assignment.status === 'In Progress' ? 'bg-blue-100' :
+                        assignment.status === 'In Progress' ? 'bg-zinc-100' :
                         assignment.status === 'Assigned' ? 'bg-yellow-100' : 'bg-gray-100'
                       }`}>
                         {assignment.status === 'Completed' ? <CheckCircle className="h-5 w-5 text-green-600" /> :
-                         assignment.status === 'In Progress' ? <PlayCircle className="h-5 w-5 text-blue-600" /> :
+                         assignment.status === 'In Progress' ? <PlayCircle className="h-5 w-5 text-zinc-950" /> :
                          assignment.status === 'Assigned' ? <UserCheck className="h-5 w-5 text-yellow-600" /> :
                          <Clock className="h-5 w-5 text-gray-600" />}
                       </div>
@@ -618,7 +618,7 @@ export default function TeamAssignment() {
                       </div>
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                         assignment.status === 'Completed' ? 'bg-green-100 text-green-800' :
-                        assignment.status === 'In Progress' ? 'bg-blue-100 text-blue-800' :
+                        assignment.status === 'In Progress' ? 'bg-zinc-100 text-blue-800' :
                         assignment.status === 'Assigned' ? 'bg-yellow-100 text-yellow-800' :
                         'bg-gray-100 text-gray-800'
                       }`}>
@@ -633,7 +633,7 @@ export default function TeamAssignment() {
                               const suggested = suggestTeamMembers(assignment)
                               setSelectedTeamMembers(suggested.slice(0, assignment.teamSize).map(m => m.id))
                             }}
-                            className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded transition-colors"
+                            className="px-3 py-1 bg-zinc-950 hover:bg-zinc-950 text-white text-sm font-medium rounded transition-colors"
                           >
                             Assign Team
                           </button>
@@ -708,7 +708,7 @@ export default function TeamAssignment() {
                   </button>
                   <button
                     onClick={() => createAssignmentFromLead(selectedLead)}
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                    className="px-4 py-2 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg transition-colors"
                   >
                     Create Assignment
                   </button>
@@ -733,7 +733,7 @@ export default function TeamAssignment() {
                   <h3 className="font-medium text-gray-900 mb-2">Required Skills</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedAssignment.requiredSkills.map((skill, idx) => (
-                      <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                      <span key={idx} className="px-3 py-1 bg-zinc-100 text-blue-800 rounded-full text-sm">
                         {skill}
                       </span>
                     ))}
@@ -761,7 +761,7 @@ export default function TeamAssignment() {
                           }
                         }}
                         className={`p-4 border rounded-lg cursor-pointer transition-colors ${
-                          isSelected ? 'border-blue-500 bg-blue-50' :
+                          isSelected ? 'border-zinc-500 bg-zinc-50' :
                           hasRequiredSkills && isAvailable ? 'border-gray-300 hover:border-gray-400' :
                           'border-gray-200 bg-gray-50 cursor-not-allowed'
                         }`}
@@ -778,7 +778,7 @@ export default function TeamAssignment() {
                             <Star className="h-4 w-4 text-yellow-400 fill-current" />
                             <span className="text-sm text-gray-600">{member.rating}</span>
                           </div>
-                          {isSelected && <CheckCircle className="h-5 w-5 text-blue-600" />}
+                          {isSelected && <CheckCircle className="h-5 w-5 text-zinc-950" />}
                         </div>
                         {!hasRequiredSkills && (
                           <p className="text-xs text-red-600 mt-2">Missing required skills</p>
@@ -805,7 +805,7 @@ export default function TeamAssignment() {
                     <button
                       onClick={handleAssignTeam}
                       disabled={selectedTeamMembers.length === 0}
-                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded-lg transition-colors"
+                      className="px-4 py-2 bg-zinc-950 hover:bg-zinc-950 disabled:bg-gray-400 text-white rounded-lg transition-colors"
                     >
                       Assign Team
                     </button>

@@ -120,7 +120,7 @@ export default function ProductList({ products: initialProducts, categories, onE
               <tr key={`${item.type}-${item.id}`} className="hover:bg-gray-50 transition-colors group">
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
-                    <div className={`p-2 ${item.type === 'PRODUCT' ? 'bg-blue-50 text-blue-600' : 'bg-purple-50 text-purple-600'}`}>
+                    <div className={`p-2 ${item.type === 'PRODUCT' ? 'bg-zinc-50 text-zinc-950' : 'bg-zinc-50 text-zinc-800'}`}>
                       {item.type === 'PRODUCT' ? <Package className="h-4 w-4" /> : <Zap className="h-4 w-4" />}
                     </div>
                     <div>

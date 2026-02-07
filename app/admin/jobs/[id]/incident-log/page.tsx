@@ -73,7 +73,7 @@ export default function IncidentLog() {
       case 'critical': return 'bg-red-100 text-red-700 border-red-300'
       case 'high': return 'bg-orange-100 text-orange-700 border-orange-300'
       case 'medium': return 'bg-yellow-100 text-yellow-700 border-yellow-300'
-      case 'low': return 'bg-blue-100 text-blue-700 border-blue-300'
+      case 'low': return 'bg-zinc-100 text-zinc-950 border-blue-300'
       default: return 'bg-gray-100 text-gray-700 border-gray-300'
     }
   }
@@ -81,7 +81,7 @@ export default function IncidentLog() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'resolved': return 'bg-green-100 text-green-700 border-green-300'
-      case 'investigating': return 'bg-blue-100 text-blue-700 border-blue-300'
+      case 'investigating': return 'bg-zinc-100 text-zinc-950 border-blue-300'
       case 'reported': return 'bg-yellow-100 text-yellow-700 border-yellow-300'
       default: return 'bg-gray-100 text-gray-700 border-gray-300'
     }

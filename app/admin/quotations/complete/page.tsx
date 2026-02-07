@@ -49,27 +49,31 @@ export default function QuotationsPage() {
   ] as const
 
   return (
-    <div className="w-full bg-white min-h-screen p-4">
+    <div className="w-full bg-white min-h-screen p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-black mb-1">Quotation Management</h1>
-          <p className="text-sm text-gray-500 font-medium">Generate professional quotes, track approvals, and manage client follow-ups</p>
+          <h1 className="text-2xl font-black text-zinc-950 tracking-tighter uppercase italic">
+            Quotation <span className="text-zinc-400">Intelligence</span>
+          </h1>
+          <p className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] mt-1">
+            Professional Proposal & Approval Management
+          </p>
         </div>
         <div className="flex gap-2">
-           <button className="flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded text-[11px] font-bold uppercase tracking-tight text-gray-600 hover:bg-gray-50 transition-colors">
-              <Download className="w-4 h-4" />
+           <button className="flex items-center gap-2 px-4 py-2 bg-white border border-zinc-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-zinc-600 hover:bg-zinc-50 transition-all shadow-sm">
+              <Download className="w-3.5 h-3.5" />
               Export
            </button>
-           <button className="flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded text-[11px] font-bold uppercase tracking-tight text-gray-600 hover:bg-gray-50 transition-colors">
-              <History className="w-4 h-4" />
-              Audit Log
+           <button className="flex items-center gap-2 px-4 py-2 bg-white border border-zinc-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-zinc-600 hover:bg-zinc-50 transition-all shadow-sm">
+              <History className="w-3.5 h-3.5" />
+              Audit Registry
            </button>
         </div>
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white rounded border border-gray-300 p-1 mb-6 flex gap-1 overflow-x-auto shadow-none">
+      <div className="bg-zinc-50/50 border border-zinc-100 p-1.5 mb-8 flex gap-1 overflow-x-auto no-scrollbar rounded-2xl">
         {tabs.map((tab) => {
           const TabIcon = tab.icon
           return (
@@ -79,13 +83,13 @@ export default function QuotationsPage() {
                 setActiveTab(tab.id)
                 if (tab.id !== 'builder') setEditingQuotation(null)
               }}
-              className={`flex items-center gap-2 px-4 py-2 rounded transition-colors whitespace-nowrap text-[12px] uppercase font-bold tracking-tight ${
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all whitespace-nowrap text-[10px] uppercase font-black tracking-widest ${
                 activeTab === tab.id
-                  ? 'bg-black text-white'
-                  : 'text-gray-500 hover:bg-gray-100 border border-transparent'
+                  ? 'bg-zinc-950 text-white shadow-lg'
+                  : 'text-zinc-400 hover:text-zinc-950 hover:bg-white'
               }`}
             >
-              <TabIcon className="w-4 h-4" />
+              <TabIcon className="w-3.5 h-3.5" />
               {tab.label}
             </button>
           )

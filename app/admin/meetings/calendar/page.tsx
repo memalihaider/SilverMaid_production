@@ -435,10 +435,10 @@ export default function MeetingCalendar() {
   // Get meeting type color function
   const getMeetingTypeColor = (type: string) => {
     switch (type) {
-      case 'Standup': return 'bg-blue-100 text-blue-700'
-      case 'Job Review': return 'bg-pink-100 text-pink-700'
+      case 'Standup': return 'bg-zinc-100 text-zinc-950'
+      case 'Job Review': return 'bg-zinc-100 text-zinc-700'
       case 'Financial': return 'bg-green-100 text-green-700'
-      case 'HR': return 'bg-purple-100 text-purple-700'
+      case 'HR': return 'bg-zinc-100 text-purple-700'
       case 'Client Meeting': return 'bg-orange-100 text-orange-700'
       case 'Review': return 'bg-yellow-100 text-yellow-700'
       case 'Audit': return 'bg-red-100 text-red-700'
@@ -475,7 +475,7 @@ export default function MeetingCalendar() {
             setEditingMeeting(null)
             setShowMeetingForm(true)
           }} 
-          className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-3 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
         >
           <Plus className="h-5 w-5" />
           <span className="font-bold">Schedule Meeting</span>
@@ -484,7 +484,7 @@ export default function MeetingCalendar() {
 
       {/* Add/Edit Meeting Form Modal */}
       {showMeetingForm && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 space-y-4">
+        <div className="bg-zinc-50 border border-blue-200 rounded-lg p-6 space-y-4">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-lg">{editingMeeting ? 'Edit Meeting' : 'Schedule New Meeting'}</h3>
             <button 
@@ -493,7 +493,7 @@ export default function MeetingCalendar() {
                 setEditingMeeting(null); 
                 resetForm();
               }} 
-              className="p-1 hover:bg-blue-100 rounded"
+              className="p-1 hover:bg-zinc-100 rounded"
             >
               <X className="h-5 w-5" />
             </button>
@@ -506,7 +506,7 @@ export default function MeetingCalendar() {
               placeholder="Meeting Title *"
               value={newMeeting.title}
               onChange={(e) => setNewMeeting({...newMeeting, title: e.target.value})}
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:col-span-3"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 md:col-span-3"
               required
             />
             
@@ -514,20 +514,20 @@ export default function MeetingCalendar() {
               type="date" 
               value={newMeeting.date} 
               onChange={(e) => setNewMeeting({...newMeeting, date: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500" 
               required
             />
             <input 
               type="time" 
               value={newMeeting.time} 
               onChange={(e) => setNewMeeting({...newMeeting, time: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500" 
               required
             />
             <select 
               value={newMeeting.duration} 
               onChange={(e) => setNewMeeting({...newMeeting, duration: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             >
               <option value="15 mins">15 mins</option>
               <option value="30 mins">30 mins</option>
@@ -541,7 +541,7 @@ export default function MeetingCalendar() {
             <select 
               value={newMeeting.type} 
               onChange={(e) => setNewMeeting({...newMeeting, type: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             >
               {meetingTypes.filter(t => t !== 'all').map(type => (
                 <option key={type} value={type}>{type}</option>
@@ -554,14 +554,14 @@ export default function MeetingCalendar() {
               placeholder="Location" 
               value={newMeeting.location} 
               onChange={(e) => setNewMeeting({...newMeeting, location: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500" 
             />
             
             {/* Vehicle */}
             <select 
               value={newMeeting.vehicle} 
               onChange={(e) => setNewMeeting({...newMeeting, vehicle: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             >
               {vehicles.map(v => (
                 <option key={v} value={v}>{v}</option>
@@ -574,7 +574,7 @@ export default function MeetingCalendar() {
               placeholder="Cost (AED)" 
               value={newMeeting.cost} 
               onChange={(e) => setNewMeeting({...newMeeting, cost: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500" 
               min="0"
             />
 
@@ -584,14 +584,14 @@ export default function MeetingCalendar() {
               placeholder="Linked Job ID (Optional)" 
               value={newMeeting.linkedJob} 
               onChange={(e) => setNewMeeting({...newMeeting, linkedJob: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500" 
             />
             <input 
               type="text" 
               placeholder="Linked Client (Optional)" 
               value={newMeeting.linkedClient} 
               onChange={(e) => setNewMeeting({...newMeeting, linkedClient: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500" 
             />
 
             {/* Team Members Multi-Select */}
@@ -601,7 +601,7 @@ export default function MeetingCalendar() {
                 {employees.map(employee => (
                   <label 
                     key={employee.id} 
-                    className="flex items-center gap-2 p-2 border rounded-lg hover:bg-blue-100 cursor-pointer"
+                    className="flex items-center gap-2 p-2 border rounded-lg hover:bg-zinc-100 cursor-pointer"
                   >
                     <input 
                       type="checkbox" 
@@ -634,7 +634,7 @@ export default function MeetingCalendar() {
             <select 
               value={newMeeting.status} 
               onChange={(e) => setNewMeeting({...newMeeting, status: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             >
               <option value="Scheduled">Scheduled</option>
               <option value="In Progress">In Progress</option>
@@ -647,7 +647,7 @@ export default function MeetingCalendar() {
               placeholder="Meeting Notes (Optional)" 
               value={newMeeting.notes} 
               onChange={(e) => setNewMeeting({...newMeeting, notes: e.target.value})} 
-              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:col-span-2 h-20" 
+              className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 md:col-span-2 h-20" 
             />
           </div>
 
@@ -666,7 +666,7 @@ export default function MeetingCalendar() {
             <button 
               onClick={editingMeeting ? handleEditMeeting : handleAddMeeting} 
               disabled={loading || newMeeting.attendees.length === 0}
-              className={`px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-bold ${
+              className={`px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors font-bold ${
                 loading || newMeeting.attendees.length === 0 ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
@@ -678,10 +678,10 @@ export default function MeetingCalendar() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-linear-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-4">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-100 border border-blue-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Total Meetings</p>
-          <p className="text-3xl font-black text-blue-700">{stats.totalMeetings}</p>
-          <p className="text-xs text-blue-600 mt-1">All scheduled</p>
+          <p className="text-3xl font-black text-zinc-950">{stats.totalMeetings}</p>
+          <p className="text-xs text-zinc-950 mt-1">All scheduled</p>
         </div>
         <div className="bg-linear-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">This Month</p>
@@ -693,10 +693,10 @@ export default function MeetingCalendar() {
           <p className="text-3xl font-black text-orange-700">{stats.clientMeetings}</p>
           <p className="text-xs text-orange-600 mt-1">Client meetings</p>
         </div>
-        <div className="bg-linear-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-lg p-4">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-100 border border-purple-200 rounded-lg p-4">
           <p className="text-xs text-muted-foreground mb-1">Linked to Jobs</p>
           <p className="text-3xl font-black text-purple-700">{stats.jobMeetings}</p>
-          <p className="text-xs text-purple-600 mt-1">Job-related</p>
+          <p className="text-xs text-zinc-800 mt-1">Job-related</p>
         </div>
       </div>
 
@@ -710,7 +710,7 @@ export default function MeetingCalendar() {
               placeholder="Search meetings by title, client name, job ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
             />
           </div>
         </div>
@@ -719,7 +719,7 @@ export default function MeetingCalendar() {
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
-            className="w-full md:w-64 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="w-full md:w-64 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm"
           >
             {meetingTypes.map(type => (
               <option key={type} value={type}>{type === 'all' ? 'All Types' : type}</option>
@@ -768,7 +768,7 @@ export default function MeetingCalendar() {
                   disabled={!day}
                   className={`aspect-square p-2 rounded text-sm font-semibold transition-colors relative ${
                     !day ? 'text-muted-foreground/30' :
-                    isSelected ? 'bg-blue-600 text-white' :
+                    isSelected ? 'bg-zinc-950 text-white' :
                     isToday ? 'bg-green-100 text-green-700 border border-green-300' :
                     dayMeetings.length > 0 ? 'bg-orange-50 text-orange-700 border border-orange-200' :
                     'hover:bg-muted text-foreground'
@@ -791,7 +791,7 @@ export default function MeetingCalendar() {
         {/* Meetings List for Selected Date */}
         <div className="bg-card border rounded-lg p-4 lg:col-span-2 space-y-4">
           <h3 className="font-bold text-lg flex items-center gap-2">
-            <Calendar className="h-5 w-5 text-blue-600" />
+            <Calendar className="h-5 w-5 text-zinc-950" />
             Meetings - {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
           </h3>
 
@@ -806,7 +806,7 @@ export default function MeetingCalendar() {
                 .filter(m => m.date === selectedDate)
                 .sort((a, b) => a.time.localeCompare(b.time))
                 .map((meeting) => (
-                <div key={meeting.id} className={`border rounded-lg p-4 transition-all ${viewingMeeting === meeting.id ? 'bg-blue-50 border-blue-300' : 'hover:bg-muted/30'}`}>
+                <div key={meeting.id} className={`border rounded-lg p-4 transition-all ${viewingMeeting === meeting.id ? 'bg-zinc-50 border-blue-300' : 'hover:bg-muted/30'}`}>
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
                       <p className="font-bold text-lg">{meeting.title}</p>
@@ -821,7 +821,7 @@ export default function MeetingCalendar() {
                     <div className="flex gap-2">
                       <button 
                         onClick={() => handleViewMeeting(meeting.id)} 
-                        className="p-2 hover:bg-blue-100 text-blue-600 rounded transition-colors" 
+                        className="p-2 hover:bg-zinc-100 text-zinc-950 rounded transition-colors" 
                         title="View Details"
                       >
                         <Eye className="h-4 w-4" />
@@ -860,7 +860,7 @@ export default function MeetingCalendar() {
                         AED {meeting.cost}
                       </div>
                     )}
-                    <div className="flex items-center gap-1 bg-purple-100 text-purple-700 px-2 py-1 rounded">
+                    <div className="flex items-center gap-1 bg-zinc-100 text-purple-700 px-2 py-1 rounded">
                       <Truck className="h-3 w-3" />
                       {meeting.vehicle}
                     </div>
@@ -879,7 +879,7 @@ export default function MeetingCalendar() {
                   {/* Links */}
                   <div className="flex flex-wrap gap-2 mb-3">
                     {meeting.linkedJob && (
-                      <div className="flex items-center gap-1 text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded">
+                      <div className="flex items-center gap-1 text-xs bg-zinc-100 text-zinc-700 px-2 py-1 rounded">
                         <Briefcase className="h-3 w-3" />
                         Job: {meeting.linkedJob}
                       </div>
@@ -923,7 +923,7 @@ export default function MeetingCalendar() {
                         <p className="font-bold text-muted-foreground mb-1">All Attendees:</p>
                         <div className="flex flex-wrap gap-1">
                           {meeting.attendeeNames?.map((name, idx) => (
-                            <span key={idx} className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">
+                            <span key={idx} className="px-2 py-1 bg-zinc-100 text-zinc-950 rounded-full text-xs">
                               {name}
                             </span>
                           ))}

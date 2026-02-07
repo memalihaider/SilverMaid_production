@@ -143,7 +143,7 @@ export default function PerformanceDashboard() {
         
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-rose-100 blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-purple-100 blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-zinc-100 blur-[100px]"></div>
       </div>
 
       {/* AI Analysis Summary */}
@@ -335,7 +335,7 @@ export default function PerformanceDashboard() {
                         </div>
                         <div className="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-linear-to-r from-rose-500 to-purple-500 rounded-full"
+                            className="h-full bg-linear-to-r from-rose-500 to-zinc-500 rounded-full"
                             style={{ width: `${(emp.rating / 5) * 100}%` }}
                           />
                         </div>
@@ -357,7 +357,7 @@ export default function PerformanceDashboard() {
                         <span className="text-sm font-black text-black">{emp.engagement}%</span>
                         <div className="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
                           <div 
-                            className={`h-full rounded-full ${emp.engagement >= 80 ? 'bg-linear-to-r from-blue-500 to-indigo-500' : 'bg-linear-to-r from-amber-500 to-orange-500'}`}
+                            className={`h-full rounded-full ${emp.engagement >= 80 ? 'bg-linear-to-r from-zinc-500 to-indigo-500' : 'bg-linear-to-r from-amber-500 to-orange-500'}`}
                             style={{ width: `${emp.engagement}%` }}
                           />
                         </div>
@@ -423,7 +423,7 @@ export default function PerformanceDashboard() {
           </div>
 
           <div className="space-y-8">
-            <div className="bg-linear-to-br from-rose-600 to-purple-600 rounded-[32px] p-8 text-white shadow-2xl shadow-rose-600/20">
+            <div className="bg-linear-to-br from-rose-600 to-zinc-800 rounded-[32px] p-8 text-white shadow-2xl shadow-rose-600/20">
               <h3 className="text-xl font-black mb-6 flex items-center gap-3">
                 <Brain className="h-6 w-6" />
                 AI Risk Analysis
@@ -498,14 +498,14 @@ export default function PerformanceDashboard() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+                  <div className="bg-zinc-50 border border-blue-200 rounded-2xl p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="h-8 w-8 rounded-lg bg-blue-100 flex items-center justify-center">
-                        <Heart className="h-4 w-4 text-blue-600" />
+                      <div className="h-8 w-8 rounded-lg bg-zinc-100 flex items-center justify-center">
+                        <Heart className="h-4 w-4 text-zinc-950" />
                       </div>
                       <h4 className="font-black text-blue-800">Preventive Measures - All Employees</h4>
                     </div>
-                    <div className="space-y-3 text-sm text-blue-700">
+                    <div className="space-y-3 text-sm text-zinc-950">
                       <p><strong>Wellness Program:</strong> Launch monthly wellness workshops</p>
                       <p><strong>Recognition System:</strong> Implement peer recognition program</p>
                       <p><strong>Flexible Hours:</strong> Introduce flexible working arrangements</p>

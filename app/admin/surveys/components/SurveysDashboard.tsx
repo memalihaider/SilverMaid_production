@@ -121,15 +121,15 @@
 
 //   const STATUS_COLORS: Record<string, { badge: string }> = {
 //     draft: { badge: 'bg-gray-100 text-gray-800 border border-gray-200' },
-//     published: { badge: 'bg-blue-50 text-blue-700 border border-blue-100' },
+//     published: { badge: 'bg-zinc-50 text-zinc-950 border border-zinc-100' },
 //     active: { badge: 'bg-green-50 text-green-700 border border-green-100' },
 //     paused: { badge: 'bg-yellow-50 text-yellow-700 border border-yellow-100' },
 //     closed: { badge: 'bg-orange-50 text-orange-700 border border-orange-100' },
-//     completed: { badge: 'bg-purple-50 text-purple-700 border border-purple-100' }
+//     completed: { badge: 'bg-zinc-50 text-purple-700 border border-zinc-100' }
 //   }
 
 //   const PRIORITY_COLORS: Record<string, string> = {
-//     'Low': 'bg-blue-50 text-blue-700 border border-blue-100',
+//     'Low': 'bg-zinc-50 text-zinc-950 border border-zinc-100',
 //     'Medium': 'bg-yellow-50 text-yellow-700 border border-yellow-100',
 //     'High': 'bg-orange-50 text-orange-700 border border-orange-100',
 //     'Critical': 'bg-red-50 text-red-700 border border-red-100'
@@ -158,7 +158,7 @@
 //       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
 //         {[
 //           { label: 'Total Surveys', value: stats.total, icon: FileText, color: 'text-gray-900' },
-//           { label: 'Published', value: stats.published, icon: CheckCircle, color: 'text-blue-600' },
+//           { label: 'Published', value: stats.published, icon: CheckCircle, color: 'text-zinc-950' },
 //           { label: 'Active', value: stats.active, icon: Play, color: 'text-green-600' },
 //           { label: 'Total Responses', value: stats.totalResponses, icon: TrendingUp, color: 'text-orange-600' },
 //         ].map((stat, idx) => {
@@ -338,7 +338,7 @@
 //                         <button 
 //                           onClick={() => onViewResponses(survey.id)}
 //                           title="View responses"
-//                           className="p-1.5 hover:bg-blue-50 rounded text-blue-600 transition-colors border border-transparent hover:border-blue-200"
+//                           className="p-1.5 hover:bg-zinc-50 rounded text-zinc-950 transition-colors border border-transparent hover:border-blue-200"
 //                         >
 //                           <Eye className="w-4 h-4" />
 //                         </button>
@@ -524,15 +524,15 @@ export default function SurveysDashboard({
 
   const STATUS_COLORS: Record<string, { badge: string }> = {
     draft: { badge: 'bg-gray-100 text-gray-800 border border-gray-200' },
-    published: { badge: 'bg-blue-50 text-blue-700 border border-blue-100' },
+    published: { badge: 'bg-zinc-50 text-zinc-950 border border-zinc-100' },
     active: { badge: 'bg-green-50 text-green-700 border border-green-100' },
     paused: { badge: 'bg-yellow-50 text-yellow-700 border border-yellow-100' },
     closed: { badge: 'bg-orange-50 text-orange-700 border border-orange-100' },
-    completed: { badge: 'bg-purple-50 text-purple-700 border border-purple-100' }
+    completed: { badge: 'bg-zinc-50 text-purple-700 border border-zinc-100' }
   }
 
   const PRIORITY_COLORS: Record<string, string> = {
-    'Low': 'bg-blue-50 text-blue-700 border border-blue-100',
+    'Low': 'bg-zinc-50 text-zinc-950 border border-zinc-100',
     'Medium': 'bg-yellow-50 text-yellow-700 border border-yellow-100',
     'High': 'bg-orange-50 text-orange-700 border border-orange-100',
     'Critical': 'bg-red-50 text-red-700 border border-red-100'
@@ -561,7 +561,7 @@ export default function SurveysDashboard({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
           { label: 'Total Surveys', value: stats.total, icon: FileText, color: 'text-gray-900' },
-          { label: 'Published', value: stats.published, icon: CheckCircle, color: 'text-blue-600' },
+          { label: 'Published', value: stats.published, icon: CheckCircle, color: 'text-zinc-950' },
           { label: 'Active', value: stats.total, icon: Play, color: 'text-green-600' },
           { label: 'Total Responses', value: stats.totalResponses, icon: TrendingUp, color: 'text-orange-600' },
         ].map((stat, idx) => {

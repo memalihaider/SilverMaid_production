@@ -660,7 +660,7 @@ if (sortConfig.key) {
           </button>
           <button
             onClick={handleExportClients}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors"
             disabled={clients.length === 0}
           >
             <FileDown className="h-4 w-4" />
@@ -668,7 +668,7 @@ if (sortConfig.key) {
           </button>
           <button
             onClick={() => setShowAddClient(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-950 hover:bg-zinc-950 text-white text-sm font-medium rounded-lg transition-colors"
           >
             <Plus className="h-4 w-4" />
             Add Client
@@ -684,7 +684,7 @@ if (sortConfig.key) {
               <p className="text-sm font-medium text-gray-600">Total Clients</p>
               <p className="text-2xl font-bold text-gray-900">{metrics.clientCount}</p>
             </div>
-            <Users className="h-8 w-8 text-blue-600" />
+            <Users className="h-8 w-8 text-zinc-950" />
           </div>
         </div>
         <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -727,7 +727,7 @@ if (sortConfig.key) {
               placeholder="Search clients..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm"
+              className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent outline-none text-sm"
             />
           </div>
           <button
@@ -745,7 +745,7 @@ if (sortConfig.key) {
             <select
               value={filters.tier}
               onChange={(e) => setFilters(prev => ({ ...prev, tier: e.target.value }))}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 focus:border-transparent outline-none"
             >
               <option value="All">All Tiers</option>
               <option value="Platinum">Platinum</option>
@@ -757,7 +757,7 @@ if (sortConfig.key) {
             <select
               value={filters.status}
               onChange={(e) => setFilters(prev => ({ ...prev, status: e.target.value }))}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 focus:border-transparent outline-none"
             >
               <option value="All">All Status</option>
               <option value="Active">Active</option>
@@ -768,7 +768,7 @@ if (sortConfig.key) {
             <select
               value={filters.location}
               onChange={(e) => setFilters(prev => ({ ...prev, location: e.target.value }))}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 focus:border-transparent outline-none"
             >
               <option value="All">All Locations</option>
               {locations.map(location => (
@@ -779,7 +779,7 @@ if (sortConfig.key) {
             <select
               value={filters.dateRange}
               onChange={(e) => setFilters(prev => ({ ...prev, dateRange: e.target.value }))}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 focus:border-transparent outline-none"
             >
               <option value="All">All Dates</option>
               <option value="Last 30 days">Last 30 days</option>
@@ -793,7 +793,7 @@ if (sortConfig.key) {
               placeholder="Min spent"
               value={filters.minSpent}
               onChange={(e) => setFilters(prev => ({ ...prev, minSpent: e.target.value }))}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 focus:border-transparent outline-none"
             />
 
             <input
@@ -801,7 +801,7 @@ if (sortConfig.key) {
               placeholder="Max spent"
               value={filters.maxSpent}
               onChange={(e) => setFilters(prev => ({ ...prev, maxSpent: e.target.value }))}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 focus:border-transparent outline-none"
             />
           </div>
         )}
@@ -813,7 +813,7 @@ if (sortConfig.key) {
             </p>
             <button
               onClick={resetFilters}
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-zinc-950 hover:text-zinc-950 font-medium"
             >
               Clear filters
             </button>
@@ -830,7 +830,7 @@ if (sortConfig.key) {
             <p className="text-gray-600 mb-6">Start by adding your first client or check if you have "Won" status leads</p>
             <button
               onClick={() => setShowAddClient(true)}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
+              className="px-6 py-3 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
             >
               <Plus className="h-4 w-4" />
               Add First Client
@@ -914,8 +914,8 @@ if (sortConfig.key) {
                     <tr key={client.id} className="hover:bg-gray-50">
                       <td className="px-4 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
-                            <span className="text-sm font-medium text-blue-700">
+                          <div className="h-8 w-8 rounded-full bg-zinc-100 flex items-center justify-center">
+                            <span className="text-sm font-medium text-zinc-950">
                               {client.name.split(' ').map(n => n[0]).join('')}
                             </span>
                           </div>
@@ -934,7 +934,7 @@ if (sortConfig.key) {
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                          client.tier === 'Platinum' ? 'bg-purple-100 text-purple-800' :
+                          client.tier === 'Platinum' ? 'bg-zinc-100 text-purple-800' :
                           client.tier === 'Gold' ? 'bg-yellow-100 text-yellow-800' :
                           client.tier === 'Silver' ? 'bg-gray-100 text-gray-800' :
                           'bg-orange-100 text-orange-800'
@@ -965,7 +965,7 @@ if (sortConfig.key) {
                               setSelectedClient(client)
                               setShowDetails(true)
                             }}
-                            className="text-blue-600 hover:text-blue-900 p-1"
+                            className="text-zinc-950 hover:text-blue-900 p-1"
                             title="View details"
                           >
                             <Eye className="h-4 w-4" />
@@ -1020,7 +1020,7 @@ if (sortConfig.key) {
                         onClick={() => setCurrentPage(pageNum)}
                         className={`px-3 py-1 border rounded text-sm ${
                           currentPage === pageNum
-                            ? 'bg-blue-600 text-white border-blue-600'
+                            ? 'bg-zinc-950 text-white border-zinc-950'
                             : 'border-gray-300 hover:bg-gray-50'
                         }`}
                       >
@@ -1048,8 +1048,8 @@ if (sortConfig.key) {
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center">
-                  <span className="text-lg font-semibold text-blue-700">
+                <div className="h-12 w-12 rounded-full bg-zinc-100 flex items-center justify-center">
+                  <span className="text-lg font-semibold text-zinc-950">
                     {selectedClient.name.split(' ').map((n: string) => n[0]).join('')}
                   </span>
                 </div>
@@ -1076,8 +1076,8 @@ if (sortConfig.key) {
                       selectedClient.contracts.map((contract: any, idx: number) => (
                         <div key={`${selectedClient.id}_contract_${idx}`} className="bg-gray-50 border border-gray-300 rounded-2xl p-6 flex items-center justify-between">
                           <div className="flex items-center gap-4">
-                            <div className="h-10 w-10 rounded-xl bg-blue-100 flex items-center justify-center border border-blue-300">
-                              <Briefcase className="h-5 w-5 text-blue-700" />
+                            <div className="h-10 w-10 rounded-xl bg-zinc-100 flex items-center justify-center border border-blue-300">
+                              <Briefcase className="h-5 w-5 text-zinc-950" />
                             </div>
                             <div>
                               <p className="font-black text-gray-900">{contract.name}</p>
@@ -1103,7 +1103,7 @@ if (sortConfig.key) {
                 {/* Notes Section */}
                 <div>
                   <h3 className="text-lg font-black text-gray-900 mb-6 flex items-center gap-2">
-                    <MessageSquare className="h-5 w-5 text-indigo-600" />
+                    <MessageSquare className="h-5 w-5 text-zinc-900" />
                     Client Intelligence
                   </h3>
                   <div className="bg-gray-50 border border-gray-300 rounded-2xl p-6">
@@ -1154,7 +1154,7 @@ if (sortConfig.key) {
                   <h4 className="text-sm font-black text-gray-600 uppercase tracking-widest mb-4">Related Actions</h4>
                   <Link 
                     href={`/admin/quotations/builder?clientId=${selectedClient.id}`}
-                    className="w-full py-3 bg-purple-100 hover:bg-purple-200 text-purple-900 rounded-xl font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 border border-purple-300"
+                    className="w-full py-3 bg-zinc-100 hover:bg-purple-200 text-purple-900 rounded-xl font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 border border-purple-300"
                   >
                     <FileText className="h-4 w-4" /> Create Quotation
                   </Link>
@@ -1209,7 +1209,7 @@ if (sortConfig.key) {
                     required
                     value={newClientData.name}
                     onChange={(e) => setNewClientData({...newClientData, name: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="Full name"
                   />
                 </div>
@@ -1220,7 +1220,7 @@ if (sortConfig.key) {
                     required
                     value={newClientData.email}
                     onChange={(e) => setNewClientData({...newClientData, email: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="client@example.com"
                   />
                 </div>
@@ -1231,7 +1231,7 @@ if (sortConfig.key) {
                     required
                     value={newClientData.phone}
                     onChange={(e) => setNewClientData({...newClientData, phone: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="+971 XX XXX XXXX"
                   />
                 </div>
@@ -1241,7 +1241,7 @@ if (sortConfig.key) {
                     type="text"
                     value={newClientData.company}
                     onChange={(e) => setNewClientData({...newClientData, company: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="Company name"
                   />
                 </div>
@@ -1250,7 +1250,7 @@ if (sortConfig.key) {
                   <select
                     value={newClientData.tier}
                     onChange={(e) => setNewClientData({...newClientData, tier: e.target.value as Client['tier']})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   >
                     <option value="Platinum">Platinum</option>
                     <option value="Gold">Gold</option>
@@ -1263,7 +1263,7 @@ if (sortConfig.key) {
                   <select
                     value={newClientData.status}
                     onChange={(e) => setNewClientData({...newClientData, status: e.target.value as Client['status']})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   >
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
@@ -1278,7 +1278,7 @@ if (sortConfig.key) {
                   type="text"
                   value={newClientData.location}
                   onChange={(e) => setNewClientData({...newClientData, location: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   placeholder="City, Country"
                 />
               </div>
@@ -1289,7 +1289,7 @@ if (sortConfig.key) {
                   value={newClientData.notes}
                   onChange={(e) => setNewClientData({...newClientData, notes: e.target.value})}
                   rows={3}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   placeholder="Additional notes about the client"
                 />
               </div>
@@ -1304,7 +1304,7 @@ if (sortConfig.key) {
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                  className="px-4 py-2 bg-zinc-950 hover:bg-zinc-950 text-white rounded-lg transition-colors"
                 >
                   Add Client
                 </button>
@@ -1351,7 +1351,7 @@ if (sortConfig.key) {
                     required
                     value={editingClient.name}
                     onChange={(e) => setEditingClient({...editingClient, name: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="Full name"
                   />
                 </div>
@@ -1362,7 +1362,7 @@ if (sortConfig.key) {
                     required
                     value={editingClient.email}
                     onChange={(e) => setEditingClient({...editingClient, email: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="client@example.com"
                   />
                 </div>
@@ -1373,7 +1373,7 @@ if (sortConfig.key) {
                     required
                     value={editingClient.phone}
                     onChange={(e) => setEditingClient({...editingClient, phone: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="+971 XX XXX XXXX"
                   />
                 </div>
@@ -1383,7 +1383,7 @@ if (sortConfig.key) {
                     type="text"
                     value={editingClient.company}
                     onChange={(e) => setEditingClient({...editingClient, company: e.target.value})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="Company name"
                   />
                 </div>
@@ -1392,7 +1392,7 @@ if (sortConfig.key) {
                   <select
                     value={editingClient.tier}
                     onChange={(e) => setEditingClient({...editingClient, tier: e.target.value as Client['tier']})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   >
                     <option value="Platinum">Platinum</option>
                     <option value="Gold">Gold</option>
@@ -1405,7 +1405,7 @@ if (sortConfig.key) {
                   <select
                     value={editingClient.status}
                     onChange={(e) => setEditingClient({...editingClient, status: e.target.value as Client['status']})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   >
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
@@ -1418,7 +1418,7 @@ if (sortConfig.key) {
                     type="number"
                     value={editingClient.totalSpent}
                     onChange={(e) => setEditingClient({...editingClient, totalSpent: parseFloat(e.target.value) || 0})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="Total amount spent"
                   />
                 </div>
@@ -1428,7 +1428,7 @@ if (sortConfig.key) {
                     type="number"
                     value={editingClient.projects}
                     onChange={(e) => setEditingClient({...editingClient, projects: parseInt(e.target.value) || 0})}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                     placeholder="Number of projects"
                   />
                 </div>
@@ -1440,7 +1440,7 @@ if (sortConfig.key) {
                   type="text"
                   value={editingClient.location}
                   onChange={(e) => setEditingClient({...editingClient, location: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   placeholder="City, Country"
                 />
               </div>
@@ -1451,7 +1451,7 @@ if (sortConfig.key) {
                   value={editingClient.notes}
                   onChange={(e) => setEditingClient({...editingClient, notes: e.target.value})}
                   rows={3}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                   placeholder="Additional notes about the client"
                 />
               </div>
@@ -1517,7 +1517,7 @@ if (sortConfig.key) {
                       setImportProgress(0)
                     }
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
                 />
               </div>
 
@@ -1529,7 +1529,7 @@ if (sortConfig.key) {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                      className="bg-zinc-950 h-2 rounded-full transition-all duration-300"
                       style={{ width: `${importProgress}%` }}
                     ></div>
                   </div>

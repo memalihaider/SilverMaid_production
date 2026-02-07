@@ -66,10 +66,10 @@ interface LeaveApplication {
 }
 
 const LEAVE_TYPES = [
-  { id: 'Annual', name: 'Annual Leave', color: 'bg-blue-100 text-blue-700', limit: 30 },
+  { id: 'Annual', name: 'Annual Leave', color: 'bg-zinc-100 text-zinc-950', limit: 30 },
   { id: 'Sick', name: 'Sick Leave', color: 'bg-red-100 text-red-700', limit: 10 },
-  { id: 'Special', name: 'Special Leave', color: 'bg-purple-100 text-purple-700', limit: 5 },
-  { id: 'Maternity', name: 'Maternity Leave', color: 'bg-pink-100 text-pink-700', limit: 60 },
+  { id: 'Special', name: 'Special Leave', color: 'bg-zinc-100 text-purple-700', limit: 5 },
+  { id: 'Maternity', name: 'Maternity Leave', color: 'bg-zinc-100 text-zinc-700', limit: 60 },
   { id: 'Paternity', name: 'Paternity Leave', color: 'bg-green-100 text-green-700', limit: 5 },
   { id: 'Unpaid', name: 'Unpaid Leave', color: 'bg-gray-100 text-gray-700', limit: 0 }
 ]
@@ -418,7 +418,7 @@ export default function LeaveManagementPage() {
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Days Approved</p>
-          <p className="text-2xl font-black text-blue-600 mt-1">{stats.totalDaysApproved}</p>
+          <p className="text-2xl font-black text-zinc-950 mt-1">{stats.totalDaysApproved}</p>
         </div>
       </div>
 
@@ -440,7 +440,7 @@ export default function LeaveManagementPage() {
             setModalMode('process')
             setShowAddModal(true)
           }}
-          className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg font-bold text-sm hover:bg-blue-700 transition-colors shadow-lg"
+          className="flex items-center gap-2 px-4 py-2.5 bg-zinc-950 text-white rounded-lg font-bold text-sm hover:bg-zinc-950 transition-colors shadow-lg"
           disabled={pendingApplications.length === 0}
         >
           <CheckCircle className="h-4 w-4" />
@@ -496,8 +496,8 @@ export default function LeaveManagementPage() {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                      <User className="h-5 w-5 text-blue-600" />
+                    <div className="h-10 w-10 rounded-full bg-zinc-100 flex items-center justify-center">
+                      <User className="h-5 w-5 text-zinc-950" />
                     </div>
                     <div>
                       <h4 className="font-black">{app.employeeName}</h4>
@@ -540,8 +540,8 @@ export default function LeaveManagementPage() {
                   </div>
 
                   {app.approverComments && (
-                    <div className="mt-2 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                      <p className="text-xs text-blue-700"><span className="font-bold">Approver Notes:</span> {app.approverComments}</p>
+                    <div className="mt-2 p-3 bg-zinc-50 rounded-lg border border-blue-200">
+                      <p className="text-xs text-zinc-950"><span className="font-bold">Approver Notes:</span> {app.approverComments}</p>
                     </div>
                   )}
                 </div>
@@ -579,7 +579,7 @@ export default function LeaveManagementPage() {
                   setModalMode('add')
                   setShowAddModal(true)
                 }}
-                className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="mt-4 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 transition-colors"
               >
                 Add First Leave Application
               </button>
@@ -595,7 +595,7 @@ export default function LeaveManagementPage() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-background rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border-b">
+            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-zinc-950/10 to-zinc-800/10 border-b">
               <h2 className="text-2xl font-black">
                 {modalMode === 'add' ? 'Add Leave Application' : 'Process Leave Applications'}
               </h2>
@@ -662,7 +662,7 @@ export default function LeaveManagementPage() {
                     </div>
 
                     {newLeaveForm.startDate && newLeaveForm.endDate && (
-                      <div className="md:col-span-2 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                      <div className="md:col-span-2 p-3 bg-zinc-50 rounded-lg border border-purple-200">
                         <p className="text-xs text-purple-700">
                           📅 Days Requested: <span className="font-bold">{calculateDays(newLeaveForm.startDate, newLeaveForm.endDate)}</span> days
                         </p>
@@ -739,7 +739,7 @@ export default function LeaveManagementPage() {
                     )}
 
                     {processForm.applicationId && (
-                      <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                      <div className="p-4 bg-zinc-50 rounded-lg border border-blue-200">
                         {(() => {
                           const app = leaveApplications.find(a => a.id === processForm.applicationId)
                           if (!app) return null
@@ -836,7 +836,7 @@ export default function LeaveManagementPage() {
       {showDetailsModal && selectedApplication && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-background rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border-b">
+            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-zinc-950/10 to-zinc-800/10 border-b">
               <h2 className="text-2xl font-black">Leave Application Details</h2>
               <button
                 onClick={() => setShowDetailsModal(false)}
@@ -850,7 +850,7 @@ export default function LeaveManagementPage() {
               {/* Employee & Status */}
               <div>
                 <h3 className="text-lg font-black mb-4 flex items-center gap-2">
-                  <User className="h-5 w-5 text-blue-600" />
+                  <User className="h-5 w-5 text-zinc-950" />
                   Employee Information
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -876,7 +876,7 @@ export default function LeaveManagementPage() {
               {/* Leave Details */}
               <div>
                 <h3 className="text-lg font-black mb-4 flex items-center gap-2">
-                  <Calendar className="h-5 w-5 text-blue-600" />
+                  <Calendar className="h-5 w-5 text-zinc-950" />
                   Leave Details
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -904,7 +904,7 @@ export default function LeaveManagementPage() {
               {/* Reason */}
               <div>
                 <h3 className="text-lg font-black mb-4 flex items-center gap-2">
-                  <MessageSquare className="h-5 w-5 text-blue-600" />
+                  <MessageSquare className="h-5 w-5 text-zinc-950" />
                   Reason
                 </h3>
                 <div className="bg-muted/50 rounded-lg p-4">
@@ -915,7 +915,7 @@ export default function LeaveManagementPage() {
               {/* Status & Approval */}
               <div>
                 <h3 className="text-lg font-black mb-4 flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-blue-600" />
+                  <CheckCircle className="h-5 w-5 text-zinc-950" />
                   Status & Approval
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
@@ -951,10 +951,10 @@ export default function LeaveManagementPage() {
               {selectedApplication.approverComments && (
                 <div>
                   <h3 className="text-lg font-black mb-4 flex items-center gap-2">
-                    <MessageSquare className="h-5 w-5 text-blue-600" />
+                    <MessageSquare className="h-5 w-5 text-zinc-950" />
                     Approver Comments
                   </h3>
-                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <div className="bg-zinc-50 rounded-lg p-4 border border-blue-200">
                     <p className="text-blue-900">{selectedApplication.approverComments}</p>
                   </div>
                 </div>

@@ -2,7 +2,7 @@
 
 ## 🎯 Overview
 
-This document outlines the complete interconnection strategy for the Homeware admin portal, ensuring seamless workflow between all modules and features.
+This document outlines the complete interconnection strategy for the Silver Maid admin portal, ensuring seamless workflow between all modules and features.
 
 ---
 

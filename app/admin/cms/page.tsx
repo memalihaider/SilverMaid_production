@@ -130,7 +130,7 @@ export default function CMS() {
 
   // Default Privacy Policy content
   const defaultPrivacyContent = `Information Collection
-At Homework UAE, we respect your privacy. We collect personal information such as your name, contact details, and address solely for the purpose of providing and coordinating our cleaning services. This data is stored securely and is never shared with third parties for marketing purposes.
+At Silver Maid, we respect your privacy. We collect personal information such as your name, contact details, and address solely for the purpose of providing and coordinating our cleaning services. This data is stored securely and is never shared with third parties for marketing purposes.
 
 Data Security
 We implement industry-standard security measures to protect your personal data from unauthorized access or disclosure. Our online booking system uses SSL encryption to ensure your payment and personal details are handled with the highest level of security.
@@ -701,20 +701,20 @@ You have the right to request access to the personal data we hold about you, to 
         {activeTab === 'blog' && (
           <button 
             onClick={() => handleOpenModal()}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
           >
             <Plus className="h-4 w-4" />
             Create New Post
           </button>
         )}
         {activeTab === 'pages' && (
-          <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20">
+          <button className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20">
             <Plus className="h-4 w-4" />
             Create New Page
           </button>
         )}
         {activeTab === 'media' && (
-          <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20">
+          <button className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20">
             <Plus className="h-4 w-4" />
             Upload New Asset
           </button>
@@ -722,7 +722,7 @@ You have the right to request access to the personal data we hold about you, to 
         {activeTab === 'testimonials' && (
           <button 
             onClick={() => handleOpenTestimonialModal()}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
           >
             <Plus className="h-4 w-4" />
             Add Testimonial
@@ -731,7 +731,7 @@ You have the right to request access to the personal data we hold about you, to 
         {activeTab === 'faq' && (
           <button 
             onClick={() => handleOpenFAQModal()}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
           >
             <Plus className="h-4 w-4" />
             Add FAQ
@@ -740,7 +740,7 @@ You have the right to request access to the personal data we hold about you, to 
         {activeTab === 'privacy' && (
           <button 
             onClick={() => handleOpenPrivacyModal()}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
           >
             <Plus className="h-4 w-4" />
             Add Section
@@ -780,7 +780,7 @@ You have the right to request access to the personal data we hold about you, to 
           <input 
             type="text" 
             placeholder={`Search ${activeTab}...`} 
-            className="w-full pl-10 pr-4 py-2 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full pl-10 pr-4 py-2 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
           />
         </div>
         <button className="flex items-center gap-2 px-4 py-2 bg-card border rounded-xl text-sm font-medium hover:bg-accent">
@@ -811,8 +811,8 @@ You have the right to request access to the personal data we hold about you, to 
                   <tr key={page.id} className="hover:bg-muted/30 transition-colors group">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                          <Globe className="h-4 w-4 text-blue-600" />
+                        <div className="p-2 bg-zinc-100 dark:bg-blue-900/30 rounded-lg">
+                          <Globe className="h-4 w-4 text-zinc-950" />
                         </div>
                         <span className="font-bold">{page.title}</span>
                       </div>
@@ -834,7 +834,7 @@ You have the right to request access to the personal data we hold about you, to 
                         <button className="p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground">
                           <Eye className="h-4 w-4" />
                         </button>
-                        <button className="p-2 hover:bg-muted rounded-lg text-blue-600">
+                        <button className="p-2 hover:bg-muted rounded-lg text-zinc-950">
                           <Edit3 className="h-4 w-4" />
                         </button>
                         <button className="p-2 hover:bg-muted rounded-lg text-red-600">
@@ -858,7 +858,7 @@ You have the right to request access to the personal data we hold about you, to 
                   <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
                     <button 
                       onClick={() => handleOpenModal(post)}
-                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-blue-600 hover:bg-blue-50 hover:text-blue-700 transition-colors shadow-sm"
+                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-zinc-950 hover:bg-zinc-50 hover:text-zinc-950 transition-colors shadow-sm"
                       title="Edit"
                     >
                       <Edit3 className="h-3.5 w-3.5" />
@@ -873,7 +873,7 @@ You have the right to request access to the personal data we hold about you, to 
                   </div>
 
                   <div className="flex justify-between items-start mb-4">
-                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 text-[10px] font-bold uppercase tracking-wider rounded">
+                    <span className="px-2 py-1 bg-zinc-100 dark:bg-blue-900/30 text-zinc-950 text-[10px] font-bold uppercase tracking-wider rounded">
                       {post.tags[0] || 'General'}
                     </span>
                     <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase ${
@@ -892,7 +892,7 @@ You have the right to request access to the personal data we hold about you, to 
                     </div>
                   )}
 
-                  <h4 className="font-bold text-lg mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                  <h4 className="font-bold text-lg mb-2 group-hover:text-zinc-950 transition-colors line-clamp-2">
                     {post.title}
                   </h4>
                   
@@ -915,7 +915,7 @@ You have the right to request access to the personal data we hold about you, to 
 
                   <div className="flex items-center justify-between pt-4 border-t">
                     <div className="flex items-center gap-2">
-                      <div className="h-6 w-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-[10px] font-bold text-blue-600">
+                      <div className="h-6 w-6 rounded-full bg-zinc-100 dark:bg-blue-900/30 flex items-center justify-center text-[10px] font-bold text-zinc-950">
                         <User className="h-3 w-3" />
                       </div>
                       <div>
@@ -942,7 +942,7 @@ You have the right to request access to the personal data we hold about you, to 
                 <p className="text-muted-foreground mb-6">Create your first blog post to get started!</p>
                 <button 
                   onClick={() => handleOpenModal()}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 mx-auto"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20 mx-auto"
                 >
                   <Plus className="h-4 w-4" />
                   Create Your First Post
@@ -961,7 +961,7 @@ You have the right to request access to the personal data we hold about you, to 
                   <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
                     <button 
                       onClick={() => handleOpenTestimonialModal(testimonial)}
-                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-blue-600 hover:bg-blue-50 hover:text-blue-700 transition-colors shadow-sm"
+                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-zinc-950 hover:bg-zinc-50 hover:text-zinc-950 transition-colors shadow-sm"
                       title="Edit"
                     >
                       <Edit3 className="h-3.5 w-3.5" />
@@ -1005,8 +1005,8 @@ You have the right to request access to the personal data we hold about you, to 
                         }}
                       />
                     ) : (
-                      <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                        <User className="h-5 w-5 text-blue-600" />
+                      <div className="h-10 w-10 rounded-full bg-zinc-100 dark:bg-blue-900/30 flex items-center justify-center">
+                        <User className="h-5 w-5 text-zinc-950" />
                       </div>
                     )}
                     <div className="flex-1">
@@ -1028,7 +1028,7 @@ You have the right to request access to the personal data we hold about you, to 
                 <p className="text-muted-foreground mb-6">Add your first customer testimonial!</p>
                 <button 
                   onClick={() => handleOpenTestimonialModal()}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 mx-auto"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20 mx-auto"
                 >
                   <Plus className="h-4 w-4" />
                   Add First Testimonial
@@ -1047,7 +1047,7 @@ You have the right to request access to the personal data we hold about you, to 
                   <div className="absolute top-4 right-4 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
                     <button 
                       onClick={() => handleOpenFAQModal(faq)}
-                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-blue-600 hover:bg-blue-50 hover:text-blue-700 transition-colors shadow-sm"
+                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-zinc-950 hover:bg-zinc-50 hover:text-zinc-950 transition-colors shadow-sm"
                       title="Edit"
                     >
                       <Edit3 className="h-3.5 w-3.5" />
@@ -1062,8 +1062,8 @@ You have the right to request access to the personal data we hold about you, to 
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                      <HelpCircle className="h-5 w-5 text-blue-600" />
+                    <div className="p-2 bg-zinc-100 dark:bg-blue-900/30 rounded-lg">
+                      <HelpCircle className="h-5 w-5 text-zinc-950" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
@@ -1071,7 +1071,7 @@ You have the right to request access to the personal data we hold about you, to 
                           {faq.category || 'General'}
                         </span>
                       </div>
-                      <h3 className="font-bold text-lg mb-3 text-blue-700">
+                      <h3 className="font-bold text-lg mb-3 text-zinc-950">
                         {faq.question}
                       </h3>
                       <div className="prose prose-sm max-w-none">
@@ -1090,7 +1090,7 @@ You have the right to request access to the personal data we hold about you, to 
                 <p className="text-muted-foreground mb-6">Add your first frequently asked question!</p>
                 <button 
                   onClick={() => handleOpenFAQModal()}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 mx-auto"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20 mx-auto"
                 >
                   <Plus className="h-4 w-4" />
                   Add First FAQ
@@ -1109,7 +1109,7 @@ You have the right to request access to the personal data we hold about you, to 
                   <div className="absolute top-4 right-4 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
                     <button 
                       onClick={() => handleOpenPrivacyModal(policy)}
-                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-blue-600 hover:bg-blue-50 hover:text-blue-700 transition-colors shadow-sm"
+                      className="p-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-zinc-950 hover:bg-zinc-50 hover:text-zinc-950 transition-colors shadow-sm"
                       title="Edit"
                     >
                       <Edit3 className="h-3.5 w-3.5" />
@@ -1147,7 +1147,7 @@ You have the right to request access to the personal data we hold about you, to 
                 <p className="text-muted-foreground mb-6">Add your first privacy policy section!</p>
                 <button 
                   onClick={() => handleOpenPrivacyModal()}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 mx-auto"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-950 text-white rounded-xl text-sm font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20 mx-auto"
                 >
                   <Plus className="h-4 w-4" />
                   Add Privacy Policy Section
@@ -1216,7 +1216,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="title"
                   value={formData.title}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="Enter blog title"
                   required
                 />
@@ -1231,7 +1231,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="Enter your name (e.g., John Doe)"
                   required
                 />
@@ -1245,7 +1245,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none min-h-[80px]"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none min-h-[80px]"
                   placeholder="Enter short description"
                   rows={3}
                 />
@@ -1259,7 +1259,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="content"
                   value={formData.content}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none min-h-[150px]"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none min-h-[150px]"
                   placeholder="Write your full blog content here..."
                   rows={6}
                   required
@@ -1276,7 +1276,7 @@ You have the right to request access to the personal data we hold about you, to 
                     name="readTime"
                     value={formData.readTime}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                     placeholder="5"
                     min="1"
                   />
@@ -1308,7 +1308,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="tags"
                   value={formData.tags}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="Enter tags separated by commas"
                 />
               </div>
@@ -1322,7 +1322,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="imageURL"
                   value={formData.imageURL}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="https://example.com/image.jpg"
                 />
                 
@@ -1353,7 +1353,7 @@ You have the right to request access to the personal data we hold about you, to 
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+                  className="px-6 py-2.5 bg-zinc-950 text-white rounded-xl font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
                 >
                   {editingPost ? 'Update Post' : 'Create Post'}
                 </button>
@@ -1394,7 +1394,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="name"
                   value={testimonialForm.name}
                   onChange={handleTestimonialInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="Enter customer name"
                   required
                 />
@@ -1408,7 +1408,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="description"
                   value={testimonialForm.description}
                   onChange={handleTestimonialInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none min-h-[100px]"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none min-h-[100px]"
                   placeholder="What did the customer say about your service?"
                   rows={4}
                   required
@@ -1454,7 +1454,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="location"
                   value={testimonialForm.location}
                   onChange={handleTestimonialInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="e.g., Karachi, Pakistan"
                 />
               </div>
@@ -1468,7 +1468,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="imageURL"
                   value={testimonialForm.imageURL}
                   onChange={handleTestimonialInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="https://example.com/profile.jpg"
                 />
                 
@@ -1523,7 +1523,7 @@ You have the right to request access to the personal data we hold about you, to 
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+                  className="px-6 py-2.5 bg-zinc-950 text-white rounded-xl font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
                 >
                   {editingTestimonial ? 'Update Testimonial' : 'Add Testimonial'}
                 </button>
@@ -1564,7 +1564,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="question"
                   value={faqForm.question}
                   onChange={handleFAQInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                   placeholder="Enter the frequently asked question"
                   required
                 />
@@ -1578,7 +1578,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="category"
                   value={faqForm.category}
                   onChange={(e) => setFaqForm(prev => ({ ...prev, category: e.target.value }))}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
                 >
                   <option value="General">General</option>
                   <option value="Services">Services</option>
@@ -1597,7 +1597,7 @@ You have the right to request access to the personal data we hold about you, to 
                   name="answer"
                   value={faqForm.answer}
                   onChange={handleFAQInputChange}
-                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none min-h-[200px]"
+                  className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none min-h-[200px]"
                   placeholder="Enter the detailed answer..."
                   rows={8}
                   required
@@ -1617,7 +1617,7 @@ You have the right to request access to the personal data we hold about you, to 
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+                  className="px-6 py-2.5 bg-zinc-950 text-white rounded-xl font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
                 >
                   {editingFAQ ? 'Update FAQ' : 'Add FAQ'}
                 </button>
@@ -1659,7 +1659,7 @@ You have the right to request access to the personal data we hold about you, to 
             name="title"
             value={privacyForm.title}
             onChange={handlePrivacyInputChange}
-            className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none"
             placeholder="e.g., Information Collection, Data Security, Your Rights"
             required
           />
@@ -1676,10 +1676,10 @@ You have the right to request access to the personal data we hold about you, to 
                 type="button"
                 onClick={() => {
                   // Add heading format
-                  const headingText = `Information Collection\nAt Homework UAE, we respect your privacy...\n\nData Security\nWe implement industry-standard security measures...\n\nUsage Disclosure\nWe use your information to:\n• Schedule and confirm your cleaning appointments\n• Process payments and issue invoices\n• Communicate service updates or changes\n• Enhance our customer support experience\n\nYour Rights\nYou have the right to request access to the personal data...`;
+                  const headingText = `Information Collection\nAt Silver Maid, we respect your privacy...\n\nData Security\nWe implement industry-standard security measures...\n\nUsage Disclosure\nWe use your information to:\n• Schedule and confirm your cleaning appointments\n• Process payments and issue invoices\n• Communicate service updates or changes\n• Enhance our customer support experience\n\nYour Rights\nYou have the right to request access to the personal data...`;
                   setPrivacyForm(prev => ({ ...prev, content: headingText }));
                 }}
-                className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded hover:bg-blue-200"
+                className="text-xs bg-zinc-100 text-zinc-950 px-2 py-1 rounded hover:bg-blue-200"
               >
                 Insert Example
               </button>
@@ -1690,7 +1690,7 @@ You have the right to request access to the personal data we hold about you, to 
             name="content"
             value={privacyForm.content}
             onChange={handlePrivacyInputChange}
-            className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none min-h-[300px] font-mono text-sm"
+            className="w-full px-4 py-2.5 bg-card border rounded-xl focus:ring-2 focus:ring-zinc-500 outline-none min-h-[300px] font-mono text-sm"
             placeholder={`Enter privacy policy content...
 
 IMPORTANT: To create headings in your content, follow these rules:
@@ -1700,7 +1700,7 @@ IMPORTANT: To create headings in your content, follow these rules:
 
 2. TEXT AFTER HEADING: Put the content immediately after the heading on the next line
    Example: Information Collection
-   At Homework UAE, we respect your privacy...
+   At Silver Maid, we respect your privacy...
 
 3. BULLET POINTS: Use • for bullet points
    Example: • Schedule and confirm your cleaning appointments
@@ -1710,7 +1710,7 @@ IMPORTANT: To create headings in your content, follow these rules:
 
 Example structure:
 Information Collection
-At Homework UAE, we respect your privacy...
+At Silver Maid, we respect your privacy...
 
 Data Security
 We implement industry-standard security measures...
@@ -1778,17 +1778,17 @@ You have the right to request access...`}
                       if (isHeading) {
                         return (
                           <div key={`${sectionIndex}-${lineIndex}`} className="flex items-center gap-2">
-                            <div className="w-2 h-6 bg-blue-500 rounded"></div>
-                            <h3 className="font-bold text-lg text-blue-700">
+                            <div className="w-2 h-6 bg-zinc-500 rounded"></div>
+                            <h3 className="font-bold text-lg text-zinc-950">
                               {trimmedLine}
                             </h3>
-                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">Heading</span>
+                            <span className="text-xs bg-zinc-100 text-zinc-950 px-2 py-0.5 rounded">Heading</span>
                           </div>
                         );
                       } else if (isBulletPoint) {
                         return (
                           <div key={`${sectionIndex}-${lineIndex}`} className="flex items-center gap-2 ml-4">
-                            <span className="text-blue-500">•</span>
+                            <span className="text-zinc-500">•</span>
                             <span className="text-slate-700">{trimmedLine.substring(1).trim()}</span>
                             <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">Bullet Point</span>
                           </div>
@@ -1826,7 +1826,7 @@ You have the right to request access...`}
           </button>
           <button
             type="submit"
-            className="px-6 py-2.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
+            className="px-6 py-2.5 bg-zinc-950 text-white rounded-xl font-bold hover:bg-zinc-950 transition-all shadow-lg shadow-zinc-500/20"
           >
             {editingPrivacy ? 'Update Section' : 'Add Section'}
           </button>

@@ -138,7 +138,7 @@ export default function SurveyForm() {
               type="text"
               value={formData.clientName}
               onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
-              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
               placeholder="Full name"
             />
           </div>
@@ -152,7 +152,7 @@ export default function SurveyForm() {
               type="tel"
               value={formData.clientPhone}
               onChange={(e) => setFormData({ ...formData, clientPhone: e.target.value })}
-              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
               placeholder="Phone number"
             />
           </div>
@@ -166,7 +166,7 @@ export default function SurveyForm() {
               type="email"
               value={formData.clientEmail}
               onChange={(e) => setFormData({ ...formData, clientEmail: e.target.value })}
-              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
               placeholder="Email address"
             />
           </div>
@@ -180,7 +180,7 @@ export default function SurveyForm() {
               type="text"
               value={formData.location}
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
               placeholder="Survey location"
             />
           </div>
@@ -190,7 +190,7 @@ export default function SurveyForm() {
             <select
               value={formData.serviceType}
               onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
             >
               <option value="">Select service</option>
               <option>Deep Cleaning</option>
@@ -209,7 +209,7 @@ export default function SurveyForm() {
             <textarea
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1 h-24"
+              className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1 h-24"
               placeholder="Add any additional notes..."
             ></textarea>
           </div>
@@ -221,14 +221,14 @@ export default function SurveyForm() {
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-bold flex items-center gap-2">
-              <Ruler className="h-5 w-5 text-pink-600" />
+              <Ruler className="h-5 w-5 text-primary" />
               Area Measurements
             </h2>
-            <p className="text-sm text-muted-foreground">Total Area: <span className="font-bold text-pink-600">{totalArea.toFixed(2)} sqm</span></p>
+            <p className="text-sm text-muted-foreground">Total Area: <span className="font-bold text-primary">{totalArea.toFixed(2)} sqm</span></p>
           </div>
           <button
             onClick={() => setShowMeasurementModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors"
           >
             <Plus className="h-4 w-4" />
             Add Measurement
@@ -253,7 +253,7 @@ export default function SurveyForm() {
                 </div>
                 <div className="space-y-1 text-sm">
                   <p>Length: {m.length} m × Width: {m.width} m</p>
-                  <p className="font-bold text-pink-600">Area: {m.area.toFixed(2)} sqm</p>
+                  <p className="font-bold text-primary">Area: {m.area.toFixed(2)} sqm</p>
                 </div>
               </div>
             ))}
@@ -272,12 +272,12 @@ export default function SurveyForm() {
         <div className="bg-card border rounded-lg p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold flex items-center gap-2">
-              <Camera className="h-5 w-5 text-blue-600" />
+              <Camera className="h-5 w-5 text-zinc-950" />
               Photos ({media.photos.length})
             </h2>
             <button
               onClick={() => handleAddMedia('photo')}
-              className="flex items-center gap-2 px-3 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 bg-zinc-100 text-zinc-950 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors"
             >
               <Upload className="h-3.5 w-3.5" />
               Upload
@@ -313,12 +313,12 @@ export default function SurveyForm() {
         <div className="bg-card border rounded-lg p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold flex items-center gap-2">
-              <Video className="h-5 w-5 text-purple-600" />
+              <Video className="h-5 w-5 text-zinc-800" />
               Videos ({media.videos.length})
             </h2>
             <button
               onClick={() => handleAddMedia('video')}
-              className="flex items-center gap-2 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg text-sm font-medium hover:bg-purple-200 transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 bg-zinc-100 text-purple-700 rounded-lg text-sm font-medium hover:bg-purple-200 transition-colors"
             >
               <Upload className="h-3.5 w-3.5" />
               Upload
@@ -358,7 +358,7 @@ export default function SurveyForm() {
         </button>
         <button
           onClick={handleSubmitSurvey}
-          className="flex-1 px-4 py-3 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700 transition-colors"
+          className="flex-1 px-4 py-3 bg-primary text-white rounded-lg font-bold hover:opacity-90 transition-colors"
         >
           Submit Survey
         </button>
@@ -385,7 +385,7 @@ export default function SurveyForm() {
                   type="text"
                   value={measurementData.areaName}
                   onChange={(e) => setMeasurementData({ ...measurementData, areaName: e.target.value })}
-                  className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+                  className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
                   placeholder="e.g., Main Hall"
                 />
               </div>
@@ -395,7 +395,7 @@ export default function SurveyForm() {
                 <select
                   value={measurementData.type}
                   onChange={(e) => setMeasurementData({ ...measurementData, type: e.target.value })}
-                  className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+                  className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
                 >
                   <option>Room</option>
                   <option>Floor</option>
@@ -411,7 +411,7 @@ export default function SurveyForm() {
                     type="number"
                     value={measurementData.length}
                     onChange={(e) => setMeasurementData({ ...measurementData, length: e.target.value })}
-                    className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+                    className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
                     placeholder="0"
                   />
                 </div>
@@ -421,16 +421,16 @@ export default function SurveyForm() {
                     type="number"
                     value={measurementData.width}
                     onChange={(e) => setMeasurementData({ ...measurementData, width: e.target.value })}
-                    className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none mt-1"
+                    className="w-full px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none mt-1"
                     placeholder="0"
                   />
                 </div>
               </div>
 
               {measurementData.length && measurementData.width && (
-                <div className="bg-pink-50 dark:bg-pink-950/20 border border-pink-200 dark:border-pink-900/30 rounded-lg p-3">
+                <div className="bg-zinc-100 dark:bg-zinc-950/20 border border-zinc-300 dark:border-zinc-300/30 rounded-lg p-3">
                   <p className="text-sm text-muted-foreground">Calculated Area:</p>
-                  <p className="text-lg font-bold text-pink-600">
+                  <p className="text-lg font-bold text-primary">
                     {calculateArea(measurementData.length, measurementData.width)} sqm
                   </p>
                 </div>
@@ -446,7 +446,7 @@ export default function SurveyForm() {
               </button>
               <button
                 onClick={handleAddMeasurement}
-                className="flex-1 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors"
+                className="flex-1 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors"
               >
                 Add
               </button>

@@ -67,7 +67,7 @@ export default function Pricing() {
                 )}
                 
                 <div className="mb-8">
-                  <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-6 ${pkg.popular ? 'bg-primary text-white' : 'bg-pink-50 text-primary'}`}>
+                  <div className={`h-14 w-14 rounded-2xl flex items-center justify-center mb-6 ${pkg.popular ? 'bg-primary text-white' : 'bg-zinc-100 text-primary'}`}>
                     <pkg.icon className="h-7 w-7" />
                   </div>
                   <h3 className="text-2xl font-black mb-2">{pkg.name}</h3>
@@ -95,7 +95,7 @@ export default function Pricing() {
                   href="/book-service" 
                   className={`w-full py-5 rounded-2xl font-black text-lg text-center transition-all flex items-center justify-center gap-2 group ${
                     pkg.popular 
-                      ? 'bg-primary text-white hover:bg-pink-600 shadow-xl shadow-primary/20' 
+                      ? 'bg-primary text-white hover:opacity-90 shadow-xl shadow-primary/20' 
                       : 'bg-slate-900 text-white hover:bg-slate-800'
                   }`}
                 >

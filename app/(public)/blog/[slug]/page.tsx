@@ -208,7 +208,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
             post.category === 'industry-news' ? 'bg-purple-500' :
             post.category === 'customer-stories' ? 'bg-green-500' :
             post.category === 'how-to' ? 'bg-orange-500' :
-            'bg-pink-500'
+            'bg-zinc-1000'
           }`}>
             {post.category.replace('-', ' ')}
           </span>
@@ -320,7 +320,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
                 <p className="text-sm text-slate-700 mb-6">Our expert team can help keep your space clean and healthy.</p>
                 <Link 
                   href="/book-service"
-                  className="block w-full bg-primary text-white px-6 py-4 rounded-xl font-black text-center hover:bg-pink-600 transition-colors mb-3"
+                  className="block w-full bg-primary text-white px-6 py-4 rounded-xl font-black text-center hover:opacity-90 transition-colors mb-3"
                 >
                   Book Now
                 </Link>
@@ -365,7 +365,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ slug: str
           <h2 className="text-3xl font-black mb-6">Explore More Cleaning Insights</h2>
           <Link 
             href="/blog"
-            className="inline-flex items-center gap-2 bg-primary px-8 py-4 rounded-2xl font-black hover:bg-pink-600 transition-colors"
+            className="inline-flex items-center gap-2 bg-primary px-8 py-4 rounded-2xl font-black hover:opacity-90 transition-colors"
           >
             Read All Articles <ChevronRight className="h-5 w-5" />
           </Link>

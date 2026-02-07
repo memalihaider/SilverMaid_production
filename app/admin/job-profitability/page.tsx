@@ -364,12 +364,12 @@ export default function JobProfitabilityAndCapacity() {
 
   // Generate department profitability breakdown from real data
   const departmentProfitability = useMemo(() => {
-    const colors = ['#4F46E5', '#EC4899', '#10B981', '#F59E0B', '#8B5CF6', '#EF4444']
+    const colors = ['#4F46E5', '#111111', '#10B981', '#F59E0B', '#8B5CF6', '#EF4444']
     
     if (departments.length === 0) {
       return [
         { name: 'Cleaning', value: 45, color: '#4F46E5' },
-        { name: 'Maintenance', value: 20, color: '#EC4899' },
+        { name: 'Maintenance', value: 20, color: '#111111' },
         { name: 'Landscaping', value: 22, color: '#10B981' },
         { name: 'Industrial', value: 13, color: '#F59E0B' }
       ]
@@ -470,7 +470,7 @@ export default function JobProfitabilityAndCapacity() {
 
   const getProfitColor = (margin: number) => {
     if (margin > 20) return 'text-green-600 font-bold'
-    if (margin >= 10) return 'text-blue-600 font-bold'
+    if (margin >= 10) return 'text-zinc-950 font-bold'
     if (margin > 0) return 'text-yellow-600 font-bold'
     if (margin === 0) return 'text-gray-600 font-bold'
     return 'text-red-600 font-bold'
@@ -481,9 +481,9 @@ export default function JobProfitabilityAndCapacity() {
       case 'Completed':
         return 'bg-green-100 text-green-800 border border-green-300'
       case 'In Progress':
-        return 'bg-blue-100 text-blue-800 border border-blue-300'
+        return 'bg-zinc-100 text-blue-800 border border-blue-300'
       case 'Scheduled':
-        return 'bg-purple-100 text-purple-800 border border-purple-300'
+        return 'bg-zinc-100 text-purple-800 border border-purple-300'
       case 'Pending':
         return 'bg-yellow-100 text-yellow-800 border border-yellow-300'
       default:
@@ -686,7 +686,7 @@ export default function JobProfitabilityAndCapacity() {
             className={`flex items-center gap-2 px-6 py-2 rounded-xl font-bold transition-all ${
               filteredJobs.length === 0 
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                : 'bg-zinc-900 text-white hover:bg-indigo-700'
             }`}
           >
             <Download className="w-4 h-4" />
@@ -697,18 +697,18 @@ export default function JobProfitabilityAndCapacity() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-        <div className="bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-zinc-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <DollarSign className="w-4 h-4 text-blue-600" />
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <DollarSign className="w-4 h-4 text-zinc-950" />
             </div>
-            <span className="text-xs font-bold text-blue-700 uppercase">Total Revenue</span>
+            <span className="text-xs font-bold text-zinc-950 uppercase">Total Revenue</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">AED {(totalRevenue / 1000).toFixed(1)}K</div>
-          <div className="text-xs text-blue-600 mt-2">{filteredJobs.length} jobs</div>
+          <div className="text-xs text-zinc-950 mt-2">{filteredJobs.length} jobs</div>
         </div>
 
-        <div className="bg-linear-to-br from-red-50 to-pink-50 border border-red-200 rounded-2xl p-6">
+        <div className="bg-zinc-50 border border-red-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2 bg-red-100 rounded-lg">
               <AlertCircle className="w-4 h-4 text-red-600" />
@@ -730,15 +730,15 @@ export default function JobProfitabilityAndCapacity() {
           <div className="text-xs text-green-600 mt-2">{avgProfitMargin.toFixed(1)}% avg margin</div>
         </div>
 
-        <div className="bg-linear-to-br from-purple-50 to-violet-50 border border-purple-200 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-zinc-50 to-violet-50 border border-purple-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <Users className="w-4 h-4 text-purple-600" />
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <Users className="w-4 h-4 text-zinc-800" />
             </div>
             <span className="text-xs font-bold text-purple-700 uppercase">Profitable Jobs</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{profitableJobs}</div>
-          <div className="text-xs text-purple-600 mt-2">{losingJobs} losing jobs</div>
+          <div className="text-xs text-zinc-800 mt-2">{losingJobs} losing jobs</div>
         </div>
 
         <div className="bg-linear-to-br from-orange-50 to-amber-50 border border-orange-200 rounded-2xl p-6">
@@ -755,15 +755,15 @@ export default function JobProfitabilityAndCapacity() {
 
       {/* Team Capacity Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-linear-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-zinc-50 to-cyan-50 border border-blue-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <Users className="w-4 h-4 text-blue-600" />
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <Users className="w-4 h-4 text-zinc-950" />
             </div>
-            <span className="text-xs font-bold text-blue-700 uppercase">Active Team</span>
+            <span className="text-xs font-bold text-zinc-950 uppercase">Active Team</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{capacityData.length}</div>
-          <div className="text-xs text-blue-600 mt-2">{filteredCapacityData.length} filtered</div>
+          <div className="text-xs text-zinc-950 mt-2">{filteredCapacityData.length} filtered</div>
         </div>
 
         <div className="bg-linear-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
@@ -788,15 +788,15 @@ export default function JobProfitabilityAndCapacity() {
           <div className="text-xs text-amber-600 mt-2">employees at risk</div>
         </div>
 
-        <div className="bg-linear-to-br from-purple-50 to-violet-50 border border-purple-200 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-zinc-50 to-violet-50 border border-purple-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <Clock className="w-4 h-4 text-purple-600" />
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <Clock className="w-4 h-4 text-zinc-800" />
             </div>
             <span className="text-xs font-bold text-purple-700 uppercase">Total Hours</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{totalAllocatedHours}h</div>
-          <div className="text-xs text-purple-600 mt-2">of {totalAvailableHours}h allocated</div>
+          <div className="text-xs text-zinc-800 mt-2">of {totalAvailableHours}h allocated</div>
         </div>
       </div>
 
@@ -863,7 +863,7 @@ export default function JobProfitabilityAndCapacity() {
       <div className="bg-white border border-gray-300 rounded-2xl p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Filter className="w-5 h-5 text-indigo-600" />
+            <Filter className="w-5 h-5 text-zinc-900" />
             <h3 className="text-lg font-bold text-gray-900">Filters</h3>
           </div>
           <div className="flex items-center gap-4">
@@ -969,19 +969,19 @@ export default function JobProfitabilityAndCapacity() {
                 {departmentFilter !== 'all' && (
                   <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium flex items-center gap-2">
                     {departmentFilter}
-                    <button onClick={() => setDepartmentFilter('all')} className="hover:text-indigo-600">×</button>
+                    <button onClick={() => setDepartmentFilter('all')} className="hover:text-zinc-900">×</button>
                   </span>
                 )}
                 {statusFilter !== 'all' && (
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium flex items-center gap-2">
+                  <span className="px-3 py-1 bg-zinc-100 text-blue-800 rounded-full text-sm font-medium flex items-center gap-2">
                     {statusFilter}
-                    <button onClick={() => setStatusFilter('all')} className="hover:text-blue-600">×</button>
+                    <button onClick={() => setStatusFilter('all')} className="hover:text-zinc-950">×</button>
                   </span>
                 )}
                 {profitabilityFilter !== 'all' && (
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium flex items-center gap-2">
+                  <span className="px-3 py-1 bg-zinc-100 text-purple-800 rounded-full text-sm font-medium flex items-center gap-2">
                     {profitabilityFilter === 'highly-profitable' ? 'Highly Profitable' : profitabilityFilter === 'break-even' ? 'Break Even' : profitabilityFilter === 'loss' ? 'Loss' : 'Profitable'}
-                    <button onClick={() => setProfitabilityFilter('all')} className="hover:text-purple-600">×</button>
+                    <button onClick={() => setProfitabilityFilter('all')} className="hover:text-zinc-800">×</button>
                   </span>
                 )}
                 {searchTerm && (
@@ -1060,7 +1060,7 @@ export default function JobProfitabilityAndCapacity() {
                         <p className="text-sm mt-2">Please check if jobs collection exists</p>
                         <button 
                           onClick={refreshData}
-                          className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                          className="mt-4 px-6 py-2 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                         >
                           Refresh Data
                         </button>
@@ -1094,7 +1094,7 @@ export default function JobProfitabilityAndCapacity() {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-all ${
               filteredCapacityData.length === 0 
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                : 'bg-purple-600 text-white hover:bg-purple-700'
+                : 'bg-zinc-800 text-white hover:bg-purple-700'
             }`}
           >
             <Download className="w-4 h-4" />
@@ -1127,7 +1127,7 @@ export default function JobProfitabilityAndCapacity() {
                       )}
                     </td>
                     <td className="px-6 py-4">
-                      <span className="inline-block px-2 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-medium">
+                      <span className="inline-block px-2 py-1 bg-zinc-50 text-zinc-950 rounded-lg text-xs font-medium">
                         {employee.department}
                       </span>
                     </td>
@@ -1163,7 +1163,7 @@ export default function JobProfitabilityAndCapacity() {
                       <div className="flex items-center gap-1">
                         <span className={`font-bold ${
                           employee.rating >= 4.5 ? 'text-green-600' :
-                          employee.rating >= 4.0 ? 'text-blue-600' :
+                          employee.rating >= 4.0 ? 'text-zinc-950' :
                           employee.rating >= 3.0 ? 'text-yellow-600' : 'text-red-600'
                         }`}>
                           {employee.rating.toFixed(1)}
@@ -1191,7 +1191,7 @@ export default function JobProfitabilityAndCapacity() {
                         <p className="text-sm mt-2">Please check if employees collection exists</p>
                         <button 
                           onClick={refreshData}
-                          className="mt-4 px-6 py-2 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                          className="mt-4 px-6 py-2 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                         >
                           Refresh Data
                         </button>

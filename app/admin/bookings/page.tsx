@@ -70,8 +70,8 @@ const statusIcons = {
 const statusColors = {
   pending: 'bg-amber-100 text-amber-700 dark:bg-amber-950/30 dark:text-amber-300',
   accepted: 'bg-teal-100 text-teal-700 dark:bg-teal-950/30 dark:text-teal-300',
-  confirmed: 'bg-blue-100 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300',
-  'in-progress': 'bg-purple-100 text-purple-700 dark:bg-purple-950/30 dark:text-purple-300',
+  confirmed: 'bg-zinc-100 text-zinc-950 dark:bg-blue-950/30 dark:text-blue-300',
+  'in-progress': 'bg-zinc-100 text-purple-700 dark:bg-purple-950/30 dark:text-purple-300',
   completed: 'bg-green-100 text-green-700 dark:bg-green-950/30 dark:text-green-300',
   cancelled: 'bg-red-100 text-red-700 dark:bg-red-950/30 dark:text-red-300',
   rejected: 'bg-rose-100 text-rose-700 dark:bg-rose-950/30 dark:text-rose-300'
@@ -371,10 +371,10 @@ export default function AdminBookings() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest">Confirmed</p>
-              <p className="text-2xl font-black text-blue-600 mt-1">{stats.confirmed}</p>
+              <p className="text-2xl font-black text-zinc-950 mt-1">{stats.confirmed}</p>
             </div>
-            <div className="h-10 w-10 rounded-lg bg-blue-100 dark:bg-blue-950/30 flex items-center justify-center shrink-0">
-              <CheckCircle className="h-5 w-5 text-blue-600" />
+            <div className="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-blue-950/30 flex items-center justify-center shrink-0">
+              <CheckCircle className="h-5 w-5 text-zinc-950" />
             </div>
           </div>
         </div>
@@ -383,10 +383,10 @@ export default function AdminBookings() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest">In Progress</p>
-              <p className="text-2xl font-black text-purple-600 mt-1">{stats.inProgress}</p>
+              <p className="text-2xl font-black text-zinc-800 mt-1">{stats.inProgress}</p>
             </div>
-            <div className="h-10 w-10 rounded-lg bg-purple-100 dark:bg-purple-950/30 flex items-center justify-center shrink-0">
-              <ClockIcon className="h-5 w-5 text-purple-600" />
+            <div className="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-purple-950/30 flex items-center justify-center shrink-0">
+              <ClockIcon className="h-5 w-5 text-zinc-800" />
             </div>
           </div>
         </div>
@@ -437,7 +437,7 @@ export default function AdminBookings() {
             placeholder="Search by booking number, client name, email, or service..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            className="w-full pl-10 pr-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
           />
         </div>
 
@@ -446,7 +446,7 @@ export default function AdminBookings() {
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
           >
             {statuses.map(status => (
               <option key={status} value={status}>
@@ -459,7 +459,7 @@ export default function AdminBookings() {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+          className="px-4 py-2.5 bg-muted/50 border rounded-xl text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
         >
           <option value="date-desc">Latest First</option>
           <option value="date-asc">Oldest First</option>
@@ -558,7 +558,7 @@ export default function AdminBookings() {
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={() => handleViewDetails(booking)}
-                      className="p-2 hover:bg-blue-100 dark:hover:bg-blue-950/30 rounded-lg text-blue-600 transition-colors"
+                      className="p-2 hover:bg-zinc-100 dark:hover:bg-blue-950/30 rounded-lg text-zinc-950 transition-colors"
                       title="View & edit details"
                     >
                       <Eye className="h-4 w-4" />
@@ -631,7 +631,7 @@ export default function AdminBookings() {
                           type="text"
                           value={editFormData.clientName}
                           onChange={(e) => setEditFormData({ ...editFormData, clientName: e.target.value })}
-                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
                         />
                       </div>
                       <div>
@@ -640,7 +640,7 @@ export default function AdminBookings() {
                           type="email"
                           value={editFormData.clientEmail}
                           onChange={(e) => setEditFormData({ ...editFormData, clientEmail: e.target.value })}
-                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
                         />
                       </div>
                       <div>
@@ -649,7 +649,7 @@ export default function AdminBookings() {
                           type="tel"
                           value={editFormData.clientPhone}
                           onChange={(e) => setEditFormData({ ...editFormData, clientPhone: e.target.value })}
-                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
                         />
                       </div>
                       <div>
@@ -658,7 +658,7 @@ export default function AdminBookings() {
                           type="text"
                           value={editFormData.clientAddress}
                           onChange={(e) => setEditFormData({ ...editFormData, clientAddress: e.target.value })}
-                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
                         />
                       </div>
                     </>
@@ -702,7 +702,7 @@ export default function AdminBookings() {
                           type="date"
                           value={editFormData.bookingDate}
                           onChange={(e) => setEditFormData({ ...editFormData, bookingDate: e.target.value })}
-                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
                         />
                       </div>
                       <div>
@@ -711,7 +711,7 @@ export default function AdminBookings() {
                           type="time"
                           value={editFormData.bookingTime}
                           onChange={(e) => setEditFormData({ ...editFormData, bookingTime: e.target.value })}
-                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                          className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all"
                         />
                       </div>
                     </>
@@ -774,7 +774,7 @@ export default function AdminBookings() {
                     value={editFormData.notes || ''}
                     onChange={(e) => setEditFormData({ ...editFormData, notes: e.target.value })}
                     placeholder="Add any special notes or requests..."
-                    className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none h-24"
+                    className="w-full px-3 py-2 bg-muted/50 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-500 outline-none transition-all resize-none h-24"
                   />
                 ) : (
                   <div className="bg-muted/50 rounded-lg p-3">
@@ -808,7 +808,7 @@ export default function AdminBookings() {
                 {isEditingDetails ? (
                   <button
                     onClick={handleSaveEdits}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm hover:bg-blue-700 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-zinc-950 text-white rounded-lg font-bold text-sm hover:bg-zinc-950 transition-colors flex items-center gap-2"
                   >
                     <Save className="h-4 w-4" />
                     Save Changes
@@ -816,7 +816,7 @@ export default function AdminBookings() {
                 ) : (
                   <button
                     onClick={() => setIsEditingDetails(true)}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm hover:bg-blue-700 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-zinc-950 text-white rounded-lg font-bold text-sm hover:bg-zinc-950 transition-colors flex items-center gap-2"
                   >
                     <Edit2 className="h-4 w-4" />
                     Edit Details

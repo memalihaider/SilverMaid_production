@@ -564,7 +564,7 @@
 //       case 'Paid':
 //         return 'bg-green-100 text-green-800'
 //       case 'Processed':
-//         return 'bg-blue-100 text-blue-800'
+//         return 'bg-zinc-100 text-blue-800'
 //       case 'Pending':
 //         return 'bg-yellow-100 text-yellow-800'
 //       default:
@@ -638,7 +638,7 @@
 //           onClick={() => setActiveTab('payroll')}
 //           className={`px-4 py-3 font-medium text-sm border-b-2 ${
 //             activeTab === 'payroll'
-//               ? 'border-blue-500 text-blue-600'
+//               ? 'border-zinc-500 text-zinc-950'
 //               : 'border-transparent text-gray-600 hover:text-gray-900'
 //           }`}
 //         >
@@ -648,7 +648,7 @@
 //           onClick={() => setActiveTab('payments')}
 //           className={`px-4 py-3 font-medium text-sm border-b-2 ${
 //             activeTab === 'payments'
-//               ? 'border-blue-500 text-blue-600'
+//               ? 'border-zinc-500 text-zinc-950'
 //               : 'border-transparent text-gray-600 hover:text-gray-900'
 //           }`}
 //         >
@@ -658,7 +658,7 @@
 //           onClick={() => setActiveTab('settings')}
 //           className={`px-4 py-3 font-medium text-sm border-b-2 ${
 //             activeTab === 'settings'
-//               ? 'border-blue-500 text-blue-600'
+//               ? 'border-zinc-500 text-zinc-950'
 //               : 'border-transparent text-gray-600 hover:text-gray-900'
 //           }`}
 //         >
@@ -677,7 +677,7 @@
 //                   <p className="text-gray-600 text-sm">Total Gross</p>
 //                   <p className="text-2xl font-bold text-gray-900">AED {stats.totalGross.toLocaleString()}</p>
 //                 </div>
-//                 <Banknote className="h-8 w-8 text-blue-500 opacity-20" />
+//                 <Banknote className="h-8 w-8 text-zinc-500 opacity-20" />
 //               </div>
 //             </div>
 //             <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -695,7 +695,7 @@
 //                   <p className="text-gray-600 text-sm">Total Employees</p>
 //                   <p className="text-2xl font-bold text-gray-900">{stats.totalEmployees}</p>
 //                 </div>
-//                 <User className="h-8 w-8 text-purple-500 opacity-20" />
+//                 <User className="h-8 w-8 text-zinc-500 opacity-20" />
 //               </div>
 //             </div>
 //             <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -718,7 +718,7 @@
 //                   type="month"
 //                   value={selectedMonth}
 //                   onChange={(e) => setSelectedMonth(e.target.value)}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
 //                 />
 //                 <button
 //                   onClick={handleGeneratePayroll}
@@ -736,15 +736,15 @@
 //                 placeholder="Search employee or department..."
 //                 value={searchTerm}
 //                 onChange={(e) => setSearchTerm(e.target.value)}
-//                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
 //               />
 //             </div>
 //             <div className="flex gap-2 items-end">
 //               <button
 //                 onClick={handleProcessPayroll}
 //                 disabled={stats.pending === 0}
-//                 className={`px-6 py-2 bg-blue-600 text-white font-medium rounded-lg flex items-center gap-2 ${
-//                   stats.pending === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
+//                 className={`px-6 py-2 bg-zinc-950 text-white font-medium rounded-lg flex items-center gap-2 ${
+//                   stats.pending === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-zinc-950'
 //                 }`}
 //               >
 //                 <Check className="h-4 w-4" />
@@ -829,7 +829,7 @@
 //                       <td className="px-6 py-4 text-sm space-x-2">
 //                         <button
 //                           onClick={() => handleEditRecord(record)}
-//                           className="text-blue-600 hover:text-blue-800 font-medium"
+//                           className="text-zinc-950 hover:text-blue-800 font-medium"
 //                           title="Edit"
 //                         >
 //                           <Edit className="h-4 w-4 inline" />
@@ -1011,7 +1011,7 @@
 //                   type="number"
 //                   value={recordForm.allowances}
 //                   onChange={(e) => setRecordForm({ ...recordForm, allowances: Number(e.target.value) })}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
 //                 />
 //               </div>
 //               <div>
@@ -1020,7 +1020,7 @@
 //                   type="number"
 //                   value={recordForm.bonus}
 //                   onChange={(e) => setRecordForm({ ...recordForm, bonus: Number(e.target.value) })}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
 //                 />
 //               </div>
 //               <div>
@@ -1029,7 +1029,7 @@
 //                   type="number"
 //                   value={recordForm.deductions}
 //                   onChange={(e) => setRecordForm({ ...recordForm, deductions: Number(e.target.value) })}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
 //                 />
 //                 <p className="text-xs text-gray-500 mt-1">Additional deductions beyond social security (5%)</p>
 //               </div>
@@ -1038,12 +1038,12 @@
 //                 <textarea
 //                   value={recordForm.notes}
 //                   onChange={(e) => setRecordForm({ ...recordForm, notes: e.target.value })}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-20 resize-none"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 h-20 resize-none"
 //                   placeholder="Add any notes about this payroll record..."
 //                 />
 //               </div>
-//               <div className="p-3 bg-blue-50 rounded border border-blue-200">
-//                 <p className="text-sm text-blue-700">
+//               <div className="p-3 bg-zinc-50 rounded border border-blue-200">
+//                 <p className="text-sm text-zinc-950">
 //                   <span className="font-bold">Note:</span> Social Security (5%) is automatically calculated from basic salary.
 //                 </p>
 //               </div>
@@ -1051,7 +1051,7 @@
 //             <div className="flex gap-2 mt-6">
 //               <button
 //                 onClick={handleUpdateRecord}
-//                 className="flex-1 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700"
+//                 className="flex-1 px-4 py-2 bg-zinc-950 text-white font-medium rounded-lg hover:bg-zinc-950"
 //               >
 //                 Save Changes
 //               </button>
@@ -1848,7 +1848,7 @@ export default function Payroll() {
           onClick={() => setActiveTab('payroll')}
           className={`px-4 py-3 font-medium text-sm border-b-2 ${
             activeTab === 'payroll'
-              ? 'border-blue-500 text-blue-600'
+              ? 'border-zinc-500 text-zinc-950'
               : 'border-transparent text-gray-600 hover:text-gray-900'
           }`}
         >
@@ -1858,7 +1858,7 @@ export default function Payroll() {
           onClick={() => setActiveTab('payments')}
           className={`px-4 py-3 font-medium text-sm border-b-2 ${
             activeTab === 'payments'
-              ? 'border-blue-500 text-blue-600'
+              ? 'border-zinc-500 text-zinc-950'
               : 'border-transparent text-gray-600 hover:text-gray-900'
           }`}
         >
@@ -1877,7 +1877,7 @@ export default function Payroll() {
                   <p className="text-gray-600 text-sm">Total Gross</p>
                   <p className="text-2xl font-bold text-gray-900">AED {stats.totalGross.toLocaleString()}</p>
                 </div>
-                <Banknote className="h-8 w-8 text-blue-500 opacity-20" />
+                <Banknote className="h-8 w-8 text-zinc-500 opacity-20" />
               </div>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -1917,7 +1917,7 @@ export default function Payroll() {
                 <select
                   value={selectedMonth}
                   onChange={(e) => setSelectedMonth(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="">Select Month</option>
                   {availableMonths.map(month => (
@@ -1959,7 +1959,7 @@ export default function Payroll() {
                 placeholder="Search employee or department..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
               />
             </div>
             <div className="flex gap-2 items-end">
@@ -2246,7 +2246,7 @@ export default function Payroll() {
                   type="number"
                   value={recordForm.allowances}
                   onChange={(e) => setRecordForm({ ...recordForm, allowances: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
               <div>
@@ -2255,7 +2255,7 @@ export default function Payroll() {
                   type="number"
                   value={recordForm.bonus}
                   onChange={(e) => setRecordForm({ ...recordForm, bonus: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
               </div>
               <div>
@@ -2264,7 +2264,7 @@ export default function Payroll() {
                   type="number"
                   value={recordForm.deductions}
                   onChange={(e) => setRecordForm({ ...recordForm, deductions: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 />
                 <p className="text-xs text-gray-500 mt-1">Additional deductions beyond social security (5%)</p>
               </div>
@@ -2273,7 +2273,7 @@ export default function Payroll() {
                 <select
                   value={recordForm.status}
                   onChange={(e) => setRecordForm({ ...recordForm, status: e.target.value as any })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500"
                 >
                   <option value="Pending">Pending</option>
                   <option value="Paid">Paid</option>
@@ -2285,12 +2285,12 @@ export default function Payroll() {
                 <textarea
                   value={recordForm.notes}
                   onChange={(e) => setRecordForm({ ...recordForm, notes: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-20 resize-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 h-20 resize-none"
                   placeholder="Add any notes about this payroll record..."
                 />
               </div>
-              <div className="p-3 bg-blue-50 rounded border border-blue-200">
-                <p className="text-sm text-blue-700">
+              <div className="p-3 bg-zinc-50 rounded border border-blue-200">
+                <p className="text-sm text-zinc-950">
                   <span className="font-bold">Note:</span> Social Security (5%) is automatically calculated from basic salary.
                 </p>
               </div>
@@ -2298,7 +2298,7 @@ export default function Payroll() {
             <div className="flex gap-2 mt-6">
               <button
                 onClick={handleUpdateRecord}
-                className="flex-1 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700"
+                className="flex-1 px-4 py-2 bg-zinc-950 text-white font-medium rounded-lg hover:bg-zinc-950"
               >
                 Save Changes
               </button>

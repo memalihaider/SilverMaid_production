@@ -89,7 +89,7 @@ export default function UnifiedMeetingsPage() {
   }, [meetings])
 
   const myMeetings = useMemo(() => {
-    const userEmail = 'ahmed@homeware.ae'
+    const userEmail = 'ahmed@silvermaid.ae'
     return meetings.filter(m => 
       m.organizer.toLowerCase().includes('ahmed') || 
       m.attendees.some(a => a.email === userEmail)
@@ -108,7 +108,7 @@ export default function UnifiedMeetingsPage() {
         id: found?.id || `temp-${Date.now()}`,
         name: name,
         role: found?.role || 'Team Member',
-        email: found?.email || `${name.toLowerCase().replace(/\s/g, '.')}@homeware.ae`,
+        email: found?.email || `${name.toLowerCase().replace(/\s/g, '.')}@silvermaid.ae`,
         status: 'Pending' as const
       }
     })
@@ -241,7 +241,7 @@ export default function UnifiedMeetingsPage() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'Scheduled': return 'bg-blue-100 text-blue-700'
+      case 'Scheduled': return 'bg-zinc-100 text-zinc-950'
       case 'In Progress': return 'bg-yellow-100 text-yellow-700'
       case 'Completed': return 'bg-green-100 text-green-700'
       case 'Cancelled': return 'bg-red-100 text-red-700'
@@ -261,11 +261,11 @@ export default function UnifiedMeetingsPage() {
       <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Upcoming</p>
-          <p className="text-2xl font-black text-blue-600 mt-1">{stats.upcoming}</p>
+          <p className="text-2xl font-black text-zinc-950 mt-1">{stats.upcoming}</p>
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Scheduled</p>
-          <p className="text-2xl font-black text-purple-600 mt-1">{stats.scheduled}</p>
+          <p className="text-2xl font-black text-zinc-800 mt-1">{stats.scheduled}</p>
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Completed</p>
@@ -277,7 +277,7 @@ export default function UnifiedMeetingsPage() {
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Decisions</p>
-          <p className="text-2xl font-black text-pink-600 mt-1">{stats.totalDecisions}</p>
+          <p className="text-2xl font-black text-primary mt-1">{stats.totalDecisions}</p>
         </div>
         <div className="bg-card border rounded-2xl p-4">
           <p className="text-[11px] text-muted-foreground font-bold uppercase">Open Follow-ups</p>
@@ -293,7 +293,7 @@ export default function UnifiedMeetingsPage() {
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-3 font-bold text-sm whitespace-nowrap border-b-2 transition-colors ${
               activeTab === tab
-                ? 'border-blue-600 text-blue-600'
+                ? 'border-zinc-950 text-zinc-950'
                 : 'border-transparent text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -309,7 +309,7 @@ export default function UnifiedMeetingsPage() {
       {/* Action Button */}
       <button
         onClick={() => setShowAddModal(true)}
-        className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg font-bold text-sm hover:bg-blue-700 transition-colors shadow-lg"
+        className="flex items-center gap-2 px-4 py-2.5 bg-zinc-950 text-white rounded-lg font-bold text-sm hover:bg-zinc-950 transition-colors shadow-lg"
       >
         <Plus className="h-4 w-4" />
         Schedule Meeting
@@ -369,8 +369,8 @@ export default function UnifiedMeetingsPage() {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                        <Calendar className="h-5 w-5 text-blue-600" />
+                      <div className="h-10 w-10 rounded-full bg-zinc-100 flex items-center justify-center">
+                        <Calendar className="h-5 w-5 text-zinc-950" />
                       </div>
                       <div>
                         <h3 className="font-black">{meeting.title}</h3>
@@ -406,10 +406,10 @@ export default function UnifiedMeetingsPage() {
 
                     <div className="flex gap-2 flex-wrap text-xs">
                       {meeting.notes.length > 0 && (
-                        <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded">📝 {meeting.notes.length} notes</span>
+                        <span className="bg-zinc-100 text-zinc-950 px-2 py-1 rounded">📝 {meeting.notes.length} notes</span>
                       )}
                       {meeting.decisions.length > 0 && (
-                        <span className="bg-pink-100 text-pink-700 px-2 py-1 rounded">⭐ {meeting.decisions.length} decisions</span>
+                        <span className="bg-zinc-100 text-zinc-700 px-2 py-1 rounded">⭐ {meeting.decisions.length} decisions</span>
                       )}
                       {meeting.followUps.length > 0 && (
                         <span className="bg-green-100 text-green-700 px-2 py-1 rounded">✅ {meeting.followUps.length} follow-ups</span>
@@ -443,7 +443,7 @@ export default function UnifiedMeetingsPage() {
         <div className="bg-card border rounded-2xl p-6">
           <div className="space-y-4">
             {meetings.filter(m => m.date >= new Date().toISOString().split('T')[0]).sort((a, b) => a.date.localeCompare(b.date)).map(meeting => (
-              <div key={meeting.id} className="border-l-4 border-blue-600 pl-4 py-2">
+              <div key={meeting.id} className="border-l-4 border-zinc-950 pl-4 py-2">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-bold">{meeting.title}</p>
@@ -485,7 +485,7 @@ export default function UnifiedMeetingsPage() {
                       setSelectedMeeting(meeting)
                       setShowDetailsModal(true)
                     }}
-                    className="px-3 py-2 bg-blue-600 text-white rounded text-sm font-bold hover:bg-blue-700"
+                    className="px-3 py-2 bg-zinc-950 text-white rounded text-sm font-bold hover:bg-zinc-950"
                   >
                     Details
                   </button>
@@ -510,11 +510,11 @@ export default function UnifiedMeetingsPage() {
               
               {meeting.notes.length > 0 && (
                 <div className="mb-4">
-                  <p className="text-sm font-bold text-blue-600 mb-2">📝 Notes</p>
+                  <p className="text-sm font-bold text-zinc-950 mb-2">📝 Notes</p>
                   {meeting.notes.map(note => (
-                    <div key={note.id} className="bg-blue-50 rounded p-2 mb-2 text-sm">
+                    <div key={note.id} className="bg-zinc-50 rounded p-2 mb-2 text-sm">
                       <p className="text-blue-900">{note.content}</p>
-                      <p className="text-xs text-blue-700 mt-1">by {note.author}</p>
+                      <p className="text-xs text-zinc-950 mt-1">by {note.author}</p>
                     </div>
                   ))}
                 </div>
@@ -522,11 +522,11 @@ export default function UnifiedMeetingsPage() {
 
               {meeting.decisions.length > 0 && (
                 <div>
-                  <p className="text-sm font-bold text-pink-600 mb-2">⭐ Decisions</p>
+                  <p className="text-sm font-bold text-primary mb-2">⭐ Decisions</p>
                   {meeting.decisions.map(decision => (
-                    <div key={decision.id} className="bg-pink-50 rounded p-2 mb-2 text-sm">
-                      <p className="text-pink-900 font-bold">{decision.description}</p>
-                      <p className="text-xs text-pink-700 mt-1">Owner: {decision.owner} | Due: {formatDate(decision.dueDate)}</p>
+                    <div key={decision.id} className="bg-zinc-100 rounded p-2 mb-2 text-sm">
+                      <p className="text-zinc-900 font-bold">{decision.description}</p>
+                      <p className="text-xs text-zinc-700 mt-1">Owner: {decision.owner} | Due: {formatDate(decision.dueDate)}</p>
                     </div>
                   ))}
                 </div>
@@ -553,14 +553,14 @@ export default function UnifiedMeetingsPage() {
                       <span className={`inline-block text-xs font-bold mt-2 px-2 py-1 rounded ${
                         fu.priority === 'High' ? 'bg-red-100 text-red-700' :
                         fu.priority === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
-                        'bg-blue-100 text-blue-700'
+                        'bg-zinc-100 text-zinc-950'
                       }`}>
                         {fu.priority} Priority
                       </span>
                     </div>
                     <span className={`text-xs font-bold px-2 py-1 rounded ${
                       fu.status === 'Completed' ? 'bg-green-100 text-green-700' :
-                      fu.status === 'In Progress' ? 'bg-blue-100 text-blue-700' :
+                      fu.status === 'In Progress' ? 'bg-zinc-100 text-zinc-950' :
                       'bg-gray-100 text-gray-700'
                     }`}>
                       {fu.status}
@@ -578,7 +578,7 @@ export default function UnifiedMeetingsPage() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-background rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border-b">
+            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-zinc-950/10 to-zinc-800/10 border-b">
               <div>
                 <h2 className="text-2xl font-black">{selectedMeeting.title}</h2>
                 <p className="text-sm text-muted-foreground mt-1">{selectedMeeting.type}</p>
@@ -629,7 +629,7 @@ export default function UnifiedMeetingsPage() {
               {/* Attendees */}
               <div>
                 <h3 className="font-black mb-3 flex items-center gap-2">
-                  <Users className="h-5 w-5 text-blue-600" />
+                  <Users className="h-5 w-5 text-zinc-950" />
                   Attendees ({selectedMeeting.attendees.length})
                 </h3>
                 <div className="space-y-2">
@@ -653,9 +653,9 @@ export default function UnifiedMeetingsPage() {
 
               {/* Meeting Link */}
               {selectedMeeting.meetingLink && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="bg-zinc-50 border border-blue-200 rounded-lg p-4">
                   <p className="text-sm font-bold text-blue-900 mb-2">🔗 Meeting Link</p>
-                  <a href={selectedMeeting.meetingLink} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline text-sm break-all">
+                  <a href={selectedMeeting.meetingLink} target="_blank" rel="noopener noreferrer" className="text-zinc-950 underline text-sm break-all">
                     {selectedMeeting.meetingLink}
                   </a>
                 </div>
@@ -664,15 +664,15 @@ export default function UnifiedMeetingsPage() {
               {/* Notes Tab Section */}
               <div>
                 <h3 className="font-black mb-3 flex items-center gap-2">
-                  <MessageSquare className="h-5 w-5 text-blue-600" />
+                  <MessageSquare className="h-5 w-5 text-zinc-950" />
                   Notes ({selectedMeeting.notes.length})
                 </h3>
                 <div className="space-y-3 mb-4">
                   {selectedMeeting.notes.map(note => (
                     <div key={note.id} className={`rounded-lg p-3 ${
-                      note.type === 'Decision' ? 'bg-pink-50' :
+                      note.type === 'Decision' ? 'bg-zinc-100' :
                       note.type === 'Action Item' ? 'bg-yellow-50' :
-                      'bg-blue-50'
+                      'bg-zinc-50'
                     }`}>
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
@@ -710,12 +710,12 @@ export default function UnifiedMeetingsPage() {
               {/* Decisions */}
               <div>
                 <h3 className="font-black mb-3 flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-pink-600" />
+                  <CheckCircle className="h-5 w-5 text-primary" />
                   Decisions ({selectedMeeting.decisions.length})
                 </h3>
                 <div className="space-y-2 mb-4">
                   {selectedMeeting.decisions.map(dec => (
-                    <div key={dec.id} className="bg-pink-50 rounded-lg p-3">
+                    <div key={dec.id} className="bg-zinc-100 rounded-lg p-3">
                       <p className="font-bold text-sm">{dec.description}</p>
                       <p className="text-xs text-muted-foreground mt-1">Owner: {dec.owner} | Due: {formatDate(dec.dueDate)}</p>
                     </div>
@@ -732,7 +732,7 @@ export default function UnifiedMeetingsPage() {
                   />
                   <button
                     onClick={handleAddDecision}
-                    className="px-3 py-2 bg-pink-600 text-white rounded-lg text-sm font-bold hover:bg-pink-700"
+                    className="px-3 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:opacity-90"
                   >
                     Add
                   </button>
@@ -756,7 +756,7 @@ export default function UnifiedMeetingsPage() {
                         <span className={`text-xs font-bold px-2 py-1 rounded ${
                           fu.priority === 'High' ? 'bg-red-100 text-red-700' :
                           fu.priority === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
-                          'bg-blue-100 text-blue-700'
+                          'bg-zinc-100 text-zinc-950'
                         }`}>
                           {fu.priority}
                         </span>
@@ -820,7 +820,7 @@ export default function UnifiedMeetingsPage() {
       {showAddModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-background rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border-b">
+            <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-zinc-950/10 to-zinc-800/10 border-b">
               <h2 className="text-2xl font-black">Schedule New Meeting</h2>
               <button
                 onClick={() => setShowAddModal(false)}
@@ -954,7 +954,7 @@ export default function UnifiedMeetingsPage() {
                       }}
                       className={`px-3 py-1 rounded-full text-xs font-bold transition-colors ${
                         newMeeting.attendees.includes(tm.name)
-                          ? 'bg-blue-600 text-white'
+                          ? 'bg-zinc-950 text-white'
                           : 'bg-muted text-muted-foreground hover:bg-muted/80'
                       }`}
                     >
@@ -983,7 +983,7 @@ export default function UnifiedMeetingsPage() {
                 </button>
                 <button
                   onClick={handleAddMeeting}
-                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-sm"
+                  className="flex-1 px-4 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950 font-bold text-sm"
                 >
                   Schedule Meeting
                 </button>

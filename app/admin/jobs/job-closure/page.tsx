@@ -153,7 +153,7 @@ function JobClosureContent() {
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Invoices Generated</p>
-          <p className="text-2xl font-bold text-blue-600">{stats.invoicesGenerated}</p>
+          <p className="text-2xl font-bold text-zinc-950">{stats.invoicesGenerated}</p>
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Payments Received</p>
@@ -161,7 +161,7 @@ function JobClosureContent() {
         </div>
         <div className="bg-white rounded-lg p-4 border border-gray-200">
           <p className="text-sm text-gray-600">Total Revenue</p>
-          <p className="text-2xl font-bold text-purple-600">${stats.totalRevenue.toFixed(2)}</p>
+          <p className="text-2xl font-bold text-zinc-800">${stats.totalRevenue.toFixed(2)}</p>
         </div>
       </div>
 
@@ -210,7 +210,7 @@ function JobClosureContent() {
               <p className="text-sm text-gray-600">Team Members</p>
               <div className="flex flex-wrap gap-2 mt-1">
                 {selectedJob.teamMembers.map((member: string, i: number) => (
-                  <span key={i} className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded">
+                  <span key={i} className="px-3 py-1 bg-zinc-100 text-zinc-950 text-sm rounded">
                     {member}
                   </span>
                 ))}
@@ -282,7 +282,7 @@ function JobClosureContent() {
               <div className="flex gap-2">
                 <button
                   onClick={() => handleGenerateInvoice(selectedJob.id)}
-                  className="flex-1 px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 font-medium text-sm"
+                  className="flex-1 px-3 py-2 bg-zinc-950 text-white rounded hover:bg-zinc-950 font-medium text-sm"
                 >
                   {selectedJob.invoiceGenerated ? '✓ Generated' : 'Generate Invoice'}
                 </button>
@@ -357,7 +357,7 @@ function JobClosureContent() {
                 className={`flex-1 px-3 py-2 rounded font-medium text-sm ${
                   selectedJob.signoffStatus === 'Complete'
                     ? 'bg-green-100 text-green-700'
-                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                    : 'bg-zinc-950 text-white hover:bg-zinc-950'
                 }`}
               >
                 {selectedJob.signoffStatus === 'Complete' ? '✓ Signed Off' : 'Obtain Signoff'}

@@ -24,7 +24,8 @@ import {
   UserCheck,
   Zap,
   Save,
-  Edit2
+  Edit2,
+  ArrowUpRight
 } from 'lucide-react'
 
 // Firebase imports
@@ -828,128 +829,105 @@ export default function UnifiedCRMDashboard() {
   }
 
   return (
-    <div className="space-y-6 pb-10">
-      {/* Header */}
-      <div className="relative overflow-hidden rounded-xl bg-white p-6 text-gray-900 shadow-lg border border-gray-300">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="h-8 w-8 rounded-lg bg-blue-100 flex items-center justify-center border border-blue-300">
-                <Kanban className="h-4 w-4 text-blue-700" />
-              </div>
-              <span className="text-blue-700 font-bold text-xs uppercase">CRM Management</span>
-            </div>
-            <h1 className="text-3xl font-black tracking-tight">Lead & Pipeline Hub</h1>
-            <p className="text-gray-600 mt-2 text-sm"> {leads.length} leads found</p>
-          </div>
-          <div className="flex gap-3">
-            <button onClick={() => setShowNewForm(true)} className="group relative flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-sm transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]">
-              <Plus className="h-4 w-4" />
-              New Lead
-            </button>
-            <button onClick={() => setShowEnhancedDataForm(true)} className="group relative flex items-center gap-2 px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold text-sm transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]">
-              <Database className="h-4 w-4" />
-              Add Client Data
-            </button>
-            {/* <button 
-              onClick={generateAIPersonas} 
-              disabled={isGeneratingPersonas}
-              className="group relative flex items-center gap-2 px-6 py-2.5 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-400 text-white rounded-lg font-bold text-sm transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]"
-            >
-              {isGeneratingPersonas ? (
-                <Zap className="h-4 w-4 animate-pulse" />
-              ) : (
-                <Sparkles className="h-4 w-4" />
-              )}
-              {isGeneratingPersonas ? 'Generating...' : 'AI Personas'}
-            </button>
-            <button 
-              onClick={fetchLeads} 
-              className="group relative flex items-center gap-2 px-4 py-2.5 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-bold text-sm transition-all shadow-md hover:scale-[1.02] active:scale-[0.98]"
-            >
-              🔄 Refresh
-            </button> */}
-          </div>
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6">
+      {/* Header & Intelligence Stats */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-black text-zinc-950 tracking-tighter uppercase italic">
+            CRM <span className="text-zinc-400">Intelligence</span>
+          </h1>
+          <p className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] mt-1">
+            Sales Pipeline & Performance Tracking
+          </p>
         </div>
-        <div className="absolute top-0 right-0 -mt-12 -mr-12 h-40 w-40 rounded-full bg-blue-100 blur-[80px] opacity-30"></div>
-      </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-        {[
-          { label: 'Total Pipeline', value: `AED ${(totalPipeline / 1000).toFixed(0)}K`, icon: DollarSign, color: 'blue' },
-          { label: 'Active Leads',  value:` Active Lead ${leads.length} ` ,icon: Target, color: 'purple' },
-          { label: 'Avg Deal Size', value: `AED ${(avgDealSize / 1000).toFixed(0)}K`, icon: TrendingUp, color: 'green' },
-          { label: 'Won This Month', value: `AED ${(wonDeals / 1000).toFixed(0)}K`, icon: CheckCircle2, color: 'emerald' }
-        ].map((stat, idx) => (
-          <div key={idx} className="bg-white p-3 rounded-lg border border-gray-200 hover:border-blue-300 transition-all">
-            <div className="flex items-center justify-between gap-2">
-              <div>
-                <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">{stat.label}</p>
-                <p className={`text-lg font-black mt-0.5 ${stat.color === 'blue' ? 'text-blue-700' : stat.color === 'purple' ? 'text-purple-700' : stat.color === 'green' ? 'text-green-700' : 'text-emerald-700'}`}>
-                  {stat.value}
-                </p>
-              </div>
-              <div className={`p-2 rounded-lg ${stat.color === 'blue' ? 'bg-blue-100 text-blue-700' : stat.color === 'purple' ? 'bg-purple-100 text-purple-700' : stat.color === 'green' ? 'bg-green-100 text-green-700' : 'bg-emerald-100 text-emerald-700'}`}>
-                <stat.icon className="h-4 w-4" />
+        <div className="flex flex-wrap items-center gap-2">
+          {[
+            { label: 'Pipeline', val: `AED ${(totalPipeline / 1000).toFixed(0)}K`, trend: '+12%', icon: DollarSign },
+            { label: 'Active', val: leads.length, trend: '+3', icon: Target },
+            { label: 'Avg Deal', val: `AED ${(avgDealSize / 1000).toFixed(0)}K`, trend: '0%', icon: TrendingUp },
+            { label: 'Won', val: `AED ${(wonDeals / 1000).toFixed(0)}K`, trend: '+5%', icon: CheckCircle2 }
+          ].map((stat) => (
+            <div key={stat.label} className="bg-white border border-zinc-100 rounded-2xl p-3 px-5 shadow-sm hover:shadow-md transition-all">
+              <p className="text-[8px] font-black text-zinc-400 uppercase tracking-widest">{stat.label}</p>
+              <div className="flex items-baseline gap-2 mt-0.5">
+                <p className="text-lg font-black text-zinc-950 tracking-tighter">{stat.val}</p>
+                <span className={`text-[8px] font-black ${stat.trend.startsWith('+') ? 'text-emerald-500' : 'text-zinc-400'}`}>
+                  {stat.trend}
+                </span>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+          <button onClick={() => setShowNewForm(true)} className="bg-zinc-950 text-white p-3 rounded-2xl flex items-center gap-2 hover:bg-zinc-900 transition-all shadow-lg active:scale-95 ml-2">
+            <Plus className="h-4 w-4" />
+            <span className="text-[10px] font-black uppercase tracking-widest px-1">New Lead</span>
+          </button>
+        </div>
       </div>
 
-      {/* Search & Filter */}
-      <div className="flex flex-col md:flex-row gap-4 items-stretch">
-        <div className="relative flex-1">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-          <input 
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="relative w-full md:w-96 group">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-zinc-400 group-focus-within:text-zinc-950 transition-colors" />
+          <input
             type="text"
-            placeholder="Search leads by name or company..."
+            placeholder="Search Intelligence Database..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-900 placeholder:text-gray-500 transition-all"
+            className="w-full bg-white border border-zinc-100 rounded-xl pl-10 pr-4 py-2.5 text-[11px] font-black uppercase tracking-tight focus:outline-none focus:ring-4 focus:ring-zinc-100 transition-all"
           />
         </div>
-        <select 
-          value={filterPriority}
-          onChange={(e) => setFilterPriority(e.target.value)}
-          className="px-6 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none transition-all min-w-45"
-        >
-          <option value="all">All Priorities</option>
-          <option value="High">High Priority</option>
-          <option value="Medium">Medium Priority</option>
-          <option value="Low">Low Priority</option>
-        </select>
+        <div className="flex items-center gap-2 w-full md:w-auto">
+          <select 
+            value={filterPriority}
+            onChange={(e) => setFilterPriority(e.target.value)}
+            className="flex-1 md:flex-none px-4 py-2.5 bg-white border border-zinc-100 rounded-xl text-[10px] font-black text-zinc-600 focus:ring-4 focus:ring-zinc-100 outline-none transition-all uppercase tracking-widest"
+          >
+            <option value="all">All Priorities</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-zinc-100 rounded-xl text-[10px] font-black text-zinc-600 hover:bg-zinc-50 transition-all group uppercase tracking-widest">
+            <Filter className="h-3.5 w-3.5 group-hover:rotate-180 transition-transform duration-500" />
+            Filters
+          </button>
+          <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-zinc-100 rounded-xl text-[10px] font-black text-zinc-600 hover:bg-zinc-50 transition-all group uppercase tracking-widest">
+            <ArrowUpRight className="h-3.5 w-3.5" />
+            Export
+          </button>
+        </div>
       </div>
 
-      {/* Pipeline Section */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-3">
-          <Kanban className="h-5 w-5 text-blue-700" />
-          <h2 className="text-xl font-black text-gray-900">Pipeline Board</h2>
-          <span className="px-2 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-bold">{leads.length} Leads</span>
+      {/* Pipeline Board */}
+      <div className="bg-zinc-50/50 border border-zinc-100 rounded-[2.5rem] p-6 lg:p-8">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-2 bg-zinc-950 rounded-xl">
+            <Kanban className="h-4 w-4 text-white" />
+          </div>
+          <h2 className="text-xl font-black text-zinc-950 tracking-tighter uppercase italic">
+            Lead <span className="text-zinc-400">Pipeline</span>
+          </h2>
         </div>
 
-        <div className="flex gap-3 overflow-x-auto pb-6 snap-x scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
           {leadsByStage.map((stageData) => (
-            <div key={stageData.stage} className="shrink-0 w-72 snap-start">
-              <div className="mb-3 flex items-center justify-between px-1">
+            <div key={stageData.stage} className="shrink-0 w-80">
+              <div className="mb-4 flex items-center justify-between px-2">
                 <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                  <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">{stageData.stage}</h3>
-                  <span className="px-2 py-0.5 rounded-md bg-gray-100 border border-gray-200 text-[9px] font-bold text-gray-700">
+                  <span className="text-[10px] font-black text-zinc-950 uppercase tracking-widest">{stageData.stage}</span>
+                  <span className="h-5 min-w-5 flex items-center justify-center rounded-full bg-zinc-950 text-white text-[9px] font-black italic">
                     {stageData.count}
                   </span>
                 </div>
-                <p className="text-[9px] font-bold text-blue-700 uppercase">
+                <span className="text-[10px] font-black text-zinc-400">
                   AED {(stageData.total / 1000).toFixed(0)}K
-                </p>
+                </span>
               </div>
 
               <div 
                 onDragOver={handleDragOver}
                 onDrop={(e) => handleDrop(e, stageData)}
-                className="space-y-2 min-h-87.5 rounded-lg bg-gray-50 border-2 border-dashed border-gray-300 p-3 transition-all hover:border-blue-400 hover:bg-blue-50"
+                className="space-y-3 min-h-[500px] rounded-2xl bg-zinc-100/50 border border-transparent hover:border-zinc-200 p-2 transition-all"
               >
                 {stageData.leads.map((lead) => (
                   <div
@@ -958,39 +936,36 @@ export default function UnifiedCRMDashboard() {
                     onDragStart={(e) => handleDragStart(e, lead)}
                     onDragEnd={handleDragEnd}
                     onClick={() => { setSelectedLead(lead); setShowLeadModal(true) }}
-                    className={`bg-white border-l-4 rounded-lg p-3 cursor-move hover:shadow-md transition-all group ${
-                      draggedLead?.id === lead.id ? 'opacity-50 scale-95' : 'hover:border-l-blue-500'
-                    } ${
-                      lead.priority === 'High' ? 'border-l-red-500' :
-                      lead.priority === 'Medium' ? 'border-l-amber-500' :
-                      'border-l-green-500'
-                    }`}
+                    className={`bg-white border border-zinc-100 rounded-xl p-3 cursor-move hover:shadow-lg transition-all group ${
+                      draggedLead?.id === lead.id ? 'opacity-50 scale-95' : ''
+                    } relative overflow-hidden`}
                     style={{ cursor: draggedLead?.id === lead.id ? 'grabbing' : 'grab' }}
                   >
+                    <div className="absolute top-0 left-0 w-1 h-full bg-zinc-950 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="flex items-start gap-2">
-                      <GripVertical className="h-3.5 w-3.5 text-gray-300 shrink-0 mt-0.5" />
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-gray-900 text-xs group-hover:text-blue-600 truncate">
-                          {lead.name.split(' ')[0]} {lead.name.split(' ')[1]?.charAt(0)}.
-                        </h4>
-                        <p className="text-[10px] text-gray-600 font-medium truncate mt-0.5">
-                          {lead.company.substring(0, 20)}...
+                        <div className="flex items-center justify-between mb-1">
+                          <h4 className="font-black text-zinc-950 text-[11px] group-hover:text-zinc-600 truncate uppercase tracking-tight">
+                            {lead.name.split(' ')[0]} {lead.name.split(' ')[1]?.charAt(0)}.
+                          </h4>
+                          <span className={`text-[8px] font-black px-1.5 py-0.5 rounded-md uppercase border ${getPriorityColor(lead.priority).badge}`}>
+                            {lead.priority.charAt(0)}
+                          </span>
+                        </div>
+                        <p className="text-[9px] text-zinc-400 font-black uppercase tracking-widest truncate">
+                          {lead.company}
                         </p>
-                        <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
-                          <span className="text-xs font-bold text-blue-700">
+                        
+                        <div className="flex items-center justify-between mt-3 pt-2 border-t border-zinc-50">
+                          <span className="text-[10px] font-black text-zinc-950 tracking-tighter">
                             AED {(lead.value / 1000).toFixed(0)}K
                           </span>
-                          <span className="text-[9px] font-bold text-gray-500 flex items-center gap-1">
+                          <span className="text-[8px] font-black text-zinc-400 flex items-center gap-1 uppercase">
                             <Clock className="h-2.5 w-2.5" />
-                            {lead.daysInStage}d
+                            {lead.daysInStage}D
                           </span>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-1 mt-2 ml-5">
-                      <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider border ${getPriorityColor(lead.priority).badge}`}>
-                        {lead.priority}
-                      </span>
                     </div>
                   </div>
                 ))}
@@ -1041,16 +1016,16 @@ export default function UnifiedCRMDashboard() {
                   <td className="px-4 py-3">
                     <span className={`inline-flex items-center px-2 py-1 rounded text-[9px] font-bold uppercase border ${
                       lead.status === 'Won' ? 'bg-green-100 text-green-700 border-green-300' :
-                      lead.status === 'Negotiation' ? 'bg-blue-100 text-blue-700 border-blue-300' :
+                      lead.status === 'Negotiation' ? 'bg-zinc-100 text-zinc-950 border-blue-300' :
                       lead.status === 'New' ? 'bg-gray-100 text-gray-700 border-gray-300' :
-                      lead.status === 'Qualified' ? 'bg-purple-100 text-purple-700 border-purple-300' :
+                      lead.status === 'Qualified' ? 'bg-zinc-100 text-purple-700 border-purple-300' :
                       lead.status === 'Contacted' ? 'bg-amber-100 text-amber-700 border-amber-300' :
                       'bg-yellow-100 text-yellow-700 border-yellow-300'
                     }`}>
                       {lead.status}
                     </span>
                   </td>
-                  <td className="px-4 py-3 font-bold text-blue-700 text-xs">AED {(lead.value / 1000).toFixed(0)}K</td>
+                  <td className="px-4 py-3 font-bold text-zinc-950 text-xs">AED {(lead.value / 1000).toFixed(0)}K</td>
                   <td className="px-4 py-3">
                     <span className={`text-[9px] font-bold px-2 py-1 rounded uppercase border ${getPriorityColor(lead.priority).badge}`}>
                       {lead.priority}
@@ -1058,7 +1033,7 @@ export default function UnifiedCRMDashboard() {
                   </td>
                   <td className="px-4 py-3">
                     <span className={`text-[9px] font-bold px-2 py-1 rounded uppercase ${
-                      lead.tier === 'Platinum' ? 'bg-purple-100 text-purple-700' :
+                      lead.tier === 'Platinum' ? 'bg-zinc-100 text-purple-700' :
                       lead.tier === 'Gold' ? 'bg-yellow-100 text-yellow-700' :
                       lead.tier === 'Silver' ? 'bg-gray-100 text-gray-700' :
                       'bg-orange-100 text-orange-700'
@@ -1093,7 +1068,7 @@ export default function UnifiedCRMDashboard() {
                       </button>
                       <button 
                         onClick={() => handleEditLead(lead)}
-                        className="p-1.5 hover:bg-blue-200 rounded-lg transition-colors text-blue-600"
+                        className="p-1.5 hover:bg-blue-200 rounded-lg transition-colors text-zinc-950"
                         title="Edit Lead"
                       >
                         <Edit2 className="h-4 w-4" />
@@ -1112,10 +1087,10 @@ export default function UnifiedCRMDashboard() {
       {showLeadModal && selectedLead && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white border border-gray-300 rounded-lg shadow-xl w-full max-w-md overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-blue-50 to-indigo-50">
+            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-zinc-50 to-indigo-50">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center border border-blue-300">
-                  <Users className="h-5 w-5 text-blue-700" />
+                <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center border border-blue-300">
+                  <Users className="h-5 w-5 text-zinc-950" />
                 </div>
                 <div>
                   <h2 className="text-lg font-black text-gray-900">{selectedLead.name}</h2>
@@ -1129,11 +1104,11 @@ export default function UnifiedCRMDashboard() {
 
             <div className="p-4 space-y-4">
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-blue-50 p-3 rounded-lg border border-blue-300">
-                  <p className="text-[9px] font-bold text-blue-700 uppercase tracking-wider mb-1">Deal Value</p>
+                <div className="bg-zinc-50 p-3 rounded-lg border border-blue-300">
+                  <p className="text-[9px] font-bold text-zinc-950 uppercase tracking-wider mb-1">Deal Value</p>
                   <p className="text-lg font-black text-blue-900">AED {(selectedLead.value / 1000).toFixed(0)}K</p>
                 </div>
-                <div className="bg-purple-50 p-3 rounded-lg border border-purple-300">
+                <div className="bg-zinc-50 p-3 rounded-lg border border-purple-300">
                   <p className="text-[9px] font-bold text-purple-700 uppercase tracking-wider mb-1">Priority</p>
                   <span className={`inline-flex items-center px-2 py-1 rounded text-[9px] font-bold uppercase border ${getPriorityColor(selectedLead.priority).badge}`}>
                     {selectedLead.priority}
@@ -1148,7 +1123,7 @@ export default function UnifiedCRMDashboard() {
                 </div>
                 <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-blue-600 transition-all duration-500" 
+                    className="h-full bg-zinc-950 transition-all duration-500" 
                     style={{ width: `${((stages.indexOf(selectedLead.status) + 1) / stages.length) * 100}%` }}
                   ></div>
                 </div>
@@ -1187,7 +1162,7 @@ export default function UnifiedCRMDashboard() {
                     handleMoveStage(selectedLead, e.target.value)
                     setShowLeadModal(false)
                   }}
-                  className="w-full px-3 py-2 bg-blue-50 border border-blue-300 rounded-lg text-xs text-gray-900 font-bold focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 bg-zinc-50 border border-blue-300 rounded-lg text-xs text-gray-900 font-bold focus:ring-2 focus:ring-zinc-500 outline-none"
                 >
                   {stages.map(s => (
                     <option key={s} value={s}>{s}</option>
@@ -1221,10 +1196,10 @@ export default function UnifiedCRMDashboard() {
       {showNewForm && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white border border-gray-300 rounded-lg shadow-xl w-full max-w-md overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-blue-50 to-indigo-50">
+            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-zinc-50 to-indigo-50">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center border border-blue-300">
-                  <Plus className="h-5 w-5 text-blue-700" />
+                <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center border border-blue-300">
+                  <Plus className="h-5 w-5 text-zinc-950" />
                 </div>
                 <h2 className="text-lg font-black text-gray-900">New Lead</h2>
               </div>
@@ -1241,7 +1216,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="Enter name"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1252,7 +1227,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="Enter company"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1261,7 +1236,7 @@ export default function UnifiedCRMDashboard() {
                 <select
                   value={formData.status}
                   onChange={(e) => setFormData({...formData, status: e.target.value as Lead['status']})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 font-bold"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 font-bold"
                 >
                   <option value="New">New</option>
                   <option value="Contacter">Contacter</option>
@@ -1279,7 +1254,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="50000"
                   value={formData.value}
                   onChange={(e) => setFormData({...formData, value: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1290,7 +1265,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="email@company.ae"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1301,7 +1276,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="+971-50-1111111"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1320,7 +1295,7 @@ export default function UnifiedCRMDashboard() {
                             setFormData({...formData, sources: formData.sources.filter(s => s !== source)})
                           }
                         }}
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-zinc-950 bg-gray-100 border-gray-300 rounded focus:ring-zinc-500"
                       />
                       <span className="text-sm text-gray-700">{source}</span>
                     </label>
@@ -1329,7 +1304,7 @@ export default function UnifiedCRMDashboard() {
                 {formData.sources.length > 0 && (
                   <div className="mt-2 flex flex-wrap gap-1">
                     {formData.sources.map((source) => (
-                      <span key={source} className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                      <span key={source} className="inline-flex items-center gap-1 px-2 py-1 bg-zinc-100 text-blue-800 text-xs font-medium rounded-full">
                         {source}
                         <button
                           type="button"
@@ -1349,7 +1324,7 @@ export default function UnifiedCRMDashboard() {
                 <select
                   value={formData.priority}
                   onChange={(e) => setFormData({...formData, priority: e.target.value as 'High' | 'Medium' | 'Low'})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 font-bold"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 font-bold"
                 >
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -1368,7 +1343,7 @@ export default function UnifiedCRMDashboard() {
               <button
                 onClick={handleAddNewLead}
                 disabled={!formData.name || !formData.company || !formData.value}
-                className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white rounded-lg font-bold text-sm uppercase transition-all flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-2 bg-zinc-950 hover:bg-zinc-950 disabled:bg-gray-300 text-white rounded-lg font-bold text-sm uppercase transition-all flex items-center justify-center gap-2"
               >
                 <Plus className="h-4 w-4" />
                 Create Lead
@@ -1382,10 +1357,10 @@ export default function UnifiedCRMDashboard() {
       {showEditForm && editFormData && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white border border-gray-300 rounded-lg shadow-xl w-full max-w-md overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-blue-50 to-indigo-50">
+            <div className="flex items-center justify-between p-4 border-b border-gray-300 bg-linear-to-r from-zinc-50 to-indigo-50">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center border border-blue-300">
-                  <Edit2 className="h-5 w-5 text-blue-700" />
+                <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center border border-blue-300">
+                  <Edit2 className="h-5 w-5 text-zinc-950" />
                 </div>
                 <h2 className="text-lg font-black text-gray-900">Edit Lead</h2>
               </div>
@@ -1402,7 +1377,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="Enter name"
                   value={editFormData.name}
                   onChange={(e) => setEditFormData({...editFormData, name: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1413,7 +1388,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="Enter company"
                   value={editFormData.company}
                   onChange={(e) => setEditFormData({...editFormData, company: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1422,7 +1397,7 @@ export default function UnifiedCRMDashboard() {
                 <select
                   value={editFormData.status}
                   onChange={(e) => setEditFormData({...editFormData, status: e.target.value as Lead['status']})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 font-bold"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 font-bold"
                 >
                   <option value="New">New</option>
                   <option value="Contacter">Contacter</option>
@@ -1440,7 +1415,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="50000"
                   value={editFormData.value}
                   onChange={(e) => setEditFormData({...editFormData, value: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1451,7 +1426,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="email@company.ae"
                   value={editFormData.email}
                   onChange={(e) => setEditFormData({...editFormData, email: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1462,7 +1437,7 @@ export default function UnifiedCRMDashboard() {
                   placeholder="+971-50-1111111"
                   value={editFormData.phone}
                   onChange={(e) => setEditFormData({...editFormData, phone: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                 />
               </div>
 
@@ -1481,7 +1456,7 @@ export default function UnifiedCRMDashboard() {
                             setEditFormData({...editFormData, sources: editFormData.sources.filter(s => s !== source)})
                           }
                         }}
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-zinc-950 bg-gray-100 border-gray-300 rounded focus:ring-zinc-500"
                       />
                       <span className="text-sm text-gray-700">{source}</span>
                     </label>
@@ -1490,7 +1465,7 @@ export default function UnifiedCRMDashboard() {
                 {editFormData.sources.length > 0 && (
                   <div className="mt-2 flex flex-wrap gap-1">
                     {editFormData.sources.map((source: string) => (
-                      <span key={source} className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                      <span key={source} className="inline-flex items-center gap-1 px-2 py-1 bg-zinc-100 text-blue-800 text-xs font-medium rounded-full">
                         {source}
                         <button
                           type="button"
@@ -1510,7 +1485,7 @@ export default function UnifiedCRMDashboard() {
                 <select
                   value={editFormData.priority}
                   onChange={(e) => setEditFormData({...editFormData, priority: e.target.value as Lead['priority']})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 font-bold"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 font-bold"
                 >
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -1529,7 +1504,7 @@ export default function UnifiedCRMDashboard() {
               <button
                 onClick={handleUpdateLead}
                 disabled={!editFormData.name || !editFormData.company || !editFormData.value}
-                className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white rounded-lg font-bold text-sm uppercase transition-all flex items-center justify-center gap-2"
+                className="flex-1 px-4 py-2 bg-zinc-950 hover:bg-zinc-950 disabled:bg-gray-300 text-white rounded-lg font-bold text-sm uppercase transition-all flex items-center justify-center gap-2"
               >
                 <Save className="h-4 w-4" />
                 Update Lead
@@ -1649,7 +1624,7 @@ export default function UnifiedCRMDashboard() {
                   </div>
 
                   {/* Social Media & Online Presence */}
-                  <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <div className="bg-zinc-50 p-4 rounded-lg border border-blue-200">
                     <h4 className="text-sm font-bold text-gray-700 uppercase mb-4 flex items-center gap-2">
                       <Users className="h-4 w-4" />
                       Social Media & Online Presence
@@ -1662,7 +1637,7 @@ export default function UnifiedCRMDashboard() {
                           placeholder="linkedin.com/company/name"
                           value={enhancedData.linkedin}
                           onChange={(e) => setEnhancedData({...enhancedData, linkedin: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                       <div>
@@ -1672,7 +1647,7 @@ export default function UnifiedCRMDashboard() {
                           placeholder="@companyname"
                           value={enhancedData.twitter}
                           onChange={(e) => setEnhancedData({...enhancedData, twitter: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                       <div>
@@ -1682,14 +1657,14 @@ export default function UnifiedCRMDashboard() {
                           placeholder="@companyname"
                           value={enhancedData.instagram}
                           onChange={(e) => setEnhancedData({...enhancedData, instagram: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Business Intelligence */}
-                  <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                  <div className="bg-zinc-50 p-4 rounded-lg border border-purple-200">
                     <h4 className="text-sm font-bold text-gray-700 uppercase mb-4 flex items-center gap-2">
                       <Target className="h-4 w-4" />
                       Business Intelligence
@@ -1702,7 +1677,7 @@ export default function UnifiedCRMDashboard() {
                           placeholder="50K-100K AED/month"
                           value={enhancedData.budgetRange}
                           onChange={(e) => setEnhancedData({...enhancedData, budgetRange: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                       <div>
@@ -1712,7 +1687,7 @@ export default function UnifiedCRMDashboard() {
                           placeholder="2-3 months"
                           value={enhancedData.decisionTimeline}
                           onChange={(e) => setEnhancedData({...enhancedData, decisionTimeline: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                       <div className="md:col-span-2">
@@ -1722,7 +1697,7 @@ export default function UnifiedCRMDashboard() {
                           value={enhancedData.painPoints}
                           onChange={(e) => setEnhancedData({...enhancedData, painPoints: e.target.value})}
                           rows={2}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                       <div className="md:col-span-2">
@@ -1732,7 +1707,7 @@ export default function UnifiedCRMDashboard() {
                           value={enhancedData.goals}
                           onChange={(e) => setEnhancedData({...enhancedData, goals: e.target.value})}
                           rows={2}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                       <div className="md:col-span-2">
@@ -1742,7 +1717,7 @@ export default function UnifiedCRMDashboard() {
                           placeholder="CleanCorp, ShineServices, etc."
                           value={enhancedData.competitors}
                           onChange={(e) => setEnhancedData({...enhancedData, competitors: e.target.value})}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-zinc-500 outline-none text-sm text-gray-900 placeholder:text-gray-400"
                         />
                       </div>
                     </div>
@@ -1841,9 +1816,9 @@ export default function UnifiedCRMDashboard() {
       {showAIPersonaModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white border border-gray-300 rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
-            <div className="flex items-center justify-between p-6 border-b border-gray-300 bg-linear-to-r from-purple-50 to-pink-50">
+            <div className="flex items-center justify-between p-6 border-b border-gray-300 bg-zinc-50">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-purple-100 flex items-center justify-center border border-purple-300">
+                <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center border border-purple-300">
                   <Sparkles className="h-5 w-5 text-purple-700" />
                 </div>
                 <div>
@@ -1864,7 +1839,7 @@ export default function UnifiedCRMDashboard() {
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center border border-purple-300">
+                            <div className="h-8 w-8 rounded-full bg-zinc-100 flex items-center justify-center border border-purple-300">
                               <UserCheck className="h-4 w-4 text-purple-700" />
                             </div>
                             <div>
@@ -1905,7 +1880,7 @@ export default function UnifiedCRMDashboard() {
                         
                         <button
                           onClick={() => createLeadFromPersona(persona)}
-                          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-bold text-sm transition-all flex items-center gap-2 hover:scale-105"
+                          className="px-4 py-2 bg-zinc-800 hover:bg-purple-700 text-white rounded-lg font-bold text-sm transition-all flex items-center gap-2 hover:scale-105"
                         >
                           <Plus className="h-4 w-4" />
                           Create Lead

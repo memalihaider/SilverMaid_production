@@ -241,7 +241,7 @@ export default function ExpenseManager() {
     }
   }
 
-  const COLORS = ['#10b981', '#f59e0b', '#ef4444', '#3b82f6', '#8b5cf6', '#ec4899']
+  const COLORS = ['#10b981', '#f59e0b', '#ef4444', '#3b82f6', '#8b5cf6', '#111111']
 
   return (
     <div className="space-y-6 pb-10">
@@ -499,9 +499,9 @@ export default function ExpenseManager() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-gray-600 text-sm font-semibold">Expense Count</p>
-                  <p className="text-3xl font-black text-blue-600 mt-2">{filteredExpenses.length}</p>
+                  <p className="text-3xl font-black text-zinc-950 mt-2">{filteredExpenses.length}</p>
                 </div>
-                <AlertCircle className="h-10 w-10 text-blue-600 opacity-20" />
+                <AlertCircle className="h-10 w-10 text-zinc-950 opacity-20" />
               </div>
             </div>
 
@@ -544,7 +544,7 @@ export default function ExpenseManager() {
                         </td>
                         <td className="px-6 py-4 text-sm font-semibold text-gray-700">{expense.expenseType}</td>
                         <td className="px-6 py-4">
-                          <span className="inline-block px-3 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700 border border-blue-300">
+                          <span className="inline-block px-3 py-1 rounded-lg text-xs font-bold bg-zinc-100 text-zinc-950 border border-blue-300">
                             {expense.category}
                           </span>
                         </td>
@@ -553,7 +553,7 @@ export default function ExpenseManager() {
                         <td className="px-6 py-4 flex gap-2">
                           <button
                             onClick={() => handleEditExpense(expense)}
-                            className="p-2 hover:bg-blue-100 rounded-lg transition-colors text-blue-600"
+                            className="p-2 hover:bg-zinc-100 rounded-lg transition-colors text-zinc-950"
                           >
                             <Edit className="h-4 w-4" />
                           </button>
@@ -667,7 +667,7 @@ export default function ExpenseManager() {
                       <td className="px-6 py-4">
                         <span className={`inline-block px-3 py-1 rounded-lg text-xs font-bold border ${
                           job.profitMargin >= 20 ? 'bg-emerald-100 text-emerald-700 border-emerald-300' :
-                          job.profitMargin >= 10 ? 'bg-blue-100 text-blue-700 border-blue-300' :
+                          job.profitMargin >= 10 ? 'bg-zinc-100 text-zinc-950 border-blue-300' :
                           job.profitMargin >= 0 ? 'bg-amber-100 text-amber-700 border-amber-300' :
                           'bg-red-100 text-red-700 border-red-300'
                         }`}>

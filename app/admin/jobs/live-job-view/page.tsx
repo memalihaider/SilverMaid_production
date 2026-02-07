@@ -154,7 +154,7 @@ function LiveJobViewContent() {
             onClick={() => setSelectedJobId(job.id)}
             className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all whitespace-nowrap ${
               selectedJobId === job.id 
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/20' 
+                ? 'bg-zinc-900 text-white shadow-lg shadow-indigo-900/20' 
                 : 'text-slate-400 hover:text-white hover:bg-white/5'
             }`}
           >
@@ -201,7 +201,7 @@ function LiveJobViewContent() {
                 </div>
                 <div className="h-4 bg-white/5 rounded-full overflow-hidden p-1 border border-white/5">
                   <div 
-                    className="h-full bg-linear-to-r from-indigo-600 to-blue-500 rounded-full transition-all duration-1000 relative"
+                    className="h-full bg-linear-to-r from-zinc-900 to-zinc-500 rounded-full transition-all duration-1000 relative"
                     style={{ width: `${selectedJob.progress}%` }}
                   >
                     <div className="absolute inset-0 bg-white/20 animate-pulse" />
@@ -239,7 +239,7 @@ function LiveJobViewContent() {
                 <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
                   <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Signal Strength</div>
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-500/10 rounded-lg">
+                    <div className="p-2 bg-zinc-500/10 rounded-lg">
                       <Wifi className="w-4 h-4 text-blue-400" />
                     </div>
                     <div>
@@ -301,7 +301,7 @@ function LiveJobViewContent() {
                   <div key={member.id} className="p-4 bg-white/5 rounded-2xl border border-white/5 group hover:bg-white/10 transition-all">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-xs font-bold text-white">
+                        <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center text-xs font-bold text-white">
                           {member.name[0]}
                         </div>
                         <div>
@@ -317,7 +317,7 @@ function LiveJobViewContent() {
                   </div>
                 ))}
               </div>
-              <button className="w-full mt-6 py-3 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-400 rounded-2xl text-sm font-bold transition-all border border-indigo-500/20 flex items-center justify-center gap-2">
+              <button className="w-full mt-6 py-3 bg-zinc-900/10 hover:bg-zinc-900/20 text-indigo-400 rounded-2xl text-sm font-bold transition-all border border-indigo-500/20 flex items-center justify-center gap-2">
                 <Phone className="w-4 h-4" />
                 Broadcast to Team
               </button>

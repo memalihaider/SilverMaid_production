@@ -266,7 +266,7 @@ export default function PermitTracker() {
 
                   <button
                     onClick={() => handleViewDetails(permit)}
-                    className="px-4 py-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
+                    className="px-4 py-2 text-zinc-950 hover:text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all"
                   >
                     View Details
                   </button>
@@ -367,10 +367,10 @@ export default function PermitTracker() {
                         <span className="text-sm text-gray-900">{doc}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <button className="p-1 text-blue-600 hover:text-blue-700">
+                        <button className="p-1 text-zinc-950 hover:text-zinc-950">
                           <Eye className="w-4 h-4" />
                         </button>
-                        <button className="p-1 text-blue-600 hover:text-blue-700">
+                        <button className="p-1 text-zinc-950 hover:text-zinc-950">
                           <Download className="w-4 h-4" />
                         </button>
                       </div>
@@ -396,7 +396,7 @@ export default function PermitTracker() {
                 >
                   Close
                 </button>
-                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                <button className="px-6 py-2 bg-zinc-950 text-white rounded-lg hover:bg-zinc-950">
                   Update Status
                 </button>
               </div>

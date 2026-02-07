@@ -782,7 +782,7 @@ export default function EquipmentPermitsPage() {
     switch(status) {
       case 'Active': return 'bg-green-100 text-green-800'
       case 'Available': return 'bg-green-100 text-green-800'
-      case 'In Use': return 'bg-blue-100 text-blue-800'
+      case 'In Use': return 'bg-zinc-100 text-blue-800'
       case 'Expiring Soon': return 'bg-yellow-100 text-yellow-800'
       case 'Expired': return 'bg-red-100 text-red-800'
       case 'Maintenance': return 'bg-orange-100 text-orange-800'
@@ -823,15 +823,15 @@ export default function EquipmentPermitsPage() {
       {/* Summary Cards - Updated with Reminder Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         {/* Equipment Card */}
-        <div className="bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-zinc-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <Wrench className="w-4 h-4 text-blue-600" />
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <Wrench className="w-4 h-4 text-zinc-950" />
             </div>
-            <span className="text-xs font-bold text-blue-700 uppercase">Total Equipment</span>
+            <span className="text-xs font-bold text-zinc-950 uppercase">Total Equipment</span>
           </div>
           <div className="text-2xl font-bold text-gray-900">{equipment.length}</div>
-          <div className="text-xs text-blue-600 mt-2">
+          <div className="text-xs text-zinc-950 mt-2">
             {getExpiryRemindersCount('equipment') > 0 && (
               <span className="flex items-center gap-1">
                 <AlertCircle className="w-3 h-3" />
@@ -879,7 +879,7 @@ export default function EquipmentPermitsPage() {
         </div>
 
         {/* Expiring Soon Card - Updated */}
-        <div className="bg-linear-to-br from-red-50 to-pink-50 border border-red-200 rounded-2xl p-6">
+        <div className="bg-zinc-50 border border-red-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2 bg-red-100 rounded-lg">
               <AlertTriangle className="w-4 h-4 text-red-600" />
@@ -896,10 +896,10 @@ export default function EquipmentPermitsPage() {
         </div>
 
         {/* Total Value Card */}
-        <div className="bg-linear-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-6">
+        <div className="bg-linear-to-br from-zinc-50 to-zinc-50 border border-purple-200 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <DollarSign className="w-4 h-4 text-purple-600" />
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <DollarSign className="w-4 h-4 text-zinc-800" />
             </div>
             <span className="text-xs font-bold text-purple-700 uppercase">Total Value</span>
           </div>
@@ -908,7 +908,7 @@ export default function EquipmentPermitsPage() {
                  permits.reduce((sum, p) => sum + p.cost, 0) + 
                  materials.reduce((sum, m) => sum + (m.cost * m.quantity), 0)).toLocaleString()}
           </div>
-          <div className="text-xs text-purple-600 mt-2">All Assets</div>
+          <div className="text-xs text-zinc-800 mt-2">All Assets</div>
         </div>
       </div>
 
@@ -926,7 +926,7 @@ export default function EquipmentPermitsPage() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all relative ${
               activeTab === tab.id
-                ? 'bg-indigo-600 text-white shadow-md'
+                ? 'bg-zinc-900 text-white shadow-md'
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
             }`}
           >
@@ -934,7 +934,7 @@ export default function EquipmentPermitsPage() {
             {tab.label}
             {tab.badge && tab.badge > 0 && (
               <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-black ${
-                activeTab === tab.id ? 'bg-white text-indigo-600' : 'bg-red-500 text-white'
+                activeTab === tab.id ? 'bg-white text-zinc-900' : 'bg-red-500 text-white'
               }`}>
                 {tab.badge}
               </span>
@@ -989,7 +989,7 @@ export default function EquipmentPermitsPage() {
             else if (activeTab === 'permits') setShowAddPermitModal(true)
             else if (activeTab === 'materials') setShowAddMaterialModal(true)
           }}
-          className="flex items-center gap-2 px-6 py-2 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+          className="flex items-center gap-2 px-6 py-2 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
         >
           <Plus className="w-4 h-4" />
           Add {activeTab === 'equipment' ? 'Equipment' : activeTab === 'permits' ? 'Permit' : 'Material'}
@@ -1048,7 +1048,7 @@ export default function EquipmentPermitsPage() {
                         </button>
                         <button
                           onClick={() => openEditEquipmentModal(item)}
-                          className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                          className="p-2 text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
@@ -1115,7 +1115,7 @@ export default function EquipmentPermitsPage() {
                         </button>
                         <button
                           onClick={() => openEditPermitModal(item)}
-                          className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                          className="p-2 text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
@@ -1179,7 +1179,7 @@ export default function EquipmentPermitsPage() {
                       <div className="flex items-center justify-center gap-2">
                         <button
                           onClick={() => openEditMaterialModal(material)}
-                          className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                          className="p-2 text-zinc-950 hover:bg-zinc-50 rounded-lg transition-all"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
@@ -1230,8 +1230,8 @@ export default function EquipmentPermitsPage() {
                         {reminder.status}
                       </span>
                       <span className={`px-3 py-1 rounded-lg text-xs font-black uppercase ${
-                        reminder.type === 'equipment' ? 'bg-blue-100 text-blue-800' : 
-                        reminder.type === 'permit' ? 'bg-purple-100 text-purple-800' :
+                        reminder.type === 'equipment' ? 'bg-zinc-100 text-blue-800' : 
+                        reminder.type === 'permit' ? 'bg-zinc-100 text-purple-800' :
                         'bg-green-100 text-green-800'
                       }`}>
                         {reminder.type}
@@ -1240,7 +1240,7 @@ export default function EquipmentPermitsPage() {
                         reminder.reminderType === 'maintenance' ? 'bg-orange-100 text-orange-800' :
                         reminder.reminderType === 'expiry' ? 'bg-red-100 text-red-800' :
                         reminder.reminderType === 'renewal' ? 'bg-green-100 text-green-800' :
-                        'bg-blue-100 text-blue-800'
+                        'bg-zinc-100 text-blue-800'
                       }`}>
                         {reminder.reminderType}
                       </span>
@@ -1296,10 +1296,10 @@ export default function EquipmentPermitsPage() {
                 <span className="font-bold">{todaysActivities.length}</span> activities today
               </span>
               <div className="flex gap-2">
-                <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-lg text-xs font-bold">
+                <span className="px-2 py-1 bg-zinc-100 text-blue-800 rounded-lg text-xs font-bold">
                   Equipment: {todaysActivities.filter(a => a.type === 'equipment').length}
                 </span>
-                <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded-lg text-xs font-bold">
+                <span className="px-2 py-1 bg-zinc-100 text-purple-800 rounded-lg text-xs font-bold">
                   Permits: {todaysActivities.filter(a => a.type === 'permit').length}
                 </span>
                 <span className="px-2 py-1 bg-green-100 text-green-800 rounded-lg text-xs font-bold">
@@ -1319,7 +1319,7 @@ export default function EquipmentPermitsPage() {
                   <div className="flex items-start gap-4">
                     <div className={`p-3 rounded-xl ${
                       log.action.includes('Added') ? 'bg-green-100' :
-                      log.action.includes('Updated') ? 'bg-blue-100' :
+                      log.action.includes('Updated') ? 'bg-zinc-100' :
                       log.action.includes('Deleted') ? 'bg-red-100' :
                       log.action.includes('Completed') ? 'bg-emerald-100' :
                       'bg-gray-100'
@@ -1339,7 +1339,7 @@ export default function EquipmentPermitsPage() {
                         <h4 className="text-base font-bold text-gray-900">{log.itemName}</h4>
                         <span className={`px-2 py-1 rounded-lg text-xs font-bold ${
                           log.action.includes('Added') ? 'bg-green-100 text-green-800' :
-                          log.action.includes('Updated') ? 'bg-blue-100 text-blue-800' :
+                          log.action.includes('Updated') ? 'bg-zinc-100 text-blue-800' :
                           log.action.includes('Deleted') ? 'bg-red-100 text-red-800' :
                           log.action.includes('Completed') ? 'bg-emerald-100 text-emerald-800' :
                           'bg-gray-100 text-gray-800'
@@ -1347,8 +1347,8 @@ export default function EquipmentPermitsPage() {
                           {log.action}
                         </span>
                         <span className={`px-2 py-1 rounded-lg text-xs font-bold ${
-                          log.type === 'equipment' ? 'bg-blue-100 text-blue-800' : 
-                          log.type === 'permit' ? 'bg-purple-100 text-purple-800' :
+                          log.type === 'equipment' ? 'bg-zinc-100 text-blue-800' : 
+                          log.type === 'permit' ? 'bg-zinc-100 text-purple-800' :
                           log.type === 'material' ? 'bg-green-100 text-green-800' :
                           'bg-amber-100 text-amber-800'
                         }`}>
@@ -1386,22 +1386,22 @@ export default function EquipmentPermitsPage() {
           {/* Aaj ki date ke summary statistics */}
           {todaysActivities.length > 0 && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4">
-                <div className="text-sm font-bold text-blue-700 mb-1">Equipment Activities</div>
+              <div className="bg-zinc-50 border border-blue-200 rounded-2xl p-4">
+                <div className="text-sm font-bold text-zinc-950 mb-1">Equipment Activities</div>
                 <div className="text-2xl font-bold text-gray-900">
                   {todaysActivities.filter(a => a.type === 'equipment').length}
                 </div>
-                <div className="text-xs text-blue-600 mt-1">
+                <div className="text-xs text-zinc-950 mt-1">
                   {todaysActivities.filter(a => a.type === 'equipment' && a.action.includes('Added')).length} Added
                 </div>
               </div>
               
-              <div className="bg-purple-50 border border-purple-200 rounded-2xl p-4">
+              <div className="bg-zinc-50 border border-purple-200 rounded-2xl p-4">
                 <div className="text-sm font-bold text-purple-700 mb-1">Permit Activities</div>
                 <div className="text-2xl font-bold text-gray-900">
                   {todaysActivities.filter(a => a.type === 'permit').length}
                 </div>
-                <div className="text-xs text-purple-600 mt-1">
+                <div className="text-xs text-zinc-800 mt-1">
                   {todaysActivities.filter(a => a.type === 'permit' && a.action.includes('Added')).length} Added
                 </div>
               </div>
@@ -1448,7 +1448,7 @@ export default function EquipmentPermitsPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+              <div className="p-4 bg-zinc-50 rounded-xl border border-blue-200">
                 <p className="text-sm font-bold text-blue-900">
                   {selectedItemForReminder.type === 'equipment' ? 'Equipment' : 
                    selectedItemForReminder.type === 'permit' ? 'Permit' : 'Material'}: {selectedItemForReminder.name}
@@ -1507,7 +1507,7 @@ export default function EquipmentPermitsPage() {
                       handleAddReminder(reminderType, dueDate, message)
                     }
                   }}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Set Reminder
                 </button>
@@ -1635,7 +1635,7 @@ export default function EquipmentPermitsPage() {
                 </button>
                 <button
                   onClick={handleAddEquipment}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Add Equipment
                 </button>
@@ -1751,7 +1751,7 @@ export default function EquipmentPermitsPage() {
                 </button>
                 <button
                   onClick={handleEditEquipment}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Save Changes
                 </button>
@@ -1859,7 +1859,7 @@ export default function EquipmentPermitsPage() {
                 </button>
                 <button
                   onClick={handleAddPermit}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Add Permit
                 </button>
@@ -1970,7 +1970,7 @@ export default function EquipmentPermitsPage() {
                 </button>
                 <button
                   onClick={handleEditPermit}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Save Changes
                 </button>
@@ -2080,7 +2080,7 @@ export default function EquipmentPermitsPage() {
                 </button>
                 <button
                   onClick={handleAddMaterial}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Add Material
                 </button>
@@ -2196,7 +2196,7 @@ export default function EquipmentPermitsPage() {
                 </button>
                 <button
                   onClick={handleEditMaterial}
-                  className="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
+                  className="flex-1 px-6 py-3 bg-zinc-900 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all"
                 >
                   Save Changes
                 </button>

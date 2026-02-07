@@ -121,7 +121,7 @@ export default function EquipmentReadiness() {
           <h1 className="text-3xl font-bold">Equipment Readiness</h1>
           <p className="text-muted-foreground">Availability forecasting and maintenance tracking</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors">
           <RefreshCw className="h-4 w-4" />
           Schedule Maintenance
         </button>
@@ -139,7 +139,7 @@ export default function EquipmentReadiness() {
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Ready for Service</p>
-          <p className="text-2xl font-bold text-blue-600">{stats.ready}</p>
+          <p className="text-2xl font-bold text-zinc-950">{stats.ready}</p>
         </div>
         <div className="bg-card border rounded-lg p-3">
           <p className="text-xs text-muted-foreground">Maintenance Needed</p>
@@ -155,7 +155,7 @@ export default function EquipmentReadiness() {
       <select
         value={filterStatus}
         onChange={(e) => setFilterStatus(e.target.value)}
-        className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+        className="px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none"
       >
         <option value="all">All Equipment</option>
         <option value="ready">Ready for Service</option>

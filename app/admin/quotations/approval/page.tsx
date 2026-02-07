@@ -214,7 +214,7 @@ export default function ApprovalQueue() {
                 onClick={() => setSelectedApproval(approval)}
                 className={`p-3 rounded-lg cursor-pointer transition-all border-l-4 ${
                   selectedApproval.id === approval.id
-                    ? 'bg-pink-100 dark:bg-pink-950/30 border-l-pink-600 border'
+                    ? 'bg-zinc-100 dark:bg-zinc-950/30 border-l-primary border'
                     : `bg-muted ${
                         approval.status === 'Pending'
                           ? 'border-l-yellow-600 hover:border-l-yellow-400'
@@ -235,7 +235,7 @@ export default function ApprovalQueue() {
                   </span>
                 </div>
                 <p className="text-xs text-muted-foreground">{approval.serviceType}</p>
-                <p className="text-xs font-bold text-pink-600 mt-1">AED {approval.amount.toLocaleString()}</p>
+                <p className="text-xs font-bold text-primary mt-1">AED {approval.amount.toLocaleString()}</p>
               </div>
             ))}
           </div>
@@ -264,7 +264,7 @@ export default function ApprovalQueue() {
             <div className="grid grid-cols-3 gap-3 text-sm">
               <div className="bg-muted p-2 rounded">
                 <p className="text-muted-foreground">Amount</p>
-                <p className="font-bold text-pink-600">AED {selectedApproval.amount.toLocaleString()}</p>
+                <p className="font-bold text-primary">AED {selectedApproval.amount.toLocaleString()}</p>
               </div>
               <div className="bg-muted p-2 rounded">
                 <p className="text-muted-foreground">Margin</p>
@@ -292,7 +292,7 @@ export default function ApprovalQueue() {
                         ? 'bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/30'
                         : req.severity === 'warning'
                         ? 'bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-900/30'
-                        : 'bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/30'
+                        : 'bg-zinc-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/30'
                     }`}
                   >
                     <req.icon className={`h-4 w-4 shrink-0 ${
@@ -300,14 +300,14 @@ export default function ApprovalQueue() {
                         ? 'text-red-600'
                         : req.severity === 'warning'
                         ? 'text-yellow-600'
-                        : 'text-blue-600'
+                        : 'text-zinc-950'
                     }`} />
                     <p className={`text-sm ${
                       req.severity === 'critical'
                         ? 'text-red-700'
                         : req.severity === 'warning'
                         ? 'text-yellow-700'
-                        : 'text-blue-700'
+                        : 'text-zinc-950'
                     }`}>
                       {req.text}
                     </p>
@@ -370,12 +370,12 @@ export default function ApprovalQueue() {
                   value={newComment}
                   onChange={(e) => setNewComment(e.target.value)}
                   placeholder="Add a comment..."
-                  className="flex-1 px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-sm"
+                  className="flex-1 px-3 py-2 bg-muted border rounded-lg focus:ring-2 focus:ring-primary outline-none text-sm"
                   onKeyPress={(e) => e.key === 'Enter' && handleAddComment()}
                 />
                 <button
                   onClick={handleAddComment}
-                  className="px-3 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition-colors"
+                  className="px-3 py-2 bg-primary text-white rounded-lg font-medium hover:opacity-90 transition-colors"
                 >
                   Add
                 </button>
